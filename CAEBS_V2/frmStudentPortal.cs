@@ -30,12 +30,7 @@ namespace CAEBS_V2
 
         private void button1_Click(object sender, EventArgs e)
         {
-            frmNewStudent frm = new frmNewStudent();
-            frm.pnlRequirements.Visible = false;
-            frm.optOldStudent.Enabled = true;
-            frm.optOldStudent.Checked = true;
-            frm.optTransferee.Enabled = false;
-            frm.optNewStudent.Enabled = false;
+            frmOldStudent frm = new frmOldStudent();           
             this.Dispose();
             frm.ShowDialog();
         }

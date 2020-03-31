@@ -145,7 +145,9 @@ namespace CAEBS_V2
             newStud.TopLevel = false;
             newStud.AutoScroll = true;
             mainwin.pnlAllContainer.Controls.Add(newStud);
+           
             newStud.toSave = true;
+            newStud.formToMaxSize();
             newStud.Show();
         }
 

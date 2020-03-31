@@ -38,7 +38,7 @@ namespace CAEBS_V2
         public frmNewStudent()
         {
             InitializeComponent();
-
+           
             #region Data input Validations
             this.txtFirstName.KeyPress += new KeyPressEventHandler(KeypressedLettersOnly);
             this.txtLastName.KeyPress += new KeyPressEventHandler(KeypressedLettersOnly);
@@ -62,6 +62,14 @@ namespace CAEBS_V2
             string output = a +"-"+ (i).ToString("0000");
             txtStudNo.Text = output;
             
+        }
+        public void formToMaxSize()
+        {
+            this.Top = 0;
+            this.Left = 0;
+
+
+            this.Size = new Size(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height - 10);
         }
 
         public void Generate_StudNo()
