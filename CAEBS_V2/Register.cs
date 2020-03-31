@@ -45,17 +45,30 @@ namespace CAEBS_V2
         protected string cperson_relationship;
         protected string previous_school;
         protected string previous_school_address;
+
         protected string psa;
         protected string psa_copy;
-        protected string pic_child;       
-        protected string pic_guardian;
+
+        protected string esc_voucher;
+        protected string entrance_exam;
+        protected string ncae;
+        protected string track;
+        protected string strand;
+        protected string voucher_type;
+
+       
+
         protected string med_certificate;
         protected string report_card;
         protected string form_137;
         protected string good_moral;
+
         protected string mode_of_payment;
         protected string enrollee_status;
         protected string student_type;
+
+
+
         
 
 
@@ -88,10 +101,17 @@ namespace CAEBS_V2
         public string Cperson_relationship { get { return cperson_relationship; } set { cperson_relationship = value; } }
         public string Previous_school { get { return previous_school; } set { previous_school = value; } }
         public string Previous_school_address { get { return previous_school_address; } set { previous_school_address = value; } }
+
         public string Psa { get { return psa; } set { psa = value; } }
         public string PsaCopy { get { return psa_copy; } set { psa_copy = value; } }
-        public string Pic_child { get { return pic_child; } set { pic_child = value; } }
-        public string Pic_guardian { get { return pic_guardian; } set { pic_guardian = value; } }
+        public string Esc_voucher { get { return esc_voucher; } set { esc_voucher = value; } }
+        public string Entrance_exam { get { return entrance_exam; } set { entrance_exam = value; } }
+        public string Ncae { get { return ncae; } set { ncae = value; } }
+        public string Track { get { return track; } set { track = value; } }
+        public string Strand { get { return strand; } set { strand = value; } }
+        public string Voucher_type { get { return voucher_type; } set { voucher_type = value; } }
+
+
         public string Med_certificate { get { return med_certificate; } set { med_certificate = value; } }
         public string Report_card { get { return report_card; } set { report_card = value; } }
         public string Form_137 { get { return form_137; } set { form_137 = value; } }
@@ -224,8 +244,8 @@ namespace CAEBS_V2
                     //string sql = "INSERT INTO student_profile(lrn,last_name,first_name,middle_name,grade_level)" +
                     //             "VALUES(@lrn,@last_name,@first_name,@middle_name,@grade_level);";
 
-                    string sql = "INSERT INTO student_profile(stud_no,lrn,last_name,first_name,middle_name,grade_level,department,section,student_type,term,semester,date_of_birth,place_of_birth,religion,nationality,sex,address,mother_name,mother_contact,mother_work,father_name,father_contact,father_work,cperson_name,cperson_contact,cperson_address,cperson_relationship,previous_school,previous_school_address,psa,psa_copy,pic_child,pic_guardian,med_certificate,report_card,form_137,good_moral,mode_of_payment,enrollee_status)" +
-                                 "VALUES(@stud_no,@lrn,@last_name,@first_name,@middle_name,@grade_level,@department,@section,@student_type,@term,@semester,@date_of_birth,@place_of_birth,@religion,@nationality,@sex,@address,@mother_name,@mother_contact,@mother_work,@father_name,@father_contact,@father_work,@cperson_name,@cperson_contact,@cperson_address,@cperson_relationship,@previous_school,@previous_school_address,@psa,@psa_copy,@pic_child,@pic_guardian,@med_certificate,@report_card,@form_137,@good_moral,@mode_of_payment,@enrollee_status);";
+                    string sql = "INSERT INTO student_profile(esc_voucher,entrance_exam,ncae,track,strand,voucher_type,stud_no,lrn,last_name,first_name,middle_name,grade_level,department,section,student_type,term,semester,date_of_birth,place_of_birth,religion,nationality,sex,address,mother_name,mother_contact,mother_work,father_name,father_contact,father_work,cperson_name,cperson_contact,cperson_address,cperson_relationship,previous_school,previous_school_address,psa,psa_copy,med_certificate,report_card,form_137,good_moral,mode_of_payment,enrollee_status)" +
+                                 "VALUES(@esc_voucher,@entrance_exam,@ncae,@track,@strand,@voucher_type,@stud_no,@lrn,@last_name,@first_name,@middle_name,@grade_level,@department,@section,@student_type,@term,@semester,@date_of_birth,@place_of_birth,@religion,@nationality,@sex,@address,@mother_name,@mother_contact,@mother_work,@father_name,@father_contact,@father_work,@cperson_name,@cperson_contact,@cperson_address,@cperson_relationship,@previous_school,@previous_school_address,@psa,@psa_copy,@med_certificate,@report_card,@form_137,@good_moral,@mode_of_payment,@enrollee_status);";
 
                     MySqlCommand cmd = new MySqlCommand(sql, con);
 
@@ -260,10 +280,18 @@ namespace CAEBS_V2
 
                     cmd.Parameters.AddWithValue("previous_school", previous_school);
                     cmd.Parameters.AddWithValue("previous_school_address", previous_school_address);
+
                     cmd.Parameters.AddWithValue("psa", psa);
                     cmd.Parameters.AddWithValue("psa_copy", psa_copy);
-                    cmd.Parameters.AddWithValue("pic_child", pic_child);
-                    cmd.Parameters.AddWithValue("pic_guardian", pic_guardian);
+                    
+                    cmd.Parameters.AddWithValue("esc_voucher", esc_voucher);
+                    cmd.Parameters.AddWithValue("entrance_exam", entrance_exam);
+                    cmd.Parameters.AddWithValue("ncae", ncae);
+                    cmd.Parameters.AddWithValue("track", track);
+                    cmd.Parameters.AddWithValue("strand", strand);
+                    cmd.Parameters.AddWithValue("voucher_type", voucher_type);
+       
+
                     cmd.Parameters.AddWithValue("med_certificate", med_certificate);
                     cmd.Parameters.AddWithValue("report_card", report_card);
                     cmd.Parameters.AddWithValue("form_137", form_137);
@@ -295,7 +323,7 @@ namespace CAEBS_V2
                     //try to open connection
                     con.Open();
 
-                    string sql = "UPDATE student_profile SET lrn=@lrn,last_name=@last_name,first_name=@first_name,middle_name=@middle_name,grade_level=@grade_level,department=@department,section=@section,term=@term,student_type=@student_type,semester=@semester,date_of_birth=@date_of_birth,place_of_birth=@place_of_birth,religion=@religion, nationality = @nationality,sex = @sex,address = @address,mother_name = @mother_name,mother_contact = @mother_contact,mother_work = @mother_work,father_name = @father_name,father_contact = @father_contact,father_work = @father_work,cperson_name = @cperson_name,cperson_contact = @cperson_contact,cperson_relationship = @cperson_relationship,previous_school = @previous_school,previous_school_address = @previous_school_address,psa = @psa,psa_copy = @psa_copy,pic_child = @pic_child,pic_guardian = @pic_guardian,med_certificate = @med_certificate,report_card = @report_card,form_137 = @form_137,good_moral = @good_moral,mode_of_payment = @mode_of_payment,enrollee_status = @enrollee_status" +
+                    string sql = "UPDATE student_profile SET esc_voucher=@esc_voucher,entrance_exam=@entrance_exam,ncae=@ncae,track=@track,strand=@strand,voucher_type=@voucher_type, lrn=@lrn,last_name=@last_name,first_name=@first_name,middle_name=@middle_name,grade_level=@grade_level,department=@department,section=@section,term=@term,student_type=@student_type,semester=@semester,date_of_birth=@date_of_birth,place_of_birth=@place_of_birth,religion=@religion, nationality = @nationality,sex = @sex,address = @address,mother_name = @mother_name,mother_contact = @mother_contact,mother_work = @mother_work,father_name = @father_name,father_contact = @father_contact,father_work = @father_work,cperson_name = @cperson_name,cperson_contact = @cperson_contact,cperson_relationship = @cperson_relationship,previous_school = @previous_school,previous_school_address = @previous_school_address,psa = @psa,psa_copy = @psa_copy,pic_child = @pic_child,pic_guardian = @pic_guardian,med_certificate = @med_certificate,report_card = @report_card,form_137 = @form_137,good_moral = @good_moral,mode_of_payment = @mode_of_payment,enrollee_status = @enrollee_status" +
                                    " WHERE id=@id;";
 
                     MySqlCommand cmd = new MySqlCommand(sql, con);
@@ -330,8 +358,16 @@ namespace CAEBS_V2
                     cmd.Parameters.AddWithValue("previous_school_address", previous_school_address);
                     cmd.Parameters.AddWithValue("psa", psa);
                     cmd.Parameters.AddWithValue("psa_copy", psa_copy);
-                    cmd.Parameters.AddWithValue("pic_child", pic_child);
-                    cmd.Parameters.AddWithValue("pic_guardian", pic_guardian);
+
+
+                    cmd.Parameters.AddWithValue("esc_voucher", esc_voucher);
+                    cmd.Parameters.AddWithValue("entrance_exam", entrance_exam);
+                    cmd.Parameters.AddWithValue("ncae", ncae);
+                    cmd.Parameters.AddWithValue("track", track);
+                    cmd.Parameters.AddWithValue("strand", strand);
+                    cmd.Parameters.AddWithValue("voucher_type", voucher_type);
+
+
                     cmd.Parameters.AddWithValue("med_certificate", med_certificate);
                     cmd.Parameters.AddWithValue("report_card", report_card);
                     cmd.Parameters.AddWithValue("form_137", form_137);
@@ -411,8 +447,14 @@ namespace CAEBS_V2
                         register.previous_school_address = reader["previous_school_address"].ToString();
                         register.psa = reader["psa"].ToString();
                         register.psa_copy = reader["psa_copy"].ToString();
-                        register.pic_child = reader["pic_child"].ToString();
-                        register.pic_guardian = reader["pic_guardian"].ToString();
+
+                        register.esc_voucher = reader["esc_voucher"].ToString();
+                        register.entrance_exam = reader["entrance_exam"].ToString();
+                        register.ncae = reader["ncae"].ToString();
+                        register.track = reader["track"].ToString();
+                        register.strand = reader["strand"].ToString();
+                        register.voucher_type = reader["voucher_type"].ToString();
+
                         register.med_certificate = reader["med_certificate"].ToString();
                         register.report_card = reader["report_card"].ToString();
                         register.form_137 = reader["form_137"].ToString();
@@ -436,3 +478,4 @@ namespace CAEBS_V2
 
     }
 }
+
