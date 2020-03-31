@@ -105,7 +105,6 @@ namespace CAEBS_V2
                 //pass variable to form Assesment
                 frm.toUpdate = true;
                 frm.toSave = false;
-
                 
                 frm.lrn = item.Lrn;
                 frm.last_name = item.Last_name;
@@ -113,12 +112,9 @@ namespace CAEBS_V2
                 frm.middle_name = item.Middle_name;
                 frm.grade_level = item.Grade_level;
                 frm.department = item.Department;
-
-              
-
-
+             
                 frm.section = item.Section;
-                frm.term = item.Term;
+               // frm.term = item.Term;
                 frm.semester = item.Semester;
                 frm.date_of_birth = item.Date_of_birth;
                 frm.place_of_birth = item.Place_of_birth;
@@ -144,15 +140,15 @@ namespace CAEBS_V2
                     frm.chkPSA.Checked = true;
                 }
 
-                if (item.Pic_child.Equals("1"))
-                {
-                    frm.chkPicChild.Checked = true;
-                }
+                //if (item.Pic_child.Equals("1"))
+                //{
+                //    frm.chkPicChild.Checked = true;
+                //}
 
-                if (item.Pic_guardian.Equals("1"))
-                {
-                    frm.chkpicParent.Checked = true;
-                }
+                //if (item.Pic_guardian.Equals("1"))
+                //{
+                //    frm.chkpicParent.Checked = true;
+                //}
 
                 if (item.Med_certificate.Equals("1"))
                 {
@@ -161,7 +157,7 @@ namespace CAEBS_V2
 
                 if (item.Report_card.Equals("1"))
                 {
-                    frm.chkCardTransferee.Checked = true;
+                    frm.chkCard.Checked = true;
                 }
 
                 if (item.Form_137.Equals("1"))

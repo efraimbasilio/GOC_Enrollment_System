@@ -104,7 +104,7 @@ namespace CAEBS_V2
                 frmNewStudent.middle_name = item.Middle_name;
                 frmNewStudent.grade_level = item.Grade_level;
                 frmNewStudent.section = item.Section;
-                frmNewStudent.term = item.Term;
+                //frmNewStudent.term = item.Term;
                 frmNewStudent.semester = item.Semester;
                 frmNewStudent.date_of_birth = item.Date_of_birth;
                 frmNewStudent.place_of_birth = item.Place_of_birth;
@@ -125,8 +125,8 @@ namespace CAEBS_V2
                 frmNewStudent.previous_school = item.Previous_school;
                 frmNewStudent.previous_school_address = item.Previous_school_address;
                 frmNewStudent.psa = item.Psa;
-                frmNewStudent.pic_child = item.Pic_child;
-                frmNewStudent.pic_guardian = item.Pic_guardian;
+                //frmNewStudent.pic_child = item.Pic_child;
+                //frmNewStudent.pic_guardian = item.Pic_guardian;
                 frmNewStudent.med_certificate = item.Med_certificate;
                 frmNewStudent.report_card = item.Report_card;
                 frmNewStudent.form_137 = item.Form_137;

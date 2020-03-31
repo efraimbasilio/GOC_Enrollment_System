@@ -55,7 +55,7 @@
             this.dtpBirthdate = new System.Windows.Forms.DateTimePicker();
             this.chkGoodMoral = new System.Windows.Forms.CheckBox();
             this.chk137 = new System.Windows.Forms.CheckBox();
-            this.chkCardTransferee = new System.Windows.Forms.CheckBox();
+            this.chkCard = new System.Windows.Forms.CheckBox();
             this.chkMedCert = new System.Windows.Forms.CheckBox();
             this.chkpicParent = new System.Windows.Forms.CheckBox();
             this.chkPicChild = new System.Windows.Forms.CheckBox();
@@ -115,14 +115,15 @@
             this.label26 = new System.Windows.Forms.Label();
             this.txtStudNo = new System.Windows.Forms.TextBox();
             this.chckNCAE = new System.Windows.Forms.CheckBox();
-            this.chkExam = new System.Windows.Forms.CheckBox();
+            this.chkESC = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
             this.cmbVoucher = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.cmbTrack = new System.Windows.Forms.ComboBox();
             this.optOldStudent = new System.Windows.Forms.RadioButton();
             this.label4 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cmbStrand = new System.Windows.Forms.ComboBox();
+            this.chkExam = new System.Windows.Forms.CheckBox();
             this.pnlTitle.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEnrollment)).BeginInit();
@@ -269,13 +270,14 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.White;
+            this.panel3.Controls.Add(this.chkExam);
             this.panel3.Controls.Add(this.label4);
-            this.panel3.Controls.Add(this.comboBox1);
+            this.panel3.Controls.Add(this.cmbStrand);
             this.panel3.Controls.Add(this.label3);
             this.panel3.Controls.Add(this.cmbTrack);
             this.panel3.Controls.Add(this.label2);
             this.panel3.Controls.Add(this.cmbVoucher);
-            this.panel3.Controls.Add(this.chkExam);
+            this.panel3.Controls.Add(this.chkESC);
             this.panel3.Controls.Add(this.chckNCAE);
             this.panel3.Controls.Add(this.chkPSACopy);
             this.panel3.Controls.Add(this.panel5);
@@ -288,7 +290,7 @@
             this.panel3.Controls.Add(this.dtpBirthdate);
             this.panel3.Controls.Add(this.chkGoodMoral);
             this.panel3.Controls.Add(this.chk137);
-            this.panel3.Controls.Add(this.chkCardTransferee);
+            this.panel3.Controls.Add(this.chkCard);
             this.panel3.Controls.Add(this.chkMedCert);
             this.panel3.Controls.Add(this.chkPSA);
             this.panel3.Controls.Add(this.label40);
@@ -473,15 +475,15 @@
             this.chk137.Text = "Form 137";
             this.chk137.UseVisualStyleBackColor = true;
             // 
-            // chkCardTransferee
+            // chkCard
             // 
-            this.chkCardTransferee.AutoSize = true;
-            this.chkCardTransferee.Location = new System.Drawing.Point(875, 103);
-            this.chkCardTransferee.Name = "chkCardTransferee";
-            this.chkCardTransferee.Size = new System.Drawing.Size(86, 22);
-            this.chkCardTransferee.TabIndex = 22;
-            this.chkCardTransferee.Text = "Report Card";
-            this.chkCardTransferee.UseVisualStyleBackColor = true;
+            this.chkCard.AutoSize = true;
+            this.chkCard.Location = new System.Drawing.Point(875, 103);
+            this.chkCard.Name = "chkCard";
+            this.chkCard.Size = new System.Drawing.Size(86, 22);
+            this.chkCard.TabIndex = 22;
+            this.chkCard.Text = "Report Card";
+            this.chkCard.UseVisualStyleBackColor = true;
             // 
             // chkMedCert
             // 
@@ -616,9 +618,9 @@
             this.panel4.Controls.Add(this.label49);
             this.panel4.Controls.Add(this.chkPicChild);
             this.panel4.Controls.Add(this.chkpicParent);
-            this.panel4.Location = new System.Drawing.Point(1106, 6);
+            this.panel4.Location = new System.Drawing.Point(1101, 7);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(63, 78);
+            this.panel4.Size = new System.Drawing.Size(50, 78);
             this.panel4.TabIndex = 77;
             this.panel4.Visible = false;
             // 
@@ -1047,15 +1049,15 @@
             this.chckNCAE.Text = "NCAE Result";
             this.chckNCAE.UseVisualStyleBackColor = true;
             // 
-            // chkExam
+            // chkESC
             // 
-            this.chkExam.AutoSize = true;
-            this.chkExam.Location = new System.Drawing.Point(875, 199);
-            this.chkExam.Name = "chkExam";
-            this.chkExam.Size = new System.Drawing.Size(91, 22);
-            this.chkExam.TabIndex = 103;
-            this.chkExam.Text = "ESC Voucher";
-            this.chkExam.UseVisualStyleBackColor = true;
+            this.chkESC.AutoSize = true;
+            this.chkESC.Location = new System.Drawing.Point(875, 199);
+            this.chkESC.Name = "chkESC";
+            this.chkESC.Size = new System.Drawing.Size(91, 22);
+            this.chkESC.TabIndex = 103;
+            this.chkESC.Text = "ESC Voucher";
+            this.chkESC.UseVisualStyleBackColor = true;
             // 
             // label2
             // 
@@ -1123,20 +1125,30 @@
             this.label4.TabIndex = 110;
             this.label4.Text = "Track:";
             // 
-            // comboBox1
+            // cmbStrand
             // 
-            this.comboBox1.BackColor = System.Drawing.Color.White;
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.cmbStrand.BackColor = System.Drawing.Color.White;
+            this.cmbStrand.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbStrand.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.cmbStrand.FormattingEnabled = true;
+            this.cmbStrand.Items.AddRange(new object[] {
             "STEM",
             "ABM",
             "TVL-ICT"});
-            this.comboBox1.Location = new System.Drawing.Point(752, 126);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(111, 26);
-            this.comboBox1.TabIndex = 109;
+            this.cmbStrand.Location = new System.Drawing.Point(752, 126);
+            this.cmbStrand.Name = "cmbStrand";
+            this.cmbStrand.Size = new System.Drawing.Size(111, 26);
+            this.cmbStrand.TabIndex = 109;
+            // 
+            // chkExam
+            // 
+            this.chkExam.AutoSize = true;
+            this.chkExam.Location = new System.Drawing.Point(875, 219);
+            this.chkExam.Name = "chkExam";
+            this.chkExam.Size = new System.Drawing.Size(91, 22);
+            this.chkExam.TabIndex = 111;
+            this.chkExam.Text = "ESC Voucher";
+            this.chkExam.UseVisualStyleBackColor = true;
             // 
             // frmNewStudent
             // 
@@ -1196,7 +1208,7 @@
         private System.Windows.Forms.DateTimePicker dtpBirthdate;
         public System.Windows.Forms.CheckBox chkGoodMoral;
         public System.Windows.Forms.CheckBox chk137;
-        public System.Windows.Forms.CheckBox chkCardTransferee;
+        public System.Windows.Forms.CheckBox chkCard;
         public System.Windows.Forms.CheckBox chkMedCert;
         public System.Windows.Forms.CheckBox chkpicParent;
         public System.Windows.Forms.CheckBox chkPicChild;
@@ -1256,14 +1268,15 @@
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.TextBox txtStudNo;
         public System.Windows.Forms.CheckBox chkPSACopy;
-        public System.Windows.Forms.CheckBox chkExam;
+        public System.Windows.Forms.CheckBox chkESC;
         public System.Windows.Forms.CheckBox chckNCAE;
         private System.Windows.Forms.Label label4;
-        public System.Windows.Forms.ComboBox comboBox1;
+        public System.Windows.Forms.ComboBox cmbStrand;
         private System.Windows.Forms.Label label3;
         public System.Windows.Forms.ComboBox cmbTrack;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cmbVoucher;
         public System.Windows.Forms.RadioButton optOldStudent;
+        public System.Windows.Forms.CheckBox chkExam;
     }
 }

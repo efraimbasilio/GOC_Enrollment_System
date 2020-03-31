@@ -145,6 +145,11 @@ namespace CAEBS_V2
 
         public  void Requirements()
         {
+            if (chkExam.Checked == true)
+            {
+                r.Entrance_exam = "1";
+
+            }
 
             if (chkPSACopy.Checked == true)
             {
@@ -158,15 +163,15 @@ namespace CAEBS_V2
                
             }
 
-            if (chkPicChild.Checked == true)
+            if (chkCard.Checked == true)
             {
-                r.Pic_child = "1";
+                r.Report_card = "1";
                
             }
 
-            if (chkpicParent.Checked == true)
+            if (chk137.Checked == true)
             {
-                r.Pic_guardian = "1";
+                r.Form_137 = "1";
                 
             }
 
@@ -176,27 +181,35 @@ namespace CAEBS_V2
                
             }
 
-            if (chkCardTransferee.Checked == true)
-            {
-                r.Report_card = "1";
-                
-            }
-
-            if (chk137.Checked == true)
-            {
-                r.Form_137 = "1";
-                
-            }
-
+                      
             if (chkGoodMoral.Checked == true)
             {
                 r.Good_moral = "1";
                
-            }          
+            }
+
+            if (chckNCAE.Checked == true)
+            {
+                r.Ncae = "1";
+
+            }
+
+
+            if (chkESC.Checked == true)
+            {
+                r.Esc_voucher = "1";
+
+            }
         }
 
         public void NoRequirements()
         {
+            if (chkExam.Checked == false)
+            {
+                r.Entrance_exam = "0";
+
+            }
+
             if (chkPSACopy.Checked == false)
             {
                 r.PsaCopy = "0";
@@ -209,25 +222,7 @@ namespace CAEBS_V2
 
             }
 
-            if (chkPicChild.Checked == false)
-            {
-                r.Pic_child = "0";
-
-            }
-
-            if (chkpicParent.Checked == false)
-            {
-                r.Pic_guardian = "0";
-
-            }
-
-            if (chkMedCert.Checked == false)
-            {
-                r.Med_certificate = "0";
-
-            }
-
-            if (chkCardTransferee.Checked == false)
+            if (chkCard.Checked == false)
             {
                 r.Report_card = "0";
 
@@ -239,9 +234,29 @@ namespace CAEBS_V2
 
             }
 
+            if (chkMedCert.Checked == false)
+            {
+                r.Med_certificate = "0";
+
+            }
+
+
             if (chkGoodMoral.Checked == false)
             {
                 r.Good_moral = "0";
+
+            }
+
+            if (chckNCAE.Checked == false)
+            {
+                r.Ncae = "0";
+
+            }
+
+
+            if (chkESC.Checked == false)
+            {
+                r.Esc_voucher = "0";
 
             }
         }
@@ -319,27 +334,9 @@ namespace CAEBS_V2
         } //Close Form
                 
         private void btnNewStudent_Click(object sender, EventArgs e)
-        {
-            #region Required Requirements
-            if (cmbDept.Text == "Pre Elementary")
-            {
-                util.Validate_Pre_Elementary(chkPSA);
-               
-            }
-            else if (cmbDept.Text == "Elementary")
-            {
-                util.Validate_Elementary(chkCardTransferee);
-                
-            }
-            else
-            {
-                MessageBox.Show("Please check the requirements", "Enrollment System", MessageBoxButtons.OK, MessageBoxIcon.Error);
-              
-                return;
-            }
-            #endregion
-            FillEmpty();
-            if (util.toSave == true && toSave == true)
+        {           
+            FillEmpty();       
+            if (toSave == true)
             {               
                 //Pass Values
                 #region data_to_save
@@ -354,10 +351,8 @@ namespace CAEBS_V2
                 r.Department = cmbDept.Text;
                 r.Section = "NA";
 
-                r.Term = dash_info.lblQuarter.Text;
+                //r.Term = dash_info.lblQuarter.Text;
                 r.Semester = dash_info.lblSemester.Text;
-
-                //r.Semester = cmb
                 r.Date_of_birth = dtpBirthdate.Text;
                 r.Place_of_birth = txtBirthPlace.Text;
                 r.Religion = txtReligion.Text;
@@ -378,27 +373,16 @@ namespace CAEBS_V2
                 r.Previous_school = txtPrevSchool.Text;
                 r.Previous_school_address = txtPrevSchAddress.Text;
                 r.Enrollee_status = "NA";
-                #endregion
-             
-                Requirements();//Required to pass
-                NoRequirements();
-                //Mode of payment 
-                #region MOP                            
-                if (optFullPay.Checked == true)
-                {
-                    r.Mode_of_payment = "Fullpayment";
-                }
-                else if (optPartial.Checked == true)
-                {
-                    r.Mode_of_payment = "Partial";
-                }
-                else
-                {
-                    MessageBox.Show("ERROR : Please select the Mode of Payment.", "Enrollment System", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
+
+                r.Voucher_type = cmbVoucher.Text;
+                r.Track = cmbTrack.Text;
+                r.Strand = cmbStrand.Text;
+
                 #endregion
 
+                Requirements();//Required to pass
+                NoRequirements();
+                
                 #region Student Type
                 if (optNewStudent.Checked == true)
                 {
@@ -406,14 +390,17 @@ namespace CAEBS_V2
                 }
                 else if (optTransferee.Checked == true)
                 {
-                    r.Mode_of_payment = "Transferee";
+                    r.Student_Type = "Transferee";
+                }
+                else if (optOldStudent.Checked == true)
+                {
+                    r.Student_Type = "Old Student";
                 }
                 else
                 {
                     MessageBox.Show("ERROR : Please select student Type.", "Enrollment System", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-
                 #endregion
 
                 
@@ -438,7 +425,6 @@ namespace CAEBS_V2
                         }
                     }
                     #endregion
-
                 }
             }
 
@@ -457,7 +443,7 @@ namespace CAEBS_V2
                 r.Department = cmbDept.Text;
                 r.Section = "NA";
 
-                r.Term = dash_info.lblQuarter.Text;
+               // r.Term = dash_info.lblQuarter.Text;
                 r.Semester = dash_info.lblSemester.Text;
 
                 //r.Semester = cmb
@@ -481,26 +467,31 @@ namespace CAEBS_V2
                 r.Previous_school = txtPrevSchool.Text;
                 r.Previous_school_address = txtPrevSchAddress.Text;
                 r.Enrollee_status = "NA";
+
+                r.Voucher_type = cmbVoucher.Text;
+                r.Track = cmbTrack.Text;
+                r.Strand = cmbStrand.Text;
+
                 #endregion
 
                 Requirements();//Required to pass
                 NoRequirements();
                 //Mode of payment 
-                #region MOP                            
-                if (optFullPay.Checked == true)
-                {
-                    r.Mode_of_payment = "Fullpayment";
-                }
-                else if (optPartial.Checked == true)
-                {
-                    r.Mode_of_payment = "Partial";
-                }
-                else
-                {
-                    MessageBox.Show("ERROR : Please select the Mode of Payment.", "Enrollment System", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-                #endregion
+                //#region MOP                            
+                //if (optFullPay.Checked == true)
+                //{
+                //    r.Mode_of_payment = "Fullpayment";
+                //}
+                //else if (optPartial.Checked == true)
+                //{
+                //    r.Mode_of_payment = "Partial";
+                //}
+                //else
+                //{
+                //    MessageBox.Show("ERROR : Please select the Mode of Payment.", "Enrollment System", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //    return;
+                //}
+                //#endregion
 
                 #region Student Type
                 if (optNewStudent.Checked == true)
