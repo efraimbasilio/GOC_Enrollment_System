@@ -32,7 +32,7 @@ namespace CAEBS_V2
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            frmNewStudent frm = new frmNewStudent();           
+            frmStudentPortal frm = new frmStudentPortal();           
             frm.ShowDialog();
             this.Dispose();
         }

@@ -44,6 +44,8 @@
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -100,13 +102,14 @@
             this.button5.ForeColor = System.Drawing.Color.White;
             this.button5.Image = ((System.Drawing.Image)(resources.GetObject("button5.Image")));
             this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button5.Location = new System.Drawing.Point(247, 174);
+            this.button5.Location = new System.Drawing.Point(245, 80);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(192, 82);
             this.button5.TabIndex = 1033;
             this.button5.Text = "     Grade 11 Enrollee";
             this.button5.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button1
             // 
@@ -117,13 +120,14 @@
             this.button1.ForeColor = System.Drawing.Color.White;
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(474, 174);
+            this.button1.Location = new System.Drawing.Point(472, 80);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(192, 82);
             this.button1.TabIndex = 1034;
             this.button1.Text = "     Grade 12 Enrollee";
             this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -134,19 +138,20 @@
             this.button2.ForeColor = System.Drawing.Color.White;
             this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(700, 174);
+            this.button2.Location = new System.Drawing.Point(698, 80);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(192, 82);
             this.button2.TabIndex = 1035;
             this.button2.Text = "     Transferee Student";
             this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(44)))), ((int)(((byte)(67)))));
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(231, 76);
+            this.panel1.Location = new System.Drawing.Point(232, 22);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(680, 44);
             this.panel1.TabIndex = 1036;
@@ -166,7 +171,7 @@
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(44)))), ((int)(((byte)(67)))));
             this.panel3.Controls.Add(this.label2);
-            this.panel3.Location = new System.Drawing.Point(231, 387);
+            this.panel3.Location = new System.Drawing.Point(233, 223);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(680, 44);
             this.panel3.TabIndex = 1040;
@@ -192,7 +197,7 @@
             this.button3.ForeColor = System.Drawing.Color.White;
             this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
             this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(512, 485);
+            this.button3.Location = new System.Drawing.Point(512, 316);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(115, 82);
             this.button3.TabIndex = 1039;
@@ -210,7 +215,7 @@
             this.button4.ForeColor = System.Drawing.Color.White;
             this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
             this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.Location = new System.Drawing.Point(374, 485);
+            this.button4.Location = new System.Drawing.Point(374, 316);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(115, 82);
             this.button4.TabIndex = 1038;
@@ -228,7 +233,7 @@
             this.button6.ForeColor = System.Drawing.Color.White;
             this.button6.Image = ((System.Drawing.Image)(resources.GetObject("button6.Image")));
             this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button6.Location = new System.Drawing.Point(235, 485);
+            this.button6.Location = new System.Drawing.Point(235, 316);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(115, 82);
             this.button6.TabIndex = 1037;
@@ -246,7 +251,7 @@
             this.button7.ForeColor = System.Drawing.Color.White;
             this.button7.Image = ((System.Drawing.Image)(resources.GetObject("button7.Image")));
             this.button7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button7.Location = new System.Drawing.Point(652, 485);
+            this.button7.Location = new System.Drawing.Point(652, 316);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(115, 82);
             this.button7.TabIndex = 1041;
@@ -264,7 +269,7 @@
             this.button8.ForeColor = System.Drawing.Color.White;
             this.button8.Image = ((System.Drawing.Image)(resources.GetObject("button8.Image")));
             this.button8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button8.Location = new System.Drawing.Point(784, 485);
+            this.button8.Location = new System.Drawing.Point(784, 316);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(115, 82);
             this.button8.TabIndex = 1042;
@@ -272,11 +277,33 @@
             this.button8.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button8.UseVisualStyleBackColor = false;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.SystemColors.Control;
+            this.label3.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(242, 465);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(143, 17);
+            this.label3.TabIndex = 1043;
+            this.label3.Text = "Data Privacy Statement";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(242, 492);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(1000, 90);
+            this.label4.TabIndex = 1044;
+            this.label4.Text = resources.GetString("label4.Text");
+            // 
             // frmStudentPortal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(904, 650);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.button8);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.panel3);
@@ -292,6 +319,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "frmStudentPortal";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Student Portal";
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -300,6 +328,7 @@
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -320,5 +349,7 @@
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
     }
 }

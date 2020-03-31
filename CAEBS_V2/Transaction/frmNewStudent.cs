@@ -22,7 +22,15 @@ namespace CAEBS_V2
 
         frmDashboard dash_info = new frmDashboard();
 
-        public string student_type, department, cp_address ,lrn, last_name, first_name, middle_name, grade_level, section, term, semester, date_of_birth, place_of_birth, religion, nationality, sex, address, mother_name, mother_contact, mother_work, father_name, father_contact, father_work, cperson_name, cperson_contact, cperson_relationship, previous_school, previous_school_address, psa, pic_child, pic_guardian, med_certificate, report_card, form_137, good_moral;          
+        public string student_type, department, cp_address ,lrn, last_name, first_name, middle_name, grade_level, section, term, semester, date_of_birth, place_of_birth, religion, nationality, sex, address, mother_name, mother_contact, mother_work, father_name, father_contact, father_work, cperson_name, cperson_contact, cperson_relationship, previous_school, previous_school_address, psa, pic_child, pic_guardian, med_certificate, report_card, form_137, good_moral;
+
+        private void pictureBox1_Click_1(object sender, EventArgs e)
+        {
+            frmLogin frm = new frmLogin();
+            this.Dispose();
+            frm.ShowDialog();
+        }
+
         public bool toSave,toUpdate;       
         public int id;
         public int i = 0, x = 0;
