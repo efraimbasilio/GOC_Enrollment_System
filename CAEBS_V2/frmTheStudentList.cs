@@ -40,7 +40,7 @@ namespace CAEBS_V2
 
             #region To Hide           
             dgvList.Columns["student_type"].Visible = false;
-            dgvList.Columns["term"].Visible = false;
+           // dgvList.Columns["term"].Visible = false;
             dgvList.Columns["semester"].Visible = false;
             dgvList.Columns["date_of_birth"].Visible = false;
             dgvList.Columns["place_of_birth"].Visible = false;
@@ -63,17 +63,19 @@ namespace CAEBS_V2
             dgvList.Columns["previous_school_address"].Visible = false;
 
             dgvList.Columns["psa"].Visible = false;
-            dgvList.Columns["pic_child"].Visible = false;
-            dgvList.Columns["pic_guardian"].Visible = false;
+            dgvList.Columns["psa_copy"].Visible = false;
+            dgvList.Columns["voucher_type"].Visible = false;
+            dgvList.Columns["strand"].Visible = false;
             dgvList.Columns["med_certificate"].Visible = false;
             dgvList.Columns["report_card"].Visible = false;
             dgvList.Columns["form_137"].Visible = false;
             dgvList.Columns["good_moral"].Visible = false;
-            dgvList.Columns["mode_of_payment"].Visible = false;
+            dgvList.Columns["track"].Visible = false;
             dgvList.Columns["date_of_enrollment"].Visible = false;
             dgvList.Columns["department"].Visible = false;
-
-
+            dgvList.Columns["esc_voucher"].Visible = false;
+            dgvList.Columns["ncae"].Visible = false;
+            dgvList.Columns["entrance_exam"].Visible = false;
             #endregion
 
             DataGridViewColumn toFill = dgvList.Columns[4];
@@ -169,17 +171,7 @@ namespace CAEBS_V2
                 {
                     frm.chkGoodMoral.Checked = true;
                 }
-
-                if (item.Mode_of_payment.Equals("Partial"))
-                {
-                    frm.optPartial.Checked = true;
-                }
-
-                if (item.Mode_of_payment.Equals("Fullpayment"))
-                {
-                    frm.optFullPay.Checked = true;
-                }
-
+                
 
                 if (item.Student_Type.Equals("New Student"))
                 {
@@ -302,7 +294,7 @@ namespace CAEBS_V2
                     //discount.Delete();
 
                     //discount.LoadDataTable(dgvDiscount);
-                    MessageBox.Show("Enrollement");
+                    MessageBox.Show("Enrollment");
                 }
                 else
                 {
@@ -318,3 +310,5 @@ namespace CAEBS_V2
         }
     }
 }
+
+

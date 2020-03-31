@@ -146,7 +146,7 @@
             // 
             // pnlTitle
             // 
-            this.pnlTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(33)))), ((int)(((byte)(87)))));
+            this.pnlTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(44)))), ((int)(((byte)(67)))));
             this.pnlTitle.Controls.Add(this.label8);
             this.pnlTitle.Controls.Add(this.panel2);
             this.pnlTitle.Controls.Add(this.comboBox5);
@@ -656,9 +656,9 @@
             this.btnRegister.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegister.ForeColor = System.Drawing.Color.White;
             this.btnRegister.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRegister.Location = new System.Drawing.Point(956, 616);
+            this.btnRegister.Location = new System.Drawing.Point(1007, 616);
             this.btnRegister.Name = "btnRegister";
-            this.btnRegister.Size = new System.Drawing.Size(168, 32);
+            this.btnRegister.Size = new System.Drawing.Size(114, 42);
             this.btnRegister.TabIndex = 27;
             this.btnRegister.Text = "Register";
             this.btnRegister.UseVisualStyleBackColor = false;

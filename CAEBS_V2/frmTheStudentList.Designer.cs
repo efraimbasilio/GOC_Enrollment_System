@@ -95,12 +95,12 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(719, 20);
+            this.label1.Location = new System.Drawing.Point(758, 19);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(140, 16);
+            this.label1.Size = new System.Drawing.Size(119, 18);
             this.label1.TabIndex = 8;
             this.label1.Text = "Search by Last Name:";
             // 
@@ -108,23 +108,23 @@
             // 
             this.txtSearchMe.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.txtSearchMe.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.txtSearchMe.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearchMe.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSearchMe.Location = new System.Drawing.Point(881, 15);
             this.txtSearchMe.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtSearchMe.Name = "txtSearchMe";
-            this.txtSearchMe.Size = new System.Drawing.Size(241, 24);
+            this.txtSearchMe.Size = new System.Drawing.Size(241, 25);
             this.txtSearchMe.TabIndex = 7;
             this.txtSearchMe.TextChanged += new System.EventHandler(this.txtSearchMe_TextChanged);
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.White;
             this.label8.Location = new System.Drawing.Point(9, 15);
             this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(167, 20);
+            this.label8.Size = new System.Drawing.Size(150, 20);
             this.label8.TabIndex = 4;
             this.label8.Text = "Student Master List";
             // 
@@ -157,12 +157,12 @@
             // 
             this.lblTotalStudent.AutoSize = true;
             this.lblTotalStudent.BackColor = System.Drawing.Color.Transparent;
-            this.lblTotalStudent.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalStudent.Font = new System.Drawing.Font("Roboto Condensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalStudent.ForeColor = System.Drawing.Color.Black;
             this.lblTotalStudent.Location = new System.Drawing.Point(176, 58);
             this.lblTotalStudent.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTotalStudent.Name = "lblTotalStudent";
-            this.lblTotalStudent.Size = new System.Drawing.Size(24, 18);
+            this.lblTotalStudent.Size = new System.Drawing.Size(23, 20);
             this.lblTotalStudent.TabIndex = 16;
             this.lblTotalStudent.Text = "00";
             // 
@@ -170,12 +170,12 @@
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Roboto Condensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(7, 58);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(165, 18);
+            this.label2.Size = new System.Drawing.Size(143, 20);
             this.label2.TabIndex = 9;
             this.label2.Text = "Total No. of Student(s):";
             // 

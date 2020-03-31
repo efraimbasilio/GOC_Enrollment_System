@@ -452,7 +452,7 @@ namespace CAEBS_V2
                         register.form_137 = reader["form_137"].ToString();
                         register.good_moral = reader["good_moral"].ToString();
 
-                        register.mode_of_payment = reader["mode_of_payment"].ToString();
+                        //register.mode_of_payment = reader["mode_of_payment"].ToString();
                         //register.enrollee_status = reader["enrollee_status"].ToString();
 
                         registerList.Add(register);
