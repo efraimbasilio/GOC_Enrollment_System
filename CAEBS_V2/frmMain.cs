@@ -94,7 +94,9 @@ namespace CAEBS_V2
 
         private void button6_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            frmLogin frm = new frmLogin();
+            this.Dispose();
+            frm.ShowDialog();
         }
 
         private void pnlAllContainer_Paint(object sender, PaintEventArgs e)

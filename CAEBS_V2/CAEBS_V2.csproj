@@ -69,6 +69,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Connection\Config.cs" />
+    <Compile Include="frmStudentPortal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmStudentPortal.Designer.cs">
+      <DependentUpon>frmStudentPortal.cs</DependentUpon>
+    </Compile>
     <Compile Include="Maintenance\Model\Maintenance\Downpayment.cs" />
     <Compile Include="frmAssess.cs">
       <SubType>Form</SubType>
@@ -248,11 +254,15 @@
     <Compile Include="Maintenance\Model\Maintenance\Tuition.cs" />
     <Compile Include="Maintenance\Model\Maintenance\Users.cs" />
     <Compile Include="Utilities\Util_RequiredFields.cs" />
+    <Compile Include="ZCtr.cs" />
     <EmbeddedResource Include="frmAssess.resx">
       <DependentUpon>frmAssess.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmDashboard.resx">
       <DependentUpon>frmDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmStudentPortal.resx">
+      <DependentUpon>frmStudentPortal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Maintenance\frmDownpayments.resx">
       <DependentUpon>frmDownpayments.cs</DependentUpon>

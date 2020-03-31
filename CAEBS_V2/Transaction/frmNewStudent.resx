@@ -123,18 +123,19 @@
   <metadata name="pnlTitle.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="Column1.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Column2.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Column3.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Column4.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
+        3QAAAN0BcFOiBwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAFcSURBVFhHzZdd
+        csMgDIQzvWoMZ8hjHttOf27Q0+UelC0gkFkbTJrSh28mBkmrxKzsnJxzNdfrkzubZ7eYm1vshcb0gFzU
+        QC3UJDHVwk/gYr98ohNQYB3XInyBXAM1SRPqgoonjHlRsXsgltUgTeSkPXHBvpbJFMTQ3IRuIiR1iSeW
+        NxFbgz2asyY3cVA8cjbvlTjWWOwmoQlyWDox5kPE8ZnFtPDa/meD1chmF/YzwPa6uCWvss0/wF7S/Ru7
+        DfcQZ0s+RJvefQDFTMkNgKaHfwM9S3QDoNvLI9QzRF0Ihz3dAZsdnmpBGPU2o5wZK+iicJ/HI74Gqx2h
+        i8LUBqbegqmHcKoNpw6iqaN46sNo+uN4+gvJ6M9fent0Znjtf/BSiuRDTdReFrpnSBBHTk7uakJ7mNKc
+        JVkc6OS9JgrvNtmcKVoc6ETAmoiePUR1uGtxoC4EBIYCD/577k7f1lEcfpfsynQAAAAASUVORK5CYII=
+</value>
+  </data>
   <metadata name="Column1.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>

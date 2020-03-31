@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmNewStudent));
             this.label8 = new System.Windows.Forms.Label();
             this.pnlTitle = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -42,8 +43,18 @@
             this.label21 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.chkExam = new System.Windows.Forms.CheckBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.cmbStrand = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.cmbTrack = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.cmbVoucher = new System.Windows.Forms.ComboBox();
+            this.chkESC = new System.Windows.Forms.CheckBox();
+            this.chckNCAE = new System.Windows.Forms.CheckBox();
             this.chkPSACopy = new System.Windows.Forms.CheckBox();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.optOldStudent = new System.Windows.Forms.RadioButton();
             this.optTransferee = new System.Windows.Forms.RadioButton();
             this.optNewStudent = new System.Windows.Forms.RadioButton();
             this.label27 = new System.Windows.Forms.Label();
@@ -57,8 +68,6 @@
             this.chk137 = new System.Windows.Forms.CheckBox();
             this.chkCard = new System.Windows.Forms.CheckBox();
             this.chkMedCert = new System.Windows.Forms.CheckBox();
-            this.chkpicParent = new System.Windows.Forms.CheckBox();
-            this.chkPicChild = new System.Windows.Forms.CheckBox();
             this.chkPSA = new System.Windows.Forms.CheckBox();
             this.label40 = new System.Windows.Forms.Label();
             this.cmbGradeLevel = new System.Windows.Forms.ComboBox();
@@ -68,10 +77,12 @@
             this.txtMContact = new System.Windows.Forms.TextBox();
             this.txtFContact = new System.Windows.Forms.TextBox();
             this.label39 = new System.Windows.Forms.Label();
-            this.label49 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.optFullPay = new System.Windows.Forms.RadioButton();
             this.optPartial = new System.Windows.Forms.RadioButton();
+            this.label49 = new System.Windows.Forms.Label();
+            this.chkPicChild = new System.Windows.Forms.CheckBox();
+            this.chkpicParent = new System.Windows.Forms.CheckBox();
             this.btnRegister = new System.Windows.Forms.Button();
             this.txtCPRelation = new System.Windows.Forms.TextBox();
             this.label47 = new System.Windows.Forms.Label();
@@ -114,23 +125,14 @@
             this.txtLRN = new System.Windows.Forms.TextBox();
             this.label26 = new System.Windows.Forms.Label();
             this.txtStudNo = new System.Windows.Forms.TextBox();
-            this.chckNCAE = new System.Windows.Forms.CheckBox();
-            this.chkESC = new System.Windows.Forms.CheckBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.cmbVoucher = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.cmbTrack = new System.Windows.Forms.ComboBox();
-            this.optOldStudent = new System.Windows.Forms.RadioButton();
-            this.label4 = new System.Windows.Forms.Label();
-            this.cmbStrand = new System.Windows.Forms.ComboBox();
-            this.chkExam = new System.Windows.Forms.CheckBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlTitle.SuspendLayout();
-            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEnrollment)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label8
@@ -147,8 +149,8 @@
             // pnlTitle
             // 
             this.pnlTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(44)))), ((int)(((byte)(67)))));
+            this.pnlTitle.Controls.Add(this.pictureBox1);
             this.pnlTitle.Controls.Add(this.label8);
-            this.pnlTitle.Controls.Add(this.panel2);
             this.pnlTitle.Controls.Add(this.comboBox5);
             this.pnlTitle.Controls.Add(this.cmbTerm);
             this.pnlTitle.Controls.Add(this.label22);
@@ -162,8 +164,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.Controls.Add(this.dgvEnrollment);
-            this.panel2.Location = new System.Drawing.Point(1093, 2);
+            this.panel2.Location = new System.Drawing.Point(1113, 160);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(40, 113);
             this.panel2.TabIndex = 6;
@@ -181,7 +182,7 @@
             this.Column3,
             this.Column4});
             this.dgvEnrollment.GridColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.dgvEnrollment.Location = new System.Drawing.Point(13, 10);
+            this.dgvEnrollment.Location = new System.Drawing.Point(1113, 106);
             this.dgvEnrollment.Name = "dgvEnrollment";
             this.dgvEnrollment.ReadOnly = true;
             this.dgvEnrollment.RowHeadersVisible = false;
@@ -270,7 +271,9 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.White;
+            this.panel3.Controls.Add(this.dgvEnrollment);
             this.panel3.Controls.Add(this.chkExam);
+            this.panel3.Controls.Add(this.panel2);
             this.panel3.Controls.Add(this.label4);
             this.panel3.Controls.Add(this.cmbStrand);
             this.panel3.Controls.Add(this.label3);
@@ -351,6 +354,107 @@
             this.panel3.Size = new System.Drawing.Size(1133, 671);
             this.panel3.TabIndex = 34;
             // 
+            // chkExam
+            // 
+            this.chkExam.AutoSize = true;
+            this.chkExam.Location = new System.Drawing.Point(875, 219);
+            this.chkExam.Name = "chkExam";
+            this.chkExam.Size = new System.Drawing.Size(91, 22);
+            this.chkExam.TabIndex = 111;
+            this.chkExam.Text = "ESC Voucher";
+            this.chkExam.UseVisualStyleBackColor = true;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(448, 129);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(39, 18);
+            this.label4.TabIndex = 110;
+            this.label4.Text = "Track:";
+            // 
+            // cmbStrand
+            // 
+            this.cmbStrand.BackColor = System.Drawing.Color.White;
+            this.cmbStrand.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbStrand.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.cmbStrand.FormattingEnabled = true;
+            this.cmbStrand.Items.AddRange(new object[] {
+            "STEM",
+            "ABM",
+            "TVL-ICT"});
+            this.cmbStrand.Location = new System.Drawing.Point(752, 126);
+            this.cmbStrand.Name = "cmbStrand";
+            this.cmbStrand.Size = new System.Drawing.Size(111, 26);
+            this.cmbStrand.TabIndex = 109;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(665, 129);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(44, 18);
+            this.label3.TabIndex = 108;
+            this.label3.Text = "Strand:";
+            // 
+            // cmbTrack
+            // 
+            this.cmbTrack.BackColor = System.Drawing.Color.White;
+            this.cmbTrack.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbTrack.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.cmbTrack.FormattingEnabled = true;
+            this.cmbTrack.Items.AddRange(new object[] {
+            "Academic",
+            "TVL"});
+            this.cmbTrack.Location = new System.Drawing.Point(538, 125);
+            this.cmbTrack.Name = "cmbTrack";
+            this.cmbTrack.Size = new System.Drawing.Size(121, 26);
+            this.cmbTrack.TabIndex = 107;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(663, 72);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(52, 18);
+            this.label2.TabIndex = 106;
+            this.label2.Text = "Voucher:";
+            // 
+            // cmbVoucher
+            // 
+            this.cmbVoucher.BackColor = System.Drawing.Color.White;
+            this.cmbVoucher.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbVoucher.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.cmbVoucher.FormattingEnabled = true;
+            this.cmbVoucher.Items.AddRange(new object[] {
+            "Public Voucher",
+            "Private Voucher",
+            "Non - Voucher"});
+            this.cmbVoucher.Location = new System.Drawing.Point(752, 67);
+            this.cmbVoucher.Name = "cmbVoucher";
+            this.cmbVoucher.Size = new System.Drawing.Size(111, 26);
+            this.cmbVoucher.TabIndex = 105;
+            // 
+            // chkESC
+            // 
+            this.chkESC.AutoSize = true;
+            this.chkESC.Location = new System.Drawing.Point(875, 199);
+            this.chkESC.Name = "chkESC";
+            this.chkESC.Size = new System.Drawing.Size(91, 22);
+            this.chkESC.TabIndex = 103;
+            this.chkESC.Text = "ESC Voucher";
+            this.chkESC.UseVisualStyleBackColor = true;
+            // 
+            // chckNCAE
+            // 
+            this.chckNCAE.AutoSize = true;
+            this.chckNCAE.Location = new System.Drawing.Point(875, 179);
+            this.chckNCAE.Name = "chckNCAE";
+            this.chckNCAE.Size = new System.Drawing.Size(90, 22);
+            this.chckNCAE.TabIndex = 102;
+            this.chckNCAE.Text = "NCAE Result";
+            this.chckNCAE.UseVisualStyleBackColor = true;
+            // 
             // chkPSACopy
             // 
             this.chkPSACopy.AutoSize = true;
@@ -370,6 +474,16 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(330, 33);
             this.panel5.TabIndex = 79;
+            // 
+            // optOldStudent
+            // 
+            this.optOldStudent.AutoSize = true;
+            this.optOldStudent.Location = new System.Drawing.Point(217, 7);
+            this.optOldStudent.Name = "optOldStudent";
+            this.optOldStudent.Size = new System.Drawing.Size(84, 22);
+            this.optOldStudent.TabIndex = 3;
+            this.optOldStudent.Text = "Old Student";
+            this.optOldStudent.UseVisualStyleBackColor = true;
             // 
             // optTransferee
             // 
@@ -495,26 +609,6 @@
             this.chkMedCert.Text = "Medical Certificate";
             this.chkMedCert.UseVisualStyleBackColor = true;
             // 
-            // chkpicParent
-            // 
-            this.chkpicParent.AutoSize = true;
-            this.chkpicParent.Location = new System.Drawing.Point(283, 50);
-            this.chkpicParent.Name = "chkpicParent";
-            this.chkpicParent.Size = new System.Drawing.Size(201, 22);
-            this.chkpicParent.TabIndex = 20;
-            this.chkpicParent.Text = "Two (2) pictures (Parent/Guardian)";
-            this.chkpicParent.UseVisualStyleBackColor = true;
-            // 
-            // chkPicChild
-            // 
-            this.chkPicChild.AutoSize = true;
-            this.chkPicChild.Location = new System.Drawing.Point(283, 32);
-            this.chkPicChild.Name = "chkPicChild";
-            this.chkPicChild.Size = new System.Drawing.Size(144, 22);
-            this.chkPicChild.TabIndex = 19;
-            this.chkPicChild.Text = "Two (2) pictures (Child)";
-            this.chkPicChild.UseVisualStyleBackColor = true;
-            // 
             // chkPSA
             // 
             this.chkPSA.AutoSize = true;
@@ -601,16 +695,6 @@
             this.label39.TabIndex = 79;
             this.label39.Text = "Student Information:";
             // 
-            // label49
-            // 
-            this.label49.AutoSize = true;
-            this.label49.Font = new System.Drawing.Font("Roboto Condensed", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label49.Location = new System.Drawing.Point(279, 8);
-            this.label49.Name = "label49";
-            this.label49.Size = new System.Drawing.Size(125, 21);
-            this.label49.TabIndex = 78;
-            this.label49.Text = "Mode of Payment:";
-            // 
             // panel4
             // 
             this.panel4.Controls.Add(this.optFullPay);
@@ -645,6 +729,36 @@
             this.optPartial.TabStop = true;
             this.optPartial.Text = "Reservation / Partial Payment ";
             this.optPartial.UseVisualStyleBackColor = true;
+            // 
+            // label49
+            // 
+            this.label49.AutoSize = true;
+            this.label49.Font = new System.Drawing.Font("Roboto Condensed", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label49.Location = new System.Drawing.Point(279, 8);
+            this.label49.Name = "label49";
+            this.label49.Size = new System.Drawing.Size(125, 21);
+            this.label49.TabIndex = 78;
+            this.label49.Text = "Mode of Payment:";
+            // 
+            // chkPicChild
+            // 
+            this.chkPicChild.AutoSize = true;
+            this.chkPicChild.Location = new System.Drawing.Point(283, 32);
+            this.chkPicChild.Name = "chkPicChild";
+            this.chkPicChild.Size = new System.Drawing.Size(144, 22);
+            this.chkPicChild.TabIndex = 19;
+            this.chkPicChild.Text = "Two (2) pictures (Child)";
+            this.chkPicChild.UseVisualStyleBackColor = true;
+            // 
+            // chkpicParent
+            // 
+            this.chkpicParent.AutoSize = true;
+            this.chkpicParent.Location = new System.Drawing.Point(283, 50);
+            this.chkpicParent.Name = "chkpicParent";
+            this.chkpicParent.Size = new System.Drawing.Size(201, 22);
+            this.chkpicParent.TabIndex = 20;
+            this.chkpicParent.Text = "Two (2) pictures (Parent/Guardian)";
+            this.chkpicParent.UseVisualStyleBackColor = true;
             // 
             // btnRegister
             // 
@@ -1018,7 +1132,6 @@
             this.txtLRN.Name = "txtLRN";
             this.txtLRN.Size = new System.Drawing.Size(121, 25);
             this.txtLRN.TabIndex = 11;
-            this.txtLRN.Text = "125623569874";
             this.txtLRN.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label26
@@ -1032,123 +1145,24 @@
             // 
             // txtStudNo
             // 
-            this.txtStudNo.Enabled = false;
             this.txtStudNo.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtStudNo.Location = new System.Drawing.Point(99, 69);
             this.txtStudNo.Name = "txtStudNo";
-            this.txtStudNo.Size = new System.Drawing.Size(333, 25);
+            this.txtStudNo.ReadOnly = true;
+            this.txtStudNo.Size = new System.Drawing.Size(51, 25);
             this.txtStudNo.TabIndex = 11;
+            this.txtStudNo.Text = "00-0000";
+            this.txtStudNo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // chckNCAE
+            // pictureBox1
             // 
-            this.chckNCAE.AutoSize = true;
-            this.chckNCAE.Location = new System.Drawing.Point(875, 179);
-            this.chckNCAE.Name = "chckNCAE";
-            this.chckNCAE.Size = new System.Drawing.Size(90, 22);
-            this.chckNCAE.TabIndex = 102;
-            this.chckNCAE.Text = "NCAE Result";
-            this.chckNCAE.UseVisualStyleBackColor = true;
-            // 
-            // chkESC
-            // 
-            this.chkESC.AutoSize = true;
-            this.chkESC.Location = new System.Drawing.Point(875, 199);
-            this.chkESC.Name = "chkESC";
-            this.chkESC.Size = new System.Drawing.Size(91, 22);
-            this.chkESC.TabIndex = 103;
-            this.chkESC.Text = "ESC Voucher";
-            this.chkESC.UseVisualStyleBackColor = true;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(663, 72);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(52, 18);
-            this.label2.TabIndex = 106;
-            this.label2.Text = "Voucher:";
-            // 
-            // cmbVoucher
-            // 
-            this.cmbVoucher.BackColor = System.Drawing.Color.White;
-            this.cmbVoucher.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbVoucher.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.cmbVoucher.FormattingEnabled = true;
-            this.cmbVoucher.Items.AddRange(new object[] {
-            "Public Voucher",
-            "Private Voucher",
-            "Non - Voucher"});
-            this.cmbVoucher.Location = new System.Drawing.Point(752, 67);
-            this.cmbVoucher.Name = "cmbVoucher";
-            this.cmbVoucher.Size = new System.Drawing.Size(111, 26);
-            this.cmbVoucher.TabIndex = 105;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(665, 129);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(44, 18);
-            this.label3.TabIndex = 108;
-            this.label3.Text = "Strand:";
-            // 
-            // cmbTrack
-            // 
-            this.cmbTrack.BackColor = System.Drawing.Color.White;
-            this.cmbTrack.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbTrack.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.cmbTrack.FormattingEnabled = true;
-            this.cmbTrack.Items.AddRange(new object[] {
-            "Academic",
-            "TVL"});
-            this.cmbTrack.Location = new System.Drawing.Point(538, 125);
-            this.cmbTrack.Name = "cmbTrack";
-            this.cmbTrack.Size = new System.Drawing.Size(121, 26);
-            this.cmbTrack.TabIndex = 107;
-            // 
-            // optOldStudent
-            // 
-            this.optOldStudent.AutoSize = true;
-            this.optOldStudent.Location = new System.Drawing.Point(217, 7);
-            this.optOldStudent.Name = "optOldStudent";
-            this.optOldStudent.Size = new System.Drawing.Size(84, 22);
-            this.optOldStudent.TabIndex = 3;
-            this.optOldStudent.Text = "Old Student";
-            this.optOldStudent.UseVisualStyleBackColor = true;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(448, 129);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(39, 18);
-            this.label4.TabIndex = 110;
-            this.label4.Text = "Track:";
-            // 
-            // cmbStrand
-            // 
-            this.cmbStrand.BackColor = System.Drawing.Color.White;
-            this.cmbStrand.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbStrand.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.cmbStrand.FormattingEnabled = true;
-            this.cmbStrand.Items.AddRange(new object[] {
-            "STEM",
-            "ABM",
-            "TVL-ICT"});
-            this.cmbStrand.Location = new System.Drawing.Point(752, 126);
-            this.cmbStrand.Name = "cmbStrand";
-            this.cmbStrand.Size = new System.Drawing.Size(111, 26);
-            this.cmbStrand.TabIndex = 109;
-            // 
-            // chkExam
-            // 
-            this.chkExam.AutoSize = true;
-            this.chkExam.Location = new System.Drawing.Point(875, 219);
-            this.chkExam.Name = "chkExam";
-            this.chkExam.Size = new System.Drawing.Size(91, 22);
-            this.chkExam.TabIndex = 111;
-            this.chkExam.Text = "ESC Voucher";
-            this.chkExam.UseVisualStyleBackColor = true;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(1101, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(20, 24);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 7872;
+            this.pictureBox1.TabStop = false;
             // 
             // frmNewStudent
             // 
@@ -1164,10 +1178,8 @@
             this.Location = new System.Drawing.Point(250, 250);
             this.Name = "frmNewStudent";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.pnlTitle.ResumeLayout(false);
             this.pnlTitle.PerformLayout();
-            this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvEnrollment)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
@@ -1176,6 +1188,7 @@
             this.panel5.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1278,5 +1291,6 @@
         private System.Windows.Forms.ComboBox cmbVoucher;
         public System.Windows.Forms.RadioButton optOldStudent;
         public System.Windows.Forms.CheckBox chkExam;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

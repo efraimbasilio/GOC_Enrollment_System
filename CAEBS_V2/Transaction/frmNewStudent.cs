@@ -14,6 +14,10 @@ namespace CAEBS_V2
     {
         Register r = new Register();
         List<Register> ListRegister = new List<Register>();
+
+        ZCtr ctr = new ZCtr();
+        List<ZCtr> ctrs = new List<ZCtr>();
+
         Util_RequiredFields util = new Util_RequiredFields();
 
         frmDashboard dash_info = new frmDashboard();
@@ -21,7 +25,8 @@ namespace CAEBS_V2
         public string student_type, department, cp_address ,lrn, last_name, first_name, middle_name, grade_level, section, term, semester, date_of_birth, place_of_birth, religion, nationality, sex, address, mother_name, mother_contact, mother_work, father_name, father_contact, father_work, cperson_name, cperson_contact, cperson_relationship, previous_school, previous_school_address, psa, pic_child, pic_guardian, med_certificate, report_card, form_137, good_moral;          
         public bool toSave,toUpdate;       
         public int id;
-        
+        public int i = 0, x = 0;
+
         public frmNewStudent()
         {
             InitializeComponent();
@@ -43,11 +48,26 @@ namespace CAEBS_V2
             this.txtCPContact.KeyPress += new KeyPressEventHandler(KeypressedNumberOnly);
             #endregion
 
-            #region Generate STUDNO
-                r.Count_DATA();
-                r.count_data = r.count_data + 1;
-                txtStudNo.Text = "CAEBS-" + DateTime.Today.ToString("yyyy") + "-" + (r.count_data).ToString("0000");
-            #endregion
+            Generate_StudNo();            
+            string str = DateTime.Today.ToString("yyyy");
+            string a = str.Substring(2);
+            string output = a +"-"+ (i).ToString("0000");
+            txtStudNo.Text = output;
+            
+        }
+
+        public void Generate_StudNo()
+        {          
+            ctrs.Clear();
+            ctrs = ctr.Load();
+            foreach (var item in ctrs)
+            {
+                 i = Convert.ToInt32(item.Ctr_number) + 1;
+                 x = item.Id;                   
+            }
+            ctr.Id = x;
+            ctr.Ctr_number = i.ToString();  
+            ctr.Update();
         }
 
         #region KEYPRESS VALIDATION

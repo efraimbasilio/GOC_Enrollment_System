@@ -29,5 +29,12 @@ namespace CAEBS_V2
             f.ShowDialog();
             
         }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            frmNewStudent frm = new frmNewStudent();           
+            frm.ShowDialog();
+            this.Dispose();
+        }
     }
 }
