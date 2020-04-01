@@ -81,6 +81,12 @@
     <Compile Include="frmStudentPortal.Designer.cs">
       <DependentUpon>frmStudentPortal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Header.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Header.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Maintenance\Model\Maintenance\Downpayment.cs" />
     <Compile Include="frmAssess.cs">
       <SubType>Form</SubType>
@@ -266,6 +272,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmStudentPortal.resx">
       <DependentUpon>frmStudentPortal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Header.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Header.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Maintenance\frmDownpayments.resx">
       <DependentUpon>frmDownpayments.cs</DependentUpon>
