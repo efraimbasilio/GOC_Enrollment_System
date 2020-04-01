@@ -14,15 +14,15 @@ namespace CAEBS_V2
     {
         Register r = new Register();
         List<Register> ListRegister = new List<Register>();
-
         ZCtr ctr = new ZCtr();
         List<ZCtr> ctrs = new List<ZCtr>();
-
         Util_RequiredFields util = new Util_RequiredFields();
-
         frmDashboard dash_info = new frmDashboard();
 
         public string student_type, department, cp_address ,lrn, last_name, first_name, middle_name, grade_level, section, term, semester, date_of_birth, place_of_birth, religion, nationality, sex, address, mother_name, mother_contact, mother_work, father_name, father_contact, father_work, cperson_name, cperson_contact, cperson_relationship, previous_school, previous_school_address, psa, pic_child, pic_guardian, med_certificate, report_card, form_137, good_moral;
+        public bool toSave, toUpdate;
+        public int id;
+        public int i = 0, x = 0;
 
         private void pictureBox1_Click_1(object sender, EventArgs e)
         {
@@ -30,15 +30,10 @@ namespace CAEBS_V2
             this.Dispose();
             frm.ShowDialog();
         }
-
-        public bool toSave,toUpdate;       
-        public int id;
-        public int i = 0, x = 0;
-
+       
         public frmNewStudent()
         {
-            InitializeComponent();
-           
+            InitializeComponent();           
             #region Data input Validations
             this.txtFirstName.KeyPress += new KeyPressEventHandler(KeypressedLettersOnly);
             this.txtLastName.KeyPress += new KeyPressEventHandler(KeypressedLettersOnly);
@@ -54,38 +49,9 @@ namespace CAEBS_V2
             this.txtFContact.KeyPress += new KeyPressEventHandler(KeypressedNumberOnly);
             this.txtMContact.KeyPress += new KeyPressEventHandler(KeypressedNumberOnly);
             this.txtCPContact.KeyPress += new KeyPressEventHandler(KeypressedNumberOnly);
-            #endregion
-
-            Generate_StudNo();            
-            string str = DateTime.Today.ToString("yyyy");
-            string a = str.Substring(2);
-            string output = a +"-"+ (i).ToString("0000");
-            txtStudNo.Text = output;
-            
-        }
-        public void formToMaxSize()
-        {
-            this.Top = 0;
-            this.Left = 0;
-
-
-            this.Size = new Size(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height - 10);
-        }
-
-        public void Generate_StudNo()
-        {          
-            ctrs.Clear();
-            ctrs = ctr.Load();
-            foreach (var item in ctrs)
-            {
-                 i = Convert.ToInt32(item.Ctr_number) + 1;
-                 x = item.Id;                   
-            }
-            ctr.Id = x;
-            ctr.Ctr_number = i.ToString();  
-            ctr.Update();
-        }
-
+            #endregion                        
+        }    
+          
         #region KEYPRESS VALIDATION
 
         /// <summary>
@@ -113,6 +79,39 @@ namespace CAEBS_V2
         #endregion
 
         #region Functions
+
+        public void formToMaxSize()
+        {
+            this.Top = 0;
+            this.Left = 0;
+
+
+            this.Size = new Size(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height - 10);
+        }
+
+        public void Generate_StudNo()
+        {
+            ctrs.Clear();
+            ctrs = ctr.Load();
+            foreach (var item in ctrs)
+            {
+                i = Convert.ToInt32(item.Ctr_number) + 1;
+                x = item.Id;
+            }
+            ctr.Id = x;
+            ctr.Ctr_number = i.ToString();
+            ctr.Update();
+
+            string str = DateTime.Today.ToString("yyyy");
+            string a = str.Substring(2);
+            string output = a + "-" + (i).ToString("0000");
+            txtStudNo.Text = output;
+
+            r.Lrn = txtLRN.Text;
+            r.Stud_no = output;
+            r.Update_For_StudentNo();
+        }
+
         public void PassToEdit()
         {
             //clear list
@@ -166,17 +165,26 @@ namespace CAEBS_V2
 
         public void FillEmpty()
         {
-            foreach (Control child in panel3.Controls)
+            if (util.readyToSave ==1)
             {
-                if (child is TextBox)
+                MessageBox.Show(util.readyToSave.ToString());
+                foreach (Control child in panel3.Controls)
                 {
-                    TextBox tb = child as TextBox;
-                    if (string.IsNullOrEmpty(tb.Text))
+                    if (child is TextBox)
                     {
-                        tb.Text = @"NA";
+                        TextBox tb = child as TextBox;
+                        if (string.IsNullOrEmpty(tb.Text))
+                        {
+                            tb.Text = @"NA";
+                        }
                     }
                 }
             }
+            else
+            {
+                return;
+            }
+           
         }
 
         public  void Requirements()
@@ -362,6 +370,7 @@ namespace CAEBS_V2
 
 
         }
+
         #endregion
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -370,16 +379,41 @@ namespace CAEBS_V2
         } //Close Form
                 
         private void btnNewStudent_Click(object sender, EventArgs e)
-        {           
-            FillEmpty();       
+        {                            
             if (toSave == true)
-            {               
-                //Pass Values
+            {                            
+                Requirements();//Required to pass
+                NoRequirements();
+                
+                #region Student Type
+                if (optNewStudent.Checked == true)
+                {
+                    r.Student_Type = "New Student";
+                }
+                else if (optTransferee.Checked == true)
+                {
+                    r.Student_Type = "Transferee";
+                }
+                else if (optOldStudent.Checked == true)
+                {
+                    r.Student_Type = "Old Student";
+                }
+                else
+                {
+                    MessageBox.Show("ERROR : Please select student Type.", "Enrollment System", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                #endregion
+                
+                util.ValidateTextBox8(txtLRN, txtLastName, txtFirstName, txtMiddleName, txtBirthPlace, txtReligion, txtNationality, txtAddress);
+                util.ValidateCombobox5(cmbDept,cmbGradeLevel,cmbStrand,cmbVoucher,cmbTrack);
+
+                FillEmpty();
                 #region data_to_save
                 //set Value to Save                       
                 r.Stud_no = txtStudNo.Text;
                 r.Lrn = txtLRN.Text;
-                
+
                 r.Last_name = txtLastName.Text;
                 r.First_name = txtFirstName.Text;
                 r.Middle_name = txtMiddleName.Text;
@@ -416,51 +450,40 @@ namespace CAEBS_V2
 
                 #endregion
 
-                Requirements();//Required to pass
-                NoRequirements();
-                
-                #region Student Type
-                if (optNewStudent.Checked == true)
-                {
-                    r.Student_Type = "New Student";
-                }
-                else if (optTransferee.Checked == true)
-                {
-                    r.Student_Type = "Transferee";
-                }
-                else if (optOldStudent.Checked == true)
-                {
-                    r.Student_Type = "Old Student";
-                }
-                else
-                {
-                    MessageBox.Show("ERROR : Please select student Type.", "Enrollment System", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-                #endregion
-
-                
-                util.ValidateTextBox8(txtLRN, txtLastName, txtFirstName, txtMiddleName, txtBirthPlace, txtReligion, txtNationality, txtAddress);
                 if (util.readyToSave == 1)
-                {                  
+                {                         
                     r.Save();
+                    Generate_StudNo();
+                   
+                    #region Call Form       
+                    frmMain mainwin = (frmMain)Application.OpenForms["frmMain"];
+                        frmDashboard frm = new frmDashboard();
+
+                        mainwin.pnlAllContainer.Controls.Clear();
+                        frm.TopLevel = false;
+                        frm.AutoScroll = true;
+                        mainwin.pnlAllContainer.Controls.Add(frm);
+                    
+                        frm.Show();
+                    #endregion
 
                     #region For Billing
-                    if (r.save_halt != true)
-                    {
-                        DialogResult result = MessageBox.Show("Proceed to billing?", "Enrollment System", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    //if (r.save_halt != true)
+                    //{
+                    //    DialogResult result = MessageBox.Show("Proceed to billing?", "Enrollment System", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-                        if (result == DialogResult.Yes)
-                        {
-                            frmPayment pay = new frmPayment();
-                            pay.ShowDialog();
-                        }
-                        else
-                        {
-                            return;
-                        }
-                    }
+                    //    if (result == DialogResult.Yes)
+                    //    {
+                    //        frmPayment pay = new frmPayment();
+                    //        pay.ShowDialog();
+                    //    }
+                    //    else
+                    //    {
+                    //        return;
+                    //    }
+                    //}
                     #endregion
+
                 }
             }
 

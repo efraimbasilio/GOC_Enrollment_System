@@ -468,6 +468,36 @@ namespace CAEBS_V2
             return registerList;
         }
 
+        public void Update_For_StudentNo()
+        {
+            try
+            {
+                //prepare connection string 
+                using (MySqlConnection con = new MySqlConnection(CAEBS_V2.Config.GetConnectionString()))
+                {
+                    //try to open connection
+                    con.Open();
+
+                    string sql = "UPDATE student_profile SET stud_no = @stud_no" +
+                                   " WHERE lrn=@lrn;";
+
+                    MySqlCommand cmd = new MySqlCommand(sql, con);
+
+                    cmd.Parameters.AddWithValue("lrn", lrn);
+                    cmd.Parameters.AddWithValue("stud_no", stud_no);
+                   
+                    cmd.ExecuteNonQuery();
+
+                    MessageBox.Show("StudNo Update!", "Enrollment System", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("ERROR : " + ex.ToString(), "Enrollment System", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+        }
+
     }
 }
 

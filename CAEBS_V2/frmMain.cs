@@ -147,7 +147,10 @@ namespace CAEBS_V2
             mainwin.pnlAllContainer.Controls.Add(newStud);
            
             newStud.toSave = true;
-            newStud.formToMaxSize();
+
+            newStud.formToMaxSize();// to maximize the Form
+           
+
             newStud.Show();
         }
 
@@ -194,6 +197,7 @@ namespace CAEBS_V2
             assess.AutoScroll = true;
 
             pnlAllContainer.Controls.Add(assess);
+
             assess.Show();
         }
 

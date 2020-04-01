@@ -208,6 +208,7 @@ namespace CAEBS_V2
             frm.TopLevel = false;
             frm.AutoScroll = true;
             mainwin.pnlAllContainer.Controls.Add(frm);
+            frm.formToMaxSize();
             frm.Show();
             #endregion
 
