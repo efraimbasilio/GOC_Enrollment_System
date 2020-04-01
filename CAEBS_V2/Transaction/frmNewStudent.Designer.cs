@@ -31,18 +31,30 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmNewStudent));
             this.label8 = new System.Windows.Forms.Label();
             this.pnlTitle = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.comboBox5 = new System.Windows.Forms.ComboBox();
+            this.cmbTerm = new System.Windows.Forms.ComboBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dgvEnrollment = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
-            this.cmbTerm = new System.Windows.Forms.ComboBox();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.pnlRequirements = new System.Windows.Forms.Panel();
+            this.chkExam = new System.Windows.Forms.CheckBox();
+            this.chkESC = new System.Windows.Forms.CheckBox();
+            this.chckNCAE = new System.Windows.Forms.CheckBox();
+            this.chkPSACopy = new System.Windows.Forms.CheckBox();
+            this.chkGoodMoral = new System.Windows.Forms.CheckBox();
+            this.chk137 = new System.Windows.Forms.CheckBox();
+            this.chkCard = new System.Windows.Forms.CheckBox();
+            this.chkMedCert = new System.Windows.Forms.CheckBox();
+            this.chkPSA = new System.Windows.Forms.CheckBox();
+            this.label23 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.cmbStrand = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -115,26 +127,14 @@
             this.txtLRN = new System.Windows.Forms.TextBox();
             this.label26 = new System.Windows.Forms.Label();
             this.txtStudNo = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pnlRequirements = new System.Windows.Forms.Panel();
-            this.chkExam = new System.Windows.Forms.CheckBox();
-            this.chkESC = new System.Windows.Forms.CheckBox();
-            this.chckNCAE = new System.Windows.Forms.CheckBox();
-            this.chkPSACopy = new System.Windows.Forms.CheckBox();
-            this.chkGoodMoral = new System.Windows.Forms.CheckBox();
-            this.chk137 = new System.Windows.Forms.CheckBox();
-            this.chkCard = new System.Windows.Forms.CheckBox();
-            this.chkMedCert = new System.Windows.Forms.CheckBox();
-            this.chkPSA = new System.Windows.Forms.CheckBox();
-            this.label23 = new System.Windows.Forms.Label();
             this.pnlTitle.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEnrollment)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.pnlRequirements.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.pnlRequirements.SuspendLayout();
             this.SuspendLayout();
             // 
             // label8
@@ -162,6 +162,61 @@
             this.pnlTitle.Name = "pnlTitle";
             this.pnlTitle.Size = new System.Drawing.Size(1133, 46);
             this.pnlTitle.TabIndex = 3;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(1101, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(20, 24);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 7872;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click_1);
+            // 
+            // comboBox5
+            // 
+            this.comboBox5.BackColor = System.Drawing.Color.White;
+            this.comboBox5.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox5.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.comboBox5.FormattingEnabled = true;
+            this.comboBox5.Location = new System.Drawing.Point(955, 12);
+            this.comboBox5.Name = "comboBox5";
+            this.comboBox5.Size = new System.Drawing.Size(121, 24);
+            this.comboBox5.TabIndex = 21;
+            this.comboBox5.Visible = false;
+            // 
+            // cmbTerm
+            // 
+            this.cmbTerm.BackColor = System.Drawing.Color.White;
+            this.cmbTerm.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbTerm.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.cmbTerm.FormattingEnabled = true;
+            this.cmbTerm.Location = new System.Drawing.Point(773, 12);
+            this.cmbTerm.Name = "cmbTerm";
+            this.cmbTerm.Size = new System.Drawing.Size(121, 24);
+            this.cmbTerm.TabIndex = 19;
+            this.cmbTerm.Visible = false;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(718, 17);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(43, 16);
+            this.label22.TabIndex = 20;
+            this.label22.Text = "Term:";
+            this.label22.Visible = false;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(900, 17);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(56, 16);
+            this.label21.TabIndex = 22;
+            this.label21.Text = "Section:";
+            this.label21.Visible = false;
             // 
             // panel2
             // 
@@ -216,50 +271,6 @@
             this.Column4.HeaderText = "Time | Date";
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
-            // 
-            // comboBox5
-            // 
-            this.comboBox5.BackColor = System.Drawing.Color.White;
-            this.comboBox5.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox5.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Location = new System.Drawing.Point(955, 12);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(121, 24);
-            this.comboBox5.TabIndex = 21;
-            this.comboBox5.Visible = false;
-            // 
-            // cmbTerm
-            // 
-            this.cmbTerm.BackColor = System.Drawing.Color.White;
-            this.cmbTerm.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbTerm.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.cmbTerm.FormattingEnabled = true;
-            this.cmbTerm.Location = new System.Drawing.Point(773, 12);
-            this.cmbTerm.Name = "cmbTerm";
-            this.cmbTerm.Size = new System.Drawing.Size(121, 24);
-            this.cmbTerm.TabIndex = 19;
-            this.cmbTerm.Visible = false;
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(718, 17);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(43, 16);
-            this.label22.TabIndex = 20;
-            this.label22.Text = "Term:";
-            this.label22.Visible = false;
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(900, 17);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(56, 16);
-            this.label21.TabIndex = 22;
-            this.label21.Text = "Section:";
-            this.label21.Visible = false;
             // 
             // panel1
             // 
@@ -347,6 +358,123 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1133, 671);
             this.panel3.TabIndex = 34;
+            // 
+            // pnlRequirements
+            // 
+            this.pnlRequirements.Controls.Add(this.chkExam);
+            this.pnlRequirements.Controls.Add(this.chkESC);
+            this.pnlRequirements.Controls.Add(this.chckNCAE);
+            this.pnlRequirements.Controls.Add(this.chkPSACopy);
+            this.pnlRequirements.Controls.Add(this.chkGoodMoral);
+            this.pnlRequirements.Controls.Add(this.chk137);
+            this.pnlRequirements.Controls.Add(this.chkCard);
+            this.pnlRequirements.Controls.Add(this.chkMedCert);
+            this.pnlRequirements.Controls.Add(this.chkPSA);
+            this.pnlRequirements.Controls.Add(this.label23);
+            this.pnlRequirements.Location = new System.Drawing.Point(869, 33);
+            this.pnlRequirements.Name = "pnlRequirements";
+            this.pnlRequirements.Size = new System.Drawing.Size(238, 215);
+            this.pnlRequirements.TabIndex = 112;
+            // 
+            // chkExam
+            // 
+            this.chkExam.AutoSize = true;
+            this.chkExam.Location = new System.Drawing.Point(7, 187);
+            this.chkExam.Name = "chkExam";
+            this.chkExam.Size = new System.Drawing.Size(105, 22);
+            this.chkExam.TabIndex = 121;
+            this.chkExam.Text = "Entrance Exam ";
+            this.chkExam.UseVisualStyleBackColor = true;
+            // 
+            // chkESC
+            // 
+            this.chkESC.AutoSize = true;
+            this.chkESC.Location = new System.Drawing.Point(7, 167);
+            this.chkESC.Name = "chkESC";
+            this.chkESC.Size = new System.Drawing.Size(91, 22);
+            this.chkESC.TabIndex = 120;
+            this.chkESC.Text = "ESC Voucher";
+            this.chkESC.UseVisualStyleBackColor = true;
+            // 
+            // chckNCAE
+            // 
+            this.chckNCAE.AutoSize = true;
+            this.chckNCAE.Location = new System.Drawing.Point(7, 147);
+            this.chckNCAE.Name = "chckNCAE";
+            this.chckNCAE.Size = new System.Drawing.Size(90, 22);
+            this.chckNCAE.TabIndex = 119;
+            this.chckNCAE.Text = "NCAE Result";
+            this.chckNCAE.UseVisualStyleBackColor = true;
+            // 
+            // chkPSACopy
+            // 
+            this.chkPSACopy.AutoSize = true;
+            this.chkPSACopy.Location = new System.Drawing.Point(7, 31);
+            this.chkPSACopy.Name = "chkPSACopy";
+            this.chkPSACopy.Size = new System.Drawing.Size(220, 22);
+            this.chkPSACopy.TabIndex = 118;
+            this.chkPSACopy.Text = "PSA Birth Certificate (Photocopy Only)";
+            this.chkPSACopy.UseVisualStyleBackColor = true;
+            // 
+            // chkGoodMoral
+            // 
+            this.chkGoodMoral.AutoSize = true;
+            this.chkGoodMoral.Location = new System.Drawing.Point(7, 110);
+            this.chkGoodMoral.Name = "chkGoodMoral";
+            this.chkGoodMoral.Size = new System.Drawing.Size(84, 22);
+            this.chkGoodMoral.TabIndex = 116;
+            this.chkGoodMoral.Text = "Good Moral";
+            this.chkGoodMoral.UseVisualStyleBackColor = true;
+            // 
+            // chk137
+            // 
+            this.chk137.AutoSize = true;
+            this.chk137.Location = new System.Drawing.Point(7, 92);
+            this.chk137.Name = "chk137";
+            this.chk137.Size = new System.Drawing.Size(74, 22);
+            this.chk137.TabIndex = 115;
+            this.chk137.Text = "Form 137";
+            this.chk137.UseVisualStyleBackColor = true;
+            // 
+            // chkCard
+            // 
+            this.chkCard.AutoSize = true;
+            this.chkCard.Location = new System.Drawing.Point(7, 71);
+            this.chkCard.Name = "chkCard";
+            this.chkCard.Size = new System.Drawing.Size(86, 22);
+            this.chkCard.TabIndex = 114;
+            this.chkCard.Text = "Report Card";
+            this.chkCard.UseVisualStyleBackColor = true;
+            // 
+            // chkMedCert
+            // 
+            this.chkMedCert.AutoSize = true;
+            this.chkMedCert.Location = new System.Drawing.Point(7, 128);
+            this.chkMedCert.Name = "chkMedCert";
+            this.chkMedCert.Size = new System.Drawing.Size(122, 22);
+            this.chkMedCert.TabIndex = 113;
+            this.chkMedCert.Text = "Medical Certificate";
+            this.chkMedCert.UseVisualStyleBackColor = true;
+            // 
+            // chkPSA
+            // 
+            this.chkPSA.AutoSize = true;
+            this.chkPSA.Location = new System.Drawing.Point(7, 50);
+            this.chkPSA.Name = "chkPSA";
+            this.chkPSA.Size = new System.Drawing.Size(208, 22);
+            this.chkPSA.TabIndex = 112;
+            this.chkPSA.Text = "PSA Birth Certificate (Original Copy)";
+            this.chkPSA.UseVisualStyleBackColor = true;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Roboto Condensed", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.Location = new System.Drawing.Point(3, 7);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(101, 21);
+            this.label23.TabIndex = 117;
+            this.label23.Text = "Requirements:";
             // 
             // label4
             // 
@@ -1048,134 +1176,6 @@
             this.txtStudNo.Text = "00-0000";
             this.txtStudNo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(1101, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(20, 24);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 7872;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click_1);
-            // 
-            // pnlRequirements
-            // 
-            this.pnlRequirements.Controls.Add(this.chkExam);
-            this.pnlRequirements.Controls.Add(this.chkESC);
-            this.pnlRequirements.Controls.Add(this.chckNCAE);
-            this.pnlRequirements.Controls.Add(this.chkPSACopy);
-            this.pnlRequirements.Controls.Add(this.chkGoodMoral);
-            this.pnlRequirements.Controls.Add(this.chk137);
-            this.pnlRequirements.Controls.Add(this.chkCard);
-            this.pnlRequirements.Controls.Add(this.chkMedCert);
-            this.pnlRequirements.Controls.Add(this.chkPSA);
-            this.pnlRequirements.Controls.Add(this.label23);
-            this.pnlRequirements.Location = new System.Drawing.Point(869, 33);
-            this.pnlRequirements.Name = "pnlRequirements";
-            this.pnlRequirements.Size = new System.Drawing.Size(238, 215);
-            this.pnlRequirements.TabIndex = 112;
-            // 
-            // chkExam
-            // 
-            this.chkExam.AutoSize = true;
-            this.chkExam.Location = new System.Drawing.Point(7, 187);
-            this.chkExam.Name = "chkExam";
-            this.chkExam.Size = new System.Drawing.Size(91, 22);
-            this.chkExam.TabIndex = 121;
-            this.chkExam.Text = "ESC Voucher";
-            this.chkExam.UseVisualStyleBackColor = true;
-            // 
-            // chkESC
-            // 
-            this.chkESC.AutoSize = true;
-            this.chkESC.Location = new System.Drawing.Point(7, 167);
-            this.chkESC.Name = "chkESC";
-            this.chkESC.Size = new System.Drawing.Size(91, 22);
-            this.chkESC.TabIndex = 120;
-            this.chkESC.Text = "ESC Voucher";
-            this.chkESC.UseVisualStyleBackColor = true;
-            // 
-            // chckNCAE
-            // 
-            this.chckNCAE.AutoSize = true;
-            this.chckNCAE.Location = new System.Drawing.Point(7, 147);
-            this.chckNCAE.Name = "chckNCAE";
-            this.chckNCAE.Size = new System.Drawing.Size(90, 22);
-            this.chckNCAE.TabIndex = 119;
-            this.chckNCAE.Text = "NCAE Result";
-            this.chckNCAE.UseVisualStyleBackColor = true;
-            // 
-            // chkPSACopy
-            // 
-            this.chkPSACopy.AutoSize = true;
-            this.chkPSACopy.Location = new System.Drawing.Point(7, 31);
-            this.chkPSACopy.Name = "chkPSACopy";
-            this.chkPSACopy.Size = new System.Drawing.Size(220, 22);
-            this.chkPSACopy.TabIndex = 118;
-            this.chkPSACopy.Text = "PSA Birth Certificate (Photocopy Only)";
-            this.chkPSACopy.UseVisualStyleBackColor = true;
-            // 
-            // chkGoodMoral
-            // 
-            this.chkGoodMoral.AutoSize = true;
-            this.chkGoodMoral.Location = new System.Drawing.Point(7, 110);
-            this.chkGoodMoral.Name = "chkGoodMoral";
-            this.chkGoodMoral.Size = new System.Drawing.Size(84, 22);
-            this.chkGoodMoral.TabIndex = 116;
-            this.chkGoodMoral.Text = "Good Moral";
-            this.chkGoodMoral.UseVisualStyleBackColor = true;
-            // 
-            // chk137
-            // 
-            this.chk137.AutoSize = true;
-            this.chk137.Location = new System.Drawing.Point(7, 92);
-            this.chk137.Name = "chk137";
-            this.chk137.Size = new System.Drawing.Size(74, 22);
-            this.chk137.TabIndex = 115;
-            this.chk137.Text = "Form 137";
-            this.chk137.UseVisualStyleBackColor = true;
-            // 
-            // chkCard
-            // 
-            this.chkCard.AutoSize = true;
-            this.chkCard.Location = new System.Drawing.Point(7, 71);
-            this.chkCard.Name = "chkCard";
-            this.chkCard.Size = new System.Drawing.Size(86, 22);
-            this.chkCard.TabIndex = 114;
-            this.chkCard.Text = "Report Card";
-            this.chkCard.UseVisualStyleBackColor = true;
-            // 
-            // chkMedCert
-            // 
-            this.chkMedCert.AutoSize = true;
-            this.chkMedCert.Location = new System.Drawing.Point(7, 128);
-            this.chkMedCert.Name = "chkMedCert";
-            this.chkMedCert.Size = new System.Drawing.Size(122, 22);
-            this.chkMedCert.TabIndex = 113;
-            this.chkMedCert.Text = "Medical Certificate";
-            this.chkMedCert.UseVisualStyleBackColor = true;
-            // 
-            // chkPSA
-            // 
-            this.chkPSA.AutoSize = true;
-            this.chkPSA.Location = new System.Drawing.Point(7, 50);
-            this.chkPSA.Name = "chkPSA";
-            this.chkPSA.Size = new System.Drawing.Size(208, 22);
-            this.chkPSA.TabIndex = 112;
-            this.chkPSA.Text = "PSA Birth Certificate (Original Copy)";
-            this.chkPSA.UseVisualStyleBackColor = true;
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Roboto Condensed", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(3, 7);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(101, 21);
-            this.label23.TabIndex = 117;
-            this.label23.Text = "Requirements:";
-            // 
             // frmNewStudent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1192,17 +1192,17 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.pnlTitle.ResumeLayout(false);
             this.pnlTitle.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEnrollment)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            this.pnlRequirements.ResumeLayout(false);
+            this.pnlRequirements.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.pnlRequirements.ResumeLayout(false);
-            this.pnlRequirements.PerformLayout();
             this.ResumeLayout(false);
 
         }

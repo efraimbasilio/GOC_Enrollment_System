@@ -407,7 +407,8 @@ namespace CAEBS_V2
 
                         //prepare properties
                         //register.id = Convert.ToInt32(reader["id"].ToString());    
-                                          
+
+                        register.stud_no = reader["stud_no"].ToString();
                         register.lrn = reader["lrn"].ToString();
                         register.last_name = reader["last_name"].ToString();
                         register.first_name = reader["first_name"].ToString();
@@ -418,6 +419,11 @@ namespace CAEBS_V2
                         //register.term = reader["term"].ToString();
                         register.semester = reader["semester"].ToString();
                         register.student_type = reader["student_type"].ToString();
+
+                        register.voucher_type = reader["voucher_type"].ToString();
+                        register.strand = reader["strand"].ToString();
+                        register.track = reader["track"].ToString();
+
 
                         register.date_of_birth = reader["date_of_birth"].ToString();
                         register.place_of_birth = reader["place_of_birth"].ToString();
@@ -437,6 +443,7 @@ namespace CAEBS_V2
                         register.cperson_relationship = reader["cperson_relationship"].ToString();
                         register.previous_school = reader["previous_school"].ToString();
                         register.previous_school_address = reader["previous_school_address"].ToString();
+
                         register.psa = reader["psa"].ToString();
                         register.psa_copy = reader["psa_copy"].ToString();
 
@@ -461,8 +468,8 @@ namespace CAEBS_V2
             }
             catch (MySqlException ex)
             {
-                MessageBox.Show( "\nMessage-- -\n{ 0}", ex.Message);
-                MessageBox.Show("ERROR : " + ex.ToString(), "Enrollment System", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //MessageBox.Show( "\nMessage-- -\n{ 0}", ex.Message);
+                MessageBox.Show("ERROR : " + ex.Message, "Enrollment System", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
             return registerList;

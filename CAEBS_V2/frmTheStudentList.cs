@@ -109,14 +109,14 @@ namespace CAEBS_V2
                 frm.toSave = false;
                 
                 frm.lrn = item.Lrn;
+                frm.studNo = item.Stud_no;
+                                
                 frm.last_name = item.Last_name;
                 frm.first_name = item.First_name;
                 frm.middle_name = item.Middle_name;
                 frm.grade_level = item.Grade_level;
-                frm.department = item.Department;
-             
-                frm.section = item.Section;
-               // frm.term = item.Term;
+                frm.department = item.Department;             
+                frm.section = item.Section;               
                 frm.semester = item.Semester;
                 frm.date_of_birth = item.Date_of_birth;
                 frm.place_of_birth = item.Place_of_birth;
@@ -137,24 +137,18 @@ namespace CAEBS_V2
                 frm.previous_school = item.Previous_school;
                 frm.previous_school_address = item.Previous_school_address;
 
+                frm.track = item.Track;
+                frm.voucher = item.Voucher_type;
+                frm.strand = item.Strand;
+
                 if (item.Psa.Equals("1"))
                 {
                     frm.chkPSA.Checked = true;
                 }
 
-                //if (item.Pic_child.Equals("1"))
-                //{
-                //    frm.chkPicChild.Checked = true;
-                //}
-
-                //if (item.Pic_guardian.Equals("1"))
-                //{
-                //    frm.chkpicParent.Checked = true;
-                //}
-
-                if (item.Med_certificate.Equals("1"))
+                if (item.PsaCopy.Equals("1"))
                 {
-                    frm.chkMedCert.Checked = true;
+                    frm.chkPSACopy.Checked = true;
                 }
 
                 if (item.Report_card.Equals("1"))
@@ -165,13 +159,33 @@ namespace CAEBS_V2
                 if (item.Form_137.Equals("1"))
                 {
                     frm.chk137.Checked = true;
-                }
+                }             
 
                 if (item.Good_moral.Equals("1"))
                 {
                     frm.chkGoodMoral.Checked = true;
                 }
-                
+
+                if (item.Med_certificate.Equals("1"))
+                {
+                    frm.chkMedCert.Checked = true;
+                }
+
+                if (item.Ncae.Equals("1"))
+                {
+                    frm.chckNCAE.Checked = true;
+                }
+
+                if (item.Esc_voucher.Equals("1"))
+                {
+                    frm.chkESC.Checked = true;
+                }
+
+                if (item.Entrance_exam.Equals("1"))
+                {
+                    frm.chkExam.Checked = true;
+                }
+
 
                 if (item.Student_Type.Equals("New Student"))
                 {
@@ -183,24 +197,13 @@ namespace CAEBS_V2
                     frm.optTransferee.Checked = true;
                 }
 
-                ////frm.psa = item.Psa;
-                //frm.pic_child = item.Pic_child;
-                //frm.pic_guardian = item.Pic_guardian;
-                //frm.med_certificate = item.Med_certificate;
-                //frm.report_card = item.Report_card;
-                //frm.form_137 = item.Form_137;
-                //frm.good_moral = item.Good_moral;
-
-
+                if (item.Student_Type.Equals("Old Student"))
+                {
+                    frm.optOldStudent.Checked = true;
+                }
             }
 
-            frm.ToEdit();
-            //frmMain mainwin = new frmMain();
-            //mainwin.dispanel.Controls.Clear();
-            //frmNewStudent.TopLevel = false;
-            //frmNewStudent.AutoScroll = true;
-            //mainwin.dispanel.Controls.Add(frmNewStudent);
-            //frmNewStudent.Show();
+            frm.ToEdit();         
 
             #region Call Form       
             frmMain mainwin = (frmMain)Application.OpenForms["frmMain"];

@@ -20,6 +20,7 @@ namespace CAEBS_V2
         frmDashboard dash_info = new frmDashboard();
 
         public string student_type, department, cp_address ,lrn, last_name, first_name, middle_name, grade_level, section, term, semester, date_of_birth, place_of_birth, religion, nationality, sex, address, mother_name, mother_contact, mother_work, father_name, father_contact, father_work, cperson_name, cperson_contact, cperson_relationship, previous_school, previous_school_address, psa, pic_child, pic_guardian, med_certificate, report_card, form_137, good_moral;
+        public string voucher, track, strand,psa_copy,ncae,exam,studNo;
         public bool toSave, toUpdate;
         public int id;
         public int i = 0, x = 0;
@@ -167,7 +168,7 @@ namespace CAEBS_V2
         {
             if (util.readyToSave ==1)
             {
-                MessageBox.Show(util.readyToSave.ToString());
+               // MessageBox.Show(util.readyToSave.ToString());
                 foreach (Control child in panel3.Controls)
                 {
                     if (child is TextBox)
@@ -307,15 +308,13 @@ namespace CAEBS_V2
 
         public void ToEdit()
         {
-            
+            txtStudNo.Text = studNo;
             txtLRN.Text = lrn;
             txtLastName.Text = last_name;
             txtFirstName.Text = first_name;
             txtMiddleName.Text = middle_name;
             cmbGradeLevel.Text = grade_level;
-            //section
-            //cmbTerm
-            //semester
+            
             dtpBirthdate.Text = date_of_birth;
             txtBirthPlace.Text = place_of_birth;
             txtReligion.Text = religion;
@@ -337,28 +336,27 @@ namespace CAEBS_V2
             cmbDept.Text = department;
             cmbGradeLevel.Text = grade_level;
 
+            cmbTrack.Text = track;
+            cmbVoucher.Text = voucher;
+            cmbStrand.Text = strand;
+            
 
             //if (psa.Equals("1"))
             //{
             //    chkPSA.Checked = true;
             //}
 
-            //if (pic_child.Equals("1"))
+            //if (psa_copy.Equals("1"))
             //{
-            //    chkPicChild.Checked = true;
-            //}
-
-            //if (pic_guardian.Equals("1"))
-            //{
-            //    chkpicParent.Checked = true;
-            //}
-
-            //if (med_certificate.Equals("1"))
-            //{
-            //    chkMedCert.Checked = true;
+            //    chkPSACopy.Checked = true;
             //}
 
             //if (report_card.Equals("1"))
+            //{
+            //    chkCard.Checked = true;
+            //}
+
+            //if (form_137.Equals("1"))
             //{
             //    chk137.Checked = true;
             //}
@@ -368,7 +366,25 @@ namespace CAEBS_V2
             //    chkGoodMoral.Checked = true;
             //}
 
+            //if (med_certificate.Equals("1"))
+            //{
+            //    chkMedCert.Checked = true;
+            //}
 
+            //if (ncae.Equals("1"))
+            //{
+            //    chckNCAE.Checked = true;
+            //}
+
+            //if (voucher.Equals("1"))
+            //{
+            //    chkESC.Checked = true;
+            //}
+
+            //if (exam.Equals("1"))
+            //{
+            //    chkExam.Checked = true;
+            //}
         }
 
         #endregion
@@ -381,11 +397,13 @@ namespace CAEBS_V2
         private void btnNewStudent_Click(object sender, EventArgs e)
         {                            
             if (toSave == true)
-            {                            
-                Requirements();//Required to pass
+            {
+                #region Requirements To Pass                      
+                Requirements();
                 NoRequirements();
-                
-                #region Student Type
+                #endregion
+
+                #region Set Student Type
                 if (optNewStudent.Checked == true)
                 {
                     r.Student_Type = "New Student";
@@ -403,13 +421,13 @@ namespace CAEBS_V2
                     MessageBox.Show("ERROR : Please select student Type.", "Enrollment System", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                #endregion
-                
+                #endregion                
+
                 util.ValidateTextBox8(txtLRN, txtLastName, txtFirstName, txtMiddleName, txtBirthPlace, txtReligion, txtNationality, txtAddress);
                 util.ValidateCombobox5(cmbDept,cmbGradeLevel,cmbStrand,cmbVoucher,cmbTrack);
-
                 FillEmpty();
-                #region data_to_save
+
+                #region Set Data To Save
                 //set Value to Save                       
                 r.Stud_no = txtStudNo.Text;
                 r.Lrn = txtLRN.Text;
@@ -453,9 +471,9 @@ namespace CAEBS_V2
                 if (util.readyToSave == 1)
                 {                         
                     r.Save();
-                    Generate_StudNo();
-                   
-                    #region Call Form       
+                    Generate_StudNo(); 
+                                                        
+                    #region Call Dashboard Form       
                     frmMain mainwin = (frmMain)Application.OpenForms["frmMain"];
                         frmDashboard frm = new frmDashboard();
 
@@ -466,117 +484,19 @@ namespace CAEBS_V2
                     
                         frm.Show();
                     #endregion
-
-                    #region For Billing
-                    //if (r.save_halt != true)
-                    //{
-                    //    DialogResult result = MessageBox.Show("Proceed to billing?", "Enrollment System", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                    //    if (result == DialogResult.Yes)
-                    //    {
-                    //        frmPayment pay = new frmPayment();
-                    //        pay.ShowDialog();
-                    //    }
-                    //    else
-                    //    {
-                    //        return;
-                    //    }
-                    //}
-                    #endregion
-
+                  
                 }
             }
 
-            else if(toUpdate == true && toSave == false)
-            {
-                //Pass Values
-                #region data_to_save
-                //set Value to Save                       
-                r.Stud_no = txtStudNo.Text;
-                r.Lrn = txtLRN.Text;
-
-                r.Last_name = txtLastName.Text;
-                r.First_name = txtFirstName.Text;
-                r.Middle_name = txtMiddleName.Text;
-                r.Grade_level = cmbGradeLevel.Text;
-                r.Department = cmbDept.Text;
-                r.Section = "NA";
-
-               // r.Term = dash_info.lblQuarter.Text;
-                r.Semester = dash_info.lblSemester.Text;
-
-                //r.Semester = cmb
-                r.Date_of_birth = dtpBirthdate.Text;
-                r.Place_of_birth = txtBirthPlace.Text;
-                r.Religion = txtReligion.Text;
-                r.Nationality = txtNationality.Text;
-                r.Sex = cmbSex.Text;
-                r.Address = txtAddress.Text;
-
-                r.Mother_name = txtMother.Text;
-                r.Mother_contact = txtMother.Text;
-                r.Mother_work = txtMOccupation.Text;
-                r.Father_name = txtFather.Text;
-                r.Father_contact = txtFContact.Text;
-                r.Father_work = txtFOccupation.Text;
-                r.Cperson_name = txtCPName.Text;
-                r.Cperson_contact = txtCPContact.Text;
-                r.Cperson_relationship = txtCPRelation.Text;
-                r.Cperson_address = txtCPAddress.Text;
-                r.Previous_school = txtPrevSchool.Text;
-                r.Previous_school_address = txtPrevSchAddress.Text;
-                r.Enrollee_status = "NA";
-
-                r.Voucher_type = cmbVoucher.Text;
-                r.Track = cmbTrack.Text;
-                r.Strand = cmbStrand.Text;
-
-                #endregion
-
-                Requirements();//Required to pass
-                NoRequirements();
-                //Mode of payment 
-                //#region MOP                            
-                //if (optFullPay.Checked == true)
-                //{
-                //    r.Mode_of_payment = "Fullpayment";
-                //}
-                //else if (optPartial.Checked == true)
-                //{
-                //    r.Mode_of_payment = "Partial";
-                //}
-                //else
-                //{
-                //    MessageBox.Show("ERROR : Please select the Mode of Payment.", "Enrollment System", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                //    return;
-                //}
-                //#endregion
-
-                #region Student Type
-                if (optNewStudent.Checked == true)
-                {
-                    r.Student_Type = "New Student";
-                }
-                else if (optTransferee.Checked == true)
-                {
-                    r.Mode_of_payment = "Transferee";
-                }
-                else
-                {
-                    MessageBox.Show("ERROR : Please select student Type.", "Enrollment System", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-                #endregion
-
-
-                util.ValidateTextBox8(txtLRN, txtLastName, txtFirstName, txtMiddleName, txtBirthPlace, txtReligion, txtNationality, txtAddress);
-                if (util.readyToSave == 1)
-                {
-                    r.Id = id;
-                    r.Update();
-                }
-            }
+            //else if(toUpdate == true && toSave == false)
+            //{                
+            //    util.ValidateTextBox8(txtLRN, txtLastName, txtFirstName, txtMiddleName, txtBirthPlace, txtReligion, txtNationality, txtAddress);
+            //    if (util.readyToSave == 1)
+            //    {
+            //        r.Id = id;
+            //        r.Update();
+            //    }
+            //}
 
             else
             {
