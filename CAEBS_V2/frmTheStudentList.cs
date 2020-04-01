@@ -109,8 +109,7 @@ namespace CAEBS_V2
                 frm.toSave = false;
                 
                 frm.lrn = item.Lrn;
-                frm.studNo = item.Stud_no;
-                                
+                frm.studNo = item.Stud_no;                                
                 frm.last_name = item.Last_name;
                 frm.first_name = item.First_name;
                 frm.middle_name = item.Middle_name;
@@ -136,7 +135,6 @@ namespace CAEBS_V2
                 frm.cp_address = item.Cperson_address;
                 frm.previous_school = item.Previous_school;
                 frm.previous_school_address = item.Previous_school_address;
-
                 frm.track = item.Track;
                 frm.voucher = item.Voucher_type;
                 frm.strand = item.Strand;
@@ -185,7 +183,6 @@ namespace CAEBS_V2
                 {
                     frm.chkExam.Checked = true;
                 }
-
 
                 if (item.Student_Type.Equals("New Student"))
                 {

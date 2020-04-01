@@ -315,9 +315,9 @@ namespace CAEBS_V2
                     //try to open connection
                     con.Open();
 
-                    string sql = "UPDATE student_profile SET esc_voucher=@esc_voucher,entrance_exam=@entrance_exam,ncae=@ncae,track=@track,strand=@strand,voucher_type=@voucher_type, lrn=@lrn,last_name=@last_name,first_name=@first_name,middle_name=@middle_name,grade_level=@grade_level,department=@department,section=@section,student_type=@student_type,semester=@semester,date_of_birth=@date_of_birth,place_of_birth=@place_of_birth,religion=@religion, nationality = @nationality,sex = @sex,address = @address,mother_name = @mother_name,mother_contact = @mother_contact,mother_work = @mother_work,father_name = @father_name,father_contact = @father_contact,father_work = @father_work,cperson_name = @cperson_name,cperson_contact = @cperson_contact,cperson_relationship = @cperson_relationship,previous_school = @previous_school,previous_school_address = @previous_school_address,psa = @psa,psa_copy = @psa_copy,pic_child = @pic_child,pic_guardian = @pic_guardian,med_certificate = @med_certificate,report_card = @report_card,form_137 = @form_137,good_moral = @good_moral,enrollee_status = @enrollee_status" +
+                    string sql = "UPDATE student_profile SET esc_voucher=@esc_voucher,entrance_exam=@entrance_exam,ncae=@ncae,track=@track,strand=@strand,voucher_type=@voucher_type, lrn=@lrn,last_name=@last_name,first_name=@first_name,middle_name=@middle_name,grade_level=@grade_level,department=@department,section=@section,student_type=@student_type,semester=@semester,date_of_birth=@date_of_birth,place_of_birth=@place_of_birth,religion=@religion, nationality = @nationality,sex = @sex,address = @address,mother_name = @mother_name,mother_contact = @mother_contact,mother_work = @mother_work,father_name = @father_name,father_contact = @father_contact,father_work = @father_work,cperson_name = @cperson_name,cperson_address=@cperson_address,cperson_contact = @cperson_contact,cperson_relationship = @cperson_relationship,previous_school = @previous_school, previous_school_address = @previous_school_address, psa = @psa,psa_copy = @psa_copy,med_certificate = @med_certificate,report_card = @report_card,form_137 = @form_137,good_moral = @good_moral,enrollee_status = @enrollee_status" +
                                    " WHERE id=@id;";
-
+                    //psa = @psa,psa_copy = @psa_copy,esc_voucher = @esc_voucher,entrance_exam = @entrance_exam,ncae = @ncae,med_certificate = @med_certificate
                     MySqlCommand cmd = new MySqlCommand(sql, con);
 
                     cmd.Parameters.AddWithValue("id", id);
@@ -346,20 +346,19 @@ namespace CAEBS_V2
                     cmd.Parameters.AddWithValue("cperson_name", cperson_name);
                     cmd.Parameters.AddWithValue("cperson_contact", cperson_contact);
                     cmd.Parameters.AddWithValue("cperson_relationship", cperson_relationship);
+                    cmd.Parameters.AddWithValue("cperson_address", cperson_address);
                     cmd.Parameters.AddWithValue("previous_school", previous_school);
                     cmd.Parameters.AddWithValue("previous_school_address", previous_school_address);
+
+
                     cmd.Parameters.AddWithValue("psa", psa);
                     cmd.Parameters.AddWithValue("psa_copy", psa_copy);
-
-
                     cmd.Parameters.AddWithValue("esc_voucher", esc_voucher);
                     cmd.Parameters.AddWithValue("entrance_exam", entrance_exam);
                     cmd.Parameters.AddWithValue("ncae", ncae);
                     cmd.Parameters.AddWithValue("track", track);
                     cmd.Parameters.AddWithValue("strand", strand);
                     cmd.Parameters.AddWithValue("voucher_type", voucher_type);
-
-
                     cmd.Parameters.AddWithValue("med_certificate", med_certificate);
                     cmd.Parameters.AddWithValue("report_card", report_card);
                     cmd.Parameters.AddWithValue("form_137", form_137);

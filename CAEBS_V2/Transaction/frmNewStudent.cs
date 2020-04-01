@@ -488,15 +488,96 @@ namespace CAEBS_V2
                 }
             }
 
-            //else if(toUpdate == true && toSave == false)
-            //{                
-            //    util.ValidateTextBox8(txtLRN, txtLastName, txtFirstName, txtMiddleName, txtBirthPlace, txtReligion, txtNationality, txtAddress);
-            //    if (util.readyToSave == 1)
-            //    {
-            //        r.Id = id;
-            //        r.Update();
-            //    }
-            //}
+            else if (toUpdate == true && toSave == false)
+            {
+                #region Requirements To Pass                      
+                Requirements();
+                NoRequirements();
+                #endregion
+
+                #region Set Student Type
+                if (optNewStudent.Checked == true)
+                {
+                    r.Student_Type = "New Student";
+                }
+                else if (optTransferee.Checked == true)
+                {
+                    r.Student_Type = "Transferee";
+                }
+                else if (optOldStudent.Checked == true)
+                {
+                    r.Student_Type = "Old Student";
+                }
+                else
+                {
+                    MessageBox.Show("ERROR : Please select student Type.", "Enrollment System", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                #endregion                
+
+                util.ValidateTextBox8(txtLRN, txtLastName, txtFirstName, txtMiddleName, txtBirthPlace, txtReligion, txtNationality, txtAddress);
+                util.ValidateCombobox5(cmbDept, cmbGradeLevel, cmbStrand, cmbVoucher, cmbTrack);
+                FillEmpty();
+
+                #region Set Data To Save
+                //set Value to Save                       
+                r.Stud_no = txtStudNo.Text;
+                r.Lrn = txtLRN.Text;
+
+                r.Last_name = txtLastName.Text;
+                r.First_name = txtFirstName.Text;
+                r.Middle_name = txtMiddleName.Text;
+                r.Grade_level = cmbGradeLevel.Text;
+                r.Department = cmbDept.Text;
+                r.Section = "NA";
+
+                //r.Term = dash_info.lblQuarter.Text;
+                r.Semester = dash_info.lblSemester.Text;
+                r.Date_of_birth = dtpBirthdate.Text;
+                r.Place_of_birth = txtBirthPlace.Text;
+                r.Religion = txtReligion.Text;
+                r.Nationality = txtNationality.Text;
+                r.Sex = cmbSex.Text;
+                r.Address = txtAddress.Text;
+
+                r.Mother_name = txtMother.Text;
+                r.Mother_contact = txtMother.Text;
+                r.Mother_work = txtMOccupation.Text;
+                r.Father_name = txtFather.Text;
+                r.Father_contact = txtFContact.Text;
+                r.Father_work = txtFOccupation.Text;
+                r.Cperson_name = txtCPName.Text;
+                r.Cperson_contact = txtCPContact.Text;
+                r.Cperson_relationship = txtCPRelation.Text;
+                r.Cperson_address = txtCPAddress.Text;
+                r.Previous_school = txtPrevSchool.Text;
+                r.Previous_school_address = txtPrevSchAddress.Text;
+                r.Enrollee_status = "NA";
+
+                r.Voucher_type = cmbVoucher.Text;
+                r.Track = cmbTrack.Text;
+                r.Strand = cmbStrand.Text;
+
+                #endregion
+
+                if (util.readyToSave == 1)
+                {
+                    r.Id = id;
+                    r.Update();
+
+                    #region Call Dashboard Form       
+                    frmMain mainwin = (frmMain)Application.OpenForms["frmMain"];
+                    frmDashboard frm = new frmDashboard();
+
+                    mainwin.pnlAllContainer.Controls.Clear();
+                    frm.TopLevel = false;
+                    frm.AutoScroll = true;
+                    mainwin.pnlAllContainer.Controls.Add(frm);
+
+                    frm.Show();
+                    #endregion
+                }
+            }
 
             else
             {
