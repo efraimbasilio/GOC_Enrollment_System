@@ -51,12 +51,16 @@
     <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="MySql.Data, Version=8.0.18.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\Desktop\MySql.Data.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -69,6 +73,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Connection\Config.cs" />
+    <Compile Include="CrystalReport_Connection.cs" />
     <Compile Include="frmOldStudent.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -126,6 +131,12 @@
     </Compile>
     <Compile Include="Maintenance\Model\Maintenance\GradeLevel.cs" />
     <Compile Include="PaymentLog.cs" />
+    <Compile Include="SubReport_RegAdminCopy.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SubReport_RegAdminCopy.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Transaction\frmSectioning.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -315,6 +326,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Maintenance\frmTuition.resx">
       <DependentUpon>frmTuition.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubReport_RegAdminCopy.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>SubReport_RegAdminCopy.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Transaction\frmStudentList.resx">
       <DependentUpon>frmStudentList.cs</DependentUpon>
