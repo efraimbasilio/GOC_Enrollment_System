@@ -41,7 +41,6 @@
             this.MyReportViewer.Name = "MyReportViewer";
             this.MyReportViewer.Size = new System.Drawing.Size(1133, 716);
             this.MyReportViewer.TabIndex = 0;
-            this.MyReportViewer.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
             // 
             // frmReports
             // 
@@ -50,9 +49,10 @@
             this.ClientSize = new System.Drawing.Size(1133, 716);
             this.Controls.Add(this.MyReportViewer);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "frmReports";
             this.Text = "frmReports";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.ResumeLayout(false);
 
         }

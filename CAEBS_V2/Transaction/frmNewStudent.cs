@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -92,25 +93,33 @@ namespace CAEBS_V2
 
         public void Generate_StudNo()
         {
-            ctrs.Clear();
-            ctrs = ctr.Load();
-            foreach (var item in ctrs)
+            if (r.save_halt == false)
             {
-                i = Convert.ToInt32(item.Ctr_number) + 1;
-                x = item.Id;
+                ctrs.Clear();
+                ctrs = ctr.Load();
+                foreach (var item in ctrs)
+                {
+                    i = Convert.ToInt32(item.Ctr_number) + 1;
+                    x = item.Id;
+                }
+                ctr.Id = x;
+                ctr.Ctr_number = i.ToString();
+                ctr.Update();
+
+                string str = DateTime.Today.ToString("yyyy");
+                string a = str.Substring(2);
+                string output = a + "-" + (i).ToString("0000");
+                txtStudNo.Text = output;
+
+                r.Lrn = txtLRN.Text;
+                r.Stud_no = output;
+                r.Update_For_StudentNo();
             }
-            ctr.Id = x;
-            ctr.Ctr_number = i.ToString();
-            ctr.Update();
-
-            string str = DateTime.Today.ToString("yyyy");
-            string a = str.Substring(2);
-            string output = a + "-" + (i).ToString("0000");
-            txtStudNo.Text = output;
-
-            r.Lrn = txtLRN.Text;
-            r.Stud_no = output;
-            r.Update_For_StudentNo();
+            else
+            {
+                return;
+            }
+            
         }
 
         public void PassToEdit()
@@ -176,7 +185,7 @@ namespace CAEBS_V2
                         TextBox tb = child as TextBox;
                         if (string.IsNullOrEmpty(tb.Text))
                         {
-                            tb.Text = @"NA";
+                            tb.Text = @"N A";
                         }
                     }
                 }
@@ -432,9 +441,9 @@ namespace CAEBS_V2
                 r.Stud_no = txtStudNo.Text;
                 r.Lrn = txtLRN.Text;
 
-                r.Last_name = txtLastName.Text;
-                r.First_name = txtFirstName.Text;
-                r.Middle_name = txtMiddleName.Text;
+                r.Last_name = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtLastName.Text);
+                r.First_name = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtFirstName.Text);
+                r.Middle_name = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtMiddleName.Text);
                 r.Grade_level = cmbGradeLevel.Text;
                 r.Department = cmbDept.Text;
                 r.Section = "NA";
@@ -442,24 +451,24 @@ namespace CAEBS_V2
                 //r.Term = dash_info.lblQuarter.Text;
                 r.Semester = dash_info.lblSemester.Text;
                 r.Date_of_birth = dtpBirthdate.Text;
-                r.Place_of_birth = txtBirthPlace.Text;
-                r.Religion = txtReligion.Text;
-                r.Nationality = txtNationality.Text;
+                r.Place_of_birth = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtBirthPlace.Text);
+                r.Religion = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtReligion.Text);
+                r.Nationality = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtNationality.Text);
                 r.Sex = cmbSex.Text;
-                r.Address = txtAddress.Text;
+                r.Address = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtAddress.Text);
 
-                r.Mother_name = txtMother.Text;
-                r.Mother_contact = txtMother.Text;
-                r.Mother_work = txtMOccupation.Text;
-                r.Father_name = txtFather.Text;
+                r.Mother_name = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtMother.Text);
+                r.Mother_contact = txtMContact.Text;
+                r.Mother_work = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtMOccupation.Text);
+                r.Father_name = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtFather.Text);
                 r.Father_contact = txtFContact.Text;
-                r.Father_work = txtFOccupation.Text;
-                r.Cperson_name = txtCPName.Text;
-                r.Cperson_contact = txtCPContact.Text;
-                r.Cperson_relationship = txtCPRelation.Text;
-                r.Cperson_address = txtCPAddress.Text;
+                r.Father_work = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtFOccupation.Text);
+                r.Cperson_name = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtCPName.Text);
+                r.Cperson_contact = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtCPContact.Text);
+                r.Cperson_relationship = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtCPRelation.Text);
+                r.Cperson_address = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtCPAddress.Text);
                 r.Previous_school = txtPrevSchool.Text;
-                r.Previous_school_address = txtPrevSchAddress.Text;
+                r.Previous_school_address = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtPrevSchAddress.Text);
                 r.Enrollee_status = "NA";
 
                 r.Voucher_type = cmbVoucher.Text;
@@ -471,20 +480,25 @@ namespace CAEBS_V2
                 if (util.readyToSave == 1)
                 {                         
                     r.Save();
-                    Generate_StudNo(); 
-                                                        
-                    #region Call Dashboard Form       
-                    frmMain mainwin = (frmMain)Application.OpenForms["frmMain"];
-                        frmDashboard frm = new frmDashboard();
+                    Generate_StudNo();
 
-                        mainwin.pnlAllContainer.Controls.Clear();
-                        frm.TopLevel = false;
-                        frm.AutoScroll = true;
-                        mainwin.pnlAllContainer.Controls.Add(frm);
-                    
-                        frm.Show();
-                    #endregion
-                  
+                    frmReports rpt = new frmReports();
+                    rpt.LRN = txtLRN.Text;
+                    rpt.PrintRegForm();
+                    rpt.ShowDialog();
+
+                    //#region Call Dashboard Form       
+                    //frmMain mainwin = (frmMain)Application.OpenForms["frmMain"];
+                    //    frmDashboard frm = new frmDashboard();
+
+                    //    mainwin.pnlAllContainer.Controls.Clear();
+                    //    frm.TopLevel = false;
+                    //    frm.AutoScroll = true;
+                    //    mainwin.pnlAllContainer.Controls.Add(frm);
+
+                    //    frm.Show();
+                    //#endregion
+
                 }
             }
 
@@ -524,9 +538,9 @@ namespace CAEBS_V2
                 r.Stud_no = txtStudNo.Text;
                 r.Lrn = txtLRN.Text;
 
-                r.Last_name = txtLastName.Text;
-                r.First_name = txtFirstName.Text;
-                r.Middle_name = txtMiddleName.Text;
+                r.Last_name = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtLastName.Text);
+                r.First_name = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtFirstName.Text);
+                r.Middle_name = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtMiddleName.Text);
                 r.Grade_level = cmbGradeLevel.Text;
                 r.Department = cmbDept.Text;
                 r.Section = "NA";
@@ -534,24 +548,24 @@ namespace CAEBS_V2
                 //r.Term = dash_info.lblQuarter.Text;
                 r.Semester = dash_info.lblSemester.Text;
                 r.Date_of_birth = dtpBirthdate.Text;
-                r.Place_of_birth = txtBirthPlace.Text;
-                r.Religion = txtReligion.Text;
-                r.Nationality = txtNationality.Text;
+                r.Place_of_birth = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtBirthPlace.Text);
+                r.Religion = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtReligion.Text);
+                r.Nationality = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtNationality.Text);
                 r.Sex = cmbSex.Text;
-                r.Address = txtAddress.Text;
+                r.Address = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtAddress.Text);
 
-                r.Mother_name = txtMother.Text;
-                r.Mother_contact = txtMother.Text;
-                r.Mother_work = txtMOccupation.Text;
-                r.Father_name = txtFather.Text;
+                r.Mother_name = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtMother.Text);
+                r.Mother_contact = txtMContact.Text;
+                r.Mother_work = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtMOccupation.Text);
+                r.Father_name = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtFather.Text);
                 r.Father_contact = txtFContact.Text;
-                r.Father_work = txtFOccupation.Text;
-                r.Cperson_name = txtCPName.Text;
-                r.Cperson_contact = txtCPContact.Text;
-                r.Cperson_relationship = txtCPRelation.Text;
-                r.Cperson_address = txtCPAddress.Text;
+                r.Father_work = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtFOccupation.Text);
+                r.Cperson_name = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtCPName.Text);
+                r.Cperson_contact = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtCPContact.Text);
+                r.Cperson_relationship = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtCPRelation.Text);
+                r.Cperson_address = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtCPAddress.Text);
                 r.Previous_school = txtPrevSchool.Text;
-                r.Previous_school_address = txtPrevSchAddress.Text;
+                r.Previous_school_address = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtPrevSchAddress.Text);
                 r.Enrollee_status = "NA";
 
                 r.Voucher_type = cmbVoucher.Text;
@@ -565,17 +579,22 @@ namespace CAEBS_V2
                     r.Id = id;
                     r.Update();
 
-                    #region Call Dashboard Form       
-                    frmMain mainwin = (frmMain)Application.OpenForms["frmMain"];
-                    frmDashboard frm = new frmDashboard();
+                    frmReports rpt = new frmReports();
+                    rpt.LRN = txtLRN.Text;
+                    rpt.PrintRegForm();
+                    rpt.ShowDialog();
 
-                    mainwin.pnlAllContainer.Controls.Clear();
-                    frm.TopLevel = false;
-                    frm.AutoScroll = true;
-                    mainwin.pnlAllContainer.Controls.Add(frm);
+                    //#region Call Dashboard Form       
+                    //frmMain mainwin = (frmMain)Application.OpenForms["frmMain"];
+                    //frmDashboard frm = new frmDashboard();
 
-                    frm.Show();
-                    #endregion
+                    //mainwin.pnlAllContainer.Controls.Clear();
+                    //frm.TopLevel = false;
+                    //frm.AutoScroll = true;
+                    //mainwin.pnlAllContainer.Controls.Add(frm);
+
+                    //frm.Show();
+                    //#endregion
                 }
             }
 

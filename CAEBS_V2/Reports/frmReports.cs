@@ -1,5 +1,4 @@
-﻿using CrystalDecisions.CrystalReports.Engine;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CrystalDecisions.CrystalReports.Engine;
+using CrystalDecisions.Shared;
+using MySql.Data.MySqlClient;
 
 namespace CAEBS_V2
 {
@@ -25,6 +27,7 @@ namespace CAEBS_V2
         public frmReports()
         {
             InitializeComponent();
+            
         }
 
         #region Registration Form Report
@@ -35,8 +38,9 @@ namespace CAEBS_V2
             //Report Connection
             Credential();
             ReportDocument reportData = new ReportDocument();
-            reportData.Load(Application.StartupPath + "/rptAssesment.rpt");
-
+            reportData.Load(Application.StartupPath + "/Transaction/rptAssessment.rpt");
+            //reportData.Load("E:/My_Projects/GOC_Enrollment_System/CAEBS_V2/Transaction/rptAssessment.rpt");
+       
             CrystalReport_Connection.Instance.SetConnection(ref reportData);
             //Report Parameter
             reportData.SetParameterValue("LRN", LRN);           
