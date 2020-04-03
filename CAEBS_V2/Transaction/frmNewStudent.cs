@@ -22,7 +22,7 @@ namespace CAEBS_V2
 
         public string student_type, department, cp_address ,lrn, last_name, first_name, middle_name, grade_level, section, term, semester, date_of_birth, place_of_birth, religion, nationality, sex, address, mother_name, mother_contact, mother_work, father_name, father_contact, father_work, cperson_name, cperson_contact, cperson_relationship, previous_school, previous_school_address, psa, pic_child, pic_guardian, med_certificate, report_card, form_137, good_moral;
         public string voucher, track, strand,psa_copy,ncae,exam,studNo;
-        public bool toSave, toUpdate;
+        public bool toSave, toUpdate , forOldStudent;
         public int id;
         public int i = 0, x = 0;
 
@@ -317,6 +317,7 @@ namespace CAEBS_V2
 
         public void ToEdit()
         {
+            
             txtStudNo.Text = studNo;
             txtLRN.Text = lrn;
             txtLastName.Text = last_name;
@@ -595,6 +596,90 @@ namespace CAEBS_V2
 
                     //frm.Show();
                     //#endregion
+                }
+            }
+
+            else if (forOldStudent == true)
+            {
+                #region Requirements To Pass                      
+                Requirements();
+                NoRequirements();
+                #endregion
+
+                #region Set Student Type
+                if (optNewStudent.Checked == true)
+                {
+                    r.Student_Type = "New Student";
+                }
+                else if (optTransferee.Checked == true)
+                {
+                    r.Student_Type = "Transferee";
+                }
+                else if (optOldStudent.Checked == true)
+                {
+                    r.Student_Type = "Old Student";
+                }
+                else
+                {
+                    MessageBox.Show("ERROR : Please select student Type.", "Enrollment System", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                #endregion                
+
+                util.ValidateTextBox8(txtLRN, txtLastName, txtFirstName, txtMiddleName, txtBirthPlace, txtReligion, txtNationality, txtAddress);
+                util.ValidateCombobox5(cmbDept, cmbGradeLevel, cmbStrand, cmbVoucher, cmbTrack);
+                FillEmpty();
+
+                #region Set Data To Save
+                //set Value to Save                       
+                r.Stud_no = txtStudNo.Text;
+                r.Lrn = txtLRN.Text;
+
+                r.Last_name = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtLastName.Text);
+                r.First_name = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtFirstName.Text);
+                r.Middle_name = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtMiddleName.Text);
+                r.Grade_level = cmbGradeLevel.Text;
+                r.Department = cmbDept.Text;
+                r.Section = "NA";
+
+                //r.Term = dash_info.lblQuarter.Text;
+                r.Semester = dash_info.lblSemester.Text;
+                r.Date_of_birth = dtpBirthdate.Text;
+                r.Place_of_birth = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtBirthPlace.Text);
+                r.Religion = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtReligion.Text);
+                r.Nationality = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtNationality.Text);
+                r.Sex = cmbSex.Text;
+                r.Address = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtAddress.Text);
+
+                r.Mother_name = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtMother.Text);
+                r.Mother_contact = txtMContact.Text;
+                r.Mother_work = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtMOccupation.Text);
+                r.Father_name = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtFather.Text);
+                r.Father_contact = txtFContact.Text;
+                r.Father_work = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtFOccupation.Text);
+                r.Cperson_name = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtCPName.Text);
+                r.Cperson_contact = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtCPContact.Text);
+                r.Cperson_relationship = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtCPRelation.Text);
+                r.Cperson_address = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtCPAddress.Text);
+                r.Previous_school = txtPrevSchool.Text;
+                r.Previous_school_address = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtPrevSchAddress.Text);
+                r.Enrollee_status = "NA";
+
+                r.Voucher_type = cmbVoucher.Text;
+                r.Track = cmbTrack.Text;
+                r.Strand = cmbStrand.Text;
+
+                #endregion
+
+                if (util.readyToSave == 1)
+                {
+                    r.Id = id;
+                    r.Update();
+
+              
+                    frmLogin frm = new frmLogin();
+                    this.Close();
+                    frm.ShowDialog();                                     
                 }
             }
 

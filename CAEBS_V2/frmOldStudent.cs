@@ -89,11 +89,228 @@ namespace CAEBS_V2
             #endregion
         }
 
+        public void PassToEdit()
+        {
+            //clear list
+            ListRegister.Clear();
+            //pass value
+
+            register.Id = Convert.ToInt32(dgvList.CurrentRow.Cells[3].FormattedValue.ToString());
+            frm.id = Convert.ToInt32(dgvList.CurrentRow.Cells[3].FormattedValue.ToString());
+            MessageBox.Show(dgvList.CurrentRow.Cells[3].FormattedValue.ToString());
+
+            ListRegister = register.GetById();
+
+            foreach (var item in ListRegister)
+            {
+
+                //pass variable to form Assesment
+                    
+                frm.forOldStudent = true;// old student process
+
+                frm.lrn = item.Lrn;
+                frm.studNo = item.Stud_no;
+                frm.last_name = item.Last_name;
+                frm.first_name = item.First_name;
+                frm.middle_name = item.Middle_name;
+                frm.grade_level = item.Grade_level;
+                frm.department = item.Department;
+                frm.section = item.Section;
+                frm.semester = item.Semester;
+                frm.date_of_birth = item.Date_of_birth;
+                frm.place_of_birth = item.Place_of_birth;
+                frm.religion = item.Religion;
+                frm.nationality = item.Nationality;
+                frm.sex = item.Sex;
+                frm.address = item.Address;
+                frm.mother_name = item.Mother_name;
+                frm.mother_contact = item.Mother_contact;
+                frm.mother_work = item.Mother_work;
+                frm.father_name = item.Father_name;
+                frm.father_contact = item.Father_contact;
+                frm.father_work = item.Father_work;
+                frm.cperson_name = item.Cperson_name;
+                frm.cperson_contact = item.Cperson_contact;
+                frm.cperson_relationship = item.Cperson_relationship;
+                frm.cp_address = item.Cperson_address;
+                frm.previous_school = item.Previous_school;
+                frm.previous_school_address = item.Previous_school_address;
+                frm.track = item.Track;
+                frm.voucher = item.Voucher_type;
+                frm.strand = item.Strand;
+
+                if (item.Psa.Equals("1"))
+                {
+                    frm.chkPSA.Checked = true;
+                }
+
+                if (item.PsaCopy.Equals("1"))
+                {
+                    frm.chkPSACopy.Checked = true;
+                }
+
+                if (item.Report_card.Equals("1"))
+                {
+                    frm.chkCard.Checked = true;
+                }
+
+                if (item.Form_137.Equals("1"))
+                {
+                    frm.chk137.Checked = true;
+                }
+
+                if (item.Good_moral.Equals("1"))
+                {
+                    frm.chkGoodMoral.Checked = true;
+                }
+
+                if (item.Med_certificate.Equals("1"))
+                {
+                    frm.chkMedCert.Checked = true;
+                }
+
+                if (item.Ncae.Equals("1"))
+                {
+                    frm.chckNCAE.Checked = true;
+                }
+
+                if (item.Esc_voucher.Equals("1"))
+                {
+                    frm.chkESC.Checked = true;
+                }
+
+                if (item.Entrance_exam.Equals("1"))
+                {
+                    frm.chkExam.Checked = true;
+                }
+
+                if (item.Student_Type.Equals("New Student"))
+                {
+                    frm.optNewStudent.Checked = true;
+                }
+
+                if (item.Student_Type.Equals("Transferee"))
+                {
+                    frm.optTransferee.Checked = true;
+                }
+
+                if (item.Student_Type.Equals("Old Student"))
+                {
+                    frm.optOldStudent.Checked = true;
+                }
+            }
+
+            frm.ToEdit();
+
+            #region Call Form       
+           
+            this.Dispose();
+            frm.ShowDialog();
+            #endregion
+
+        }
+
         public frmOldStudent()
         {
             InitializeComponent();
             register.LoadDataTable(dgvList);
+            CountStudent();
+            HeaderName();
+            register.AutoComplete(txtSearchMe);
+            util.AssessOrBilling(dgvList);
+        }
 
+        
+
+        private void dgvList_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+        }
+
+        private void txtSearchMe_TextChanged(object sender, EventArgs e)
+        {
+            string valueToSearch = txtSearchMe.Text.ToString();
+            register.SearchData(valueToSearch, dgvList);
+        }
+
+        private void dgvList_DoubleClick_1(object sender, EventArgs e)
+        {
+            string message = "Do you want to modify the Student information?";
+            string title = "Enrollment System";
+
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            DialogResult result = MessageBox.Show(message, title, buttons, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                PassToEdit();
+            }
+            else
+            {
+                return;
+            }
+        }
+
+        private void dgvList_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 0)
+            {
+                id = Convert.ToInt32(dgvList.Rows[e.RowIndex].Cells[3].Value.ToString());//for editing criteria
+
+                ////pass value to edit mode               
+                //txtDiscountName.Text = dgvDiscount.Rows[e.RowIndex].Cells[3].Value.ToString(); //Name     
+                //txtValue.Text = dgvDiscount.Rows[e.RowIndex].Cells[4].Value.ToString(); //Name    
+
+                //btnAdd.Text = "&Update";//set button to Update    
+
+                MessageBox.Show("Assess" + id);
+            }
+
+            else if (e.ColumnIndex == 1)
+            {
+                string message = "Do you want to proceed to Billing?";
+                string title = "Enrollment System";
+
+                MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                DialogResult result = MessageBox.Show(message, title, buttons, MessageBoxIcon.Warning);
+
+                if (result == DialogResult.Yes)
+                {
+                    //Discount discount = new Discount();
+                    //discount.Id = Convert.ToInt32(dgvDiscount.Rows[e.RowIndex].Cells[2].Value.ToString());//for editing criteria
+                    //discount.Delete();
+
+                    //discount.LoadDataTable(dgvDiscount);
+                    MessageBox.Show("Billing");
+                }
+                else
+                {
+                    return;
+                }
+            }
+
+            else if (e.ColumnIndex == 2)
+            {
+                string message = "Do you want to promote the Student?";
+                string title = "Enrollment System";
+
+                MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                DialogResult result = MessageBox.Show(message, title, buttons, MessageBoxIcon.Warning);
+
+                if (result == DialogResult.Yes)
+                {
+                    //Discount discount = new Discount();
+                    //discount.Id = Convert.ToInt32(dgvDiscount.Rows[e.RowIndex].Cells[2].Value.ToString());//for editing criteria
+                    //discount.Delete();
+
+                    //discount.LoadDataTable(dgvDiscount);
+                    MessageBox.Show("Enrollment");
+                }
+                else
+                {
+                    return;
+                }
+            }
         }
     }
 }
