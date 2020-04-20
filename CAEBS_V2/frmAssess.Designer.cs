@@ -62,6 +62,9 @@
             this.dgvOtherFee = new System.Windows.Forms.DataGridView();
             this.lblOtherFee = new System.Windows.Forms.Label();
             this.OtherFeew = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvTuition = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblTuition = new System.Windows.Forms.Label();
             this.pnlTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAssessment)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -69,6 +72,7 @@
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMiscFee)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOtherFee)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTuition)).BeginInit();
             this.SuspendLayout();
             // 
             // label8
@@ -478,11 +482,46 @@
             this.OtherFeew.Name = "OtherFeew";
             this.OtherFeew.ReadOnly = true;
             // 
+            // dgvTuition
+            // 
+            this.dgvTuition.AllowUserToAddRows = false;
+            this.dgvTuition.AllowUserToDeleteRows = false;
+            this.dgvTuition.BackgroundColor = System.Drawing.Color.White;
+            this.dgvTuition.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTuition.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1});
+            this.dgvTuition.GridColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.dgvTuition.Location = new System.Drawing.Point(435, 272);
+            this.dgvTuition.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.dgvTuition.Name = "dgvTuition";
+            this.dgvTuition.ReadOnly = true;
+            this.dgvTuition.RowHeadersVisible = false;
+            this.dgvTuition.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvTuition.Size = new System.Drawing.Size(107, 301);
+            this.dgvTuition.TabIndex = 90;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "Tuition";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // lblTuition
+            // 
+            this.lblTuition.AutoSize = true;
+            this.lblTuition.Location = new System.Drawing.Point(486, 577);
+            this.lblTuition.Name = "lblTuition";
+            this.lblTuition.Size = new System.Drawing.Size(56, 18);
+            this.lblTuition.TabIndex = 91;
+            this.lblTuition.Text = "00,000.00";
+            // 
             // frmAssess
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1133, 716);
+            this.Controls.Add(this.lblTuition);
+            this.Controls.Add(this.dgvTuition);
             this.Controls.Add(this.lblOtherFee);
             this.Controls.Add(this.dgvOtherFee);
             this.Controls.Add(this.lblTotalMisc);
@@ -511,6 +550,7 @@
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMiscFee)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOtherFee)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTuition)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -552,5 +592,8 @@
         private System.Windows.Forms.DataGridView dgvOtherFee;
         private System.Windows.Forms.Label lblOtherFee;
         private System.Windows.Forms.DataGridViewTextBoxColumn OtherFeew;
+        private System.Windows.Forms.DataGridView dgvTuition;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.Label lblTuition;
     }
 }

@@ -27,9 +27,13 @@ namespace CAEBS_V2
         Strand strand = new Strand();
         List<Strand> strands = new List<Strand>();
 
+        Tuition tuition = new Tuition();
+        List<Tuition> listTuition = new List<Tuition>();
+
         private double TotalMiscFee;
         private double TotalOtherFee;
         private string LabFeeStatus;
+        private double TotalTuition;
 
         #region FEES
         public void LoadMiscFee()
@@ -79,6 +83,26 @@ namespace CAEBS_V2
                 TotalOtherFee += (Convert.ToDouble(dgvOtherFee.Rows[i].Cells[0].Value));
             }
                 lblOtherFee.Text = TotalOtherFee.ToString("n");            
+        }
+        
+        public void LoadTuition()
+        {
+            listTuition.Clear();
+            dgvTuition.Rows.Clear();
+            listTuition = tuition.Load();
+
+            foreach (var item in listTuition)
+            {
+                if (item.Dept.Equals("SHS"))
+                {
+                    dgvTuition.Rows.Add(item.Amount);
+                }                                          
+            }
+            for (int i = 0; i < dgvTuition.Rows.Count; i++)
+            {
+                TotalTuition += (Convert.ToDouble(dgvTuition.Rows[i].Cells[0].Value));
+            }
+            lblTuition.Text = TotalTuition.ToString("n");
         }
 
         #endregion

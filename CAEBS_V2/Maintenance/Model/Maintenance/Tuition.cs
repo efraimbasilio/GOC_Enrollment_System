@@ -28,6 +28,46 @@ namespace CAEBS_V2
 
         List<Tuition> listTuition = new List<Tuition>();
 
+        public List<Tuition> Load()
+        {
+            try
+            {
+                using (MySqlConnection con = new MySqlConnection(CAEBS_V2.Config.GetConnectionString()))
+                {
+                    con.Open();
+
+                    string sql = "SELECT * FROM tuition";
+
+                    MySqlCommand cmd = new MySqlCommand(sql, con);
+
+                    MySqlDataReader reader = cmd.ExecuteReader();
+
+                    //loop while have record
+                    while (reader.Read())
+                    {
+                        //instantiate model
+                        Tuition tuition = new Tuition();
+
+                        //prepare properties
+                        tuition.id = Convert.ToInt32(reader["id"].ToString());
+                        tuition.tuition_name = reader["tuition_name"].ToString();
+                        tuition.amount = reader["amount"].ToString();
+                        tuition.grade_level = reader["grade_level"].ToString();
+                        tuition.status = reader["status"].ToString();
+                        tuition.dept = reader["dept"].ToString();
+
+                        listTuition.Add(tuition);
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+
+                MessageBox.Show("ERROR : " + ex.ToString(), "Enrollment System", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return listTuition;
+        }
+
         public void LoadDataTable(DataGridView dgv)
         {
             try
