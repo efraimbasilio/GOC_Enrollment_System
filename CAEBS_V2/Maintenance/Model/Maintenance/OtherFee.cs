@@ -17,12 +17,15 @@ namespace CAEBS_V2
         protected string amount;
         protected string status;
         protected string dept;
+        protected string lab_fee;
+
 
         public int Id { get { return id; } set { id = value; } }
         public string Otherfee_name { get { return otherfee_name; } set { otherfee_name = value; } }
         public string Amount { get { return amount; } set { amount = value; } }
         public string Status { get { return status; } set { status = value; } }
         public string Dept { get { return dept; } set { dept = value; } }
+        public string Lab_fee { get { return lab_fee; } set { lab_fee = value; } }
 
         List<OtherFee> otherFees = new List<OtherFee>();
 
@@ -107,6 +110,7 @@ namespace CAEBS_V2
                         otherFee.otherfee_name = reader["otherfee_name"].ToString();
                         otherFee.amount = reader["amount"].ToString();                        
                         otherFee.status = reader["status"].ToString();
+                        otherFee.lab_fee = reader["lab_fee"].ToString();
 
                         otherFees.Add(otherFee);
 

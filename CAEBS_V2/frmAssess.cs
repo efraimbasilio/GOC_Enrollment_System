@@ -14,10 +14,76 @@ namespace CAEBS_V2
     {
         public string LRN, StudNo, FName, LName, MName, GLevel, Section, Strand;
         public int id;
+
         Register register = new Register();
         List<Register> ListRegister = new List<Register>();
-       
-       public void ToAssess()
+
+        MiscFee misc = new MiscFee();
+        List<MiscFee> listMiscFee = new List<MiscFee>();
+
+        OtherFee otherFee = new OtherFee();
+        List<OtherFee> listOtherFee = new List<OtherFee>();
+
+        Strand strand = new Strand();
+        List<Strand> strands = new List<Strand>();
+
+        private double TotalMiscFee;
+        private double TotalOtherFee;
+        private string LabFeeStatus;
+
+        #region FEES
+        public void LoadMiscFee()
+        {
+            misc.LoadDataTable(dgvMiscFee);
+            for (int i = 0; i < dgvMiscFee.Rows.Count; i++)
+            {
+                TotalMiscFee += (Convert.ToDouble(dgvMiscFee.Rows[i].Cells[2].Value));            
+            }
+            lblTotalMisc.Text = TotalMiscFee.ToString("n");
+        }
+
+        public void FilterStrand(string Strand)
+        {
+            strands.Clear();
+            strands = strand.Load();
+            foreach (var item in strands)
+            {
+                if (item.Strand_name.Equals(Strand))
+                {
+                    LabFeeStatus = item.Lab_fee;
+                }                
+            }
+            
+        }
+
+        public void LoadOtherFee()
+        {            
+            listOtherFee.Clear();
+            dgvOtherFee.Rows.Clear();
+            listOtherFee = otherFee.Load();
+
+            foreach (var item in listOtherFee)
+            {
+                if (item.Lab_fee.Equals("0") && LabFeeStatus.Equals("0"))
+                {
+                    dgvOtherFee.Rows.Add(item.Amount);
+                }
+                else if (LabFeeStatus.Equals("1") )
+                {                                
+                    dgvOtherFee.Rows.Add(item.Amount);
+                }
+            }
+
+            for (int i = 0; i < dgvOtherFee.Rows.Count; i++)
+            {
+                TotalOtherFee += (Convert.ToDouble(dgvOtherFee.Rows[i].Cells[0].Value));
+            }
+                lblOtherFee.Text = TotalOtherFee.ToString("n");            
+        }
+
+        #endregion
+
+        public void ToAssess()
         {
             lblLRN.Text = LRN;
             lblStudNo.Text = StudNo;
@@ -30,6 +96,8 @@ namespace CAEBS_V2
         public frmAssess()
         {
             InitializeComponent();
+
+            LoadMiscFee();
         }
 
 

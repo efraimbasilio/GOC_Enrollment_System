@@ -131,6 +131,7 @@
     </Compile>
     <Compile Include="Maintenance\Model\Maintenance\GradeLevel.cs" />
     <Compile Include="PaymentLog.cs" />
+    <Compile Include="Strand.cs" />
     <Compile Include="SubReport_RegAdminCopy.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

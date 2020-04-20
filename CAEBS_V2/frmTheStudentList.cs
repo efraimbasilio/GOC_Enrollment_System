@@ -117,6 +117,8 @@ namespace CAEBS_V2
             }
 
             frm_assess.ToAssess();
+            frm_assess.FilterStrand(frm_assess.Strand);
+            frm_assess.LoadOtherFee();
 
             #region Call Form       
             frmMain mainwin = (frmMain)Application.OpenForms["frmMain"];

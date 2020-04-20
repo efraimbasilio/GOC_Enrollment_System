@@ -49,21 +49,26 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label14 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.cmbMOP = new System.Windows.Forms.ComboBox();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.label19 = new System.Windows.Forms.Label();
             this.listBox4 = new System.Windows.Forms.ListBox();
-            this.cmbMOP = new System.Windows.Forms.ComboBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvMiscFee = new System.Windows.Forms.DataGridView();
+            this.lblTotalMisc = new System.Windows.Forms.Label();
+            this.dgvOtherFee = new System.Windows.Forms.DataGridView();
+            this.lblOtherFee = new System.Windows.Forms.Label();
+            this.OtherFeew = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAssessment)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMiscFee)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvOtherFee)).BeginInit();
             this.SuspendLayout();
             // 
             // label8
@@ -319,6 +324,25 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Billing Information";
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(15, 41);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(99, 18);
+            this.label7.TabIndex = 85;
+            this.label7.Text = "Mode of Payment:";
+            // 
+            // cmbMOP
+            // 
+            this.cmbMOP.FormattingEnabled = true;
+            this.cmbMOP.Location = new System.Drawing.Point(119, 38);
+            this.cmbMOP.Name = "cmbMOP";
+            this.cmbMOP.Size = new System.Drawing.Size(122, 26);
+            this.cmbMOP.TabIndex = 84;
+            // 
             // label16
             // 
             this.label16.AutoSize = true;
@@ -396,47 +420,73 @@
             this.listBox4.Size = new System.Drawing.Size(113, 220);
             this.listBox4.TabIndex = 82;
             // 
-            // cmbMOP
+            // dgvMiscFee
             // 
-            this.cmbMOP.FormattingEnabled = true;
-            this.cmbMOP.Location = new System.Drawing.Point(119, 38);
-            this.cmbMOP.Name = "cmbMOP";
-            this.cmbMOP.Size = new System.Drawing.Size(122, 26);
-            this.cmbMOP.TabIndex = 84;
+            this.dgvMiscFee.AllowUserToAddRows = false;
+            this.dgvMiscFee.AllowUserToDeleteRows = false;
+            this.dgvMiscFee.BackgroundColor = System.Drawing.Color.White;
+            this.dgvMiscFee.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvMiscFee.GridColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.dgvMiscFee.Location = new System.Drawing.Point(657, 273);
+            this.dgvMiscFee.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.dgvMiscFee.Name = "dgvMiscFee";
+            this.dgvMiscFee.ReadOnly = true;
+            this.dgvMiscFee.RowHeadersVisible = false;
+            this.dgvMiscFee.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvMiscFee.Size = new System.Drawing.Size(107, 301);
+            this.dgvMiscFee.TabIndex = 86;
             // 
-            // label7
+            // lblTotalMisc
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(15, 41);
-            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(99, 18);
-            this.label7.TabIndex = 85;
-            this.label7.Text = "Mode of Payment:";
+            this.lblTotalMisc.AutoSize = true;
+            this.lblTotalMisc.Location = new System.Drawing.Point(707, 577);
+            this.lblTotalMisc.Name = "lblTotalMisc";
+            this.lblTotalMisc.Size = new System.Drawing.Size(56, 18);
+            this.lblTotalMisc.TabIndex = 87;
+            this.lblTotalMisc.Text = "00,000.00";
             // 
-            // dataGridView1
+            // dgvOtherFee
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.GridColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.dataGridView1.Location = new System.Drawing.Point(443, 273);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(321, 301);
-            this.dataGridView1.TabIndex = 86;
+            this.dgvOtherFee.AllowUserToAddRows = false;
+            this.dgvOtherFee.AllowUserToDeleteRows = false;
+            this.dgvOtherFee.BackgroundColor = System.Drawing.Color.White;
+            this.dgvOtherFee.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvOtherFee.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.OtherFeew});
+            this.dgvOtherFee.GridColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.dgvOtherFee.Location = new System.Drawing.Point(546, 273);
+            this.dgvOtherFee.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.dgvOtherFee.Name = "dgvOtherFee";
+            this.dgvOtherFee.ReadOnly = true;
+            this.dgvOtherFee.RowHeadersVisible = false;
+            this.dgvOtherFee.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvOtherFee.Size = new System.Drawing.Size(107, 301);
+            this.dgvOtherFee.TabIndex = 88;
+            // 
+            // lblOtherFee
+            // 
+            this.lblOtherFee.AutoSize = true;
+            this.lblOtherFee.Location = new System.Drawing.Point(597, 577);
+            this.lblOtherFee.Name = "lblOtherFee";
+            this.lblOtherFee.Size = new System.Drawing.Size(56, 18);
+            this.lblOtherFee.TabIndex = 89;
+            this.lblOtherFee.Text = "00,000.00";
+            // 
+            // OtherFeew
+            // 
+            this.OtherFeew.HeaderText = "Other Fee";
+            this.OtherFeew.Name = "OtherFeew";
+            this.OtherFeew.ReadOnly = true;
             // 
             // frmAssess
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1133, 716);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.lblOtherFee);
+            this.Controls.Add(this.dgvOtherFee);
+            this.Controls.Add(this.lblTotalMisc);
+            this.Controls.Add(this.dgvMiscFee);
             this.Controls.Add(this.label19);
             this.Controls.Add(this.listBox4);
             this.Controls.Add(this.label18);
@@ -459,7 +509,8 @@
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMiscFee)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvOtherFee)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -496,6 +547,10 @@
         private System.Windows.Forms.Label lblStrand;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox cmbMOP;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvMiscFee;
+        private System.Windows.Forms.Label lblTotalMisc;
+        private System.Windows.Forms.DataGridView dgvOtherFee;
+        private System.Windows.Forms.Label lblOtherFee;
+        private System.Windows.Forms.DataGridViewTextBoxColumn OtherFeew;
     }
 }
