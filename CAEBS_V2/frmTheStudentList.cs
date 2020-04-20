@@ -14,6 +14,9 @@ namespace CAEBS_V2
     {
         Register register = new Register();
         frmNewStudent frm = new frmNewStudent();
+
+        frmAssess frm_assess = new frmAssess();
+
         List<Register> ListRegister = new List<Register>();
         Util_RequiredFields util = new Util_RequiredFields();
 
@@ -87,6 +90,44 @@ namespace CAEBS_V2
             dgvList.Columns[3].Width = 175;
            // dgvList.Columns[4].Width = 175;
             # endregion
+        }
+
+        public void PassToAssess()
+        {
+            //clear list
+            ListRegister.Clear();
+            //pass value
+
+            register.Id = Convert.ToInt32(dgvList.CurrentRow.Cells[3].FormattedValue.ToString());
+            frm_assess.id = Convert.ToInt32(dgvList.CurrentRow.Cells[3].FormattedValue.ToString());
+            // MessageBox.Show(dgvList.CurrentRow.Cells[3].FormattedValue.ToString());
+
+            ListRegister = register.GetById();
+
+            foreach (var item in ListRegister)
+            {
+                frm_assess.LRN = item.Lrn;
+                frm_assess.StudNo = item.Stud_no;
+                frm_assess.FName = item.First_name;
+                frm_assess.LName = item.Last_name;
+                frm_assess.MName = item.Middle_name;
+                frm_assess.GLevel = item.Grade_level;
+                frm_assess.Section = item.Section;
+                frm_assess.Strand = item.Strand;
+            }
+
+            frm_assess.ToAssess();
+
+            #region Call Form       
+            frmMain mainwin = (frmMain)Application.OpenForms["frmMain"];
+            mainwin.pnlAllContainer.Controls.Clear();
+
+            frm_assess.TopLevel = false;
+            frm_assess.AutoScroll = true;
+            mainwin.pnlAllContainer.Controls.Add(frm_assess);
+           // frm_assess.formToMaxSize();
+            frm_assess.Show();
+            #endregion
         }
 
         public void PassToEdit()
@@ -254,7 +295,20 @@ namespace CAEBS_V2
 
                 //btnAdd.Text = "&Update";//set button to Update    
 
-                MessageBox.Show("Assess" + id);
+                string message = "Do you want to proceed to Assessment?";
+                string title = "Enrollment System";
+
+                MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                DialogResult result = MessageBox.Show(message, title, buttons, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    PassToAssess();
+                }
+                else
+                {
+                    return;
+                }
             }
 
             else if (e.ColumnIndex == 1)
@@ -311,5 +365,6 @@ namespace CAEBS_V2
         }
     }
 }
+
 
 

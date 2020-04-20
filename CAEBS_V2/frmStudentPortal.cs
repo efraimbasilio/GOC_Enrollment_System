@@ -23,6 +23,8 @@ namespace CAEBS_V2
             frm.pnlRequirements.Visible = false;
             frm.optOldStudent.Enabled = false;
             frm.optTransferee.Enabled = false;
+
+            frm.forNewStudent = true;
             this.Dispose();
             frm.ShowDialog();
                         
