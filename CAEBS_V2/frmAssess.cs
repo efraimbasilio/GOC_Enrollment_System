@@ -36,6 +36,9 @@ namespace CAEBS_V2
         Voucher voucher = new Voucher();
         List<Voucher> vouchers = new List<Voucher>();
 
+        Book book = new Book();
+        List<Book> books = new List<Book>();
+
 
         Util_RequiredFields util = new Util_RequiredFields();
 
@@ -51,6 +54,9 @@ namespace CAEBS_V2
         private string VoucherAmount;
         private double DP;
         private double BOOK_FEE;
+        private string BookTitle;
+        private string Price;
+        private double TotalBooks;
 
 
         #region FEES
@@ -101,8 +107,26 @@ namespace CAEBS_V2
                 }
             }
         }
-        
 
+        public void FilterBook(string Strand, string Level)
+        {
+            books.Clear();
+            books = book.Load();
+            foreach (var item in books)
+            {
+                if (item.Strand.Equals(Strand) && item.Grade_level.Equals(Level))
+                {                   
+                    dgvBooks.Rows.Add(item.Title, item.Price);
+                }
+            }
+
+            for (int i = 0; i < dgvBooks.Rows.Count; i++)
+            {
+                TotalBooks += (Convert.ToDouble(dgvBooks.Rows[i].Cells[1].Value));
+            }
+
+            lblBooks.Text = TotalBooks.ToString("n");
+        }
 
         public void LoadOtherFee()
         {            
@@ -142,6 +166,25 @@ namespace CAEBS_V2
             lblTotalUniformFee.Text = total_all.ToString("n");
         }
 
+        private void txtDP_TextChanged(object sender, EventArgs e)
+        {
+            PassToCompute();
+            util.ValidateTextBoxDP(txtDP);
+        }
+
+        private void txtDP_Click(object sender, EventArgs e)
+        {
+            txtDP.SelectAll();
+        }
+
+        private void txtDP_Leave(object sender, EventArgs e)
+        {
+            //if (txtDP.Text.Equals("") || Convert.ToDouble(txtDP.Text) < 1000)
+            //{
+            //    txtDP.Text = "0.00";
+            //}
+        }
+
         private void dgvUniform_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             total_all = 0;
@@ -173,20 +216,21 @@ namespace CAEBS_V2
             }
             lblTuition.Text = TotalTuition.ToString("n");
         }
-
-
+        
         public void PassToCompute()
         {
             TotalFee = TotalMiscFee + TotalOtherFee + TotalTuition;
             dgvAssessment.Rows.Clear();
-            dgvAssessment.Rows.Add("TOTAL TUITION FEE", TotalFee);
-            dgvAssessment.Rows.Add("LESS: "+ lblVoucher.Text, "("+Convert.ToDouble(VoucherAmount)+")");
-            dgvAssessment.Rows.Add("", TotalFee - Convert.ToDouble(VoucherAmount));
-            dgvAssessment.Rows.Add("Downpayment", DP);
-            dgvAssessment.Rows.Add("TOTAL UNIFORM FEE", total_all);
-            dgvAssessment.Rows.Add("TOTAL BOOK FEE", BOOK_FEE);
-
-
+            dgvAssessment.Rows.Add("TUTION FEES", "");
+            dgvAssessment.Rows.Add("SHS Tuititon Fee", TotalFee);
+            dgvAssessment.Rows.Add("Less: "+ lblVoucher.Text, Convert.ToDouble(VoucherAmount));
+            dgvAssessment.Rows.Add("Downpayment", Convert.ToDouble(txtDP.Text));
+            dgvAssessment.Rows.Add("Remaining Balance", TotalFee - (Convert.ToDouble(VoucherAmount) + Convert.ToDouble(txtDP.Text)));
+            dgvAssessment.Rows.Add("", "");
+            dgvAssessment.Rows.Add("OTHER FEES", "");
+            dgvAssessment.Rows.Add("Uniform Fee", total_all);
+            dgvAssessment.Rows.Add("Book Fee", TotalBooks);
+            dgvAssessment.Rows.Add("Total Fee", total_all + TotalBooks);
         }
         #endregion
 
@@ -201,13 +245,13 @@ namespace CAEBS_V2
             lblVoucher.Text = Voucher;
         }
 
-       
-
+      
         public frmAssess()
         {
             InitializeComponent();
             LoadMiscFee();
             LoadUniform();
+           
         }
 
         private void label13_Click(object sender, EventArgs e)

@@ -119,6 +119,7 @@ namespace CAEBS_V2
 
             frm_assess.ToAssess();
             frm_assess.FilterStrand(frm_assess.Strand);
+            frm_assess.FilterBook(frm_assess.Strand,frm_assess.GLevel);
             frm_assess.FilterVoucher(frm_assess.Voucher);
 
             frm_assess.LoadOtherFee();
