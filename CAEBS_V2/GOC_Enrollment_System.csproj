@@ -72,6 +72,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Book.cs" />
     <Compile Include="Connection\Config.cs" />
     <Compile Include="CrystalReport_Connection.cs" />
     <Compile Include="frmOldStudent.cs">
