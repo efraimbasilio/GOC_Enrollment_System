@@ -272,6 +272,7 @@
     </Compile>
     <Compile Include="Maintenance\Model\Maintenance\Tuition.cs" />
     <Compile Include="Maintenance\Model\Maintenance\Users.cs" />
+    <Compile Include="Uniform.cs" />
     <Compile Include="Utilities\Util_RequiredFields.cs" />
     <Compile Include="ZCtr.cs" />
     <EmbeddedResource Include="frmAssess.resx">

@@ -28,6 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label8 = new System.Windows.Forms.Label();
             this.pnlTitle = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -36,6 +40,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.dgvAssessment = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblFullName = new System.Windows.Forms.Label();
             this.lblGLevel = new System.Windows.Forms.Label();
             this.lblSection = new System.Windows.Forms.Label();
@@ -43,7 +49,15 @@
             this.lblLRN = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lblStrand = new System.Windows.Forms.Label();
+            this.lblTuition = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
+            this.lblOtherFee = new System.Windows.Forms.Label();
+            this.dgvTuition = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblTotalMisc = new System.Windows.Forms.Label();
+            this.dgvOtherFee = new System.Windows.Forms.DataGridView();
+            this.OtherFeew = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvMiscFee = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -54,25 +68,28 @@
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
             this.label19 = new System.Windows.Forms.Label();
-            this.listBox4 = new System.Windows.Forms.ListBox();
-            this.dgvMiscFee = new System.Windows.Forms.DataGridView();
-            this.lblTotalMisc = new System.Windows.Forms.Label();
-            this.dgvOtherFee = new System.Windows.Forms.DataGridView();
-            this.lblOtherFee = new System.Windows.Forms.Label();
-            this.OtherFeew = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvTuition = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lblTuition = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvUniform = new System.Windows.Forms.DataGridView();
+            this.dgvUnif = new System.Windows.Forms.DataGridView();
+            this.lblTotalUniformFee = new System.Windows.Forms.Label();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnCompute = new System.Windows.Forms.Button();
             this.pnlTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAssessment)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTuition)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvOtherFee)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMiscFee)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvMiscFee)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvOtherFee)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTuition)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUniform)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUnif)).BeginInit();
             this.SuspendLayout();
             // 
             // label8
@@ -159,6 +176,9 @@
             this.dgvAssessment.AllowUserToDeleteRows = false;
             this.dgvAssessment.BackgroundColor = System.Drawing.Color.White;
             this.dgvAssessment.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAssessment.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2});
             this.dgvAssessment.GridColor = System.Drawing.SystemColors.ControlDarkDark;
             this.dgvAssessment.Location = new System.Drawing.Point(18, 79);
             this.dgvAssessment.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -168,6 +188,24 @@
             this.dgvAssessment.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvAssessment.Size = new System.Drawing.Size(321, 396);
             this.dgvAssessment.TabIndex = 16;
+            // 
+            // Column1
+            // 
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column1.HeaderText = "Description";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle17.Format = "C2";
+            dataGridViewCellStyle17.NullValue = null;
+            this.Column2.DefaultCellStyle = dataGridViewCellStyle17;
+            this.Column2.HeaderText = "Amount";
+            this.Column2.MinimumWidth = 10;
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
             // 
             // lblFullName
             // 
@@ -187,9 +225,9 @@
             this.lblGLevel.Location = new System.Drawing.Point(128, 113);
             this.lblGLevel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblGLevel.Name = "lblGLevel";
-            this.lblGLevel.Size = new System.Drawing.Size(67, 18);
+            this.lblGLevel.Size = new System.Drawing.Size(20, 18);
             this.lblGLevel.TabIndex = 18;
-            this.lblGLevel.Text = "Preparatory";
+            this.lblGLevel.Text = "11";
             // 
             // lblSection
             // 
@@ -209,9 +247,9 @@
             this.lblStudNo.Location = new System.Drawing.Point(125, 50);
             this.lblStudNo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblStudNo.Name = "lblStudNo";
-            this.lblStudNo.Size = new System.Drawing.Size(98, 18);
+            this.lblStudNo.Size = new System.Drawing.Size(32, 18);
             this.lblStudNo.TabIndex = 20;
-            this.lblStudNo.Text = "CAEBS-2020-0001";
+            this.lblStudNo.Text = "2020";
             // 
             // lblLRN
             // 
@@ -228,8 +266,14 @@
             // 
             this.groupBox1.Controls.Add(this.lblStrand);
             this.groupBox1.Controls.Add(this.lblLRN);
+            this.groupBox1.Controls.Add(this.lblTuition);
             this.groupBox1.Controls.Add(this.label15);
+            this.groupBox1.Controls.Add(this.lblOtherFee);
+            this.groupBox1.Controls.Add(this.dgvTuition);
+            this.groupBox1.Controls.Add(this.lblTotalMisc);
+            this.groupBox1.Controls.Add(this.dgvOtherFee);
             this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.dgvMiscFee);
             this.groupBox1.Controls.Add(this.lblStudNo);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.lblSection);
@@ -256,6 +300,15 @@
             this.lblStrand.TabIndex = 25;
             this.lblStrand.Text = "Section Maximus";
             // 
+            // lblTuition
+            // 
+            this.lblTuition.AutoSize = true;
+            this.lblTuition.Location = new System.Drawing.Point(465, 134);
+            this.lblTuition.Name = "lblTuition";
+            this.lblTuition.Size = new System.Drawing.Size(56, 18);
+            this.lblTuition.TabIndex = 91;
+            this.lblTuition.Text = "00,000.00";
+            // 
             // label15
             // 
             this.label15.AutoSize = true;
@@ -266,6 +319,88 @@
             this.label15.Size = new System.Drawing.Size(44, 18);
             this.label15.TabIndex = 24;
             this.label15.Text = "Strand:";
+            // 
+            // lblOtherFee
+            // 
+            this.lblOtherFee.AutoSize = true;
+            this.lblOtherFee.Location = new System.Drawing.Point(576, 134);
+            this.lblOtherFee.Name = "lblOtherFee";
+            this.lblOtherFee.Size = new System.Drawing.Size(56, 18);
+            this.lblOtherFee.TabIndex = 89;
+            this.lblOtherFee.Text = "00,000.00";
+            // 
+            // dgvTuition
+            // 
+            this.dgvTuition.AllowUserToAddRows = false;
+            this.dgvTuition.AllowUserToDeleteRows = false;
+            this.dgvTuition.BackgroundColor = System.Drawing.Color.White;
+            this.dgvTuition.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTuition.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1});
+            this.dgvTuition.GridColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.dgvTuition.Location = new System.Drawing.Point(524, 16);
+            this.dgvTuition.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.dgvTuition.Name = "dgvTuition";
+            this.dgvTuition.ReadOnly = true;
+            this.dgvTuition.RowHeadersVisible = false;
+            this.dgvTuition.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvTuition.Size = new System.Drawing.Size(107, 115);
+            this.dgvTuition.TabIndex = 90;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "Tuition";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // lblTotalMisc
+            // 
+            this.lblTotalMisc.AutoSize = true;
+            this.lblTotalMisc.Location = new System.Drawing.Point(686, 134);
+            this.lblTotalMisc.Name = "lblTotalMisc";
+            this.lblTotalMisc.Size = new System.Drawing.Size(56, 18);
+            this.lblTotalMisc.TabIndex = 87;
+            this.lblTotalMisc.Text = "00,000.00";
+            // 
+            // dgvOtherFee
+            // 
+            this.dgvOtherFee.AllowUserToAddRows = false;
+            this.dgvOtherFee.AllowUserToDeleteRows = false;
+            this.dgvOtherFee.BackgroundColor = System.Drawing.Color.White;
+            this.dgvOtherFee.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvOtherFee.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.OtherFeew});
+            this.dgvOtherFee.GridColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.dgvOtherFee.Location = new System.Drawing.Point(635, 16);
+            this.dgvOtherFee.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.dgvOtherFee.Name = "dgvOtherFee";
+            this.dgvOtherFee.ReadOnly = true;
+            this.dgvOtherFee.RowHeadersVisible = false;
+            this.dgvOtherFee.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvOtherFee.Size = new System.Drawing.Size(107, 115);
+            this.dgvOtherFee.TabIndex = 88;
+            // 
+            // OtherFeew
+            // 
+            this.OtherFeew.HeaderText = "Other Fee";
+            this.OtherFeew.Name = "OtherFeew";
+            this.OtherFeew.ReadOnly = true;
+            // 
+            // dgvMiscFee
+            // 
+            this.dgvMiscFee.AllowUserToAddRows = false;
+            this.dgvMiscFee.AllowUserToDeleteRows = false;
+            this.dgvMiscFee.BackgroundColor = System.Drawing.Color.White;
+            this.dgvMiscFee.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvMiscFee.GridColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.dgvMiscFee.Location = new System.Drawing.Point(413, 16);
+            this.dgvMiscFee.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.dgvMiscFee.Name = "dgvMiscFee";
+            this.dgvMiscFee.ReadOnly = true;
+            this.dgvMiscFee.RowHeadersVisible = false;
+            this.dgvMiscFee.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvMiscFee.Size = new System.Drawing.Size(107, 115);
+            this.dgvMiscFee.TabIndex = 86;
             // 
             // label3
             // 
@@ -296,7 +431,7 @@
             this.groupBox2.Controls.Add(this.label14);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.label13);
-            this.groupBox2.Location = new System.Drawing.Point(272, 671);
+            this.groupBox2.Location = new System.Drawing.Point(374, 651);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(294, 209);
             this.groupBox2.TabIndex = 24;
@@ -316,6 +451,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.dgvUnif);
             this.groupBox3.Controls.Add(this.label7);
             this.groupBox3.Controls.Add(this.cmbMOP);
             this.groupBox3.Controls.Add(this.label16);
@@ -374,162 +510,150 @@
             this.label18.AutoSize = true;
             this.label18.BackColor = System.Drawing.Color.Transparent;
             this.label18.Font = new System.Drawing.Font("Roboto Condensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(11, 637);
+            this.label18.Location = new System.Drawing.Point(11, 273);
             this.label18.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(103, 20);
             this.label18.TabIndex = 79;
             this.label18.Text = "Available Books:";
             // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 18;
-            this.listBox1.Items.AddRange(new object[] {
-            "Book 1",
-            "Book 2",
-            "Book 3",
-            "Book 4",
-            "Book 5",
-            "Book 6"});
-            this.listBox1.Location = new System.Drawing.Point(12, 660);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(120, 220);
-            this.listBox1.TabIndex = 78;
-            // 
             // label19
             // 
             this.label19.AutoSize = true;
             this.label19.BackColor = System.Drawing.Color.Transparent;
             this.label19.Font = new System.Drawing.Font("Roboto Condensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(139, 637);
+            this.label19.Location = new System.Drawing.Point(370, 273);
             this.label19.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(114, 20);
             this.label19.TabIndex = 83;
             this.label19.Text = "Available Uniform:";
             // 
-            // listBox4
+            // dataGridView1
             // 
-            this.listBox4.FormattingEnabled = true;
-            this.listBox4.ItemHeight = 18;
-            this.listBox4.Items.AddRange(new object[] {
-            "Uniform A",
-            "Uniform B",
-            "Uniform C",
-            "Uniform D",
-            "Uniform E"});
-            this.listBox4.Location = new System.Drawing.Point(140, 660);
-            this.listBox4.Name = "listBox4";
-            this.listBox4.Size = new System.Drawing.Size(113, 220);
-            this.listBox4.TabIndex = 82;
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3});
+            this.dataGridView1.GridColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.dataGridView1.Location = new System.Drawing.Point(15, 296);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(192, 278);
+            this.dataGridView1.TabIndex = 86;
             // 
-            // dgvMiscFee
+            // dataGridViewTextBoxColumn2
             // 
-            this.dgvMiscFee.AllowUserToAddRows = false;
-            this.dgvMiscFee.AllowUserToDeleteRows = false;
-            this.dgvMiscFee.BackgroundColor = System.Drawing.Color.White;
-            this.dgvMiscFee.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMiscFee.GridColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.dgvMiscFee.Location = new System.Drawing.Point(657, 273);
-            this.dgvMiscFee.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.dgvMiscFee.Name = "dgvMiscFee";
-            this.dgvMiscFee.ReadOnly = true;
-            this.dgvMiscFee.RowHeadersVisible = false;
-            this.dgvMiscFee.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvMiscFee.Size = new System.Drawing.Size(107, 301);
-            this.dgvMiscFee.TabIndex = 86;
+            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn2.HeaderText = "Description";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
             // 
-            // lblTotalMisc
+            // dataGridViewTextBoxColumn3
             // 
-            this.lblTotalMisc.AutoSize = true;
-            this.lblTotalMisc.Location = new System.Drawing.Point(707, 577);
-            this.lblTotalMisc.Name = "lblTotalMisc";
-            this.lblTotalMisc.Size = new System.Drawing.Size(56, 18);
-            this.lblTotalMisc.TabIndex = 87;
-            this.lblTotalMisc.Text = "00,000.00";
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle18.Format = "C2";
+            dataGridViewCellStyle18.NullValue = null;
+            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle18;
+            this.dataGridViewTextBoxColumn3.HeaderText = "Amount";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
             // 
-            // dgvOtherFee
+            // dgvUniform
             // 
-            this.dgvOtherFee.AllowUserToAddRows = false;
-            this.dgvOtherFee.AllowUserToDeleteRows = false;
-            this.dgvOtherFee.BackgroundColor = System.Drawing.Color.White;
-            this.dgvOtherFee.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvOtherFee.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.OtherFeew});
-            this.dgvOtherFee.GridColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.dgvOtherFee.Location = new System.Drawing.Point(546, 273);
-            this.dgvOtherFee.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.dgvOtherFee.Name = "dgvOtherFee";
-            this.dgvOtherFee.ReadOnly = true;
-            this.dgvOtherFee.RowHeadersVisible = false;
-            this.dgvOtherFee.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvOtherFee.Size = new System.Drawing.Size(107, 301);
-            this.dgvOtherFee.TabIndex = 88;
+            this.dgvUniform.AllowUserToAddRows = false;
+            this.dgvUniform.AllowUserToDeleteRows = false;
+            this.dgvUniform.BackgroundColor = System.Drawing.Color.White;
+            this.dgvUniform.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvUniform.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5,
+            this.Column3});
+            this.dgvUniform.GridColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.dgvUniform.Location = new System.Drawing.Point(374, 296);
+            this.dgvUniform.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.dgvUniform.Name = "dgvUniform";
+            this.dgvUniform.RowHeadersVisible = false;
+            this.dgvUniform.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.dgvUniform.Size = new System.Drawing.Size(380, 278);
+            this.dgvUniform.TabIndex = 92;
+            this.dgvUniform.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUniform_CellEndEdit);
             // 
-            // lblOtherFee
+            // dgvUnif
             // 
-            this.lblOtherFee.AutoSize = true;
-            this.lblOtherFee.Location = new System.Drawing.Point(597, 577);
-            this.lblOtherFee.Name = "lblOtherFee";
-            this.lblOtherFee.Size = new System.Drawing.Size(56, 18);
-            this.lblOtherFee.TabIndex = 89;
-            this.lblOtherFee.Text = "00,000.00";
+            this.dgvUnif.AllowUserToAddRows = false;
+            this.dgvUnif.AllowUserToDeleteRows = false;
+            this.dgvUnif.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvUnif.Location = new System.Drawing.Point(18, 579);
+            this.dgvUnif.Name = "dgvUnif";
+            this.dgvUnif.RowHeadersVisible = false;
+            this.dgvUnif.Size = new System.Drawing.Size(380, 61);
+            this.dgvUnif.TabIndex = 93;
+            this.dgvUnif.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUnif_CellContentClick);
             // 
-            // OtherFeew
+            // lblTotalUniformFee
             // 
-            this.OtherFeew.HeaderText = "Other Fee";
-            this.OtherFeew.Name = "OtherFeew";
-            this.OtherFeew.ReadOnly = true;
+            this.lblTotalUniformFee.AutoSize = true;
+            this.lblTotalUniformFee.Location = new System.Drawing.Point(698, 275);
+            this.lblTotalUniformFee.Name = "lblTotalUniformFee";
+            this.lblTotalUniformFee.Size = new System.Drawing.Size(56, 18);
+            this.lblTotalUniformFee.TabIndex = 92;
+            this.lblTotalUniformFee.Text = "00,000.00";
             // 
-            // dgvTuition
+            // dataGridViewTextBoxColumn4
             // 
-            this.dgvTuition.AllowUserToAddRows = false;
-            this.dgvTuition.AllowUserToDeleteRows = false;
-            this.dgvTuition.BackgroundColor = System.Drawing.Color.White;
-            this.dgvTuition.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTuition.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1});
-            this.dgvTuition.GridColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.dgvTuition.Location = new System.Drawing.Point(435, 272);
-            this.dgvTuition.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.dgvTuition.Name = "dgvTuition";
-            this.dgvTuition.ReadOnly = true;
-            this.dgvTuition.RowHeadersVisible = false;
-            this.dgvTuition.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvTuition.Size = new System.Drawing.Size(107, 301);
-            this.dgvTuition.TabIndex = 90;
+            this.dataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.dataGridViewTextBoxColumn4.Frozen = true;
+            this.dataGridViewTextBoxColumn4.HeaderText = "Description";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.Width = 177;
             // 
-            // dataGridViewTextBoxColumn1
+            // dataGridViewTextBoxColumn5
             // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "Tuition";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle19.Format = "C2";
+            dataGridViewCellStyle19.NullValue = null;
+            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle19;
+            this.dataGridViewTextBoxColumn5.Frozen = true;
+            this.dataGridViewTextBoxColumn5.HeaderText = "Amount";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
             // 
-            // lblTuition
+            // Column3
             // 
-            this.lblTuition.AutoSize = true;
-            this.lblTuition.Location = new System.Drawing.Point(486, 577);
-            this.lblTuition.Name = "lblTuition";
-            this.lblTuition.Size = new System.Drawing.Size(56, 18);
-            this.lblTuition.TabIndex = 91;
-            this.lblTuition.Text = "00,000.00";
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.Column3.DefaultCellStyle = dataGridViewCellStyle20;
+            this.Column3.HeaderText = "Qty";
+            this.Column3.Name = "Column3";
+            // 
+            // btnCompute
+            // 
+            this.btnCompute.Location = new System.Drawing.Point(678, 544);
+            this.btnCompute.Name = "btnCompute";
+            this.btnCompute.Size = new System.Drawing.Size(75, 28);
+            this.btnCompute.TabIndex = 93;
+            this.btnCompute.Text = "Compute";
+            this.btnCompute.UseVisualStyleBackColor = true;
+            this.btnCompute.Click += new System.EventHandler(this.btnCompute_Click);
             // 
             // frmAssess
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1133, 716);
-            this.Controls.Add(this.lblTuition);
-            this.Controls.Add(this.dgvTuition);
-            this.Controls.Add(this.lblOtherFee);
-            this.Controls.Add(this.dgvOtherFee);
-            this.Controls.Add(this.lblTotalMisc);
-            this.Controls.Add(this.dgvMiscFee);
+            this.Controls.Add(this.btnCompute);
+            this.Controls.Add(this.lblTotalUniformFee);
+            this.Controls.Add(this.dgvUniform);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label19);
-            this.Controls.Add(this.listBox4);
             this.Controls.Add(this.label18);
-            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -544,13 +668,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvAssessment)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTuition)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvOtherFee)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMiscFee)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvMiscFee)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvOtherFee)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTuition)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUniform)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUnif)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -581,9 +708,7 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.ListBox listBox4;
         private System.Windows.Forms.Label lblStrand;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox cmbMOP;
@@ -595,5 +720,17 @@
         private System.Windows.Forms.DataGridView dgvTuition;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.Label lblTuition;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridView dgvUniform;
+        private System.Windows.Forms.DataGridView dgvUnif;
+        private System.Windows.Forms.Label lblTotalUniformFee;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.Button btnCompute;
     }
 }

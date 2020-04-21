@@ -120,6 +120,7 @@ namespace CAEBS_V2
             frm_assess.FilterStrand(frm_assess.Strand);
             frm_assess.LoadOtherFee();
             frm_assess.LoadTuition();
+            frm_assess.PassToCompute();
 
             #region Call Form       
             frmMain mainwin = (frmMain)Application.OpenForms["frmMain"];

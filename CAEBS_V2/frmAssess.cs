@@ -30,12 +30,35 @@ namespace CAEBS_V2
         Tuition tuition = new Tuition();
         List<Tuition> listTuition = new List<Tuition>();
 
+        Uniform uniform = new Uniform();
+        List<Uniform> listUniform = new List<Uniform>();
+
+        Util_RequiredFields util = new Util_RequiredFields();
+
         private double TotalMiscFee;
         private double TotalOtherFee;
         private string LabFeeStatus;
         private double TotalTuition;
+        private double TotalFee;
+        private double TotalUniformFee;
+        private double Total_1;
+        private double Total_sum;
+        private double total_all;
+
 
         #region FEES
+        public void LoadUniform()
+        {
+            listUniform.Clear();
+            dgvUniform.Rows.Clear();
+            listUniform = uniform.Load();
+
+            foreach (var item in listUniform)
+            {
+                dgvUniform.Rows.Add(item.Item_name, item.Price, "0");                
+            }           
+        }
+
         public void LoadMiscFee()
         {
             misc.LoadDataTable(dgvMiscFee);
@@ -84,7 +107,32 @@ namespace CAEBS_V2
             }
                 lblOtherFee.Text = TotalOtherFee.ToString("n");            
         }
-        
+
+        private void btnCompute_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < dgvUniform.Rows.Count; i++)
+            {
+                if (Convert.ToInt32(dgvUniform.Rows[i].Cells[2].Value) > 0 )
+                {                    
+                    Total_1 = Convert.ToDouble(dgvUniform.Rows[i].Cells[1].Value) * Convert.ToDouble(dgvUniform.Rows[i].Cells[2].Value);            
+                    total_all += Total_1;                    
+                }                              
+            }   
+            lblTotalUniformFee.Text = total_all.ToString("n");
+        }
+
+        private void dgvUniform_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            total_all = 0;
+            btnCompute.PerformClick();
+            PassToCompute();
+        }
+
+        private void dgvUnif_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+        }
+
         public void LoadTuition()
         {
             listTuition.Clear();
@@ -105,6 +153,15 @@ namespace CAEBS_V2
             lblTuition.Text = TotalTuition.ToString("n");
         }
 
+
+        public void PassToCompute()
+        {
+            TotalFee = TotalMiscFee + TotalOtherFee + TotalTuition;
+            dgvAssessment.Rows.Clear();
+            dgvAssessment.Rows.Add("TOTAL TUITION FEE", TotalFee);
+            dgvAssessment.Rows.Add("TOTAL UNIFORM FEE", total_all);
+
+        }
         #endregion
 
         public void ToAssess()
@@ -117,13 +174,14 @@ namespace CAEBS_V2
             lblStrand.Text = Strand;
         }
 
+       
+
         public frmAssess()
         {
             InitializeComponent();
-
             LoadMiscFee();
+            LoadUniform();
         }
-
 
         private void label13_Click(object sender, EventArgs e)
         {
