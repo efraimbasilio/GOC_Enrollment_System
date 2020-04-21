@@ -12,7 +12,7 @@ namespace CAEBS_V2
 {
     public partial class frmAssess : Form
     {
-        public string LRN, StudNo, FName, LName, MName, GLevel, Section, Strand;
+        public string LRN, StudNo, FName, LName, MName, GLevel, Section, Strand, Voucher;
         public int id;
 
         Register register = new Register();
@@ -33,6 +33,10 @@ namespace CAEBS_V2
         Uniform uniform = new Uniform();
         List<Uniform> listUniform = new List<Uniform>();
 
+        Voucher voucher = new Voucher();
+        List<Voucher> vouchers = new List<Voucher>();
+
+
         Util_RequiredFields util = new Util_RequiredFields();
 
         private double TotalMiscFee;
@@ -44,6 +48,9 @@ namespace CAEBS_V2
         private double Total_1;
         private double Total_sum;
         private double total_all;
+        private string VoucherAmount;
+        private double DP;
+        private double BOOK_FEE;
 
 
         #region FEES
@@ -79,9 +86,23 @@ namespace CAEBS_V2
                 {
                     LabFeeStatus = item.Lab_fee;
                 }                
-            }
-            
+            }            
         }
+
+        public void FilterVoucher(string Voucher)
+        {
+            vouchers.Clear();
+            vouchers = voucher.Load();
+            foreach (var item in vouchers)
+            {
+                if (item.Voucher_from.Equals(Voucher))
+                {
+                    VoucherAmount = item.Voucher_amount;
+                }
+            }
+        }
+        
+
 
         public void LoadOtherFee()
         {            
@@ -159,7 +180,12 @@ namespace CAEBS_V2
             TotalFee = TotalMiscFee + TotalOtherFee + TotalTuition;
             dgvAssessment.Rows.Clear();
             dgvAssessment.Rows.Add("TOTAL TUITION FEE", TotalFee);
+            dgvAssessment.Rows.Add("LESS: "+ lblVoucher.Text, "("+Convert.ToDouble(VoucherAmount)+")");
+            dgvAssessment.Rows.Add("", TotalFee - Convert.ToDouble(VoucherAmount));
+            dgvAssessment.Rows.Add("Downpayment", DP);
             dgvAssessment.Rows.Add("TOTAL UNIFORM FEE", total_all);
+            dgvAssessment.Rows.Add("TOTAL BOOK FEE", BOOK_FEE);
+
 
         }
         #endregion
@@ -172,6 +198,7 @@ namespace CAEBS_V2
             lblGLevel.Text = GLevel;
             lblSection.Text = Section;
             lblStrand.Text = Strand;
+            lblVoucher.Text = Voucher;
         }
 
        

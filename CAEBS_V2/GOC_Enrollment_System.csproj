@@ -274,6 +274,7 @@
     <Compile Include="Maintenance\Model\Maintenance\Users.cs" />
     <Compile Include="Uniform.cs" />
     <Compile Include="Utilities\Util_RequiredFields.cs" />
+    <Compile Include="Voucher.cs" />
     <Compile Include="ZCtr.cs" />
     <EmbeddedResource Include="frmAssess.resx">
       <DependentUpon>frmAssess.cs</DependentUpon>

@@ -325,6 +325,8 @@ namespace CAEBS_V2
             txtMiddleName.Text = middle_name;
             cmbGradeLevel.Text = grade_level;
             
+
+
             dtpBirthdate.Text = date_of_birth;
             txtBirthPlace.Text = place_of_birth;
             txtReligion.Text = religion;

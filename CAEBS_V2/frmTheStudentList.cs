@@ -114,10 +114,13 @@ namespace CAEBS_V2
                 frm_assess.GLevel = item.Grade_level;
                 frm_assess.Section = item.Section;
                 frm_assess.Strand = item.Strand;
+                frm_assess.Voucher = item.Voucher_type;
             }
 
             frm_assess.ToAssess();
             frm_assess.FilterStrand(frm_assess.Strand);
+            frm_assess.FilterVoucher(frm_assess.Voucher);
+
             frm_assess.LoadOtherFee();
             frm_assess.LoadTuition();
             frm_assess.PassToCompute();
@@ -162,6 +165,7 @@ namespace CAEBS_V2
                 frm.department = item.Department;             
                 frm.section = item.Section;               
                 frm.semester = item.Semester;
+              
                 frm.date_of_birth = item.Date_of_birth;
                 frm.place_of_birth = item.Place_of_birth;
                 frm.religion = item.Religion;

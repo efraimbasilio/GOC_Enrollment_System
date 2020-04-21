@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label8 = new System.Windows.Forms.Label();
             this.pnlTitle = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -63,6 +63,7 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label14 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.dgvUnif = new System.Windows.Forms.DataGridView();
             this.label7 = new System.Windows.Forms.Label();
             this.cmbMOP = new System.Windows.Forms.ComboBox();
             this.label16 = new System.Windows.Forms.Label();
@@ -73,12 +74,13 @@
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvUniform = new System.Windows.Forms.DataGridView();
-            this.dgvUnif = new System.Windows.Forms.DataGridView();
-            this.lblTotalUniformFee = new System.Windows.Forms.Label();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblTotalUniformFee = new System.Windows.Forms.Label();
             this.btnCompute = new System.Windows.Forms.Button();
+            this.lblVoucher = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.pnlTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAssessment)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -87,9 +89,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvMiscFee)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUnif)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUniform)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvUnif)).BeginInit();
             this.SuspendLayout();
             // 
             // label8
@@ -198,10 +200,10 @@
             // 
             // Column2
             // 
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle17.Format = "C2";
-            dataGridViewCellStyle17.NullValue = null;
-            this.Column2.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle1.Format = "C2";
+            dataGridViewCellStyle1.NullValue = null;
+            this.Column2.DefaultCellStyle = dataGridViewCellStyle1;
             this.Column2.HeaderText = "Amount";
             this.Column2.MinimumWidth = 10;
             this.Column2.Name = "Column2";
@@ -264,6 +266,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lblVoucher);
+            this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.lblStrand);
             this.groupBox1.Controls.Add(this.lblLRN);
             this.groupBox1.Controls.Add(this.lblTuition);
@@ -284,7 +288,7 @@
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Location = new System.Drawing.Point(12, 58);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(751, 209);
+            this.groupBox1.Size = new System.Drawing.Size(751, 244);
             this.groupBox1.TabIndex = 22;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Student Information";
@@ -431,7 +435,7 @@
             this.groupBox2.Controls.Add(this.label14);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.label13);
-            this.groupBox2.Location = new System.Drawing.Point(374, 651);
+            this.groupBox2.Location = new System.Drawing.Point(716, 637);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(294, 209);
             this.groupBox2.TabIndex = 24;
@@ -463,6 +467,18 @@
             this.groupBox3.TabIndex = 26;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Billing Information";
+            // 
+            // dgvUnif
+            // 
+            this.dgvUnif.AllowUserToAddRows = false;
+            this.dgvUnif.AllowUserToDeleteRows = false;
+            this.dgvUnif.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvUnif.Location = new System.Drawing.Point(18, 579);
+            this.dgvUnif.Name = "dgvUnif";
+            this.dgvUnif.RowHeadersVisible = false;
+            this.dgvUnif.Size = new System.Drawing.Size(380, 61);
+            this.dgvUnif.TabIndex = 93;
+            this.dgvUnif.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUnif_CellContentClick);
             // 
             // label7
             // 
@@ -510,7 +526,7 @@
             this.label18.AutoSize = true;
             this.label18.BackColor = System.Drawing.Color.Transparent;
             this.label18.Font = new System.Drawing.Font("Roboto Condensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(11, 273);
+            this.label18.Location = new System.Drawing.Point(11, 330);
             this.label18.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(103, 20);
@@ -522,7 +538,7 @@
             this.label19.AutoSize = true;
             this.label19.BackColor = System.Drawing.Color.Transparent;
             this.label19.Font = new System.Drawing.Font("Roboto Condensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(370, 273);
+            this.label19.Location = new System.Drawing.Point(370, 330);
             this.label19.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(114, 20);
@@ -539,7 +555,7 @@
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3});
             this.dataGridView1.GridColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.dataGridView1.Location = new System.Drawing.Point(15, 296);
+            this.dataGridView1.Location = new System.Drawing.Point(15, 353);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
@@ -557,10 +573,10 @@
             // 
             // dataGridViewTextBoxColumn3
             // 
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle18.Format = "C2";
-            dataGridViewCellStyle18.NullValue = null;
-            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle2.Format = "C2";
+            dataGridViewCellStyle2.NullValue = null;
+            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewTextBoxColumn3.HeaderText = "Amount";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
@@ -576,7 +592,7 @@
             this.dataGridViewTextBoxColumn5,
             this.Column3});
             this.dgvUniform.GridColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.dgvUniform.Location = new System.Drawing.Point(374, 296);
+            this.dgvUniform.Location = new System.Drawing.Point(374, 353);
             this.dgvUniform.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.dgvUniform.Name = "dgvUniform";
             this.dgvUniform.RowHeadersVisible = false;
@@ -584,27 +600,6 @@
             this.dgvUniform.Size = new System.Drawing.Size(380, 278);
             this.dgvUniform.TabIndex = 92;
             this.dgvUniform.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUniform_CellEndEdit);
-            // 
-            // dgvUnif
-            // 
-            this.dgvUnif.AllowUserToAddRows = false;
-            this.dgvUnif.AllowUserToDeleteRows = false;
-            this.dgvUnif.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvUnif.Location = new System.Drawing.Point(18, 579);
-            this.dgvUnif.Name = "dgvUnif";
-            this.dgvUnif.RowHeadersVisible = false;
-            this.dgvUnif.Size = new System.Drawing.Size(380, 61);
-            this.dgvUnif.TabIndex = 93;
-            this.dgvUnif.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUnif_CellContentClick);
-            // 
-            // lblTotalUniformFee
-            // 
-            this.lblTotalUniformFee.AutoSize = true;
-            this.lblTotalUniformFee.Location = new System.Drawing.Point(698, 275);
-            this.lblTotalUniformFee.Name = "lblTotalUniformFee";
-            this.lblTotalUniformFee.Size = new System.Drawing.Size(56, 18);
-            this.lblTotalUniformFee.TabIndex = 92;
-            this.lblTotalUniformFee.Text = "00,000.00";
             // 
             // dataGridViewTextBoxColumn4
             // 
@@ -617,10 +612,10 @@
             // 
             // dataGridViewTextBoxColumn5
             // 
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle19.Format = "C2";
-            dataGridViewCellStyle19.NullValue = null;
-            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle3.Format = "C2";
+            dataGridViewCellStyle3.NullValue = null;
+            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewTextBoxColumn5.Frozen = true;
             this.dataGridViewTextBoxColumn5.HeaderText = "Amount";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
@@ -628,20 +623,51 @@
             // 
             // Column3
             // 
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.Column3.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.Column3.DefaultCellStyle = dataGridViewCellStyle4;
             this.Column3.HeaderText = "Qty";
             this.Column3.Name = "Column3";
             // 
+            // lblTotalUniformFee
+            // 
+            this.lblTotalUniformFee.AutoSize = true;
+            this.lblTotalUniformFee.Location = new System.Drawing.Point(698, 332);
+            this.lblTotalUniformFee.Name = "lblTotalUniformFee";
+            this.lblTotalUniformFee.Size = new System.Drawing.Size(56, 18);
+            this.lblTotalUniformFee.TabIndex = 92;
+            this.lblTotalUniformFee.Text = "00,000.00";
+            // 
             // btnCompute
             // 
-            this.btnCompute.Location = new System.Drawing.Point(678, 544);
+            this.btnCompute.Location = new System.Drawing.Point(678, 601);
             this.btnCompute.Name = "btnCompute";
             this.btnCompute.Size = new System.Drawing.Size(75, 28);
             this.btnCompute.TabIndex = 93;
             this.btnCompute.Text = "Compute";
             this.btnCompute.UseVisualStyleBackColor = true;
             this.btnCompute.Click += new System.EventHandler(this.btnCompute_Click);
+            // 
+            // lblVoucher
+            // 
+            this.lblVoucher.AutoSize = true;
+            this.lblVoucher.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVoucher.Location = new System.Drawing.Point(127, 206);
+            this.lblVoucher.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblVoucher.Name = "lblVoucher";
+            this.lblVoucher.Size = new System.Drawing.Size(95, 18);
+            this.lblVoucher.TabIndex = 93;
+            this.lblVoucher.Text = "Section Maximus";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(5, 209);
+            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(79, 18);
+            this.label10.TabIndex = 92;
+            this.label10.Text = "Voucher Type:";
             // 
             // frmAssess
             // 
@@ -675,9 +701,9 @@
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUnif)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUniform)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvUnif)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -732,5 +758,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.Button btnCompute;
+        private System.Windows.Forms.Label lblVoucher;
+        private System.Windows.Forms.Label label10;
     }
 }
