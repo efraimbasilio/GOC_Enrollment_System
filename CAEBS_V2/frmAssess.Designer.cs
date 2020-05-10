@@ -28,12 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label8 = new System.Windows.Forms.Label();
             this.pnlTitle = new System.Windows.Forms.Panel();
+            this.lblTotalPayment = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -48,9 +50,11 @@
             this.lblStudNo = new System.Windows.Forms.Label();
             this.lblLRN = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblVoucher = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.lblStrand = new System.Windows.Forms.Label();
-            this.lblTuition = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
+            this.lblTuition = new System.Windows.Forms.Label();
             this.lblOtherFee = new System.Windows.Forms.Label();
             this.dgvTuition = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -63,28 +67,28 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label14 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.dgvUnif = new System.Windows.Forms.DataGridView();
+            this.txtToBilling = new System.Windows.Forms.Button();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtDP = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.cmbMOP = new System.Windows.Forms.ComboBox();
-            this.lblTotalPayment = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
+            this.dgvUnif = new System.Windows.Forms.DataGridView();
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.dgvBooks = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvUniform = new System.Windows.Forms.DataGridView();
+            this.lblTotalUniformFee = new System.Windows.Forms.Label();
+            this.btnCompute = new System.Windows.Forms.Button();
+            this.lblBooks = new System.Windows.Forms.Label();
+            this.chkOrderBook = new System.Windows.Forms.CheckBox();
+            this.chkOrderUniform = new System.Windows.Forms.CheckBox();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lblTotalUniformFee = new System.Windows.Forms.Label();
-            this.btnCompute = new System.Windows.Forms.Button();
-            this.lblVoucher = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.lblBooks = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.txtDP = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
+            this.Column4 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.pnlTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAssessment)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -114,12 +118,37 @@
             // 
             this.pnlTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(33)))), ((int)(((byte)(87)))));
             this.pnlTitle.Controls.Add(this.label8);
+            this.pnlTitle.Controls.Add(this.lblTotalPayment);
+            this.pnlTitle.Controls.Add(this.label17);
             this.pnlTitle.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlTitle.Location = new System.Drawing.Point(0, 0);
             this.pnlTitle.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.pnlTitle.Name = "pnlTitle";
             this.pnlTitle.Size = new System.Drawing.Size(1133, 52);
             this.pnlTitle.TabIndex = 5;
+            // 
+            // lblTotalPayment
+            // 
+            this.lblTotalPayment.AutoSize = true;
+            this.lblTotalPayment.Font = new System.Drawing.Font("Roboto Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalPayment.Location = new System.Drawing.Point(970, 12);
+            this.lblTotalPayment.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblTotalPayment.Name = "lblTotalPayment";
+            this.lblTotalPayment.Size = new System.Drawing.Size(138, 25);
+            this.lblTotalPayment.TabIndex = 25;
+            this.lblTotalPayment.Text = "Section Maximus";
+            this.lblTotalPayment.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Roboto Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(909, 12);
+            this.label17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(57, 25);
+            this.label17.TabIndex = 24;
+            this.label17.Text = "Total: ";
             // 
             // label1
             // 
@@ -193,8 +222,9 @@
             this.dgvAssessment.ReadOnly = true;
             this.dgvAssessment.RowHeadersVisible = false;
             this.dgvAssessment.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvAssessment.Size = new System.Drawing.Size(321, 396);
+            this.dgvAssessment.Size = new System.Drawing.Size(321, 339);
             this.dgvAssessment.TabIndex = 16;
+            this.dgvAssessment.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvAssessment_DataBindingComplete);
             // 
             // Column1
             // 
@@ -205,10 +235,10 @@
             // 
             // Column2
             // 
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle13.Format = "C2";
-            dataGridViewCellStyle13.NullValue = null;
-            this.Column2.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle1.Format = "C2";
+            dataGridViewCellStyle1.NullValue = null;
+            this.Column2.DefaultCellStyle = dataGridViewCellStyle1;
             this.Column2.HeaderText = "Amount";
             this.Column2.MinimumWidth = 10;
             this.Column2.Name = "Column2";
@@ -292,6 +322,28 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Student Information";
             // 
+            // lblVoucher
+            // 
+            this.lblVoucher.AutoSize = true;
+            this.lblVoucher.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVoucher.Location = new System.Drawing.Point(127, 206);
+            this.lblVoucher.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblVoucher.Name = "lblVoucher";
+            this.lblVoucher.Size = new System.Drawing.Size(95, 18);
+            this.lblVoucher.TabIndex = 93;
+            this.lblVoucher.Text = "Section Maximus";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(5, 209);
+            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(79, 18);
+            this.label10.TabIndex = 92;
+            this.label10.Text = "Voucher Type:";
+            // 
             // lblStrand
             // 
             this.lblStrand.AutoSize = true;
@@ -302,15 +354,6 @@
             this.lblStrand.Size = new System.Drawing.Size(95, 18);
             this.lblStrand.TabIndex = 25;
             this.lblStrand.Text = "Section Maximus";
-            // 
-            // lblTuition
-            // 
-            this.lblTuition.AutoSize = true;
-            this.lblTuition.Location = new System.Drawing.Point(389, 535);
-            this.lblTuition.Name = "lblTuition";
-            this.lblTuition.Size = new System.Drawing.Size(56, 18);
-            this.lblTuition.TabIndex = 91;
-            this.lblTuition.Text = "00,000.00";
             // 
             // label15
             // 
@@ -323,10 +366,19 @@
             this.label15.TabIndex = 24;
             this.label15.Text = "Strand:";
             // 
+            // lblTuition
+            // 
+            this.lblTuition.AutoSize = true;
+            this.lblTuition.Location = new System.Drawing.Point(319, 533);
+            this.lblTuition.Name = "lblTuition";
+            this.lblTuition.Size = new System.Drawing.Size(56, 18);
+            this.lblTuition.TabIndex = 91;
+            this.lblTuition.Text = "00,000.00";
+            // 
             // lblOtherFee
             // 
             this.lblOtherFee.AutoSize = true;
-            this.lblOtherFee.Location = new System.Drawing.Point(500, 535);
+            this.lblOtherFee.Location = new System.Drawing.Point(430, 533);
             this.lblOtherFee.Name = "lblOtherFee";
             this.lblOtherFee.Size = new System.Drawing.Size(56, 18);
             this.lblOtherFee.TabIndex = 89;
@@ -341,7 +393,7 @@
             this.dgvTuition.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1});
             this.dgvTuition.GridColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.dgvTuition.Location = new System.Drawing.Point(448, 417);
+            this.dgvTuition.Location = new System.Drawing.Point(410, 415);
             this.dgvTuition.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.dgvTuition.Name = "dgvTuition";
             this.dgvTuition.ReadOnly = true;
@@ -359,7 +411,7 @@
             // lblTotalMisc
             // 
             this.lblTotalMisc.AutoSize = true;
-            this.lblTotalMisc.Location = new System.Drawing.Point(610, 535);
+            this.lblTotalMisc.Location = new System.Drawing.Point(540, 533);
             this.lblTotalMisc.Name = "lblTotalMisc";
             this.lblTotalMisc.Size = new System.Drawing.Size(56, 18);
             this.lblTotalMisc.TabIndex = 87;
@@ -374,7 +426,7 @@
             this.dgvOtherFee.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.OtherFeew});
             this.dgvOtherFee.GridColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.dgvOtherFee.Location = new System.Drawing.Point(559, 417);
+            this.dgvOtherFee.Location = new System.Drawing.Point(521, 415);
             this.dgvOtherFee.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.dgvOtherFee.Name = "dgvOtherFee";
             this.dgvOtherFee.ReadOnly = true;
@@ -396,7 +448,7 @@
             this.dgvMiscFee.BackgroundColor = System.Drawing.Color.White;
             this.dgvMiscFee.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMiscFee.GridColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.dgvMiscFee.Location = new System.Drawing.Point(337, 417);
+            this.dgvMiscFee.Location = new System.Drawing.Point(299, 415);
             this.dgvMiscFee.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.dgvMiscFee.Name = "dgvMiscFee";
             this.dgvMiscFee.ReadOnly = true;
@@ -454,13 +506,12 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.txtToBilling);
             this.groupBox3.Controls.Add(this.label11);
             this.groupBox3.Controls.Add(this.txtDP);
             this.groupBox3.Controls.Add(this.label9);
             this.groupBox3.Controls.Add(this.label7);
-            this.groupBox3.Controls.Add(this.lblTotalPayment);
             this.groupBox3.Controls.Add(this.cmbMOP);
-            this.groupBox3.Controls.Add(this.label17);
             this.groupBox3.Controls.Add(this.dgvAssessment);
             this.groupBox3.Controls.Add(this.groupBox2);
             this.groupBox3.Controls.Add(this.dgvUnif);
@@ -471,17 +522,50 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Billing Information";
             // 
-            // dgvUnif
+            // txtToBilling
             // 
-            this.dgvUnif.AllowUserToAddRows = false;
-            this.dgvUnif.AllowUserToDeleteRows = false;
-            this.dgvUnif.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvUnif.Location = new System.Drawing.Point(21, 445);
-            this.dgvUnif.Name = "dgvUnif";
-            this.dgvUnif.RowHeadersVisible = false;
-            this.dgvUnif.Size = new System.Drawing.Size(307, 61);
-            this.dgvUnif.TabIndex = 93;
-            this.dgvUnif.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUnif_CellContentClick);
+            this.txtToBilling.Location = new System.Drawing.Point(271, 613);
+            this.txtToBilling.Name = "txtToBilling";
+            this.txtToBilling.Size = new System.Drawing.Size(75, 27);
+            this.txtToBilling.TabIndex = 97;
+            this.txtToBilling.Text = "&Next";
+            this.txtToBilling.UseVisualStyleBackColor = true;
+            this.txtToBilling.Click += new System.EventHandler(this.txtToBilling_Click);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Roboto Condensed", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(18, 128);
+            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(209, 32);
+            this.label11.TabIndex = 96;
+            this.label11.Text = "Note:\r\nMinimum Downpayment is 1,000.00 Pesos.";
+            // 
+            // txtDP
+            // 
+            this.txtDP.Location = new System.Drawing.Point(119, 35);
+            this.txtDP.Name = "txtDP";
+            this.txtDP.Size = new System.Drawing.Size(122, 25);
+            this.txtDP.TabIndex = 95;
+            this.txtDP.Text = "0.00";
+            this.txtDP.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtDP.Click += new System.EventHandler(this.txtDP_Click);
+            this.txtDP.TextChanged += new System.EventHandler(this.txtDP_TextChanged);
+            this.txtDP.Enter += new System.EventHandler(this.txtDP_Enter);
+            this.txtDP.Leave += new System.EventHandler(this.txtDP_Leave);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(15, 38);
+            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(83, 18);
+            this.label9.TabIndex = 94;
+            this.label9.Text = "DownPayment:";
             // 
             // label7
             // 
@@ -505,35 +589,24 @@
             this.cmbMOP.Size = new System.Drawing.Size(122, 26);
             this.cmbMOP.TabIndex = 84;
             // 
-            // lblTotalPayment
+            // dgvUnif
             // 
-            this.lblTotalPayment.AutoSize = true;
-            this.lblTotalPayment.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalPayment.Location = new System.Drawing.Point(244, 576);
-            this.lblTotalPayment.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblTotalPayment.Name = "lblTotalPayment";
-            this.lblTotalPayment.Size = new System.Drawing.Size(95, 18);
-            this.lblTotalPayment.TabIndex = 25;
-            this.lblTotalPayment.Text = "Section Maximus";
-            this.lblTotalPayment.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(201, 576);
-            this.label17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(39, 18);
-            this.label17.TabIndex = 24;
-            this.label17.Text = "Total: ";
+            this.dgvUnif.AllowUserToAddRows = false;
+            this.dgvUnif.AllowUserToDeleteRows = false;
+            this.dgvUnif.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvUnif.Location = new System.Drawing.Point(21, 445);
+            this.dgvUnif.Name = "dgvUnif";
+            this.dgvUnif.RowHeadersVisible = false;
+            this.dgvUnif.Size = new System.Drawing.Size(307, 61);
+            this.dgvUnif.TabIndex = 93;
+            this.dgvUnif.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUnif_CellContentClick);
             // 
             // label18
             // 
             this.label18.AutoSize = true;
             this.label18.BackColor = System.Drawing.Color.Transparent;
             this.label18.Font = new System.Drawing.Font("Roboto Condensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(82, 320);
+            this.label18.Location = new System.Drawing.Point(16, 318);
             this.label18.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(103, 20);
@@ -545,7 +618,7 @@
             this.label19.AutoSize = true;
             this.label19.BackColor = System.Drawing.Color.Transparent;
             this.label19.Font = new System.Drawing.Font("Roboto Condensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(306, 320);
+            this.label19.Location = new System.Drawing.Point(268, 320);
             this.label19.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(114, 20);
@@ -563,7 +636,7 @@
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3});
             this.dgvBooks.GridColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.dgvBooks.Location = new System.Drawing.Point(86, 343);
+            this.dgvBooks.Location = new System.Drawing.Point(20, 371);
             this.dgvBooks.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.dgvBooks.Name = "dgvBooks";
             this.dgvBooks.ReadOnly = true;
@@ -581,10 +654,10 @@
             // 
             // dataGridViewTextBoxColumn3
             // 
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle14.Format = "C2";
-            dataGridViewCellStyle14.NullValue = null;
-            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle2.Format = "C2";
+            dataGridViewCellStyle2.NullValue = null;
+            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewTextBoxColumn3.HeaderText = "Amount";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
@@ -599,16 +672,72 @@
             this.dgvUniform.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn4,
             this.dataGridViewTextBoxColumn5,
-            this.Column3});
+            this.Column3,
+            this.Column4});
+            this.dgvUniform.Enabled = false;
             this.dgvUniform.GridColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.dgvUniform.Location = new System.Drawing.Point(310, 343);
+            this.dgvUniform.Location = new System.Drawing.Point(272, 371);
             this.dgvUniform.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.dgvUniform.Name = "dgvUniform";
             this.dgvUniform.RowHeadersVisible = false;
             this.dgvUniform.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dgvUniform.Size = new System.Drawing.Size(380, 278);
+            this.dgvUniform.Size = new System.Drawing.Size(480, 278);
             this.dgvUniform.TabIndex = 92;
             this.dgvUniform.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUniform_CellEndEdit);
+            // 
+            // lblTotalUniformFee
+            // 
+            this.lblTotalUniformFee.AutoSize = true;
+            this.lblTotalUniformFee.Location = new System.Drawing.Point(696, 342);
+            this.lblTotalUniformFee.Name = "lblTotalUniformFee";
+            this.lblTotalUniformFee.Size = new System.Drawing.Size(56, 18);
+            this.lblTotalUniformFee.TabIndex = 92;
+            this.lblTotalUniformFee.Text = "00,000.00";
+            this.lblTotalUniformFee.Visible = false;
+            // 
+            // btnCompute
+            // 
+            this.btnCompute.Location = new System.Drawing.Point(544, 589);
+            this.btnCompute.Name = "btnCompute";
+            this.btnCompute.Size = new System.Drawing.Size(75, 28);
+            this.btnCompute.TabIndex = 93;
+            this.btnCompute.Text = "Compute";
+            this.btnCompute.UseVisualStyleBackColor = true;
+            this.btnCompute.Click += new System.EventHandler(this.btnCompute_Click);
+            // 
+            // lblBooks
+            // 
+            this.lblBooks.AutoSize = true;
+            this.lblBooks.Location = new System.Drawing.Point(156, 343);
+            this.lblBooks.Name = "lblBooks";
+            this.lblBooks.Size = new System.Drawing.Size(56, 18);
+            this.lblBooks.TabIndex = 94;
+            this.lblBooks.Text = "00,000.00";
+            this.lblBooks.Visible = false;
+            // 
+            // chkOrderBook
+            // 
+            this.chkOrderBook.AutoSize = true;
+            this.chkOrderBook.Location = new System.Drawing.Point(130, 318);
+            this.chkOrderBook.Name = "chkOrderBook";
+            this.chkOrderBook.Size = new System.Drawing.Size(87, 22);
+            this.chkOrderBook.TabIndex = 94;
+            this.chkOrderBook.Text = "Order Book?";
+            this.chkOrderBook.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.chkOrderBook.UseVisualStyleBackColor = true;
+            this.chkOrderBook.CheckedChanged += new System.EventHandler(this.chkOrderBook_CheckedChanged);
+            // 
+            // chkOrderUniform
+            // 
+            this.chkOrderUniform.AutoSize = true;
+            this.chkOrderUniform.Location = new System.Drawing.Point(650, 320);
+            this.chkOrderUniform.Name = "chkOrderUniform";
+            this.chkOrderUniform.Size = new System.Drawing.Size(102, 22);
+            this.chkOrderUniform.TabIndex = 95;
+            this.chkOrderUniform.Text = "Order Uniform?";
+            this.chkOrderUniform.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.chkOrderUniform.UseVisualStyleBackColor = true;
+            this.chkOrderUniform.CheckedChanged += new System.EventHandler(this.chkOrderUniform_CheckedChanged);
             // 
             // dataGridViewTextBoxColumn4
             // 
@@ -621,10 +750,10 @@
             // 
             // dataGridViewTextBoxColumn5
             // 
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle15.Format = "C2";
-            dataGridViewCellStyle15.NullValue = null;
-            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle3.Format = "C2";
+            dataGridViewCellStyle3.NullValue = null;
+            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewTextBoxColumn5.Frozen = true;
             this.dataGridViewTextBoxColumn5.HeaderText = "Amount";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
@@ -632,94 +761,27 @@
             // 
             // Column3
             // 
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.Column3.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.Column3.DefaultCellStyle = dataGridViewCellStyle4;
             this.Column3.HeaderText = "Qty";
             this.Column3.Name = "Column3";
             // 
-            // lblTotalUniformFee
+            // Column4
             // 
-            this.lblTotalUniformFee.AutoSize = true;
-            this.lblTotalUniformFee.Location = new System.Drawing.Point(634, 322);
-            this.lblTotalUniformFee.Name = "lblTotalUniformFee";
-            this.lblTotalUniformFee.Size = new System.Drawing.Size(56, 18);
-            this.lblTotalUniformFee.TabIndex = 92;
-            this.lblTotalUniformFee.Text = "00,000.00";
-            // 
-            // btnCompute
-            // 
-            this.btnCompute.Location = new System.Drawing.Point(614, 591);
-            this.btnCompute.Name = "btnCompute";
-            this.btnCompute.Size = new System.Drawing.Size(75, 28);
-            this.btnCompute.TabIndex = 93;
-            this.btnCompute.Text = "Compute";
-            this.btnCompute.UseVisualStyleBackColor = true;
-            this.btnCompute.Click += new System.EventHandler(this.btnCompute_Click);
-            // 
-            // lblVoucher
-            // 
-            this.lblVoucher.AutoSize = true;
-            this.lblVoucher.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVoucher.Location = new System.Drawing.Point(127, 206);
-            this.lblVoucher.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblVoucher.Name = "lblVoucher";
-            this.lblVoucher.Size = new System.Drawing.Size(95, 18);
-            this.lblVoucher.TabIndex = 93;
-            this.lblVoucher.Text = "Section Maximus";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(5, 209);
-            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(79, 18);
-            this.label10.TabIndex = 92;
-            this.label10.Text = "Voucher Type:";
-            // 
-            // lblBooks
-            // 
-            this.lblBooks.AutoSize = true;
-            this.lblBooks.Location = new System.Drawing.Point(222, 322);
-            this.lblBooks.Name = "lblBooks";
-            this.lblBooks.Size = new System.Drawing.Size(56, 18);
-            this.lblBooks.TabIndex = 94;
-            this.lblBooks.Text = "00,000.00";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(15, 38);
-            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(83, 18);
-            this.label9.TabIndex = 94;
-            this.label9.Text = "DownPayment:";
-            // 
-            // txtDP
-            // 
-            this.txtDP.Location = new System.Drawing.Point(119, 35);
-            this.txtDP.Name = "txtDP";
-            this.txtDP.Size = new System.Drawing.Size(122, 25);
-            this.txtDP.TabIndex = 95;
-            this.txtDP.Text = "0.00";
-            this.txtDP.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtDP.Click += new System.EventHandler(this.txtDP_Click);
-            this.txtDP.TextChanged += new System.EventHandler(this.txtDP_TextChanged);
-            this.txtDP.Leave += new System.EventHandler(this.txtDP_Leave);
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Roboto Condensed", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(18, 128);
-            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(209, 32);
-            this.label11.TabIndex = 96;
-            this.label11.Text = "Note:\r\nMinimum Downpayment is 1,000.00 Pesos.";
+            this.Column4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Column4.HeaderText = "Size";
+            this.Column4.Items.AddRange(new object[] {
+            "--",
+            "XS",
+            "S",
+            "M",
+            "L",
+            "XL",
+            "XXL",
+            "XXXL"});
+            this.Column4.Name = "Column4";
+            this.Column4.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column4.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // frmAssess
             // 
@@ -727,6 +789,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1133, 716);
+            this.Controls.Add(this.chkOrderUniform);
+            this.Controls.Add(this.chkOrderBook);
             this.Controls.Add(this.lblBooks);
             this.Controls.Add(this.lblTotalUniformFee);
             this.Controls.Add(this.dgvUniform);
@@ -813,9 +877,6 @@
         private System.Windows.Forms.DataGridView dgvUniform;
         private System.Windows.Forms.DataGridView dgvUnif;
         private System.Windows.Forms.Label lblTotalUniformFee;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.Button btnCompute;
         private System.Windows.Forms.Label lblVoucher;
         private System.Windows.Forms.Label label10;
@@ -823,5 +884,12 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtDP;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.CheckBox chkOrderBook;
+        private System.Windows.Forms.CheckBox chkOrderUniform;
+        private System.Windows.Forms.Button txtToBilling;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Column4;
     }
 }

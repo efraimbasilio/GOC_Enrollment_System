@@ -39,6 +39,9 @@ namespace CAEBS_V2
         Book book = new Book();
         List<Book> books = new List<Book>();
 
+        TransBookUnif transBUnif = new TransBookUnif();
+        List<TransBookUnif> transBUnifs = new List<TransBookUnif>();
+
 
         Util_RequiredFields util = new Util_RequiredFields();
 
@@ -57,6 +60,8 @@ namespace CAEBS_V2
         private string BookTitle;
         private string Price;
         private double TotalBooks;
+        private double totSum;
+        private double TutionPAY;
 
 
         #region FEES
@@ -69,7 +74,7 @@ namespace CAEBS_V2
             foreach (var item in listUniform)
             {
                 dgvUniform.Rows.Add(item.Item_name, item.Price, "0");                
-            }           
+            }            
         }
 
         public void LoadMiscFee()
@@ -167,9 +172,8 @@ namespace CAEBS_V2
         }
 
         private void txtDP_TextChanged(object sender, EventArgs e)
-        {
-            PassToCompute();
-            util.ValidateTextBoxDP(txtDP);
+        {            
+            PassToCompute();          
         }
 
         private void txtDP_Click(object sender, EventArgs e)
@@ -179,10 +183,103 @@ namespace CAEBS_V2
 
         private void txtDP_Leave(object sender, EventArgs e)
         {
-            //if (txtDP.Text.Equals("") || Convert.ToDouble(txtDP.Text) < 1000)
-            //{
-            //    txtDP.Text = "0.00";
-            //}
+           
+        }
+
+        private void dgvAssessment_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+          
+               
+        }
+
+        private void chkOrderUniform_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkOrderUniform.Checked == true)
+            {
+                string message = "Please input how many order and size?";
+                string title = "Enrollment System";
+
+                MessageBoxButtons buttons = MessageBoxButtons.OK;
+                DialogResult result = MessageBox.Show(message, title, buttons, MessageBoxIcon.Information);
+
+                dgvUniform.Enabled = true;
+                LoadUniform();               
+            }
+            else
+            {
+                string message = "Do you want to cancel the order?";
+                string title = "Enrollment System";
+
+                MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                DialogResult result = MessageBox.Show(message, title, buttons, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    //MessageBox.Show("Disabled");
+                    total_all = 0;
+                    LoadUniform();
+                    btnCompute.PerformClick();
+                    PassToCompute();
+                    dgvUniform.Enabled = false;
+                }
+                else
+                {
+                    return;
+                }
+               
+
+            }
+        }
+
+        private void chkOrderBook_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkOrderBook.Checked == true)
+            {
+                dgvBooks.Enabled = false;
+                dgvBooks.Rows.Clear();
+                FilterBook(Strand, GLevel);
+                PassToCompute();
+            }
+            else
+            {               
+                dgvBooks.Enabled = true;
+                TotalBooks = 0;
+                PassToCompute();
+            }
+        }
+
+        private void txtDP_Enter(object sender, EventArgs e)
+        {
+            PassToCompute();
+        }
+
+        private void txtToBilling_Click(object sender, EventArgs e)
+        {
+            util.ValidateTextBoxDP(txtDP);
+
+            for (int i = 0; i < dgvBooks.Rows.Count; i++)
+            {
+                MessageBox.Show(dgvBooks.Rows[i].Cells[0].Value.ToString() + " " + dgvBooks.Rows[i].Cells[1].Value.ToString());
+            }
+
+            for (int i = 0; i < dgvUniform.Rows.Count; i++)
+            {
+                if (Convert.ToInt32(dgvUniform.Rows[i].Cells[2].Value) > 0)
+                {
+                    transBUnif.Stud_no = lblStudNo.Text;
+                    transBUnif.Or_no = "";
+                    transBUnif.Book_title = "";
+                    transBUnif.Book_order = "";
+                    transBUnif.Unif_desc = dgvUniform.Rows[i].Cells[0].Value.ToString();
+                    transBUnif.Unif_qty = dgvUniform.Rows[i].Cells[2].Value.ToString();
+                    transBUnif.Unif_size = dgvUniform.Rows[i].Cells[3].Value.ToString();
+
+                    transBUnif.Save();
+                }                
+            }
+
+           
+
         }
 
         private void dgvUniform_CellEndEdit(object sender, DataGridViewCellEventArgs e)
@@ -224,13 +321,39 @@ namespace CAEBS_V2
             dgvAssessment.Rows.Add("TUTION FEES", "");
             dgvAssessment.Rows.Add("SHS Tuititon Fee", TotalFee);
             dgvAssessment.Rows.Add("Less: "+ lblVoucher.Text, Convert.ToDouble(VoucherAmount));
-            dgvAssessment.Rows.Add("Downpayment", Convert.ToDouble(txtDP.Text));
-            dgvAssessment.Rows.Add("Remaining Balance", TotalFee - (Convert.ToDouble(VoucherAmount) + Convert.ToDouble(txtDP.Text)));
+            dgvAssessment.Rows.Add("          Downpayment", Convert.ToDouble(txtDP.Text));
+
+            TutionPAY =  TotalFee - (Convert.ToDouble(VoucherAmount) + Convert.ToDouble(txtDP.Text));
+            dgvAssessment.Rows.Add("Balance", TutionPAY);
+
             dgvAssessment.Rows.Add("", "");
             dgvAssessment.Rows.Add("OTHER FEES", "");
             dgvAssessment.Rows.Add("Uniform Fee", total_all);
             dgvAssessment.Rows.Add("Book Fee", TotalBooks);
             dgvAssessment.Rows.Add("Total Fee", total_all + TotalBooks);
+            dgvAssessment.Rows.Add("", "");
+            dgvAssessment.Rows.Add("", "");
+            dgvAssessment.Rows[0].DefaultCellStyle.BackColor = Color.Navy;
+            dgvAssessment.Rows[0].DefaultCellStyle.ForeColor = Color.White;
+
+            dgvAssessment.Rows[6].DefaultCellStyle.BackColor = Color.Navy;
+            dgvAssessment.Rows[6].DefaultCellStyle.ForeColor = Color.White;
+
+            dgvAssessment.DefaultCellStyle.SelectionBackColor = Color.Navy;
+            util.DisableSort_DataGrid(dgvAssessment);
+            util.DisableSort_DataGrid(dgvBooks);
+            util.DisableSort_DataGrid(dgvUniform);
+
+
+           
+             totSum   = (total_all + TotalBooks + Convert.ToDouble(txtDP.Text));
+            lblTotalPayment.Text = totSum.ToString("n");
+            dgvAssessment.Rows.Add("Total Fees", totSum);
+            dgvAssessment.Rows[12].DefaultCellStyle.BackColor = Color.Navy;
+            dgvAssessment.Rows[12].DefaultCellStyle.ForeColor = Color.White;
+
+
+
         }
         #endregion
 
@@ -244,14 +367,12 @@ namespace CAEBS_V2
             lblStrand.Text = Strand;
             lblVoucher.Text = Voucher;
         }
-
-      
+     
         public frmAssess()
         {
             InitializeComponent();
             LoadMiscFee();
-            LoadUniform();
-           
+            LoadUniform();           
         }
 
         private void label13_Click(object sender, EventArgs e)

@@ -273,6 +273,8 @@
     </Compile>
     <Compile Include="Maintenance\Model\Maintenance\Tuition.cs" />
     <Compile Include="Maintenance\Model\Maintenance\Users.cs" />
+    <Compile Include="TransBookUnif.cs" />
+    <Compile Include="TransUniform.cs" />
     <Compile Include="Uniform.cs" />
     <Compile Include="Utilities\Util_RequiredFields.cs" />
     <Compile Include="Voucher.cs" />

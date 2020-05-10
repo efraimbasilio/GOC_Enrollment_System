@@ -10,6 +10,14 @@ namespace CAEBS_V2
     class Util_RequiredFields
     {
 
+        public void DisableSort_DataGrid(DataGridView dgv)
+        {
+            foreach (DataGridViewColumn column in dgv.Columns)
+            {
+                column.SortMode = DataGridViewColumnSortMode.NotSortable;
+            }           
+        }
+
         #region For Validation
 
         public int readyToSave;
@@ -99,9 +107,9 @@ namespace CAEBS_V2
             TextBox[] newTextBox = { one};
             for (int inti = 0; inti < newTextBox.Length; inti++)
             {
-                if (newTextBox[inti].Text == string.Empty)
+                if (newTextBox[inti].Text == string.Empty || Convert.ToDouble(newTextBox[inti].Text) < 1000 )
                 {
-                    MessageBox.Show("Please input the downpayment", "Enrollment System", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Downpayment is required,\nMinimun Downpayment is: 1,000 Pesos ", "Enrollment System", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     newTextBox[inti].Focus();
 
                     readyToSave = 0;
