@@ -62,7 +62,34 @@ namespace CAEBS_V2
         private double TotalBooks;
         private double totSum;
         private double TutionPAY;
+        private string sizeOrder;
+        private bool toSave;
 
+        #region Validation DGV
+        private void ValidateSizeOrder()
+        {
+            for (int i = 0; i < dgvUniform.Rows.Count; i++)
+            {
+                if (Convert.ToInt32(dgvUniform.Rows[i].Cells[2].Value) > 0 && dgvUniform.Rows[i].Cells[3].Value.Equals("--"))
+                {
+                    string message = "Please specify the size of the order.";
+                    string title = "Enrollment System";
+
+                    MessageBoxButtons buttons = MessageBoxButtons.OK;
+                    DialogResult result = MessageBox.Show(message, title, buttons, MessageBoxIcon.Information);
+
+                    dgvUniform.CurrentCell = dgvUniform.Rows[i].Cells[3];
+                    toSave = false;
+                    break;
+
+                }
+                else
+                {
+                    toSave = true;
+                }
+            }
+        }
+        #endregion
 
         #region FEES
         public void LoadUniform()
@@ -73,7 +100,7 @@ namespace CAEBS_V2
 
             foreach (var item in listUniform)
             {
-                dgvUniform.Rows.Add(item.Item_name, item.Price, "0");                
+                dgvUniform.Rows.Add(item.Item_name, item.Price, "0","--");                
             }            
         }
 
@@ -255,31 +282,46 @@ namespace CAEBS_V2
 
         private void txtToBilling_Click(object sender, EventArgs e)
         {
-            util.ValidateTextBoxDP(txtDP);
-
-            for (int i = 0; i < dgvBooks.Rows.Count; i++)
+            ValidateSizeOrder();
+            if (toSave == true)
             {
-                MessageBox.Show(dgvBooks.Rows[i].Cells[0].Value.ToString() + " " + dgvBooks.Rows[i].Cells[1].Value.ToString());
-            }
+                util.ValidateTextBoxDP(txtDP);
 
-            for (int i = 0; i < dgvUniform.Rows.Count; i++)
-            {
-                if (Convert.ToInt32(dgvUniform.Rows[i].Cells[2].Value) > 0)
+                for (int i = 0; i < dgvBooks.Rows.Count; i++)
                 {
-                    transBUnif.Stud_no = lblStudNo.Text;
-                    transBUnif.Or_no = "";
-                    transBUnif.Book_title = "";
-                    transBUnif.Book_order = "";
-                    transBUnif.Unif_desc = dgvUniform.Rows[i].Cells[0].Value.ToString();
-                    transBUnif.Unif_qty = dgvUniform.Rows[i].Cells[2].Value.ToString();
-                    transBUnif.Unif_size = dgvUniform.Rows[i].Cells[3].Value.ToString();
+                    MessageBox.Show(dgvBooks.Rows[i].Cells[0].Value.ToString() + " " + dgvBooks.Rows[i].Cells[1].Value.ToString());
+                }
 
-                    transBUnif.Save();
-                }                
-            }
+                for (int i = 0; i < dgvUniform.Rows.Count; i++)
+                {
+                    if (Convert.ToInt32(dgvUniform.Rows[i].Cells[2].Value) > 0)
+                    {
+                        transBUnif.Stud_no = lblStudNo.Text;
+                        transBUnif.Or_no = "";
+                        transBUnif.Book_title = "";
+                        transBUnif.Book_order = "";
+                        transBUnif.Unif_desc = dgvUniform.Rows[i].Cells[0].Value.ToString();
+                        transBUnif.Unif_qty = dgvUniform.Rows[i].Cells[2].Value.ToString();
+                        transBUnif.Unif_size = dgvUniform.Rows[i].Cells[3].Value.ToString();
 
-           
+                        transBUnif.Save();
+                    }
+                }
+            }        
+        }
 
+        private void dgvUniform_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            total_all = 0;
+            btnCompute.PerformClick();
+            PassToCompute();           
+        }
+
+        private void dgvUniform_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
+        {
+            total_all = 0;
+            btnCompute.PerformClick();
+            PassToCompute();                                
         }
 
         private void dgvUniform_CellEndEdit(object sender, DataGridViewCellEventArgs e)
