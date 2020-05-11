@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -70,7 +70,7 @@ namespace CAEBS_V2
         {
             for (int i = 0; i < dgvUniform.Rows.Count; i++)
             {
-                if (Convert.ToInt32(dgvUniform.Rows[i].Cells[2].Value) > 0 && dgvUniform.Rows[i].Cells[3].Value.Equals("--"))
+                if (Convert.ToInt32(dgvUniform.Rows[i].Cells[3].Value) > 0 && dgvUniform.Rows[i].Cells[4].Value.Equals("--"))
                 {
                     string message = "Please specify the size of the order.";
                     string title = "Enrollment System";
@@ -78,7 +78,7 @@ namespace CAEBS_V2
                     MessageBoxButtons buttons = MessageBoxButtons.OK;
                     DialogResult result = MessageBox.Show(message, title, buttons, MessageBoxIcon.Information);
 
-                    dgvUniform.CurrentCell = dgvUniform.Rows[i].Cells[3];
+                    dgvUniform.CurrentCell = dgvUniform.Rows[i].Cells[4];
                     toSave = false;
                     break;
 
@@ -100,7 +100,7 @@ namespace CAEBS_V2
 
             foreach (var item in listUniform)
             {
-                dgvUniform.Rows.Add(item.Item_name, item.Price, "0","--");                
+                dgvUniform.Rows.Add(item.Unif_code,item.Item_name, item.Price, "0","--");                
             }            
         }
 
@@ -189,9 +189,9 @@ namespace CAEBS_V2
         {
             for (int i = 0; i < dgvUniform.Rows.Count; i++)
             {
-                if (Convert.ToInt32(dgvUniform.Rows[i].Cells[2].Value) > 0 )
+                if (Convert.ToInt32(dgvUniform.Rows[i].Cells[3].Value) > 0 )
                 {                    
-                    Total_1 = Convert.ToDouble(dgvUniform.Rows[i].Cells[1].Value) * Convert.ToDouble(dgvUniform.Rows[i].Cells[2].Value);            
+                    Total_1 = Convert.ToDouble(dgvUniform.Rows[i].Cells[2].Value) * Convert.ToDouble(dgvUniform.Rows[i].Cells[3].Value);            
                     total_all += Total_1;                    
                 }                              
             }   
@@ -283,31 +283,38 @@ namespace CAEBS_V2
         private void txtToBilling_Click(object sender, EventArgs e)
         {
             ValidateSizeOrder();
+
             if (toSave == true)
             {
-                util.ValidateTextBoxDP(txtDP);
+               // util.ValidateTextBoxDP(txtDP);
 
                 for (int i = 0; i < dgvBooks.Rows.Count; i++)
                 {
-                    MessageBox.Show(dgvBooks.Rows[i].Cells[0].Value.ToString() + " " + dgvBooks.Rows[i].Cells[1].Value.ToString());
+                    //MessageBox.Show(dgvBooks.Rows[i].Cells[0].Value.ToString() + " " + dgvBooks.Rows[i].Cells[1].Value.ToString());
+                    //transBUnif.Book_title = dgvBooks.Rows[i].Cells[0].Value.ToString();
+                    //transBUnif.Book_order = dgvBooks.Rows[i].Cells[1].Value.ToString();
                 }
 
                 for (int i = 0; i < dgvUniform.Rows.Count; i++)
                 {
-                    if (Convert.ToInt32(dgvUniform.Rows[i].Cells[2].Value) > 0)
+                    if (Convert.ToInt32(dgvUniform.Rows[i].Cells[3].Value) > 0)
                     {
-                        transBUnif.Stud_no = lblStudNo.Text;
-                        transBUnif.Or_no = "";
-                        transBUnif.Book_title = "";
-                        transBUnif.Book_order = "";
-                        transBUnif.Unif_desc = dgvUniform.Rows[i].Cells[0].Value.ToString();
-                        transBUnif.Unif_qty = dgvUniform.Rows[i].Cells[2].Value.ToString();
-                        transBUnif.Unif_size = dgvUniform.Rows[i].Cells[3].Value.ToString();
+                        transBUnif.LRN = lblLRN.Text;
+                        transBUnif.OR_no = "0000";                      
+                        transBUnif.Unif_code = dgvUniform.Rows[i].Cells[0].Value.ToString();
+                        transBUnif.Unif_qty = dgvUniform.Rows[i].Cells[3].Value.ToString();
+                        transBUnif.Unif_size = dgvUniform.Rows[i].Cells[4].Value.ToString();
 
                         transBUnif.Save();
                     }
                 }
-            }        
+                string message = "Record Save";
+                string title = "Enrollment System";
+
+                MessageBoxButtons buttons = MessageBoxButtons.OK;
+                DialogResult result = MessageBox.Show(message, title, buttons, MessageBoxIcon.Information);
+            }
+           
         }
 
         private void dgvUniform_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -322,6 +329,13 @@ namespace CAEBS_V2
             total_all = 0;
             btnCompute.PerformClick();
             PassToCompute();                                
+        }
+
+        private void cmbMOP_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            total_all = 0;
+            btnCompute.PerformClick();
+            PassToCompute();
         }
 
         private void dgvUniform_CellEndEdit(object sender, DataGridViewCellEventArgs e)
@@ -358,41 +372,85 @@ namespace CAEBS_V2
         
         public void PassToCompute()
         {
-            TotalFee = TotalMiscFee + TotalOtherFee + TotalTuition;
-            dgvAssessment.Rows.Clear();
-            dgvAssessment.Rows.Add("TUTION FEES", "");
-            dgvAssessment.Rows.Add("SHS Tuititon Fee", TotalFee);
-            dgvAssessment.Rows.Add("Less: "+ lblVoucher.Text, Convert.ToDouble(VoucherAmount));
-            dgvAssessment.Rows.Add("          Downpayment", Convert.ToDouble(txtDP.Text));
+            if (cmbMOP.Text.Equals("Partial Payment"))
+            {              
+                txtDP.Enabled = true;
+                TotalFee = TotalMiscFee + TotalOtherFee + TotalTuition;
+                dgvAssessment.Rows.Clear();
+                dgvAssessment.Rows.Add("TUTION FEES", "");
+                dgvAssessment.Rows.Add("SHS Tuititon Fee", TotalFee);
+                dgvAssessment.Rows.Add("Less: " + lblVoucher.Text, Convert.ToDouble(VoucherAmount));
+                dgvAssessment.Rows.Add("          Downpayment", Convert.ToDouble(txtDP.Text));
 
-            TutionPAY =  TotalFee - (Convert.ToDouble(VoucherAmount) + Convert.ToDouble(txtDP.Text));
-            dgvAssessment.Rows.Add("Balance", TutionPAY);
+                TutionPAY = TotalFee - (Convert.ToDouble(VoucherAmount) + Convert.ToDouble(txtDP.Text));
+                dgvAssessment.Rows.Add("Balance", TutionPAY);
+                dgvAssessment.Rows.Add("Per Month", TutionPAY / 10);
 
-            dgvAssessment.Rows.Add("", "");
-            dgvAssessment.Rows.Add("OTHER FEES", "");
-            dgvAssessment.Rows.Add("Uniform Fee", total_all);
-            dgvAssessment.Rows.Add("Book Fee", TotalBooks);
-            dgvAssessment.Rows.Add("Total Fee", total_all + TotalBooks);
-            dgvAssessment.Rows.Add("", "");
-            dgvAssessment.Rows.Add("", "");
-            dgvAssessment.Rows[0].DefaultCellStyle.BackColor = Color.Navy;
-            dgvAssessment.Rows[0].DefaultCellStyle.ForeColor = Color.White;
+                dgvAssessment.Rows.Add("", "");
+                dgvAssessment.Rows.Add("OTHER FEES", "");
+                dgvAssessment.Rows.Add("Uniform Fee", total_all);
+                dgvAssessment.Rows.Add("Book Fee", TotalBooks);
+                dgvAssessment.Rows.Add("Total Fee", total_all + TotalBooks);
+                dgvAssessment.Rows.Add("", "");
+                dgvAssessment.Rows.Add("", "");
+                dgvAssessment.Rows[0].DefaultCellStyle.BackColor = Color.Navy;
+                dgvAssessment.Rows[0].DefaultCellStyle.ForeColor = Color.White;
 
-            dgvAssessment.Rows[6].DefaultCellStyle.BackColor = Color.Navy;
-            dgvAssessment.Rows[6].DefaultCellStyle.ForeColor = Color.White;
+                dgvAssessment.Rows[7].DefaultCellStyle.BackColor = Color.Navy;
+                dgvAssessment.Rows[7].DefaultCellStyle.ForeColor = Color.White;
 
-            dgvAssessment.DefaultCellStyle.SelectionBackColor = Color.Navy;
-            util.DisableSort_DataGrid(dgvAssessment);
-            util.DisableSort_DataGrid(dgvBooks);
-            util.DisableSort_DataGrid(dgvUniform);
+                dgvAssessment.DefaultCellStyle.SelectionBackColor = Color.Navy;
+                util.DisableSort_DataGrid(dgvAssessment);
+                util.DisableSort_DataGrid(dgvBooks);
+                util.DisableSort_DataGrid(dgvUniform);
 
+                totSum = (total_all + TotalBooks + Convert.ToDouble(txtDP.Text));
+                lblTotalPayment.Text = totSum.ToString("n");
+                dgvAssessment.Rows.Add("Total Fees", totSum);
+                dgvAssessment.Rows[12].DefaultCellStyle.BackColor = Color.Navy;
+                dgvAssessment.Rows[12].DefaultCellStyle.ForeColor = Color.White;
 
-           
-             totSum   = (total_all + TotalBooks + Convert.ToDouble(txtDP.Text));
-            lblTotalPayment.Text = totSum.ToString("n");
-            dgvAssessment.Rows.Add("Total Fees", totSum);
-            dgvAssessment.Rows[12].DefaultCellStyle.BackColor = Color.Navy;
-            dgvAssessment.Rows[12].DefaultCellStyle.ForeColor = Color.White;
+            }
+            else if (cmbMOP.Text.Equals("Fullpayment"))
+            {
+                txtDP.Text = "0.00";
+                txtDP.Enabled = false;
+                TotalFee = TotalMiscFee + TotalOtherFee + TotalTuition;
+                dgvAssessment.Rows.Clear();
+                dgvAssessment.Rows.Add("TUTION FEES", "");
+                dgvAssessment.Rows.Add("SHS Tuititon Fee", TotalFee);
+                dgvAssessment.Rows.Add("Less: " + lblVoucher.Text, Convert.ToDouble(VoucherAmount));
+                //dgvAssessment.Rows.Add("          Downpayment", Convert.ToDouble(txtDP.Text));
+                dgvAssessment.Rows.Add("", "");
+
+                TutionPAY = TotalFee - (Convert.ToDouble(VoucherAmount) + Convert.ToDouble(txtDP.Text));
+                dgvAssessment.Rows.Add("Balance", TutionPAY);                
+
+                dgvAssessment.Rows.Add("", "");
+                dgvAssessment.Rows.Add("OTHER FEES", "");
+                dgvAssessment.Rows.Add("Uniform Fee", total_all);
+                dgvAssessment.Rows.Add("Book Fee", TotalBooks);
+                dgvAssessment.Rows.Add("Total Fee", total_all + TotalBooks);
+                dgvAssessment.Rows.Add("", "");
+                dgvAssessment.Rows.Add("", "");
+                dgvAssessment.Rows[0].DefaultCellStyle.BackColor = Color.Navy;
+                dgvAssessment.Rows[0].DefaultCellStyle.ForeColor = Color.White;
+
+                dgvAssessment.Rows[6].DefaultCellStyle.BackColor = Color.Navy;
+                dgvAssessment.Rows[6].DefaultCellStyle.ForeColor = Color.White;
+
+                dgvAssessment.DefaultCellStyle.SelectionBackColor = Color.Navy;
+                util.DisableSort_DataGrid(dgvAssessment);
+                util.DisableSort_DataGrid(dgvBooks);
+                util.DisableSort_DataGrid(dgvUniform);
+
+                totSum = (total_all + TotalBooks + Convert.ToDouble(TutionPAY));
+                lblTotalPayment.Text = totSum.ToString("n");
+                dgvAssessment.Rows.Add("Total Fees", totSum);
+                dgvAssessment.Rows[12].DefaultCellStyle.BackColor = Color.Navy;
+                dgvAssessment.Rows[12].DefaultCellStyle.ForeColor = Color.White;
+            }
+
 
 
 
