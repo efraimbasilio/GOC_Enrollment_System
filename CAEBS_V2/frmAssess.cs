@@ -151,13 +151,6 @@ namespace CAEBS_V2
                     dgvBooks.Rows.Add(item.Title, item.Price);
                 }
             }
-
-            for (int i = 0; i < dgvBooks.Rows.Count; i++)
-            {
-                TotalBooks += (Convert.ToDouble(dgvBooks.Rows[i].Cells[1].Value));
-            }
-
-            lblBooks.Text = TotalBooks.ToString("n");
         }
 
         public void LoadOtherFee()
@@ -187,11 +180,11 @@ namespace CAEBS_V2
 
         private void btnCompute_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < dgvUniform.Rows.Count; i++)
+            for (int i = 0; i < dgvUniform2.Rows.Count; i++)
             {
-                if (Convert.ToInt32(dgvUniform.Rows[i].Cells[3].Value) > 0 )
+                if (Convert.ToInt32(dgvUniform2.Rows[i].Cells[2].Value) > 0 )
                 {                    
-                    Total_1 = Convert.ToDouble(dgvUniform.Rows[i].Cells[2].Value) * Convert.ToDouble(dgvUniform.Rows[i].Cells[3].Value);            
+                    Total_1 = Convert.ToDouble(dgvUniform2.Rows[i].Cells[1].Value) * Convert.ToDouble(dgvUniform2.Rows[i].Cells[2].Value);            
                     total_all += Total_1;                    
                 }                              
             }   
@@ -223,6 +216,7 @@ namespace CAEBS_V2
         {
             if (chkOrderUniform.Checked == true)
             {
+                dgvUniform.Visible = true;
                 string message = "Please input how many order and size?";
                 string title = "Enrollment System";
 
@@ -230,11 +224,16 @@ namespace CAEBS_V2
                 DialogResult result = MessageBox.Show(message, title, buttons, MessageBoxIcon.Information);
 
                 dgvUniform.Enabled = true;
-                LoadUniform();               
+
+                LoadUniform();//load the unifitems
+            
+                dgvUniform2.Visible = false;
             }
             else
             {
-                string message = "Do you want to cancel the order?";
+                dgvUniform2.Visible = true;
+                dgvUniform.Visible = false;
+                string message = "Do you want to view the order?";
                 string title = "Enrollment System";
 
                 MessageBoxButtons buttons = MessageBoxButtons.YesNo;
@@ -265,7 +264,14 @@ namespace CAEBS_V2
                 dgvBooks.Enabled = false;
                 dgvBooks.Rows.Clear();
                 FilterBook(Strand, GLevel);
+                for (int i = 0; i < dgvBooks.Rows.Count; i++)
+                {
+                    TotalBooks += (Convert.ToDouble(dgvBooks.Rows[i].Cells[1].Value));
+                }
+
+                lblBooks.Text = TotalBooks.ToString("n");
                 PassToCompute();
+
             }
             else
             {               
@@ -344,6 +350,21 @@ namespace CAEBS_V2
         }
 
         private void dgvUniform_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            total_all = 0;
+            btnCompute.PerformClick();
+            PassToCompute();
+        }
+
+        private void bntSubmitOrder_Click(object sender, EventArgs e)
+        {
+            frmOrderUniform order = new frmOrderUniform();
+            order.LRN = lblLRN.Text;
+            order.LoadUniform();
+            order.ShowDialog();
+        }
+
+        private void dgvUniform2_MouseLeave(object sender, EventArgs e)
         {
             total_all = 0;
             btnCompute.PerformClick();
@@ -458,6 +479,28 @@ namespace CAEBS_V2
         }
         #endregion
 
+        public void UnifOrders()
+        {
+            TransUniform trans = new TransUniform();
+            trans.TransUnif(dgvUniform2, LRN);
+
+            #region Header Name
+            dgvUniform2.Columns["item_name"].HeaderText = "Description";
+            dgvUniform2.Columns["price"].HeaderText = "Price";
+            dgvUniform2.Columns["unif_qty"].HeaderText = "Qty";
+            dgvUniform2.Columns["unif_size"].HeaderText = "Size";
+
+            DataGridViewColumn toFill = dgvUniform2.Columns[0];
+            toFill.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
+            //dgvUnif.Columns[0].Width = 100;
+            dgvUniform2.Columns[1].Width = 100;
+            dgvUniform2.Columns[2].Width = 100;
+            dgvUniform2.Columns[3].Width = 100;
+            // dgvList.Columns[4].Width = 175;
+            #endregion
+        }
+
         public void ToAssess()
         {
             lblLRN.Text = LRN;
@@ -468,7 +511,7 @@ namespace CAEBS_V2
             lblStrand.Text = Strand;
             lblVoucher.Text = Voucher;
         }
-     
+
         public frmAssess()
         {
             InitializeComponent();

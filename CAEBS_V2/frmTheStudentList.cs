@@ -44,7 +44,8 @@ namespace CAEBS_V2
 
             #region To Hide           
             dgvList.Columns["student_type"].Visible = false;
-           // dgvList.Columns["term"].Visible = false;
+            dgvList.Columns["mop"].Visible = false;
+            // dgvList.Columns["term"].Visible = false;
             dgvList.Columns["semester"].Visible = false;
             dgvList.Columns["date_of_birth"].Visible = false;
             dgvList.Columns["place_of_birth"].Visible = false;
@@ -119,8 +120,9 @@ namespace CAEBS_V2
             }
 
             frm_assess.ToAssess();
+            frm_assess.UnifOrders();
             frm_assess.FilterStrand(frm_assess.Strand);
-            //frm_assess.FilterBook(frm_assess.Strand,frm_assess.GLevel);
+            frm_assess.FilterBook(frm_assess.Strand,frm_assess.GLevel);
             frm_assess.FilterVoucher(frm_assess.Voucher);
 
             frm_assess.LoadOtherFee();
