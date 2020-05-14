@@ -200,7 +200,7 @@ namespace CAEBS_V2
 
         private void txtDP_TextChanged(object sender, EventArgs e)
         {            
-            PassToCompute();          
+            //PassToCompute();          
         }
 
         private void txtDP_Click(object sender, EventArgs e)
@@ -338,6 +338,11 @@ namespace CAEBS_V2
             PassToCompute();
         }
 
+        private void txtDP_MouseLeave(object sender, EventArgs e)
+        {
+            PassToCompute();
+        }
+
         private void dgvUniform_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             total_all = 0;
@@ -450,10 +455,6 @@ namespace CAEBS_V2
                 dgvAssessment.Rows[12].DefaultCellStyle.BackColor = Color.Navy;
                 dgvAssessment.Rows[12].DefaultCellStyle.ForeColor = Color.White;
             }
-
-
-
-
         }
         #endregion
 

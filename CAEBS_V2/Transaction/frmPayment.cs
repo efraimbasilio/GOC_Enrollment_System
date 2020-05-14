@@ -12,8 +12,13 @@ namespace CAEBS_V2
 {
     public partial class frmPayment : Form
     {
+        public string LRN, StudNo, FName, LName, MName, GLevel, Section, Strand, Voucher;
+        public int id;
+
         PaymentLog pay = new PaymentLog();
         List<PaymentLog> payLogs = new List<PaymentLog>();
+
+        TransUniform trans = new TransUniform();
 
         //#####################################################################################################################################################//
 
@@ -29,12 +34,35 @@ namespace CAEBS_V2
                 }
                 else
                 {
-                    txtAmountGiven.Focus();
+                   // txtAmountGiven.Focus();
                     return;
                 }
             } 
                 
         }
+
+        public void ToPay()
+        {
+            lblLRN.Text = LRN;
+            lblStudNo.Text = StudNo;
+            lblFullName.Text = LName + ". " + FName + " " + MName;
+            lblGLevel.Text = GLevel;
+            lblSection.Text = Section;
+            lblStrand.Text = Strand;
+            lblVoucher.Text = Voucher;
+
+
+            //SELECT unif_item.item_name, unif_item.price,trans_unif_fee.unif_qty,trans_unif_fee.unif_size
+            //FROM unif_item u1
+            //INNER JOIN trans_unif_fee u2
+            //ON u1.unif_code = u2.unif_code
+            //WHERE u2.lrn = "LRN";
+
+            trans.TransUnif(dgvUnif, LRN);
+
+
+        }
+
 
         //#####################################################################################################################################################//
 

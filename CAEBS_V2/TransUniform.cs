@@ -17,6 +17,7 @@ namespace CAEBS_V2
         public int Id { get { return id; } set { id = value; } }
         public string Stud_no { get { return stud_no; } set { stud_no = value; } }
 
+      
         List<TransUniform> listTransUnif = new List<TransUniform>();
 
         public void LoadDataTable(DataGridView dgv)
@@ -27,6 +28,7 @@ namespace CAEBS_V2
                 {
                     con.Open();
                     string sql = "SELECT * FROM  trans_unif_fee";
+                    
                     MySqlCommand cmd = new MySqlCommand(sql, con);
                     MySqlDataAdapter da = new MySqlDataAdapter();
                     da.SelectCommand = cmd;
@@ -42,6 +44,32 @@ namespace CAEBS_V2
                 MessageBox.Show("ERROR : " + ex.Message.ToString(), "Enrollment System", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        public void TransUnif(DataGridView dgv,String LRN)
+        {
+            try
+            {
+                using (MySqlConnection con = new MySqlConnection(CAEBS_V2.Config.GetConnectionString()))
+                {
+                  
+                    con.Open();                    
+                    string sql = "SELECT unif_item.item_name,unif_item.price,trans_unif_fee.unif_qty,trans_unif_fee.unif_size FROM  trans_unif_fee INNER JOIN unif_item ON trans_unif_fee.unif_code = unif_item.unif_code WHERE trans_unif_fee.lrn =" + LRN +"";                    
+                    MySqlCommand cmd = new MySqlCommand(sql, con);
+                    MySqlDataAdapter da = new MySqlDataAdapter();
+                    da.SelectCommand = cmd;
+
+                    //initialize new datatable
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+                    dgv.DataSource = dt;
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("ERROR : " + ex.Message.ToString(), "Enrollment System", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         //public List<TransUniform> Load()
         //{
         //    try

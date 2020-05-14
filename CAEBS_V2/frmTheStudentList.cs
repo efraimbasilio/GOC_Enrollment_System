@@ -16,6 +16,7 @@ namespace CAEBS_V2
         frmNewStudent frm = new frmNewStudent();
 
         frmAssess frm_assess = new frmAssess();
+        frmPayment frm_payment = new frmPayment();
 
         List<Register> ListRegister = new List<Register>();
         Util_RequiredFields util = new Util_RequiredFields();
@@ -330,12 +331,50 @@ namespace CAEBS_V2
 
                 if (result == DialogResult.Yes)
                 {
-                    //Discount discount = new Discount();
-                    //discount.Id = Convert.ToInt32(dgvDiscount.Rows[e.RowIndex].Cells[2].Value.ToString());//for editing criteria
-                    //discount.Delete();
+                         
+                //clear list
+                ListRegister.Clear();
+                //pass value
 
-                    //discount.LoadDataTable(dgvDiscount);
-                    MessageBox.Show("Billing");
+                register.Id = Convert.ToInt32(dgvList.CurrentRow.Cells[3].FormattedValue.ToString());
+                frm_payment.id = Convert.ToInt32(dgvList.CurrentRow.Cells[3].FormattedValue.ToString());
+                // MessageBox.Show(dgvList.CurrentRow.Cells[3].FormattedValue.ToString());
+
+                ListRegister = register.GetById();
+
+                foreach (var item in ListRegister)
+                {
+                    frm_payment.LRN = item.Lrn;
+                    frm_payment.StudNo = item.Stud_no;
+                    frm_payment.FName = item.First_name;
+                    frm_payment.LName = item.Last_name;
+                    frm_payment.MName = item.Middle_name;
+                    frm_payment.GLevel = item.Grade_level;
+                    frm_payment.Section = item.Section;
+                    frm_payment.Strand = item.Strand;
+                    frm_payment.Voucher = item.Voucher_type;
+                }
+
+                    frm_payment.ToPay();
+                    //frm_payment.FilterStrand(frm_assess.Strand);
+
+                    //frm_assess.FilterBook(frm_assess.Strand,frm_assess.GLevel);
+                    //frm_assess.FilterVoucher(frm_assess.Voucher);
+
+                    //frm_assess.LoadOtherFee();
+                    //frm_assess.LoadTuition();
+                    //frm_assess.PassToCompute();
+
+                    #region Call Form       
+                    frmMain mainwin = (frmMain)Application.OpenForms["frmMain"];
+                    mainwin.pnlAllContainer.Controls.Clear();
+
+                    frm_payment.TopLevel = false;
+                    frm_payment.AutoScroll = true;
+                    mainwin.pnlAllContainer.Controls.Add(frm_payment);
+                    // frm_assess.formToMaxSize();
+                    frm_payment.Show();
+                    #endregion
                 }
                 else
                 {
