@@ -574,6 +574,7 @@ namespace CAEBS_V2
                 r.Voucher_type = cmbVoucher.Text;
                 r.Track = cmbTrack.Text;
                 r.Strand = cmbStrand.Text;
+                r.MOP = "NA";
 
                 #endregion
 
@@ -757,6 +758,7 @@ namespace CAEBS_V2
                 r.Voucher_type = cmbVoucher.Text;
                 r.Track = cmbTrack.Text;
                 r.Strand = cmbStrand.Text;
+                r.MOP = "NA";
 
                 #endregion
 
@@ -841,6 +843,7 @@ namespace CAEBS_V2
                 r.Voucher_type = cmbVoucher.Text;
                 r.Track = cmbTrack.Text;
                 r.Strand = cmbStrand.Text;
+                r.MOP = "NA";
 
                 #endregion
 

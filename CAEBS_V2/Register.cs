@@ -63,7 +63,7 @@ namespace CAEBS_V2
         protected string form_137;
         protected string good_moral;
 
-        protected string mode_of_payment;
+        protected string mop;
         protected string enrollee_status;
         protected string student_type;
 
@@ -116,7 +116,7 @@ namespace CAEBS_V2
         public string Report_card { get { return report_card; } set { report_card = value; } }
         public string Form_137 { get { return form_137; } set { form_137 = value; } }
         public string Good_moral { get { return good_moral; } set { good_moral = value; } }
-        public string Mode_of_payment { get { return mode_of_payment; } set { mode_of_payment = value; } }
+        public string MOP { get { return mop; } set { mop = value; } }
         public string Enrollee_status { get { return enrollee_status; } set { enrollee_status = value; } }
         public string Student_Type { get { return student_type; } set { student_type = value; } }
 
@@ -244,8 +244,8 @@ namespace CAEBS_V2
                     //string sql = "INSERT INTO student_profile(lrn,last_name,first_name,middle_name,grade_level)" +
                     //             "VALUES(@lrn,@last_name,@first_name,@middle_name,@grade_level);";
 
-                    string sql = "INSERT INTO student_profile(esc_voucher,entrance_exam,ncae,track,strand,voucher_type,stud_no,lrn,last_name,first_name,middle_name,grade_level,department,section,student_type,semester,date_of_birth,place_of_birth,religion,nationality,sex,address,mother_name,mother_contact,mother_work,father_name,father_contact,father_work,cperson_name,cperson_contact,cperson_address,cperson_relationship,previous_school,previous_school_address,psa,psa_copy,med_certificate,report_card,form_137,good_moral,enrollee_status)" +
-                                 "VALUES(@esc_voucher,@entrance_exam,@ncae,@track,@strand,@voucher_type,@stud_no,@lrn,@last_name,@first_name,@middle_name,@grade_level,@department,@section,@student_type,@semester,@date_of_birth,@place_of_birth,@religion,@nationality,@sex,@address,@mother_name,@mother_contact,@mother_work,@father_name,@father_contact,@father_work,@cperson_name,@cperson_contact,@cperson_address,@cperson_relationship,@previous_school,@previous_school_address,@psa,@psa_copy,@med_certificate,@report_card,@form_137,@good_moral,@enrollee_status);";
+                    string sql = "INSERT INTO student_profile(mop,esc_voucher,entrance_exam,ncae,track,strand,voucher_type,stud_no,lrn,last_name,first_name,middle_name,grade_level,department,section,student_type,semester,date_of_birth,place_of_birth,religion,nationality,sex,address,mother_name,mother_contact,mother_work,father_name,father_contact,father_work,cperson_name,cperson_contact,cperson_address,cperson_relationship,previous_school,previous_school_address,psa,psa_copy,med_certificate,report_card,form_137,good_moral,enrollee_status)" +
+                                 "VALUES(@mop,@esc_voucher,@entrance_exam,@ncae,@track,@strand,@voucher_type,@stud_no,@lrn,@last_name,@first_name,@middle_name,@grade_level,@department,@section,@student_type,@semester,@date_of_birth,@place_of_birth,@religion,@nationality,@sex,@address,@mother_name,@mother_contact,@mother_work,@father_name,@father_contact,@father_work,@cperson_name,@cperson_contact,@cperson_address,@cperson_relationship,@previous_school,@previous_school_address,@psa,@psa_copy,@med_certificate,@report_card,@form_137,@good_moral,@enrollee_status);";
 
                     MySqlCommand cmd = new MySqlCommand(sql, con);
 
@@ -291,6 +291,8 @@ namespace CAEBS_V2
                     cmd.Parameters.AddWithValue("form_137", form_137);
                     cmd.Parameters.AddWithValue("good_moral", good_moral);                   
                     cmd.Parameters.AddWithValue("enrollee_status", enrollee_status);
+
+                    cmd.Parameters.AddWithValue("mop", mop);
 
                     cmd.ExecuteNonQuery();
 
@@ -363,7 +365,7 @@ namespace CAEBS_V2
                     cmd.Parameters.AddWithValue("report_card", report_card);
                     cmd.Parameters.AddWithValue("form_137", form_137);
                     cmd.Parameters.AddWithValue("good_moral", good_moral);
-                    //cmd.Parameters.AddWithValue("mode_of_payment", mode_of_payment);
+                    //cmd.Parameters.AddWithValue("mop", mop);
                     cmd.Parameters.AddWithValue("enrollee_status", enrollee_status);
 
                     cmd.ExecuteNonQuery();
@@ -458,8 +460,8 @@ namespace CAEBS_V2
                         register.form_137 = reader["form_137"].ToString();
                         register.good_moral = reader["good_moral"].ToString();
 
-                        //register.mode_of_payment = reader["mode_of_payment"].ToString();
-                        //register.enrollee_status = reader["enrollee_status"].ToString();
+                        register.mop = reader["mop"].ToString();
+                        register.enrollee_status = reader["enrollee_status"].ToString();
 
                         registerList.Add(register);
                     }

@@ -320,7 +320,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Roboto Condensed", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(357, 51);
+            this.label11.Location = new System.Drawing.Point(341, 51);
             this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(237, 16);
@@ -329,7 +329,7 @@
             // 
             // txtDP
             // 
-            this.txtDP.Location = new System.Drawing.Point(216, 80);
+            this.txtDP.Location = new System.Drawing.Point(200, 80);
             this.txtDP.Name = "txtDP";
             this.txtDP.Size = new System.Drawing.Size(122, 25);
             this.txtDP.TabIndex = 95;
@@ -340,7 +340,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(28, 83);
+            this.label9.Location = new System.Drawing.Point(12, 83);
             this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(175, 18);
@@ -351,7 +351,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(28, 50);
+            this.label7.Location = new System.Drawing.Point(12, 50);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(99, 18);
@@ -364,7 +364,7 @@
             this.cmbMOP.Items.AddRange(new object[] {
             "Partial Payment",
             "Fullpayment"});
-            this.cmbMOP.Location = new System.Drawing.Point(216, 47);
+            this.cmbMOP.Location = new System.Drawing.Point(200, 47);
             this.cmbMOP.Name = "cmbMOP";
             this.cmbMOP.Size = new System.Drawing.Size(122, 26);
             this.cmbMOP.TabIndex = 84;
@@ -373,10 +373,10 @@
             // 
             this.dgvUnif.AllowUserToAddRows = false;
             this.dgvUnif.AllowUserToDeleteRows = false;
-            this.dgvUnif.BackgroundColor = System.Drawing.Color.Gray;
+            this.dgvUnif.BackgroundColor = System.Drawing.Color.White;
             this.dgvUnif.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvUnif.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvUnif.Location = new System.Drawing.Point(6, 111);
+            this.dgvUnif.Location = new System.Drawing.Point(6, 132);
             this.dgvUnif.Name = "dgvUnif";
             this.dgvUnif.RowHeadersVisible = false;
             this.dgvUnif.Size = new System.Drawing.Size(582, 239);
@@ -386,10 +386,10 @@
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.Gray;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(6, 371);
+            this.dataGridView1.Location = new System.Drawing.Point(6, 392);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.Size = new System.Drawing.Size(582, 191);
