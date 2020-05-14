@@ -120,7 +120,10 @@ namespace CAEBS_V2
             }
 
             frm_assess.ToAssess();
+
             frm_assess.UnifOrders();
+            util.AddImageDataGridDelete(frm_assess.dgvUniform2);
+
             frm_assess.FilterStrand(frm_assess.Strand);
             frm_assess.FilterBook(frm_assess.Strand,frm_assess.GLevel);
             frm_assess.FilterVoucher(frm_assess.Voucher);
@@ -128,6 +131,8 @@ namespace CAEBS_V2
             frm_assess.LoadOtherFee();
             frm_assess.LoadTuition();
             frm_assess.PassToCompute();
+            
+           
 
             #region Call Form       
             frmMain mainwin = (frmMain)Application.OpenForms["frmMain"];

@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label8 = new System.Windows.Forms.Label();
             this.pnlTitle = new System.Windows.Forms.Panel();
             this.lblTotalPayment = new System.Windows.Forms.Label();
@@ -74,6 +74,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.cmbMOP = new System.Windows.Forms.ComboBox();
             this.dgvUnif = new System.Windows.Forms.DataGridView();
+            this.btnCompute = new System.Windows.Forms.Button();
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.dgvBooks = new System.Windows.Forms.DataGridView();
@@ -86,7 +87,6 @@
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.lblTotalUniformFee = new System.Windows.Forms.Label();
-            this.btnCompute = new System.Windows.Forms.Button();
             this.lblBooks = new System.Windows.Forms.Label();
             this.chkOrderBook = new System.Windows.Forms.CheckBox();
             this.chkOrderUniform = new System.Windows.Forms.CheckBox();
@@ -240,10 +240,10 @@
             // 
             // Column2
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle1.Format = "C2";
-            dataGridViewCellStyle1.NullValue = null;
-            this.Column2.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle13.Format = "C2";
+            dataGridViewCellStyle13.NullValue = null;
+            this.Column2.DefaultCellStyle = dataGridViewCellStyle13;
             this.Column2.HeaderText = "Amount";
             this.Column2.MinimumWidth = 10;
             this.Column2.Name = "Column2";
@@ -615,6 +615,16 @@
             this.dgvUnif.TabIndex = 93;
             this.dgvUnif.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUnif_CellContentClick);
             // 
+            // btnCompute
+            // 
+            this.btnCompute.Location = new System.Drawing.Point(18, 199);
+            this.btnCompute.Name = "btnCompute";
+            this.btnCompute.Size = new System.Drawing.Size(75, 28);
+            this.btnCompute.TabIndex = 93;
+            this.btnCompute.Text = "Compute";
+            this.btnCompute.UseVisualStyleBackColor = true;
+            this.btnCompute.Click += new System.EventHandler(this.btnCompute_Click);
+            // 
             // label18
             // 
             this.label18.AutoSize = true;
@@ -668,10 +678,10 @@
             // 
             // dataGridViewTextBoxColumn3
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle2.Format = "C2";
-            dataGridViewCellStyle2.NullValue = null;
-            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle14.Format = "C2";
+            dataGridViewCellStyle14.NullValue = null;
+            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle14;
             this.dataGridViewTextBoxColumn3.HeaderText = "Amount";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
@@ -721,10 +731,10 @@
             // 
             // dataGridViewTextBoxColumn5
             // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle3.Format = "C2";
-            dataGridViewCellStyle3.NullValue = null;
-            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle15.Format = "C2";
+            dataGridViewCellStyle15.NullValue = null;
+            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle15;
             this.dataGridViewTextBoxColumn5.Frozen = true;
             this.dataGridViewTextBoxColumn5.HeaderText = "Amount";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
@@ -732,8 +742,8 @@
             // 
             // Column3
             // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.Column3.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.Column3.DefaultCellStyle = dataGridViewCellStyle16;
             this.Column3.HeaderText = "Qty";
             this.Column3.Name = "Column3";
             // 
@@ -763,16 +773,6 @@
             this.lblTotalUniformFee.TabIndex = 92;
             this.lblTotalUniformFee.Text = "00,000.00";
             this.lblTotalUniformFee.Visible = false;
-            // 
-            // btnCompute
-            // 
-            this.btnCompute.Location = new System.Drawing.Point(18, 199);
-            this.btnCompute.Name = "btnCompute";
-            this.btnCompute.Size = new System.Drawing.Size(75, 28);
-            this.btnCompute.TabIndex = 93;
-            this.btnCompute.Text = "Compute";
-            this.btnCompute.UseVisualStyleBackColor = true;
-            this.btnCompute.Click += new System.EventHandler(this.btnCompute_Click);
             // 
             // lblBooks
             // 
@@ -818,9 +818,12 @@
             this.dgvUniform2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvUniform2.Location = new System.Drawing.Point(272, 346);
             this.dgvUniform2.Name = "dgvUniform2";
+            this.dgvUniform2.ReadOnly = true;
             this.dgvUniform2.RowHeadersVisible = false;
+            this.dgvUniform2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvUniform2.Size = new System.Drawing.Size(480, 333);
             this.dgvUniform2.TabIndex = 96;
+            this.dgvUniform2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUniform2_CellContentClick);
             this.dgvUniform2.MouseLeave += new System.EventHandler(this.dgvUniform2_MouseLeave);
             // 
             // bntSubmitOrder
@@ -841,6 +844,7 @@
             this.btnRefresh.TabIndex = 99;
             this.btnRefresh.Text = "&Refresh";
             this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // frmAssess
             // 
@@ -954,8 +958,8 @@
         private System.Windows.Forms.DataGridViewComboBoxColumn Column4;
         private System.Windows.Forms.Label lblTotalPayment;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.DataGridView dgvUniform2;
         private System.Windows.Forms.Button bntSubmitOrder;
-        private System.Windows.Forms.Button btnRefresh;
+        public System.Windows.Forms.Button btnRefresh;
+        public System.Windows.Forms.DataGridView dgvUniform2;
     }
 }

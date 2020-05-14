@@ -132,7 +132,7 @@ namespace CAEBS_V2
 
         private void frmOrderUniform_FormClosing(object sender, FormClosingEventArgs e)
         {
-
+           
         }
     }
 }

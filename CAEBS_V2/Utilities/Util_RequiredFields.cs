@@ -275,6 +275,18 @@ namespace CAEBS_V2
             dgv.Columns.Add(dimgDelete);
         }
 
+        public void AddImageDataGridDelete(DataGridView dgv)
+        {
+           
+
+            DataGridViewImageColumn dimgDelete = new DataGridViewImageColumn();
+            dimgDelete.Image = Properties.Resources.delete;
+            dimgDelete.HeaderText = "Delete";
+            dimgDelete.ImageLayout = DataGridViewImageCellLayout.Normal;
+            dimgDelete.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dgv.Columns.Add(dimgDelete);
+        }
+
         public void AssessOrBilling(DataGridView dgv)
         {
            

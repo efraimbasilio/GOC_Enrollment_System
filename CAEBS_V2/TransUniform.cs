@@ -53,7 +53,7 @@ namespace CAEBS_V2
                 {
                   
                     con.Open();                    
-                    string sql = "SELECT unif_item.item_name,unif_item.price,trans_unif_fee.unif_qty,trans_unif_fee.unif_size FROM  trans_unif_fee INNER JOIN unif_item ON trans_unif_fee.unif_code = unif_item.unif_code WHERE trans_unif_fee.lrn =" + LRN +"";                    
+                    string sql = "SELECT trans_unif_fee.id, unif_item.item_name,unif_item.price,trans_unif_fee.unif_qty,trans_unif_fee.unif_size FROM  trans_unif_fee INNER JOIN unif_item ON trans_unif_fee.unif_code = unif_item.unif_code WHERE trans_unif_fee.lrn =" + LRN +"";                    
                     MySqlCommand cmd = new MySqlCommand(sql, con);
                     MySqlDataAdapter da = new MySqlDataAdapter();
                     da.SelectCommand = cmd;
@@ -69,6 +69,65 @@ namespace CAEBS_V2
                 MessageBox.Show("ERROR : " + ex.Message.ToString(), "Enrollment System", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        public void Delete()
+        {
+            try
+            {
+                //prepare connection string 
+                using (MySqlConnection con = new MySqlConnection(CAEBS_V2.Config.GetConnectionString()))
+                {
+
+                    //try to open connection
+                    con.Open();
+
+                    string sql = "DELETE  FROM trans_unif_fee WHERE id=@id;";
+
+                    MySqlCommand cmd = new MySqlCommand(sql, con);
+                    cmd.Parameters.AddWithValue("id", id);
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Record deleted!", "Enrollment System", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("ERROR : " + ex.ToString(), "Enrollment System", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+        }
+
+        //public void Update()
+        //{
+        //    try
+        //    {
+        //        //prepare connection string 
+        //        using (MySqlConnection con = new MySqlConnection(CAEBS_V2.Config.GetConnectionString()))
+        //        {
+
+        //            //try to open connection
+        //            con.Open();
+
+        //            string sql = "UPDATE trans_unif_fee SET discount_name=@discount_name, amount=@amount ,percentage=@percentage, status=@status " +
+        //                            " WHERE id=@id;";
+
+        //            MySqlCommand cmd = new MySqlCommand(sql, con);
+        //            cmd.Parameters.AddWithValue("id", id);
+        //            cmd.Parameters.AddWithValue("discount_name", discount_name);
+        //            cmd.Parameters.AddWithValue("amount", amount);
+        //            cmd.Parameters.AddWithValue("percentage", percentage);
+        //            cmd.Parameters.AddWithValue("status", status);
+
+        //            cmd.ExecuteNonQuery();
+
+        //            MessageBox.Show("Recorde Updated!", "Enrollment System", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        //        }
+        //    }
+        //    catch (MySqlException ex)
+        //    {
+        //        MessageBox.Show("ERROR : " + ex.ToString(), "Enrollment System", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+        //    }
+        //}
 
         //public List<TransUniform> Load()
         //{

@@ -15,6 +15,8 @@ namespace CAEBS_V2
         public string LRN, StudNo, FName, LName, MName, GLevel, Section, Strand, Voucher;
         public int id;
 
+        TransUniform trans = new TransUniform();
+
         Register register = new Register();
         List<Register> ListRegister = new List<Register>();
 
@@ -182,9 +184,9 @@ namespace CAEBS_V2
         {
             for (int i = 0; i < dgvUniform2.Rows.Count; i++)
             {
-                if (Convert.ToInt32(dgvUniform2.Rows[i].Cells[2].Value) > 0 )
+                if (Convert.ToInt32(dgvUniform2.Rows[i].Cells[4].Value) > 0 )
                 {                    
-                    Total_1 = Convert.ToDouble(dgvUniform2.Rows[i].Cells[1].Value) * Convert.ToDouble(dgvUniform2.Rows[i].Cells[2].Value);            
+                    Total_1 = Convert.ToDouble(dgvUniform2.Rows[i].Cells[3].Value) * Convert.ToDouble(dgvUniform2.Rows[i].Cells[4].Value);            
                     total_all += Total_1;                    
                 }                              
             }   
@@ -366,9 +368,42 @@ namespace CAEBS_V2
 
         private void dgvUniform2_MouseLeave(object sender, EventArgs e)
         {
-            total_all = 0;
-            btnCompute.PerformClick();
-            PassToCompute();
+            //total_all = 0;
+            //btnCompute.PerformClick();
+            //PassToCompute();
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            UnifOrders();
+        }
+
+        private void dgvUniform2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 0)
+            {                
+                id = Convert.ToInt32(dgvUniform2.Rows[e.RowIndex].Cells[1].Value.ToString());//for Delete criteria
+
+                string message = "Do you want to proceed to Delete?";
+                string title = "Enrollment System";
+
+                MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                DialogResult result = MessageBox.Show(message, title, buttons, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    trans.Id = id;
+                    trans.Delete();
+                
+                    UnifOrders();
+                    
+
+                }
+                else
+                {
+                    return;
+                }
+            }
         }
 
         private void dgvUnif_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -480,24 +515,26 @@ namespace CAEBS_V2
         #endregion
 
         public void UnifOrders()
-        {
-            TransUniform trans = new TransUniform();
-            trans.TransUnif(dgvUniform2, LRN);
+        {                     
+            trans.TransUnif(dgvUniform2, lblLRN.Text);
 
             #region Header Name
+            dgvUniform2.Columns["id"].Visible = false;
             dgvUniform2.Columns["item_name"].HeaderText = "Description";
             dgvUniform2.Columns["price"].HeaderText = "Price";
             dgvUniform2.Columns["unif_qty"].HeaderText = "Qty";
             dgvUniform2.Columns["unif_size"].HeaderText = "Size";
 
-            DataGridViewColumn toFill = dgvUniform2.Columns[0];
-            toFill.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            //DataGridViewColumn toFill = dgvUniform2.Columns[1];
+            //toFill.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
             //dgvUnif.Columns[0].Width = 100;
+            //dgvUniform2.Columns[0].Width = 0;
             dgvUniform2.Columns[1].Width = 100;
             dgvUniform2.Columns[2].Width = 100;
             dgvUniform2.Columns[3].Width = 100;
-            // dgvList.Columns[4].Width = 175;
+            
+                      
             #endregion
         }
 
@@ -516,7 +553,9 @@ namespace CAEBS_V2
         {
             InitializeComponent();
             LoadMiscFee();
-            LoadUniform();           
+            LoadUniform();
+
+           
         }
 
         private void label13_Click(object sender, EventArgs e)
