@@ -17,15 +17,20 @@ namespace CAEBS_V2
         protected string unif_code;      
         protected string unif_qty;
         protected string unif_size;
-       
+        protected string order_status;
+
         public int Id { get { return id; } set { id = value; } }
         public string LRN { get { return lrn; } set { lrn = value; } }
         public string OR_no { get { return or_no; } set { or_no = value; } }
         public string Unif_code { get { return unif_code; } set { unif_code = value; } }      
         public string Unif_qty { get { return unif_qty; } set { unif_qty = value; } }
         public string Unif_size { get { return unif_size; } set { unif_size = value; } }
+        public string Order_status { get { return order_status; } set { order_status = value; } }
+
+
 
         List<TransBookUnif> transBokUnifs = new List<TransBookUnif>();
+       
 
         public void LoadDataTable(DataGridView dgv)
         {
@@ -78,7 +83,7 @@ namespace CAEBS_V2
                         trans.unif_code = reader["unif_code"].ToString();                      
                         trans.unif_qty = reader["unif_qty"].ToString();
                         trans.unif_size = reader["unif_size"].ToString();
-
+                        trans.order_status = reader["order_status"].ToString();
                         transBokUnifs.Add(trans);
 
                     }
@@ -103,8 +108,8 @@ namespace CAEBS_V2
                     //try to open connection
                     con.Open();
 
-                    string sql = "INSERT INTO trans_unif_fee(lrn,or_no,unif_code,unif_qty,unif_size) " +
-                                   " VALUES (@lrn,@or_no,@unif_code,@unif_qty,@unif_size);";
+                    string sql = "INSERT INTO trans_unif_fee(lrn,or_no,unif_code,unif_qty,unif_size,order_status) " +
+                                   " VALUES (@lrn,@or_no,@unif_code,@unif_qty,@unif_size,order_status);";
 
                     MySqlCommand cmd = new MySqlCommand(sql, con);
 
@@ -112,7 +117,8 @@ namespace CAEBS_V2
                     cmd.Parameters.AddWithValue("or_no", or_no);
                     cmd.Parameters.AddWithValue("unif_code", unif_code);
                     cmd.Parameters.AddWithValue("unif_qty", unif_qty);
-                    cmd.Parameters.AddWithValue("unif_size", unif_size);                    
+                    cmd.Parameters.AddWithValue("unif_size", unif_size);
+                    cmd.Parameters.AddWithValue("order_status", order_status);
 
                     cmd.ExecuteNonQuery();
 

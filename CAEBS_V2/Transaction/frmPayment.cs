@@ -60,6 +60,21 @@ namespace CAEBS_V2
 
             trans.TransUnif(dgvUnif, LRN);
 
+            #region Header Name
+            dgvUnif.Columns["item_name"].HeaderText = "Description";
+            dgvUnif.Columns["price"].HeaderText = "Price";
+            dgvUnif.Columns["unif_qty"].HeaderText = "Qty";
+            dgvUnif.Columns["unif_size"].HeaderText = "Size";
+
+            DataGridViewColumn toFill = dgvUnif.Columns[0];
+            toFill.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
+            //dgvUnif.Columns[0].Width = 100;
+            dgvUnif.Columns[1].Width = 100;
+            dgvUnif.Columns[2].Width = 100;
+            dgvUnif.Columns[3].Width = 100;
+            // dgvList.Columns[4].Width = 175;
+            #endregion
 
         }
 
