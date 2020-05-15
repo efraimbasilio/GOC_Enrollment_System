@@ -127,6 +127,7 @@
             this.txtLRN = new System.Windows.Forms.TextBox();
             this.label26 = new System.Windows.Forms.Label();
             this.txtStudNo = new System.Windows.Forms.TextBox();
+            this.txtRegNo = new System.Windows.Forms.TextBox();
             this.pnlTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -286,6 +287,7 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.White;
+            this.panel3.Controls.Add(this.txtRegNo);
             this.panel3.Controls.Add(this.pnlRequirements);
             this.panel3.Controls.Add(this.dgvEnrollment);
             this.panel3.Controls.Add(this.panel2);
@@ -1165,6 +1167,7 @@
             this.label26.Size = new System.Drawing.Size(67, 18);
             this.label26.TabIndex = 12;
             this.label26.Text = "Student No:";
+            this.label26.Visible = false;
             // 
             // txtStudNo
             // 
@@ -1176,6 +1179,19 @@
             this.txtStudNo.TabIndex = 11;
             this.txtStudNo.Text = "00-0000";
             this.txtStudNo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtStudNo.Visible = false;
+            // 
+            // txtRegNo
+            // 
+            this.txtRegNo.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRegNo.Location = new System.Drawing.Point(382, 72);
+            this.txtRegNo.Name = "txtRegNo";
+            this.txtRegNo.ReadOnly = true;
+            this.txtRegNo.Size = new System.Drawing.Size(51, 25);
+            this.txtRegNo.TabIndex = 113;
+            this.txtRegNo.Text = "00-0000";
+            this.txtRegNo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtRegNo.Visible = false;
             // 
             // frmNewStudent
             // 
@@ -1310,5 +1326,6 @@
         public System.Windows.Forms.CheckBox chkMedCert;
         public System.Windows.Forms.CheckBox chkPSA;
         private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.TextBox txtRegNo;
     }
 }

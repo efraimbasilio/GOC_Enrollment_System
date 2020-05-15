@@ -316,12 +316,19 @@ namespace CAEBS_V2
                         transBUnif.Save();
                     }
                 }
+
+                register.Lrn = lblLRN.Text;
+                register.MOP = cmbMOP.Text;
+                register.UpdateMOP();
+
                 string message = "Record Save";
                 string title = "Enrollment System";
 
                 MessageBoxButtons buttons = MessageBoxButtons.OK;
                 DialogResult result = MessageBox.Show(message, title, buttons, MessageBoxIcon.Information);
             }
+
+           
            
         }
 
@@ -376,6 +383,9 @@ namespace CAEBS_V2
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             UnifOrders();
+            total_all = 0;
+            btnCompute.PerformClick();
+            PassToCompute();
         }
 
         private void dgvUniform2_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -396,7 +406,10 @@ namespace CAEBS_V2
                     trans.Delete();
                 
                     UnifOrders();
-                    
+
+                    total_all = 0;
+                    btnCompute.PerformClick();
+                    PassToCompute();
 
                 }
                 else

@@ -91,7 +91,7 @@ namespace CAEBS_V2
             this.Size = new Size(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height - 10);
         }
 
-        public void Generate_StudNo()
+        public void Generate_RegNo()
         {
             if (r.save_halt == false)
             {
@@ -106,14 +106,14 @@ namespace CAEBS_V2
                 ctr.Ctr_number = i.ToString();
                 ctr.Update();
 
-                string str = DateTime.Today.ToString("yyyy");
-                string a = str.Substring(2);
-                string output = a + "-" + (i).ToString("0000");
-                txtStudNo.Text = output;
+                //string str = DateTime.Today.ToString("yyyy");
+                //string a = str.Substring(2);
+                string output = "REG" + "-" + (i).ToString("0000");
+                txtRegNo.Text = output;
 
                 r.Lrn = txtLRN.Text;
-                r.Stud_no = output;
-                r.Update_For_StudentNo();
+                r.Reg_no = output;
+                r.Update_For_RegNo();
             }
             else
             {
@@ -323,10 +323,7 @@ namespace CAEBS_V2
             txtLastName.Text = last_name;
             txtFirstName.Text = first_name;
             txtMiddleName.Text = middle_name;
-            cmbGradeLevel.Text = grade_level;
-            
-
-
+            cmbGradeLevel.Text = grade_level;          
             dtpBirthdate.Text = date_of_birth;
             txtBirthPlace.Text = place_of_birth;
             txtReligion.Text = religion;
@@ -350,53 +347,7 @@ namespace CAEBS_V2
 
             cmbTrack.Text = track;
             cmbVoucher.Text = voucher;
-            cmbStrand.Text = strand;
-            
-
-            //if (psa.Equals("1"))
-            //{
-            //    chkPSA.Checked = true;
-            //}
-
-            //if (psa_copy.Equals("1"))
-            //{
-            //    chkPSACopy.Checked = true;
-            //}
-
-            //if (report_card.Equals("1"))
-            //{
-            //    chkCard.Checked = true;
-            //}
-
-            //if (form_137.Equals("1"))
-            //{
-            //    chk137.Checked = true;
-            //}
-
-            //if (good_moral.Equals("1"))
-            //{
-            //    chkGoodMoral.Checked = true;
-            //}
-
-            //if (med_certificate.Equals("1"))
-            //{
-            //    chkMedCert.Checked = true;
-            //}
-
-            //if (ncae.Equals("1"))
-            //{
-            //    chckNCAE.Checked = true;
-            //}
-
-            //if (voucher.Equals("1"))
-            //{
-            //    chkESC.Checked = true;
-            //}
-
-            //if (exam.Equals("1"))
-            //{
-            //    chkExam.Checked = true;
-            //}
+            cmbStrand.Text = strand;                        
         }
 
         #endregion
@@ -477,31 +428,19 @@ namespace CAEBS_V2
                 r.Voucher_type = cmbVoucher.Text;
                 r.Track = cmbTrack.Text;
                 r.Strand = cmbStrand.Text;
+                r.MOP = "NA";
 
                 #endregion
 
                 if (util.readyToSave == 1)
                 {                         
                     r.Save();
-                    //Generate_StudNo();
+                    Generate_RegNo();
 
                     frmReports rpt = new frmReports();
                     rpt.LRN = txtLRN.Text;
                     rpt.PrintRegForm();
-                    rpt.ShowDialog();
-
-                    //#region Call Dashboard Form       
-                    //frmMain mainwin = (frmMain)Application.OpenForms["frmMain"];
-                    //    frmDashboard frm = new frmDashboard();
-
-                    //    mainwin.pnlAllContainer.Controls.Clear();
-                    //    frm.TopLevel = false;
-                    //    frm.AutoScroll = true;
-                    //    mainwin.pnlAllContainer.Controls.Add(frm);
-
-                    //    frm.Show();
-                    //#endregion
-
+                    rpt.ShowDialog();                  
                 }
             }
 

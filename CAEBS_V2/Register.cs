@@ -17,6 +17,7 @@ namespace CAEBS_V2
         public int count_data;
 
         protected int id;
+        protected string reg_no;
         protected string stud_no;
         protected string lrn;
         protected string last_name;
@@ -73,6 +74,7 @@ namespace CAEBS_V2
 
 
         public int Id { get { return id; } set { id = value; } }
+        public string Reg_no { get { return reg_no; } set { reg_no = value; } }
         public string Stud_no { get { return stud_no; } set { stud_no = value; } }
         public string Lrn { get { return lrn; } set { lrn = value; } }
         public string Last_name { get { return last_name; } set { last_name = value; } }
@@ -244,11 +246,11 @@ namespace CAEBS_V2
                     //string sql = "INSERT INTO student_profile(lrn,last_name,first_name,middle_name,grade_level)" +
                     //             "VALUES(@lrn,@last_name,@first_name,@middle_name,@grade_level);";
 
-                    string sql = "INSERT INTO student_profile(mop,esc_voucher,entrance_exam,ncae,track,strand,voucher_type,stud_no,lrn,last_name,first_name,middle_name,grade_level,department,section,student_type,semester,date_of_birth,place_of_birth,religion,nationality,sex,address,mother_name,mother_contact,mother_work,father_name,father_contact,father_work,cperson_name,cperson_contact,cperson_address,cperson_relationship,previous_school,previous_school_address,psa,psa_copy,med_certificate,report_card,form_137,good_moral,enrollee_status)" +
-                                 "VALUES(@mop,@esc_voucher,@entrance_exam,@ncae,@track,@strand,@voucher_type,@stud_no,@lrn,@last_name,@first_name,@middle_name,@grade_level,@department,@section,@student_type,@semester,@date_of_birth,@place_of_birth,@religion,@nationality,@sex,@address,@mother_name,@mother_contact,@mother_work,@father_name,@father_contact,@father_work,@cperson_name,@cperson_contact,@cperson_address,@cperson_relationship,@previous_school,@previous_school_address,@psa,@psa_copy,@med_certificate,@report_card,@form_137,@good_moral,@enrollee_status);";
+                    string sql = "INSERT INTO student_profile(reg_no,mop,esc_voucher,entrance_exam,ncae,track,strand,voucher_type,stud_no,lrn,last_name,first_name,middle_name,grade_level,department,section,student_type,semester,date_of_birth,place_of_birth,religion,nationality,sex,address,mother_name,mother_contact,mother_work,father_name,father_contact,father_work,cperson_name,cperson_contact,cperson_address,cperson_relationship,previous_school,previous_school_address,psa,psa_copy,med_certificate,report_card,form_137,good_moral,enrollee_status)" +
+                                 "VALUES(@reg_no,@mop,@esc_voucher,@entrance_exam,@ncae,@track,@strand,@voucher_type,@stud_no,@lrn,@last_name,@first_name,@middle_name,@grade_level,@department,@section,@student_type,@semester,@date_of_birth,@place_of_birth,@religion,@nationality,@sex,@address,@mother_name,@mother_contact,@mother_work,@father_name,@father_contact,@father_work,@cperson_name,@cperson_contact,@cperson_address,@cperson_relationship,@previous_school,@previous_school_address,@psa,@psa_copy,@med_certificate,@report_card,@form_137,@good_moral,@enrollee_status);";
 
                     MySqlCommand cmd = new MySqlCommand(sql, con);
-
+                    cmd.Parameters.AddWithValue("reg_no", reg_no);
                     cmd.Parameters.AddWithValue("stud_no", stud_no);
                     cmd.Parameters.AddWithValue("lrn", lrn);
                     cmd.Parameters.AddWithValue("last_name", last_name);
@@ -497,6 +499,66 @@ namespace CAEBS_V2
                     cmd.ExecuteNonQuery();
 
                     MessageBox.Show("StudNo Update!", "Enrollment System", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("ERROR : " + ex.ToString(), "Enrollment System", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+        }
+
+        public void Update_For_RegNo()
+        {
+            try
+            {
+                //prepare connection string 
+                using (MySqlConnection con = new MySqlConnection(CAEBS_V2.Config.GetConnectionString()))
+                {
+                    //try to open connection
+                    con.Open();
+
+                    string sql = "UPDATE student_profile SET reg_no = @reg_no" +
+                                   " WHERE lrn=@lrn;";
+
+                    MySqlCommand cmd = new MySqlCommand(sql, con);
+
+                    cmd.Parameters.AddWithValue("lrn", lrn);
+                    cmd.Parameters.AddWithValue("reg_no", reg_no);
+
+                    cmd.ExecuteNonQuery();
+
+                    MessageBox.Show("Student Registered Successfully!", "Enrollment System", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("ERROR : " + ex.ToString(), "Enrollment System", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+        }
+
+        public void UpdateMOP()
+        {
+            try
+            {
+                //prepare connection string 
+                using (MySqlConnection con = new MySqlConnection(CAEBS_V2.Config.GetConnectionString()))
+                {
+                    //try to open connection
+                    con.Open();
+
+                    string sql = "UPDATE student_profile SET mop=@mop" +
+                                   " WHERE lrn=@lrn;";
+                  
+                    MySqlCommand cmd = new MySqlCommand(sql, con);
+
+                    cmd.Parameters.AddWithValue("lrn", lrn);                   
+                    cmd.Parameters.AddWithValue("mop", mop);
+
+                    cmd.ExecuteNonQuery();
+
+                    //MessageBox.Show("Record Update!", "Enrollment System", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (MySqlException ex)
