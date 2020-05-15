@@ -108,7 +108,7 @@ namespace CAEBS_V2
 
                 //string str = DateTime.Today.ToString("yyyy");
                 //string a = str.Substring(2);
-                string output = "REG" + "-" + (i).ToString("0000");
+                string output = (i).ToString("0000");
                 txtRegNo.Text = output;
 
                 r.Lrn = txtLRN.Text;

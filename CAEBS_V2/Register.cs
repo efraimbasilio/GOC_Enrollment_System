@@ -410,7 +410,7 @@ namespace CAEBS_V2
 
                         //prepare properties
                         //register.id = Convert.ToInt32(reader["id"].ToString());    
-
+                        register.reg_no = reader["reg_no"].ToString();
                         register.stud_no = reader["stud_no"].ToString();
                         register.lrn = reader["lrn"].ToString();
                         register.last_name = reader["last_name"].ToString();

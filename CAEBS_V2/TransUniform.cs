@@ -45,7 +45,7 @@ namespace CAEBS_V2
             }
         }
 
-        public void TransUnif(DataGridView dgv,String LRN)
+        public void TransUnif(DataGridView dgv,String REG)
         {
             try
             {
@@ -53,7 +53,7 @@ namespace CAEBS_V2
                 {
                   
                     con.Open();                    
-                    string sql = "SELECT trans_unif_fee.id, unif_item.item_name,unif_item.price,trans_unif_fee.unif_qty,trans_unif_fee.unif_size FROM  trans_unif_fee INNER JOIN unif_item ON trans_unif_fee.unif_code = unif_item.unif_code WHERE trans_unif_fee.lrn =" + LRN +"";                    
+                    string sql = "SELECT trans_unif_fee.id, unif_item.item_name,unif_item.price,trans_unif_fee.unif_qty,trans_unif_fee.unif_size FROM  trans_unif_fee INNER JOIN unif_item ON trans_unif_fee.unif_code = unif_item.unif_code WHERE trans_unif_fee.reg_no = " + REG +"";                    
                     MySqlCommand cmd = new MySqlCommand(sql, con);
                     MySqlDataAdapter da = new MySqlDataAdapter();
                     da.SelectCommand = cmd;

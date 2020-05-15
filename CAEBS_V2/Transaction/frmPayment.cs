@@ -12,7 +12,7 @@ namespace CAEBS_V2
 {
     public partial class frmPayment : Form
     {
-        public string LRN, StudNo, FName, LName, MName, GLevel, Section, Strand, Voucher;
+        public string RegNo, LRN, StudNo, FName, LName, MName, GLevel, Section, Strand, Voucher;
         public int id;
 
         PaymentLog pay = new PaymentLog();
@@ -43,6 +43,8 @@ namespace CAEBS_V2
 
         public void ToPay()
         {
+            MessageBox.Show(RegNo);
+            lblRegNo.Text = RegNo;
             lblLRN.Text = LRN;
             lblStudNo.Text = StudNo;
             lblFullName.Text = LName + ". " + FName + " " + MName;
@@ -58,7 +60,7 @@ namespace CAEBS_V2
             //ON u1.unif_code = u2.unif_code
             //WHERE u2.lrn = "LRN";
 
-            trans.TransUnif(dgvUnif, LRN);
+            trans.TransUnif(dgvUnif, RegNo);
 
             #region Header Name
             dgvUnif.Columns["item_name"].HeaderText = "Description";

@@ -48,26 +48,27 @@
             this.lblFullName = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.txtToBilling = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label11 = new System.Windows.Forms.Label();
             this.txtDP = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.cmbMOP = new System.Windows.Forms.ComboBox();
             this.dgvUnif = new System.Windows.Forms.DataGridView();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.cmbMOP = new System.Windows.Forms.ComboBox();
+            this.txtToBilling = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.label29 = new System.Windows.Forms.Label();
-            this.label37 = new System.Windows.Forms.Label();
             this.dgvBilling = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button3 = new System.Windows.Forms.Button();
+            this.label29 = new System.Windows.Forms.Label();
+            this.label37 = new System.Windows.Forms.Label();
+            this.lblRegNo = new System.Windows.Forms.Label();
             this.pnlTitle.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvUnif)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUnif)).BeginInit();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBilling)).BeginInit();
             this.SuspendLayout();
@@ -105,6 +106,7 @@
             // pnlTitle
             // 
             this.pnlTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(33)))), ((int)(((byte)(87)))));
+            this.pnlTitle.Controls.Add(this.lblRegNo);
             this.pnlTitle.Controls.Add(this.label8);
             this.pnlTitle.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlTitle.Location = new System.Drawing.Point(0, 0);
@@ -307,14 +309,18 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Billing Information";
             // 
-            // txtToBilling
+            // dataGridView1
             // 
-            this.txtToBilling.Location = new System.Drawing.Point(1047, 677);
-            this.txtToBilling.Name = "txtToBilling";
-            this.txtToBilling.Size = new System.Drawing.Size(75, 27);
-            this.txtToBilling.TabIndex = 97;
-            this.txtToBilling.Text = "&Next";
-            this.txtToBilling.UseVisualStyleBackColor = true;
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(6, 392);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.Size = new System.Drawing.Size(582, 191);
+            this.dataGridView1.TabIndex = 97;
             // 
             // label11
             // 
@@ -358,17 +364,6 @@
             this.label7.TabIndex = 85;
             this.label7.Text = "Mode of Payment:";
             // 
-            // cmbMOP
-            // 
-            this.cmbMOP.FormattingEnabled = true;
-            this.cmbMOP.Items.AddRange(new object[] {
-            "Partial Payment",
-            "Fullpayment"});
-            this.cmbMOP.Location = new System.Drawing.Point(200, 47);
-            this.cmbMOP.Name = "cmbMOP";
-            this.cmbMOP.Size = new System.Drawing.Size(122, 26);
-            this.cmbMOP.TabIndex = 84;
-            // 
             // dgvUnif
             // 
             this.dgvUnif.AllowUserToAddRows = false;
@@ -382,18 +377,25 @@
             this.dgvUnif.Size = new System.Drawing.Size(582, 239);
             this.dgvUnif.TabIndex = 93;
             // 
-            // dataGridView1
+            // cmbMOP
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(6, 392);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.Size = new System.Drawing.Size(582, 191);
-            this.dataGridView1.TabIndex = 97;
+            this.cmbMOP.FormattingEnabled = true;
+            this.cmbMOP.Items.AddRange(new object[] {
+            "Partial Payment",
+            "Fullpayment"});
+            this.cmbMOP.Location = new System.Drawing.Point(200, 47);
+            this.cmbMOP.Name = "cmbMOP";
+            this.cmbMOP.Size = new System.Drawing.Size(122, 26);
+            this.cmbMOP.TabIndex = 84;
+            // 
+            // txtToBilling
+            // 
+            this.txtToBilling.Location = new System.Drawing.Point(1047, 677);
+            this.txtToBilling.Name = "txtToBilling";
+            this.txtToBilling.Size = new System.Drawing.Size(75, 27);
+            this.txtToBilling.TabIndex = 97;
+            this.txtToBilling.Text = "&Next";
+            this.txtToBilling.UseVisualStyleBackColor = true;
             // 
             // groupBox4
             // 
@@ -407,6 +409,44 @@
             this.groupBox4.TabIndex = 98;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Payment";
+            // 
+            // dgvBilling
+            // 
+            this.dgvBilling.AllowUserToAddRows = false;
+            this.dgvBilling.AllowUserToDeleteRows = false;
+            this.dgvBilling.BackgroundColor = System.Drawing.Color.White;
+            this.dgvBilling.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvBilling.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvBilling.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2});
+            this.dgvBilling.GridColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.dgvBilling.Location = new System.Drawing.Point(172, 21);
+            this.dgvBilling.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.dgvBilling.Name = "dgvBilling";
+            this.dgvBilling.ReadOnly = true;
+            this.dgvBilling.RowHeadersVisible = false;
+            this.dgvBilling.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvBilling.Size = new System.Drawing.Size(321, 339);
+            this.dgvBilling.TabIndex = 99;
+            // 
+            // Column1
+            // 
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column1.HeaderText = "Description";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle1.Format = "C2";
+            dataGridViewCellStyle1.NullValue = null;
+            this.Column2.DefaultCellStyle = dataGridViewCellStyle1;
+            this.Column2.HeaderText = "Amount";
+            this.Column2.MinimumWidth = 10;
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
             // 
             // button3
             // 
@@ -447,43 +487,16 @@
             this.label37.TabIndex = 10;
             this.label37.Text = "LRN:";
             // 
-            // dgvBilling
+            // lblRegNo
             // 
-            this.dgvBilling.AllowUserToAddRows = false;
-            this.dgvBilling.AllowUserToDeleteRows = false;
-            this.dgvBilling.BackgroundColor = System.Drawing.Color.White;
-            this.dgvBilling.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvBilling.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvBilling.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2});
-            this.dgvBilling.GridColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.dgvBilling.Location = new System.Drawing.Point(172, 21);
-            this.dgvBilling.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.dgvBilling.Name = "dgvBilling";
-            this.dgvBilling.ReadOnly = true;
-            this.dgvBilling.RowHeadersVisible = false;
-            this.dgvBilling.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvBilling.Size = new System.Drawing.Size(321, 339);
-            this.dgvBilling.TabIndex = 99;
-            // 
-            // Column1
-            // 
-            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column1.HeaderText = "Description";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle1.Format = "C2";
-            dataGridViewCellStyle1.NullValue = null;
-            this.Column2.DefaultCellStyle = dataGridViewCellStyle1;
-            this.Column2.HeaderText = "Amount";
-            this.Column2.MinimumWidth = 10;
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
+            this.lblRegNo.AutoSize = true;
+            this.lblRegNo.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRegNo.Location = new System.Drawing.Point(1036, 15);
+            this.lblRegNo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblRegNo.Name = "lblRegNo";
+            this.lblRegNo.Size = new System.Drawing.Size(80, 18);
+            this.lblRegNo.TabIndex = 95;
+            this.lblRegNo.Text = "457895247856";
             // 
             // frmPayment
             // 
@@ -510,8 +523,8 @@
             this.groupBox1.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvUnif)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUnif)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBilling)).EndInit();
@@ -554,5 +567,6 @@
         private System.Windows.Forms.DataGridView dgvBilling;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.Label lblRegNo;
     }
 }

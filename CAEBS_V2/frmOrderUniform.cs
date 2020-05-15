@@ -18,7 +18,7 @@ namespace CAEBS_V2
 
         Uniform uniform = new Uniform();
         List<Uniform> listUniform = new List<Uniform>();
-        public string LRN;
+        public string LRN, Reg_no;
 
         public frmOrderUniform()
         {
@@ -94,6 +94,7 @@ namespace CAEBS_V2
                 {
                     if (Convert.ToInt32(dgvUniform.Rows[i].Cells[3].Value) > 0)
                     {
+                        transBUnif.Reg_no = Reg_no;
                         transBUnif.LRN = LRN;
                         transBUnif.OR_no = "0000";
                         transBUnif.Unif_code = dgvUniform.Rows[i].Cells[0].Value.ToString();

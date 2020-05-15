@@ -108,6 +108,7 @@ namespace CAEBS_V2
 
             foreach (var item in ListRegister)
             {
+                frm_assess.RegNo = item.Reg_no;
                 frm_assess.LRN = item.Lrn;
                 frm_assess.StudNo = item.Stud_no;
                 frm_assess.FName = item.First_name;
@@ -351,6 +352,7 @@ namespace CAEBS_V2
 
                 foreach (var item in ListRegister)
                 {
+                    frm_payment.RegNo = item.Reg_no;
                     frm_payment.LRN = item.Lrn;
                     frm_payment.StudNo = item.Stud_no;
                     frm_payment.FName = item.First_name;

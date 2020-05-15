@@ -13,6 +13,7 @@ namespace CAEBS_V2
     {
         protected int id;
         protected string lrn;
+        protected string reg_no;
         protected string or_no;        
         protected string unif_code;      
         protected string unif_qty;
@@ -21,6 +22,7 @@ namespace CAEBS_V2
 
         public int Id { get { return id; } set { id = value; } }
         public string LRN { get { return lrn; } set { lrn = value; } }
+        public string Reg_no { get { return reg_no; } set { reg_no = value; } }
         public string OR_no { get { return or_no; } set { or_no = value; } }
         public string Unif_code { get { return unif_code; } set { unif_code = value; } }      
         public string Unif_qty { get { return unif_qty; } set { unif_qty = value; } }
@@ -79,6 +81,7 @@ namespace CAEBS_V2
                         //prepare properties
                         trans.id = Convert.ToInt32(reader["id"].ToString());
                         trans.lrn = reader["lrn"].ToString();
+                        trans.reg_no = reader["reg_no"].ToString();
                         trans.or_no = reader["or_no"].ToString();
                         trans.unif_code = reader["unif_code"].ToString();                      
                         trans.unif_qty = reader["unif_qty"].ToString();
@@ -108,12 +111,13 @@ namespace CAEBS_V2
                     //try to open connection
                     con.Open();
 
-                    string sql = "INSERT INTO trans_unif_fee(lrn,or_no,unif_code,unif_qty,unif_size,order_status) " +
-                                   " VALUES (@lrn,@or_no,@unif_code,@unif_qty,@unif_size,order_status);";
+                    string sql = "INSERT INTO trans_unif_fee(reg_no,lrn,or_no,unif_code,unif_qty,unif_size,order_status) " +
+                                   " VALUES (@reg_no,@lrn,@or_no,@unif_code,@unif_qty,@unif_size,order_status);";
 
                     MySqlCommand cmd = new MySqlCommand(sql, con);
 
                     cmd.Parameters.AddWithValue("lrn", lrn);
+                    cmd.Parameters.AddWithValue("reg_no", reg_no);
                     cmd.Parameters.AddWithValue("or_no", or_no);
                     cmd.Parameters.AddWithValue("unif_code", unif_code);
                     cmd.Parameters.AddWithValue("unif_qty", unif_qty);

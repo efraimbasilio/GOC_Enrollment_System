@@ -12,7 +12,7 @@ namespace CAEBS_V2
 {
     public partial class frmAssess : Form
     {
-        public string LRN, StudNo, FName, LName, MName, GLevel, Section, Strand, Voucher;
+        public string RegNo,LRN, StudNo, FName, LName, MName, GLevel, Section, Strand, Voucher;
         public int id;
 
         TransUniform trans = new TransUniform();
@@ -305,8 +305,10 @@ namespace CAEBS_V2
 
                 for (int i = 0; i < dgvUniform.Rows.Count; i++)
                 {
-                    if (Convert.ToInt32(dgvUniform.Rows[i].Cells[3].Value) > 0)
+                    MessageBox.Show(dgvUniform.Rows[i].Cells[4].Value.ToString());
+                    if (Convert.ToInt32(dgvUniform.Rows[i].Cells[4].Value) > 0)
                     {
+                        transBUnif.Reg_no = lblRegNo.Text;
                         transBUnif.LRN = lblLRN.Text;
                         transBUnif.OR_no = "0000";                      
                         transBUnif.Unif_code = dgvUniform.Rows[i].Cells[0].Value.ToString();
@@ -368,6 +370,7 @@ namespace CAEBS_V2
         private void bntSubmitOrder_Click(object sender, EventArgs e)
         {
             frmOrderUniform order = new frmOrderUniform();
+            order.Reg_no = lblRegNo.Text;
             order.LRN = lblLRN.Text;
             order.LoadUniform();
             order.ShowDialog();
@@ -529,8 +532,8 @@ namespace CAEBS_V2
 
         public void UnifOrders()
         {                     
-            trans.TransUnif(dgvUniform2, lblLRN.Text);
-
+            //trans.TransUnif(dgvUniform2, LRN);
+            trans.TransUnif(dgvUniform2, RegNo);
             #region Header Name
             dgvUniform2.Columns["id"].Visible = false;
             dgvUniform2.Columns["item_name"].HeaderText = "Description";
@@ -553,6 +556,8 @@ namespace CAEBS_V2
 
         public void ToAssess()
         {
+            
+            lblRegNo.Text = RegNo;
             lblLRN.Text = LRN;
             lblStudNo.Text = StudNo;
             lblFullName.Text = LName + ". " + FName + " " + MName;
