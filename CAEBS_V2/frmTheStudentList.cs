@@ -364,15 +364,7 @@ namespace CAEBS_V2
                     frm_payment.Voucher = item.Voucher_type;
                 }
 
-                    frm_payment.ToPay();
-                    //frm_payment.FilterStrand(frm_assess.Strand);
-
-                    //frm_assess.FilterBook(frm_assess.Strand,frm_assess.GLevel);
-                    //frm_assess.FilterVoucher(frm_assess.Voucher);
-
-                    //frm_assess.LoadOtherFee();
-                    //frm_assess.LoadTuition();
-                    //frm_assess.PassToCompute();
+                    frm_payment.ToPay();                 
 
                     #region Call Form       
                     frmMain mainwin = (frmMain)Application.OpenForms["frmMain"];

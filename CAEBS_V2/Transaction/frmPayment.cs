@@ -43,7 +43,7 @@ namespace CAEBS_V2
 
         public void ToPay()
         {
-            MessageBox.Show(RegNo);
+           
             lblRegNo.Text = RegNo;
             lblLRN.Text = LRN;
             lblStudNo.Text = StudNo;
@@ -51,31 +51,25 @@ namespace CAEBS_V2
             lblGLevel.Text = GLevel;
             lblSection.Text = Section;
             lblStrand.Text = Strand;
-            lblVoucher.Text = Voucher;
-
-
-            //SELECT unif_item.item_name, unif_item.price,trans_unif_fee.unif_qty,trans_unif_fee.unif_size
-            //FROM unif_item u1
-            //INNER JOIN trans_unif_fee u2
-            //ON u1.unif_code = u2.unif_code
-            //WHERE u2.lrn = "LRN";
+            lblVoucher.Text = Voucher;       
 
             trans.TransUnif(dgvUnif, RegNo);
 
             #region Header Name
+            dgvUnif.Columns["id"].Visible = false;
             dgvUnif.Columns["item_name"].HeaderText = "Description";
             dgvUnif.Columns["price"].HeaderText = "Price";
             dgvUnif.Columns["unif_qty"].HeaderText = "Qty";
             dgvUnif.Columns["unif_size"].HeaderText = "Size";
 
-            DataGridViewColumn toFill = dgvUnif.Columns[0];
+            DataGridViewColumn toFill = dgvUnif.Columns[1];
             toFill.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
             //dgvUnif.Columns[0].Width = 100;
-            dgvUnif.Columns[1].Width = 100;
             dgvUnif.Columns[2].Width = 100;
             dgvUnif.Columns[3].Width = 100;
-            // dgvList.Columns[4].Width = 175;
+            dgvUnif.Columns[4].Width = 100;
+            // dgvUnif.Columns[4].Width = 175;
             #endregion
 
         }

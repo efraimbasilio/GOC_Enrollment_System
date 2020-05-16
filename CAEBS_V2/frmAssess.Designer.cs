@@ -34,6 +34,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label8 = new System.Windows.Forms.Label();
             this.pnlTitle = new System.Windows.Forms.Panel();
+            this.lblRegNo = new System.Windows.Forms.Label();
             this.lblTotalPayment = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -93,7 +94,6 @@
             this.dgvUniform2 = new System.Windows.Forms.DataGridView();
             this.bntSubmitOrder = new System.Windows.Forms.Button();
             this.btnRefresh = new System.Windows.Forms.Button();
-            this.lblRegNo = new System.Windows.Forms.Label();
             this.pnlTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAssessment)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -133,6 +133,17 @@
             this.pnlTitle.Name = "pnlTitle";
             this.pnlTitle.Size = new System.Drawing.Size(1133, 52);
             this.pnlTitle.TabIndex = 5;
+            // 
+            // lblRegNo
+            // 
+            this.lblRegNo.AutoSize = true;
+            this.lblRegNo.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRegNo.Location = new System.Drawing.Point(766, 15);
+            this.lblRegNo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblRegNo.Name = "lblRegNo";
+            this.lblRegNo.Size = new System.Drawing.Size(80, 18);
+            this.lblRegNo.TabIndex = 94;
+            this.lblRegNo.Text = "457895247856";
             // 
             // lblTotalPayment
             // 
@@ -223,13 +234,13 @@
             this.Column1,
             this.Column2});
             this.dgvAssessment.GridColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.dgvAssessment.Location = new System.Drawing.Point(18, 167);
+            this.dgvAssessment.Location = new System.Drawing.Point(16, 146);
             this.dgvAssessment.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.dgvAssessment.Name = "dgvAssessment";
             this.dgvAssessment.ReadOnly = true;
             this.dgvAssessment.RowHeadersVisible = false;
             this.dgvAssessment.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvAssessment.Size = new System.Drawing.Size(321, 339);
+            this.dgvAssessment.Size = new System.Drawing.Size(321, 461);
             this.dgvAssessment.TabIndex = 16;
             this.dgvAssessment.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvAssessment_DataBindingComplete);
             // 
@@ -499,7 +510,7 @@
             this.groupBox2.Controls.Add(this.label14);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.label13);
-            this.groupBox2.Location = new System.Drawing.Point(34, 230);
+            this.groupBox2.Location = new System.Drawing.Point(32, 202);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(294, 209);
             this.groupBox2.TabIndex = 24;
@@ -534,11 +545,11 @@
             this.groupBox3.Size = new System.Drawing.Size(352, 646);
             this.groupBox3.TabIndex = 26;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Billing Information";
+            this.groupBox3.Text = "Billing Estimation Purposes";
             // 
             // txtToBilling
             // 
-            this.txtToBilling.Location = new System.Drawing.Point(271, 613);
+            this.txtToBilling.Location = new System.Drawing.Point(264, 613);
             this.txtToBilling.Name = "txtToBilling";
             this.txtToBilling.Size = new System.Drawing.Size(75, 27);
             this.txtToBilling.TabIndex = 97;
@@ -550,7 +561,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Roboto Condensed", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(18, 128);
+            this.label11.Location = new System.Drawing.Point(16, 111);
             this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(209, 32);
@@ -559,7 +570,7 @@
             // 
             // txtDP
             // 
-            this.txtDP.Location = new System.Drawing.Point(206, 90);
+            this.txtDP.Location = new System.Drawing.Point(204, 62);
             this.txtDP.Name = "txtDP";
             this.txtDP.Size = new System.Drawing.Size(122, 25);
             this.txtDP.TabIndex = 95;
@@ -575,7 +586,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(18, 93);
+            this.label9.Location = new System.Drawing.Point(16, 65);
             this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(175, 18);
@@ -586,7 +597,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(18, 36);
+            this.label7.Location = new System.Drawing.Point(16, 33);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(99, 18);
@@ -599,7 +610,7 @@
             this.cmbMOP.Items.AddRange(new object[] {
             "Partial Payment",
             "Fullpayment"});
-            this.cmbMOP.Location = new System.Drawing.Point(206, 33);
+            this.cmbMOP.Location = new System.Drawing.Point(204, 30);
             this.cmbMOP.Name = "cmbMOP";
             this.cmbMOP.Size = new System.Drawing.Size(122, 26);
             this.cmbMOP.TabIndex = 84;
@@ -610,7 +621,7 @@
             this.dgvUnif.AllowUserToAddRows = false;
             this.dgvUnif.AllowUserToDeleteRows = false;
             this.dgvUnif.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvUnif.Location = new System.Drawing.Point(21, 445);
+            this.dgvUnif.Location = new System.Drawing.Point(19, 417);
             this.dgvUnif.Name = "dgvUnif";
             this.dgvUnif.RowHeadersVisible = false;
             this.dgvUnif.Size = new System.Drawing.Size(307, 61);
@@ -619,7 +630,7 @@
             // 
             // btnCompute
             // 
-            this.btnCompute.Location = new System.Drawing.Point(18, 199);
+            this.btnCompute.Location = new System.Drawing.Point(16, 171);
             this.btnCompute.Name = "btnCompute";
             this.btnCompute.Size = new System.Drawing.Size(75, 28);
             this.btnCompute.TabIndex = 93;
@@ -847,17 +858,6 @@
             this.btnRefresh.Text = "&Refresh";
             this.btnRefresh.UseVisualStyleBackColor = true;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
-            // 
-            // lblRegNo
-            // 
-            this.lblRegNo.AutoSize = true;
-            this.lblRegNo.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRegNo.Location = new System.Drawing.Point(766, 15);
-            this.lblRegNo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblRegNo.Name = "lblRegNo";
-            this.lblRegNo.Size = new System.Drawing.Size(80, 18);
-            this.lblRegNo.TabIndex = 94;
-            this.lblRegNo.Text = "457895247856";
             // 
             // frmAssess
             // 
