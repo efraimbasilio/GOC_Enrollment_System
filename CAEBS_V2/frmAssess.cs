@@ -338,7 +338,8 @@ namespace CAEBS_V2
         {
             total_all = 0;
             btnCompute.PerformClick();
-            PassToCompute();           
+            PassToCompute();
+            
         }
 
         private void dgvUniform_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
