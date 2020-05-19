@@ -335,7 +335,7 @@ namespace CAEBS_V2
                 string title = "Enrollment System";
 
                 MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-                DialogResult result = MessageBox.Show(message, title, buttons, MessageBoxIcon.Warning);
+                DialogResult result = MessageBox.Show(message, title, buttons, MessageBoxIcon.Question);
 
                 if (result == DialogResult.Yes)
                 {
@@ -373,6 +373,8 @@ namespace CAEBS_V2
                     frm_payment.LoadTuition();
                     frm_payment.PassToCompute();
                     frm_payment.LoadMiscFee();
+
+                    frm_payment.FilterBook(frm_payment.Strand, frm_payment.GLevel);
                     #region Call Form       
                     frmMain mainwin = (frmMain)Application.OpenForms["frmMain"];
                     mainwin.pnlAllContainer.Controls.Clear();

@@ -114,14 +114,25 @@ namespace CAEBS_V2
             toFill.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
             //dgvUnif.Columns[0].Width = 100;
-            dgvUnif.Columns[2].Width = 100;
-            dgvUnif.Columns[3].Width = 100;
-            dgvUnif.Columns[4].Width = 100;
+            dgvUnif.Columns[2].Width = 40;
+            dgvUnif.Columns[3].Width = 35;
+            dgvUnif.Columns[4].Width = 35;
             // dgvUnif.Columns[4].Width = 175;
             #endregion
 
         }
-
+        public void FilterBook(string Strand, string Level)
+        {
+            books.Clear();
+            books = book.Load();
+            foreach (var item in books)
+            {
+                if (item.Strand.Equals(Strand) && item.Grade_level.Equals(Level))
+                {
+                    dgvBook.Rows.Add(item.Title, item.Price);
+                }
+            }
+        }
         public void LoadOtherFee()
         {
             listOtherFee.Clear();
@@ -146,6 +157,56 @@ namespace CAEBS_V2
             }
             lblOtherFee.Text = TotalOtherFee.ToString("n");
         }
+
+        private void txtDP_TextChanged(object sender, EventArgs e)
+        {                       
+            if (Convert.ToInt32(txtDP.Text) >= 1000)
+            {
+                cmbMOP.Enabled = true;
+            }            
+        }
+
+        private void txtDP_Click(object sender, EventArgs e)
+        {
+            txtDP.SelectAll();
+            
+        }
+
+        private void txtDP_Enter(object sender, EventArgs e)
+        {
+         
+        }
+
+        private void btnCompute_Click(object sender, EventArgs e)
+        {
+
+            if (Convert.ToInt32(txtDP.Text) < 1000)
+            {
+                string message = "Minimum Downpayment is 1000.00 ";
+                string title = "Enrollment System";
+
+                MessageBoxButtons buttons = MessageBoxButtons.OK;
+                DialogResult result = MessageBox.Show(message, title, buttons, MessageBoxIcon.Warning);
+
+                txtDP.Focus();
+                txtDP.SelectAll();
+
+            }
+            else
+            {
+                total_all = 0;
+                PassToCompute();
+            }
+           
+
+
+        }
+
+        private void txtDP_Leave(object sender, EventArgs e)
+        {
+            MessageBox.Show("sa");
+        }
+
         public void LoadMiscFee()
         {
             misc.LoadDataTable(dgvMiscFee);
@@ -190,8 +251,21 @@ namespace CAEBS_V2
 
         public void PassToCompute()
         {
+            ToPay();
+
+            for (int i = 0; i < dgvUnif.Rows.Count; i++)
+            {
+                if (Convert.ToInt32(dgvUnif.Rows[i].Cells[3].Value) > 0)
+                {
+                    Total_1 = Convert.ToDouble(dgvUnif.Rows[i].Cells[2].Value) * Convert.ToDouble(dgvUnif.Rows[i].Cells[3].Value);
+                    total_all += Total_1;
+                }
+            }
+            lblTotalUniformFee.Text = total_all.ToString("n");
+
             if (cmbMOP.Text.Equals("Partial Payment"))
             {
+                
                 //txtDP.Enabled = true;
                 TotalFee = TotalMiscFee + TotalOtherFee + TotalTuition;
                 dgvBillAssess.Rows.Clear();
@@ -211,6 +285,7 @@ namespace CAEBS_V2
                 dgvBillAssess.Rows.Add("Total Fee", total_all + TotalBooks);
                 dgvBillAssess.Rows.Add("", "");
                 dgvBillAssess.Rows.Add("", "");
+
                 dgvBillAssess.Rows[0].DefaultCellStyle.BackColor = Color.Navy;
                 dgvBillAssess.Rows[0].DefaultCellStyle.ForeColor = Color.White;
 
@@ -228,9 +303,13 @@ namespace CAEBS_V2
                 dgvBillAssess.Rows[12].DefaultCellStyle.BackColor = Color.Navy;
                 dgvBillAssess.Rows[12].DefaultCellStyle.ForeColor = Color.White;
 
+
+                dgvUnif.DefaultCellStyle.SelectionBackColor = Color.Navy;
+
             }
             else if (cmbMOP.Text.Equals("Fullpayment"))
             {
+                
                 //txtDP.Text = "0.00";
                 //txtDP.Enabled = false;
                 TotalFee = TotalMiscFee + TotalOtherFee + TotalTuition;
@@ -241,7 +320,7 @@ namespace CAEBS_V2
                 dgvBillAssess.Rows.Add("          Downpayment", Convert.ToDouble(txtDP.Text));
                 dgvBillAssess.Rows.Add("", "");
 
-                TutionPAY = TotalFee - (Convert.ToDouble(VoucherAmount) + Convert.ToDouble(txtDP.Text));
+                TutionPAY = TotalFee - (Convert.ToDouble(VoucherAmount));
                 dgvBillAssess.Rows.Add("Balance", TutionPAY);
 
                 dgvBillAssess.Rows.Add("", "");
@@ -294,19 +373,8 @@ namespace CAEBS_V2
         //#####################################################################################################################################################//
         private void cmbMOP_SelectedIndexChanged(object sender, EventArgs e)
         {
-            total_all = 0;
+            
 
-            //for (int i = 0; i < dgvUniform2.Rows.Count; i++)
-            //{
-            //    if (Convert.ToInt32(dgvUniform2.Rows[i].Cells[4].Value) > 0)
-            //    {
-            //        Total_1 = Convert.ToDouble(dgvUniform2.Rows[i].Cells[3].Value) * Convert.ToDouble(dgvUniform2.Rows[i].Cells[4].Value);
-            //        total_all += Total_1;
-            //    }
-            //}
-            //lblTotalUniformFee.Text = total_all.ToString("n");
-
-            PassToCompute();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -352,7 +420,7 @@ namespace CAEBS_V2
 
         private void frmPayment_Load(object sender, EventArgs e)
         {
-
+            dgvUnif.DefaultCellStyle.SelectionBackColor = Color.Navy;
         }
     }
 }
