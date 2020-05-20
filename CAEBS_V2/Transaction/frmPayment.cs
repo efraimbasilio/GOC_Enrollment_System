@@ -210,6 +210,15 @@ namespace CAEBS_V2
             MessageBox.Show("sa");
         }
 
+        private void txtToBilling_Click(object sender, EventArgs e)
+        {
+            frmPayBill frm = new frmPayBill();
+            frm.lblAmount.Text = lblTotalAmount.Text;
+            frm.lblAmount.Focus();
+            
+            frm.ShowDialog();
+        }
+
         public void LoadMiscFee()
         {
             misc.LoadDataTable(dgvMiscFee);
@@ -269,8 +278,7 @@ namespace CAEBS_V2
             Total_Book = 0;
             for (int i = 0; i < dgvBook.Rows.Count; i++)
             {               
-                    Total_Book = Convert.ToDouble(dgvBook.Rows[i].Cells[1].Value) + Total_Book;
-                    MessageBox.Show(Total_Book.ToString("n"));                          
+                    Total_Book = Convert.ToDouble(dgvBook.Rows[i].Cells[1].Value) + Total_Book;                                       
             }
 
             dgvBook.DefaultCellStyle.SelectionBackColor = Color.Navy;
@@ -295,7 +303,7 @@ namespace CAEBS_V2
                 dgvBillAssess.Rows.Add("Book Fee", Total_Book);
                 dgvBillAssess.Rows.Add("Total Fee", total_all + Total_Book);
                 dgvBillAssess.Rows.Add("", "");
-                dgvBillAssess.Rows.Add("", "");
+                
 
                 dgvBillAssess.Rows[0].DefaultCellStyle.BackColor = Color.Navy;
                 dgvBillAssess.Rows[0].DefaultCellStyle.ForeColor = Color.White;
@@ -309,7 +317,8 @@ namespace CAEBS_V2
                 //util.DisableSort_DataGrid(dgvUniform);
 
                 totSum = (total_all + Total_Book + Convert.ToDouble(txtDP.Text));
-                //lblTotalPayment.Text = totSum.ToString("n");
+
+                lblTotalAmount.Text = totSum.ToString("n");
                 dgvBillAssess.Rows.Add("Total Fees", totSum);
                 dgvBillAssess.Rows[12].DefaultCellStyle.BackColor = Color.Navy;
                 dgvBillAssess.Rows[12].DefaultCellStyle.ForeColor = Color.White;
@@ -329,7 +338,7 @@ namespace CAEBS_V2
                 dgvBillAssess.Rows.Add("SHS Tuititon Fee", TotalFee);
                 dgvBillAssess.Rows.Add("Less: " + lblVoucher.Text, Convert.ToDouble(VoucherAmount));
                 dgvBillAssess.Rows.Add("          Downpayment", Convert.ToDouble(txtDP.Text));
-                dgvBillAssess.Rows.Add("", "");
+                //dgvBillAssess.Rows.Add("", "");
 
                 TutionPAY = TotalFee - (Convert.ToDouble(VoucherAmount));
                 dgvBillAssess.Rows.Add("Balance", TutionPAY);
@@ -340,23 +349,26 @@ namespace CAEBS_V2
                 dgvBillAssess.Rows.Add("Book Fee", Total_Book);
                 dgvBillAssess.Rows.Add("Total Fee", total_all + Total_Book);
                 dgvBillAssess.Rows.Add("", "");
-                dgvBillAssess.Rows.Add("", "");
+              
                 dgvBillAssess.Rows[0].DefaultCellStyle.BackColor = Color.Navy;
                 dgvBillAssess.Rows[0].DefaultCellStyle.ForeColor = Color.White;
+
+                dgvBillAssess.Rows[4].DefaultCellStyle.BackColor = Color.Navy;
+                dgvBillAssess.Rows[4].DefaultCellStyle.ForeColor = Color.White;
 
                 dgvBillAssess.Rows[6].DefaultCellStyle.BackColor = Color.Navy;
                 dgvBillAssess.Rows[6].DefaultCellStyle.ForeColor = Color.White;
 
                 dgvBillAssess.DefaultCellStyle.SelectionBackColor = Color.Navy;
+
                 util.DisableSort_DataGrid(dgvBillAssess);
-                //util.DisableSort_DataGrid(dgvBooks);
-                //util.DisableSort_DataGrid(dgvUniform);
+                
 
                 totSum = (total_all + Total_Book + Convert.ToDouble(TutionPAY));
-                //lblTotalPayment.Text = totSum.ToString("n");
+                lblTotalAmount.Text = totSum.ToString("n");
                 dgvBillAssess.Rows.Add("Total Fees", totSum);
-                dgvBillAssess.Rows[12].DefaultCellStyle.BackColor = Color.Navy;
-                dgvBillAssess.Rows[12].DefaultCellStyle.ForeColor = Color.White;
+                dgvBillAssess.Rows[11].DefaultCellStyle.BackColor = Color.Navy;
+                dgvBillAssess.Rows[11].DefaultCellStyle.ForeColor = Color.White;
             }
         }
 

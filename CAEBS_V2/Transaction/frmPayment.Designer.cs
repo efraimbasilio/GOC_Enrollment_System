@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.button1 = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.pnlTitle = new System.Windows.Forms.Panel();
@@ -61,17 +61,17 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label17 = new System.Windows.Forms.Label();
             this.dgvBook = new System.Windows.Forms.DataGridView();
+            this.Title = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Price1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnEditDP = new System.Windows.Forms.Button();
             this.txtDP = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.label13 = new System.Windows.Forms.Label();
+            this.lblTotalAmount = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.txtToBilling = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
-            this.label37 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.dgvBillAssess = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -89,8 +89,6 @@
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button2 = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
-            this.Title = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Price1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlTitle.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -497,9 +495,24 @@
             this.dgvBook.Size = new System.Drawing.Size(269, 107);
             this.dgvBook.TabIndex = 106;
             // 
+            // Title
+            // 
+            this.Title.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Title.HeaderText = "Description";
+            this.Title.Name = "Title";
+            this.Title.ReadOnly = true;
+            // 
+            // Price1
+            // 
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.Price1.DefaultCellStyle = dataGridViewCellStyle7;
+            this.Price1.HeaderText = "Amount";
+            this.Price1.Name = "Price1";
+            this.Price1.ReadOnly = true;
+            // 
             // btnEditDP
             // 
-            this.btnEditDP.Location = new System.Drawing.Point(238, 94);
+            this.btnEditDP.Location = new System.Drawing.Point(238, 91);
             this.btnEditDP.Name = "btnEditDP";
             this.btnEditDP.Size = new System.Drawing.Size(62, 24);
             this.btnEditDP.TabIndex = 105;
@@ -509,7 +522,7 @@
             // 
             // txtDP
             // 
-            this.txtDP.Location = new System.Drawing.Point(110, 69);
+            this.txtDP.Location = new System.Drawing.Point(110, 66);
             this.txtDP.Name = "txtDP";
             this.txtDP.Size = new System.Drawing.Size(122, 25);
             this.txtDP.TabIndex = 104;
@@ -523,7 +536,7 @@
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(23, 69);
+            this.label16.Location = new System.Drawing.Point(10, 66);
             this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(82, 18);
@@ -537,18 +550,16 @@
             this.label14.Location = new System.Drawing.Point(6, 23);
             this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(183, 32);
+            this.label14.Size = new System.Drawing.Size(212, 32);
             this.label14.TabIndex = 102;
-            this.label14.Text = "Monthly Payment:";
+            this.label14.Text = "Payment Breakdown:";
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.label13);
+            this.groupBox4.Controls.Add(this.lblTotalAmount);
             this.groupBox4.Controls.Add(this.label12);
             this.groupBox4.Controls.Add(this.txtToBilling);
-            this.groupBox4.Controls.Add(this.label3);
             this.groupBox4.Controls.Add(this.button3);
-            this.groupBox4.Controls.Add(this.label37);
             this.groupBox4.Location = new System.Drawing.Point(12, 485);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(576, 155);
@@ -556,47 +567,37 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Payment";
             // 
-            // label13
+            // lblTotalAmount
             // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Roboto Condensed", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(442, 74);
-            this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(98, 32);
-            this.label13.TabIndex = 73;
-            this.label13.Text = "5,000.00";
+            this.lblTotalAmount.AutoSize = true;
+            this.lblTotalAmount.Font = new System.Drawing.Font("Roboto Condensed", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalAmount.Location = new System.Drawing.Point(473, 21);
+            this.lblTotalAmount.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblTotalAmount.Name = "lblTotalAmount";
+            this.lblTotalAmount.Size = new System.Drawing.Size(57, 32);
+            this.lblTotalAmount.TabIndex = 73;
+            this.lblTotalAmount.Text = "0.00";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Roboto Condensed", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(301, 74);
+            this.label12.Location = new System.Drawing.Point(257, 21);
             this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(137, 32);
+            this.label12.Size = new System.Drawing.Size(189, 32);
             this.label12.TabIndex = 72;
-            this.label12.Text = "Amount Due:";
+            this.label12.Text = "Total Amount Due:";
             // 
             // txtToBilling
             // 
-            this.txtToBilling.Location = new System.Drawing.Point(441, 109);
+            this.txtToBilling.Location = new System.Drawing.Point(430, 67);
             this.txtToBilling.Name = "txtToBilling";
-            this.txtToBilling.Size = new System.Drawing.Size(92, 29);
+            this.txtToBilling.Size = new System.Drawing.Size(91, 36);
             this.txtToBilling.TabIndex = 97;
-            this.txtToBilling.Text = "&Pay Now";
+            this.txtToBilling.Text = "&Next";
             this.txtToBilling.UseVisualStyleBackColor = true;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Roboto Condensed", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(442, 33);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(98, 32);
-            this.label3.TabIndex = 71;
-            this.label3.Text = "1,000.00";
+            this.txtToBilling.Click += new System.EventHandler(this.txtToBilling_Click);
             // 
             // button3
             // 
@@ -614,17 +615,6 @@
             this.button3.Text = "Compute";
             this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button3.UseVisualStyleBackColor = false;
-            // 
-            // label37
-            // 
-            this.label37.AutoSize = true;
-            this.label37.Font = new System.Drawing.Font("Roboto Condensed", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label37.Location = new System.Drawing.Point(103, 33);
-            this.label37.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(328, 32);
-            this.label37.TabIndex = 10;
-            this.label37.Text = "Tuition Fee Balance of the Month:";
             // 
             // label11
             // 
@@ -668,10 +658,10 @@
             // 
             // dataGridViewTextBoxColumn2
             // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle4.Format = "C2";
-            dataGridViewCellStyle4.NullValue = null;
-            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle8.Format = "C2";
+            dataGridViewCellStyle8.NullValue = null;
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridViewTextBoxColumn2.HeaderText = "Amount";
             this.dataGridViewTextBoxColumn2.MinimumWidth = 10;
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
@@ -681,7 +671,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(6, 99);
+            this.label7.Location = new System.Drawing.Point(6, 96);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(99, 18);
@@ -713,7 +703,7 @@
             this.cmbMOP.Items.AddRange(new object[] {
             "Partial Payment",
             "Fullpayment"});
-            this.cmbMOP.Location = new System.Drawing.Point(110, 96);
+            this.cmbMOP.Location = new System.Drawing.Point(110, 93);
             this.cmbMOP.Name = "cmbMOP";
             this.cmbMOP.Size = new System.Drawing.Size(122, 26);
             this.cmbMOP.TabIndex = 84;
@@ -815,10 +805,10 @@
             // 
             // Column2
             // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle5.Format = "C2";
-            dataGridViewCellStyle5.NullValue = null;
-            this.Column2.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle9.Format = "C2";
+            dataGridViewCellStyle9.NullValue = null;
+            this.Column2.DefaultCellStyle = dataGridViewCellStyle9;
             this.Column2.HeaderText = "Amount";
             this.Column2.MinimumWidth = 10;
             this.Column2.Name = "Column2";
@@ -843,21 +833,6 @@
             this.label9.Size = new System.Drawing.Size(153, 32);
             this.label9.TabIndex = 100;
             this.label9.Text = "Payment Logs:";
-            // 
-            // Title
-            // 
-            this.Title.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Title.HeaderText = "Description";
-            this.Title.Name = "Title";
-            this.Title.ReadOnly = true;
-            // 
-            // Price1
-            // 
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.Price1.DefaultCellStyle = dataGridViewCellStyle6;
-            this.Price1.HeaderText = "Amount";
-            this.Price1.Name = "Price1";
-            this.Price1.ReadOnly = true;
             // 
             // frmPayment
             // 
@@ -925,7 +900,6 @@
         private System.Windows.Forms.DataGridView dgvUnif;
         private System.Windows.Forms.GroupBox groupBox4;
         public System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Label label37;
         private System.Windows.Forms.DataGridView dgvBilling;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
@@ -935,9 +909,8 @@
         private System.Windows.Forms.DataGridView dgvBillAssess;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label lblTotalAmount;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label lblRegNo;
         private System.Windows.Forms.Label label16;

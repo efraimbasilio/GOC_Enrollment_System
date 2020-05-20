@@ -87,6 +87,12 @@
     <Compile Include="frmOrderUniform.Designer.cs">
       <DependentUpon>frmOrderUniform.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmPayBill.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPayBill.Designer.cs">
+      <DependentUpon>frmPayBill.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmStudentPortal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -297,6 +303,9 @@
     <EmbeddedResource Include="frmOrderUniform.resx">
       <DependentUpon>frmOrderUniform.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmPayBill.resx">
+      <DependentUpon>frmPayBill.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmStudentPortal.resx">
       <DependentUpon>frmStudentPortal.cs</DependentUpon>
     </EmbeddedResource>
@@ -436,6 +445,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\peso-symbol-png-4.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
