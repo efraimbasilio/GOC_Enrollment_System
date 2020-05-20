@@ -28,20 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.button1 = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.pnlTitle = new System.Windows.Forms.Panel();
             this.lblRegNo = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lblTotalMisc = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.lblTuition = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.lblOtherFee = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
+            this.lblTotalUniformFee = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
             this.lblVoucher = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.lblStrand = new System.Windows.Forms.Label();
@@ -56,13 +52,17 @@
             this.label5 = new System.Windows.Forms.Label();
             this.lblFullName = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.lblTotalMisc = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.lblTuition = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.lblOtherFee = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.dgvTuition = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label17 = new System.Windows.Forms.Label();
+            this.dgvBook = new System.Windows.Forms.DataGridView();
+            this.btnEditDP = new System.Windows.Forms.Button();
             this.txtDP = new System.Windows.Forms.TextBox();
-            this.dgvMiscFee = new System.Windows.Forms.DataGridView();
-            this.dgvOtherFee = new System.Windows.Forms.DataGridView();
-            this.OtherFeew = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label16 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -79,29 +79,29 @@
             this.label7 = new System.Windows.Forms.Label();
             this.dgvUnif = new System.Windows.Forms.DataGridView();
             this.cmbMOP = new System.Windows.Forms.ComboBox();
+            this.dgvTuition = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvMiscFee = new System.Windows.Forms.DataGridView();
+            this.dgvOtherFee = new System.Windows.Forms.DataGridView();
+            this.OtherFeew = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvBilling = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button2 = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
-            this.lblTotalUniformFee = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.btnEditDP = new System.Windows.Forms.Button();
-            this.label17 = new System.Windows.Forms.Label();
-            this.dgvBook = new System.Windows.Forms.DataGridView();
             this.Title = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Price1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlTitle.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTuition)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvMiscFee)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvOtherFee)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBook)).BeginInit();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBillAssess)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUnif)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTuition)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMiscFee)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvOtherFee)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBilling)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvBook)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -190,77 +190,30 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Student Information";
             // 
-            // lblTotalMisc
+            // lblTotalUniformFee
             // 
-            this.lblTotalMisc.AutoSize = true;
-            this.lblTotalMisc.Font = new System.Drawing.Font("Roboto Condensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalMisc.Location = new System.Drawing.Point(378, 185);
-            this.lblTotalMisc.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblTotalMisc.Name = "lblTotalMisc";
-            this.lblTotalMisc.Size = new System.Drawing.Size(109, 20);
-            this.lblTotalMisc.TabIndex = 99;
-            this.lblTotalMisc.Text = "Section Maximus";
-            this.lblTotalMisc.Visible = false;
+            this.lblTotalUniformFee.AutoSize = true;
+            this.lblTotalUniformFee.Font = new System.Drawing.Font("Roboto Condensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalUniformFee.Location = new System.Drawing.Point(384, 100);
+            this.lblTotalUniformFee.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblTotalUniformFee.Name = "lblTotalUniformFee";
+            this.lblTotalUniformFee.Size = new System.Drawing.Size(109, 20);
+            this.lblTotalUniformFee.TabIndex = 101;
+            this.lblTotalUniformFee.Text = "Section Maximus";
+            this.lblTotalUniformFee.Visible = false;
             // 
-            // label20
+            // label21
             // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Roboto Condensed", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(336, 185);
-            this.label20.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(38, 20);
-            this.label20.TabIndex = 98;
-            this.label20.Text = "misc";
-            this.label20.Visible = false;
-            // 
-            // lblTuition
-            // 
-            this.lblTuition.AutoSize = true;
-            this.lblTuition.Font = new System.Drawing.Font("Roboto Condensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTuition.Location = new System.Drawing.Point(384, 155);
-            this.lblTuition.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblTuition.Name = "lblTuition";
-            this.lblTuition.Size = new System.Drawing.Size(109, 20);
-            this.lblTuition.TabIndex = 97;
-            this.lblTuition.Text = "Section Maximus";
-            this.lblTuition.Visible = false;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Roboto Condensed", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(327, 155);
-            this.label19.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(53, 20);
-            this.label19.TabIndex = 96;
-            this.label19.Text = "tuittion";
-            this.label19.Visible = false;
-            // 
-            // lblOtherFee
-            // 
-            this.lblOtherFee.AutoSize = true;
-            this.lblOtherFee.Font = new System.Drawing.Font("Roboto Condensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOtherFee.Location = new System.Drawing.Point(389, 126);
-            this.lblOtherFee.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblOtherFee.Name = "lblOtherFee";
-            this.lblOtherFee.Size = new System.Drawing.Size(109, 20);
-            this.lblOtherFee.TabIndex = 95;
-            this.lblOtherFee.Text = "Section Maximus";
-            this.lblOtherFee.Visible = false;
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Roboto Condensed", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(327, 126);
-            this.label18.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(64, 20);
-            this.label18.TabIndex = 94;
-            this.label18.Text = "other Fee";
-            this.label18.Visible = false;
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Roboto Condensed", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.Location = new System.Drawing.Point(342, 100);
+            this.label21.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(34, 20);
+            this.label21.TabIndex = 100;
+            this.label21.Text = "Unif";
+            this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label21.Visible = false;
             // 
             // lblVoucher
             // 
@@ -416,6 +369,78 @@
             this.label6.TabIndex = 11;
             this.label6.Text = "Student No.:";
             // 
+            // lblTotalMisc
+            // 
+            this.lblTotalMisc.AutoSize = true;
+            this.lblTotalMisc.Font = new System.Drawing.Font("Roboto Condensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalMisc.Location = new System.Drawing.Point(378, 185);
+            this.lblTotalMisc.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblTotalMisc.Name = "lblTotalMisc";
+            this.lblTotalMisc.Size = new System.Drawing.Size(109, 20);
+            this.lblTotalMisc.TabIndex = 99;
+            this.lblTotalMisc.Text = "Section Maximus";
+            this.lblTotalMisc.Visible = false;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Roboto Condensed", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Location = new System.Drawing.Point(336, 185);
+            this.label20.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(38, 20);
+            this.label20.TabIndex = 98;
+            this.label20.Text = "misc";
+            this.label20.Visible = false;
+            // 
+            // lblTuition
+            // 
+            this.lblTuition.AutoSize = true;
+            this.lblTuition.Font = new System.Drawing.Font("Roboto Condensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTuition.Location = new System.Drawing.Point(384, 155);
+            this.lblTuition.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblTuition.Name = "lblTuition";
+            this.lblTuition.Size = new System.Drawing.Size(109, 20);
+            this.lblTuition.TabIndex = 97;
+            this.lblTuition.Text = "Section Maximus";
+            this.lblTuition.Visible = false;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Roboto Condensed", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(327, 155);
+            this.label19.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(53, 20);
+            this.label19.TabIndex = 96;
+            this.label19.Text = "tuittion";
+            this.label19.Visible = false;
+            // 
+            // lblOtherFee
+            // 
+            this.lblOtherFee.AutoSize = true;
+            this.lblOtherFee.Font = new System.Drawing.Font("Roboto Condensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOtherFee.Location = new System.Drawing.Point(389, 126);
+            this.lblOtherFee.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblOtherFee.Name = "lblOtherFee";
+            this.lblOtherFee.Size = new System.Drawing.Size(109, 20);
+            this.lblOtherFee.TabIndex = 95;
+            this.lblOtherFee.Text = "Section Maximus";
+            this.lblOtherFee.Visible = false;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Roboto Condensed", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(327, 126);
+            this.label18.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(64, 20);
+            this.label18.TabIndex = 94;
+            this.label18.Text = "other Fee";
+            this.label18.Visible = false;
+            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.label17);
@@ -433,7 +458,7 @@
             this.groupBox3.Controls.Add(this.dgvTuition);
             this.groupBox3.Controls.Add(this.dgvMiscFee);
             this.groupBox3.Controls.Add(this.dgvOtherFee);
-            this.groupBox3.Font = new System.Drawing.Font("Roboto Cn", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.Font = new System.Drawing.Font("Roboto Condensed", 9.75F);
             this.groupBox3.Location = new System.Drawing.Point(527, 58);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(594, 646);
@@ -441,84 +466,58 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Billing Information";
             // 
-            // dgvTuition
+            // label17
             // 
-            this.dgvTuition.AllowUserToAddRows = false;
-            this.dgvTuition.AllowUserToDeleteRows = false;
-            this.dgvTuition.BackgroundColor = System.Drawing.Color.White;
-            this.dgvTuition.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTuition.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn3});
-            this.dgvTuition.GridColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.dgvTuition.Location = new System.Drawing.Point(459, 155);
-            this.dgvTuition.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.dgvTuition.Name = "dgvTuition";
-            this.dgvTuition.ReadOnly = true;
-            this.dgvTuition.RowHeadersVisible = false;
-            this.dgvTuition.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvTuition.Size = new System.Drawing.Size(29, 74);
-            this.dgvTuition.TabIndex = 103;
-            this.dgvTuition.Visible = false;
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Roboto Condensed", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(323, 333);
+            this.label17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(108, 32);
+            this.label17.TabIndex = 107;
+            this.label17.Text = "Book Fee:";
             // 
-            // dataGridViewTextBoxColumn3
+            // dgvBook
             // 
-            this.dataGridViewTextBoxColumn3.HeaderText = "Tuition";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dgvBook.AllowUserToAddRows = false;
+            this.dgvBook.AllowUserToDeleteRows = false;
+            this.dgvBook.AllowUserToResizeColumns = false;
+            this.dgvBook.AllowUserToResizeRows = false;
+            this.dgvBook.BackgroundColor = System.Drawing.Color.Gainsboro;
+            this.dgvBook.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvBook.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvBook.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Title,
+            this.Price1});
+            this.dgvBook.Location = new System.Drawing.Point(319, 372);
+            this.dgvBook.Name = "dgvBook";
+            this.dgvBook.ReadOnly = true;
+            this.dgvBook.RowHeadersVisible = false;
+            this.dgvBook.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvBook.Size = new System.Drawing.Size(269, 107);
+            this.dgvBook.TabIndex = 106;
+            // 
+            // btnEditDP
+            // 
+            this.btnEditDP.Location = new System.Drawing.Point(238, 94);
+            this.btnEditDP.Name = "btnEditDP";
+            this.btnEditDP.Size = new System.Drawing.Size(62, 24);
+            this.btnEditDP.TabIndex = 105;
+            this.btnEditDP.Text = "&Compute";
+            this.btnEditDP.UseVisualStyleBackColor = true;
+            this.btnEditDP.Click += new System.EventHandler(this.btnCompute_Click);
             // 
             // txtDP
             // 
             this.txtDP.Location = new System.Drawing.Point(110, 69);
             this.txtDP.Name = "txtDP";
-            this.txtDP.Size = new System.Drawing.Size(122, 22);
+            this.txtDP.Size = new System.Drawing.Size(122, 25);
             this.txtDP.TabIndex = 104;
             this.txtDP.Text = "0";
             this.txtDP.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtDP.Click += new System.EventHandler(this.txtDP_Click);
             this.txtDP.TextChanged += new System.EventHandler(this.txtDP_TextChanged);
             this.txtDP.Enter += new System.EventHandler(this.txtDP_Enter);
-            // 
-            // dgvMiscFee
-            // 
-            this.dgvMiscFee.AllowUserToAddRows = false;
-            this.dgvMiscFee.AllowUserToDeleteRows = false;
-            this.dgvMiscFee.BackgroundColor = System.Drawing.Color.White;
-            this.dgvMiscFee.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMiscFee.GridColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.dgvMiscFee.Location = new System.Drawing.Point(426, 155);
-            this.dgvMiscFee.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.dgvMiscFee.Name = "dgvMiscFee";
-            this.dgvMiscFee.ReadOnly = true;
-            this.dgvMiscFee.RowHeadersVisible = false;
-            this.dgvMiscFee.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvMiscFee.Size = new System.Drawing.Size(29, 74);
-            this.dgvMiscFee.TabIndex = 101;
-            this.dgvMiscFee.Visible = false;
-            // 
-            // dgvOtherFee
-            // 
-            this.dgvOtherFee.AllowUserToAddRows = false;
-            this.dgvOtherFee.AllowUserToDeleteRows = false;
-            this.dgvOtherFee.BackgroundColor = System.Drawing.Color.White;
-            this.dgvOtherFee.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvOtherFee.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.OtherFeew});
-            this.dgvOtherFee.GridColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.dgvOtherFee.Location = new System.Drawing.Point(492, 155);
-            this.dgvOtherFee.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.dgvOtherFee.Name = "dgvOtherFee";
-            this.dgvOtherFee.ReadOnly = true;
-            this.dgvOtherFee.RowHeadersVisible = false;
-            this.dgvOtherFee.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvOtherFee.Size = new System.Drawing.Size(29, 74);
-            this.dgvOtherFee.TabIndex = 102;
-            this.dgvOtherFee.Visible = false;
-            // 
-            // OtherFeew
-            // 
-            this.OtherFeew.HeaderText = "Other Fee";
-            this.OtherFeew.Name = "OtherFeew";
-            this.OtherFeew.ReadOnly = true;
             // 
             // label16
             // 
@@ -581,7 +580,7 @@
             // 
             // txtToBilling
             // 
-            this.txtToBilling.Location = new System.Drawing.Point(448, 120);
+            this.txtToBilling.Location = new System.Drawing.Point(441, 109);
             this.txtToBilling.Name = "txtToBilling";
             this.txtToBilling.Size = new System.Drawing.Size(92, 29);
             this.txtToBilling.TabIndex = 97;
@@ -634,9 +633,9 @@
             this.label11.Location = new System.Drawing.Point(323, 86);
             this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(222, 32);
+            this.label11.Size = new System.Drawing.Size(135, 32);
             this.label11.TabIndex = 101;
-            this.label11.Text = "Uniform Fee Payment:";
+            this.label11.Text = "Uniform Fee:";
             // 
             // dgvBillAssess
             // 
@@ -669,10 +668,10 @@
             // 
             // dataGridViewTextBoxColumn2
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle2.Format = "C2";
-            dataGridViewCellStyle2.NullValue = null;
-            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle4.Format = "C2";
+            dataGridViewCellStyle4.NullValue = null;
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewTextBoxColumn2.HeaderText = "Amount";
             this.dataGridViewTextBoxColumn2.MinimumWidth = 10;
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
@@ -716,9 +715,76 @@
             "Fullpayment"});
             this.cmbMOP.Location = new System.Drawing.Point(110, 96);
             this.cmbMOP.Name = "cmbMOP";
-            this.cmbMOP.Size = new System.Drawing.Size(122, 22);
+            this.cmbMOP.Size = new System.Drawing.Size(122, 26);
             this.cmbMOP.TabIndex = 84;
             this.cmbMOP.SelectedIndexChanged += new System.EventHandler(this.cmbMOP_SelectedIndexChanged);
+            // 
+            // dgvTuition
+            // 
+            this.dgvTuition.AllowUserToAddRows = false;
+            this.dgvTuition.AllowUserToDeleteRows = false;
+            this.dgvTuition.BackgroundColor = System.Drawing.Color.White;
+            this.dgvTuition.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTuition.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn3});
+            this.dgvTuition.GridColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.dgvTuition.Location = new System.Drawing.Point(459, 155);
+            this.dgvTuition.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.dgvTuition.Name = "dgvTuition";
+            this.dgvTuition.ReadOnly = true;
+            this.dgvTuition.RowHeadersVisible = false;
+            this.dgvTuition.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvTuition.Size = new System.Drawing.Size(29, 74);
+            this.dgvTuition.TabIndex = 103;
+            this.dgvTuition.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.HeaderText = "Tuition";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // dgvMiscFee
+            // 
+            this.dgvMiscFee.AllowUserToAddRows = false;
+            this.dgvMiscFee.AllowUserToDeleteRows = false;
+            this.dgvMiscFee.BackgroundColor = System.Drawing.Color.White;
+            this.dgvMiscFee.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvMiscFee.GridColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.dgvMiscFee.Location = new System.Drawing.Point(426, 155);
+            this.dgvMiscFee.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.dgvMiscFee.Name = "dgvMiscFee";
+            this.dgvMiscFee.ReadOnly = true;
+            this.dgvMiscFee.RowHeadersVisible = false;
+            this.dgvMiscFee.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvMiscFee.Size = new System.Drawing.Size(29, 74);
+            this.dgvMiscFee.TabIndex = 101;
+            this.dgvMiscFee.Visible = false;
+            // 
+            // dgvOtherFee
+            // 
+            this.dgvOtherFee.AllowUserToAddRows = false;
+            this.dgvOtherFee.AllowUserToDeleteRows = false;
+            this.dgvOtherFee.BackgroundColor = System.Drawing.Color.White;
+            this.dgvOtherFee.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvOtherFee.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.OtherFeew});
+            this.dgvOtherFee.GridColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.dgvOtherFee.Location = new System.Drawing.Point(492, 155);
+            this.dgvOtherFee.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.dgvOtherFee.Name = "dgvOtherFee";
+            this.dgvOtherFee.ReadOnly = true;
+            this.dgvOtherFee.RowHeadersVisible = false;
+            this.dgvOtherFee.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvOtherFee.Size = new System.Drawing.Size(29, 74);
+            this.dgvOtherFee.TabIndex = 102;
+            this.dgvOtherFee.Visible = false;
+            // 
+            // OtherFeew
+            // 
+            this.OtherFeew.HeaderText = "Other Fee";
+            this.OtherFeew.Name = "OtherFeew";
+            this.OtherFeew.ReadOnly = true;
             // 
             // dgvBilling
             // 
@@ -749,10 +815,10 @@
             // 
             // Column2
             // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle3.Format = "C2";
-            dataGridViewCellStyle3.NullValue = null;
-            this.Column2.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle5.Format = "C2";
+            dataGridViewCellStyle5.NullValue = null;
+            this.Column2.DefaultCellStyle = dataGridViewCellStyle5;
             this.Column2.HeaderText = "Amount";
             this.Column2.MinimumWidth = 10;
             this.Column2.Name = "Column2";
@@ -778,84 +844,18 @@
             this.label9.TabIndex = 100;
             this.label9.Text = "Payment Logs:";
             // 
-            // lblTotalUniformFee
-            // 
-            this.lblTotalUniformFee.AutoSize = true;
-            this.lblTotalUniformFee.Font = new System.Drawing.Font("Roboto Condensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalUniformFee.Location = new System.Drawing.Point(384, 100);
-            this.lblTotalUniformFee.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblTotalUniformFee.Name = "lblTotalUniformFee";
-            this.lblTotalUniformFee.Size = new System.Drawing.Size(109, 20);
-            this.lblTotalUniformFee.TabIndex = 101;
-            this.lblTotalUniformFee.Text = "Section Maximus";
-            this.lblTotalUniformFee.Visible = false;
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Roboto Condensed", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(342, 100);
-            this.label21.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(34, 20);
-            this.label21.TabIndex = 100;
-            this.label21.Text = "Unif";
-            this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label21.Visible = false;
-            // 
-            // btnEditDP
-            // 
-            this.btnEditDP.Location = new System.Drawing.Point(238, 94);
-            this.btnEditDP.Name = "btnEditDP";
-            this.btnEditDP.Size = new System.Drawing.Size(62, 24);
-            this.btnEditDP.TabIndex = 105;
-            this.btnEditDP.Text = "&Compute";
-            this.btnEditDP.UseVisualStyleBackColor = true;
-            this.btnEditDP.Click += new System.EventHandler(this.btnCompute_Click);
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Roboto Condensed", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(323, 333);
-            this.label17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(195, 32);
-            this.label17.TabIndex = 107;
-            this.label17.Text = "Book Fee Payment:";
-            // 
-            // dgvBook
-            // 
-            this.dgvBook.AllowUserToAddRows = false;
-            this.dgvBook.AllowUserToDeleteRows = false;
-            this.dgvBook.AllowUserToResizeColumns = false;
-            this.dgvBook.AllowUserToResizeRows = false;
-            this.dgvBook.BackgroundColor = System.Drawing.Color.Gainsboro;
-            this.dgvBook.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvBook.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvBook.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Title,
-            this.Price1});
-            this.dgvBook.Location = new System.Drawing.Point(319, 372);
-            this.dgvBook.Name = "dgvBook";
-            this.dgvBook.ReadOnly = true;
-            this.dgvBook.RowHeadersVisible = false;
-            this.dgvBook.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvBook.Size = new System.Drawing.Size(269, 107);
-            this.dgvBook.TabIndex = 106;
-            // 
             // Title
             // 
             this.Title.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Title.HeaderText = "Title";
+            this.Title.HeaderText = "Description";
             this.Title.Name = "Title";
             this.Title.ReadOnly = true;
             // 
             // Price1
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.Price1.DefaultCellStyle = dataGridViewCellStyle1;
-            this.Price1.HeaderText = "Price";
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.Price1.DefaultCellStyle = dataGridViewCellStyle6;
+            this.Price1.HeaderText = "Amount";
             this.Price1.Name = "Price1";
             this.Price1.ReadOnly = true;
             // 
@@ -885,15 +885,15 @@
             this.groupBox1.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTuition)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvMiscFee)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvOtherFee)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBook)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBillAssess)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUnif)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTuition)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMiscFee)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvOtherFee)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBilling)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvBook)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

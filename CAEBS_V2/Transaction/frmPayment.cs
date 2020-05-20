@@ -68,6 +68,9 @@ namespace CAEBS_V2
         private double TutionPAY;
         private string sizeOrder;
         private bool toSave;
+        private double Total_Book;
+
+
         //#####################################################################################################################################################//
 
         public void reservation(string amountGiven)
@@ -263,6 +266,14 @@ namespace CAEBS_V2
             }
             lblTotalUniformFee.Text = total_all.ToString("n");
 
+            Total_Book = 0;
+            for (int i = 0; i < dgvBook.Rows.Count; i++)
+            {               
+                    Total_Book = Convert.ToDouble(dgvBook.Rows[i].Cells[1].Value) + Total_Book;
+                    MessageBox.Show(Total_Book.ToString("n"));                          
+            }
+
+            dgvBook.DefaultCellStyle.SelectionBackColor = Color.Navy;
             if (cmbMOP.Text.Equals("Partial Payment"))
             {
                 
@@ -281,8 +292,8 @@ namespace CAEBS_V2
                 dgvBillAssess.Rows.Add("", "");
                 dgvBillAssess.Rows.Add("OTHER FEES", "");
                 dgvBillAssess.Rows.Add("Uniform Fee", total_all);
-                dgvBillAssess.Rows.Add("Book Fee", TotalBooks);
-                dgvBillAssess.Rows.Add("Total Fee", total_all + TotalBooks);
+                dgvBillAssess.Rows.Add("Book Fee", Total_Book);
+                dgvBillAssess.Rows.Add("Total Fee", total_all + Total_Book);
                 dgvBillAssess.Rows.Add("", "");
                 dgvBillAssess.Rows.Add("", "");
 
@@ -297,7 +308,7 @@ namespace CAEBS_V2
                 //util.DisableSort_DataGrid(dgvBooks);
                 //util.DisableSort_DataGrid(dgvUniform);
 
-                totSum = (total_all + TotalBooks + Convert.ToDouble(txtDP.Text));
+                totSum = (total_all + Total_Book + Convert.ToDouble(txtDP.Text));
                 //lblTotalPayment.Text = totSum.ToString("n");
                 dgvBillAssess.Rows.Add("Total Fees", totSum);
                 dgvBillAssess.Rows[12].DefaultCellStyle.BackColor = Color.Navy;
@@ -326,8 +337,8 @@ namespace CAEBS_V2
                 dgvBillAssess.Rows.Add("", "");
                 dgvBillAssess.Rows.Add("OTHER FEES", "");
                 dgvBillAssess.Rows.Add("Uniform Fee", total_all);
-                dgvBillAssess.Rows.Add("Book Fee", TotalBooks);
-                dgvBillAssess.Rows.Add("Total Fee", total_all + TotalBooks);
+                dgvBillAssess.Rows.Add("Book Fee", Total_Book);
+                dgvBillAssess.Rows.Add("Total Fee", total_all + Total_Book);
                 dgvBillAssess.Rows.Add("", "");
                 dgvBillAssess.Rows.Add("", "");
                 dgvBillAssess.Rows[0].DefaultCellStyle.BackColor = Color.Navy;
@@ -341,7 +352,7 @@ namespace CAEBS_V2
                 //util.DisableSort_DataGrid(dgvBooks);
                 //util.DisableSort_DataGrid(dgvUniform);
 
-                totSum = (total_all + TotalBooks + Convert.ToDouble(TutionPAY));
+                totSum = (total_all + Total_Book + Convert.ToDouble(TutionPAY));
                 //lblTotalPayment.Text = totSum.ToString("n");
                 dgvBillAssess.Rows.Add("Total Fees", totSum);
                 dgvBillAssess.Rows[12].DefaultCellStyle.BackColor = Color.Navy;
