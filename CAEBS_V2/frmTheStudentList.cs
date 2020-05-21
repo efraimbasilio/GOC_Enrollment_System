@@ -332,122 +332,121 @@ namespace CAEBS_V2
 
             else if (e.ColumnIndex == 1)
             {
-                string message = "Do you want to proceed to Billing?";
-                string title = "Enrollment System";
+                
 
-                MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-                DialogResult result = MessageBox.Show(message, title, buttons, MessageBoxIcon.Question);
-
-                //if  (dgvList.CurrentRow.Cells[4].Value.Equals("00-0000"))
-                //{
-                //    frmChoosePayment frm = new frmChoosePayment();
-
-                //    #region Choose Payment
-                //        //clear list
-                //        ListRegister.Clear();
-                //        //pass value
-                //        register.Id = Convert.ToInt32(dgvList.CurrentRow.Cells[3].FormattedValue.ToString());
-                //        frm_payment.id = Convert.ToInt32(dgvList.CurrentRow.Cells[3].FormattedValue.ToString());
-                //        // MessageBox.Show(dgvList.CurrentRow.Cells[3].FormattedValue.ToString());
-
-                //        ListRegister = register.GetById();
-
-                //        foreach (var item in ListRegister)
-                //        {
-                //            frm_payment.RegNo = item.Reg_no;
-                //            frm_payment.LRN = item.Lrn;
-                //            frm_payment.StudNo = item.Stud_no;
-                //            frm_payment.FName = item.First_name;
-                //            frm_payment.LName = item.Last_name;
-                //            frm_payment.MName = item.Middle_name;
-                //            frm_payment.GLevel = item.Grade_level;
-                //            frm_payment.Section = item.Section;
-                //            frm_payment.Strand = item.Strand;
-                //            frm_payment.Voucher = item.Voucher_type;
-                //        }
-
-                //        frm_payment.ToPay();
-                //        frm_payment.FilterStrand(frm_payment.Strand);
-                //        //frm_payment.FilterBook(frm_assess.Strand, frm_assess.GLevel);
-                //        frm_payment.FilterVoucher(frm_payment.Voucher);
-
-                //        frm_payment.LoadOtherFee();
-                //        frm_payment.LoadTuition();
-                //        frm_payment.PassToCompute();
-                //        frm_payment.LoadMiscFee();
-
-                //        frm_payment.FilterBook(frm_payment.Strand, frm_payment.GLevel);
-                        
-                //        #region Call Form       
-                //        frmMain mainwin = (frmMain)Application.OpenForms["frmMain"];
-                //        mainwin.pnlAllContainer.Controls.Clear();
-
-                //        frm_payment.TopLevel = false;
-                //        frm_payment.AutoScroll = true;
-                //        mainwin.pnlAllContainer.Controls.Add(frm_payment);
-                //        // frm_assess.formToMaxSize();
-                //        frm_payment.Show();
-                //    #endregion
-
-                //    #endregion
-
-                //    frm.ShowDialog();
-                    
-                //}
-
-                if (result == DialogResult.Yes)
+                if (dgvList.CurrentRow.Cells[4].Value.Equals("00-0000"))
                 {
-                         
-                //clear list
-                ListRegister.Clear();
-                //pass value
 
-                register.Id = Convert.ToInt32(dgvList.CurrentRow.Cells[3].FormattedValue.ToString());
-                frm_payment.id = Convert.ToInt32(dgvList.CurrentRow.Cells[3].FormattedValue.ToString());
-                // MessageBox.Show(dgvList.CurrentRow.Cells[3].FormattedValue.ToString());
+                    string message = "Do you want to proceed to Billing?";
+                    string title = "Enrollment System";
 
-                ListRegister = register.GetById();
+                    MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                    DialogResult result = MessageBox.Show(message, title, buttons, MessageBoxIcon.Question);
 
-                foreach (var item in ListRegister)
-                {
-                    frm_payment.RegNo = item.Reg_no;
-                    frm_payment.LRN = item.Lrn;
-                    frm_payment.StudNo = item.Stud_no;
-                    frm_payment.FName = item.First_name;
-                    frm_payment.LName = item.Last_name;
-                    frm_payment.MName = item.Middle_name;
-                    frm_payment.GLevel = item.Grade_level;
-                    frm_payment.Section = item.Section;
-                    frm_payment.Strand = item.Strand;
-                    frm_payment.Voucher = item.Voucher_type;
+
+                    if (result == DialogResult.Yes)
+                    {
+                        #region Choose Payment
+                        //clear list
+                        ListRegister.Clear();
+                        //pass value
+                        register.Id = Convert.ToInt32(dgvList.CurrentRow.Cells[3].FormattedValue.ToString());
+                        frm_payment.id = Convert.ToInt32(dgvList.CurrentRow.Cells[3].FormattedValue.ToString());
+                        // MessageBox.Show(dgvList.CurrentRow.Cells[3].FormattedValue.ToString());
+
+                        ListRegister = register.GetById();
+
+                        foreach (var item in ListRegister)
+                        {
+                            frm_payment.RegNo = item.Reg_no;
+                            frm_payment.LRN = item.Lrn;
+                            frm_payment.StudNo = item.Stud_no;
+                            frm_payment.FName = item.First_name;
+                            frm_payment.LName = item.Last_name;
+                            frm_payment.MName = item.Middle_name;
+                            frm_payment.GLevel = item.Grade_level;
+                            frm_payment.Section = item.Section;
+                            frm_payment.Strand = item.Strand;
+                            frm_payment.Voucher = item.Voucher_type;
+                        }
+
+                        frm_payment.ToPay();
+                        frm_payment.FilterStrand(frm_payment.Strand);
+                        //frm_payment.FilterBook(frm_assess.Strand, frm_assess.GLevel);
+                        frm_payment.FilterVoucher(frm_payment.Voucher);
+
+                        frm_payment.LoadOtherFee();
+                        frm_payment.LoadTuition();
+                        frm_payment.PassToCompute();
+                        frm_payment.LoadMiscFee();
+
+                        frm_payment.FilterBook(frm_payment.Strand, frm_payment.GLevel);
+
+                        #region Call Form       
+                        frmMain mainwin = (frmMain)Application.OpenForms["frmMain"];
+                        mainwin.pnlAllContainer.Controls.Clear();
+
+                        frm_payment.TopLevel = false;
+                        frm_payment.AutoScroll = true;
+                        mainwin.pnlAllContainer.Controls.Add(frm_payment);
+                        // frm_assess.formToMaxSize();
+                        frm_payment.Show();
+                        #endregion
+
+                        #endregion
+                    }
+                    else
+                    {
+                        return;
+                    }
+                                 
                 }
 
-                    frm_payment.ToPay();
-                    frm_payment.FilterStrand(frm_payment.Strand);
-                    //frm_payment.FilterBook(frm_assess.Strand, frm_assess.GLevel);
-                    frm_payment.FilterVoucher(frm_payment.Voucher);
-
-                    frm_payment.LoadOtherFee();
-                    frm_payment.LoadTuition();
-                    frm_payment.PassToCompute();
-                    frm_payment.LoadMiscFee();
-
-                    frm_payment.FilterBook(frm_payment.Strand, frm_payment.GLevel);
-                    #region Call Form       
-                    frmMain mainwin = (frmMain)Application.OpenForms["frmMain"];
-                    mainwin.pnlAllContainer.Controls.Clear();
-
-                    frm_payment.TopLevel = false;
-                    frm_payment.AutoScroll = true;
-                    mainwin.pnlAllContainer.Controls.Add(frm_payment);
-                    // frm_assess.formToMaxSize();
-                    frm_payment.Show();
-                    #endregion
-                }
                 else
                 {
-                    return;
+
+                    ////clear list
+                    //ListRegister.Clear();
+                    ////pass value
+
+                    //register.Id = Convert.ToInt32(dgvList.CurrentRow.Cells[3].FormattedValue.ToString());
+                    //frm_payment.id = Convert.ToInt32(dgvList.CurrentRow.Cells[3].FormattedValue.ToString());
+                    //// MessageBox.Show(dgvList.CurrentRow.Cells[3].FormattedValue.ToString());
+
+                    //ListRegister = register.GetById();
+
+                    //foreach (var item in ListRegister)
+                    //{
+                    //    frm_payment.RegNo = item.Reg_no;
+                    //    frm_payment.LRN = item.Lrn;
+                    //    frm_payment.StudNo = item.Stud_no;
+                    //    frm_payment.FName = item.First_name;
+                    //    frm_payment.LName = item.Last_name;
+                    //    frm_payment.MName = item.Middle_name;
+                    //    frm_payment.GLevel = item.Grade_level;
+                    //    frm_payment.Section = item.Section;
+                    //    frm_payment.Strand = item.Strand;
+                    //    frm_payment.Voucher = item.Voucher_type;
+                    //}
+
+                    //frm_payment.ToPay();
+                    //frm_payment.FilterStrand(frm_payment.Strand);
+                    ////frm_payment.FilterBook(frm_assess.Strand, frm_assess.GLevel);
+                    //frm_payment.FilterVoucher(frm_payment.Voucher);
+
+                    //frm_payment.LoadOtherFee();
+                    //frm_payment.LoadTuition();
+                    //frm_payment.PassToCompute();
+                    //frm_payment.LoadMiscFee();
+
+                    //frm_payment.FilterBook(frm_payment.Strand, frm_payment.GLevel);
+
+                    frmChoosePayment frm = new frmChoosePayment();
+               
+                    frm.ShowDialog();
                 }
+               
+                
             }
 
             else if (e.ColumnIndex == 2)

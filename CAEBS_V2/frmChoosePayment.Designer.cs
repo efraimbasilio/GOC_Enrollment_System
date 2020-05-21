@@ -45,7 +45,7 @@
             this.pnlTitle.Location = new System.Drawing.Point(0, 0);
             this.pnlTitle.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.pnlTitle.Name = "pnlTitle";
-            this.pnlTitle.Size = new System.Drawing.Size(479, 52);
+            this.pnlTitle.Size = new System.Drawing.Size(374, 52);
             this.pnlTitle.TabIndex = 101;
             // 
             // lblRegNo
@@ -75,9 +75,9 @@
             // btnPay
             // 
             this.btnPay.Font = new System.Drawing.Font("Roboto Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPay.Location = new System.Drawing.Point(19, 105);
+            this.btnPay.Location = new System.Drawing.Point(12, 75);
             this.btnPay.Name = "btnPay";
-            this.btnPay.Size = new System.Drawing.Size(209, 41);
+            this.btnPay.Size = new System.Drawing.Size(163, 41);
             this.btnPay.TabIndex = 108;
             this.btnPay.Text = "&Order Uniform / Book";
             this.btnPay.UseVisualStyleBackColor = true;
@@ -85,24 +85,26 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Roboto Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(258, 105);
+            this.button1.Location = new System.Drawing.Point(199, 75);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(209, 41);
+            this.button1.Size = new System.Drawing.Size(163, 41);
             this.button1.TabIndex = 111;
             this.button1.Text = "&Pay Tuition Fee";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // frmChoosePayment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(479, 190);
+            this.ClientSize = new System.Drawing.Size(374, 138);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.pnlTitle);
             this.Controls.Add(this.btnPay);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmChoosePayment";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Enrollment System";
             this.pnlTitle.ResumeLayout(false);
             this.pnlTitle.PerformLayout();
