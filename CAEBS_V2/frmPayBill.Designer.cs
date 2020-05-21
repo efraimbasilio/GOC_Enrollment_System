@@ -100,6 +100,7 @@
             this.txtAmountTender.Text = "0.00";
             this.txtAmountTender.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtAmountTender.TextChanged += new System.EventHandler(this.txtAmountTender_TextChanged);
+            this.txtAmountTender.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtAmountTender_KeyDown);
             this.txtAmountTender.Leave += new System.EventHandler(this.txtAmountTender_Leave);
             // 
             // label2
@@ -155,6 +156,7 @@
             this.txtPay.TabIndex = 98;
             this.txtPay.Text = "&Pay with Cash";
             this.txtPay.UseVisualStyleBackColor = true;
+            this.txtPay.Click += new System.EventHandler(this.txtPay_Click);
             // 
             // pictureBox1
             // 

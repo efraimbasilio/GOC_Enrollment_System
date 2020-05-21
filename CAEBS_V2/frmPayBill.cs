@@ -32,7 +32,9 @@ namespace CAEBS_V2
 
                 MessageBoxButtons buttons = MessageBoxButtons.OK;
                 DialogResult result = MessageBox.Show(message, title, buttons, MessageBoxIcon.Warning);
+                txtAmountTender.Focus();
                 return;
+               
             }
             else
             {
@@ -44,6 +46,38 @@ namespace CAEBS_V2
         private void txtAmountTender_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtPay_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtAmountTender_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                a = Convert.ToDouble(txtAmountTender.Text);
+                txtAmountTender.Text = a.ToString("n");
+
+                if (Convert.ToDouble(txtAmountTender.Text) < Convert.ToDouble(lblAmount.Text))
+                {
+                    string message = "Please pay the exact amount.";
+                    string title = "Enrollment System";
+
+                    MessageBoxButtons buttons = MessageBoxButtons.OK;
+                    DialogResult result = MessageBox.Show(message, title, buttons, MessageBoxIcon.Warning);
+                    txtAmountTender.Focus();
+                    return;
+
+                }
+                else
+                {
+                    b = Convert.ToDouble(txtAmountTender.Text) - Convert.ToDouble(lblAmount.Text);
+                    txtChange.Text = b.ToString("n");
+                }
+            }
+           
         }
     }
 }
