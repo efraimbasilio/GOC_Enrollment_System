@@ -37,7 +37,7 @@
             this.lblAmount = new System.Windows.Forms.Label();
             this.txtChange = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtPay = new System.Windows.Forms.Button();
+            this.btnPay = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -147,16 +147,16 @@
             this.label4.TabIndex = 78;
             this.label4.Text = "Change";
             // 
-            // txtPay
+            // btnPay
             // 
-            this.txtPay.Font = new System.Drawing.Font("Roboto Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPay.Location = new System.Drawing.Point(16, 311);
-            this.txtPay.Name = "txtPay";
-            this.txtPay.Size = new System.Drawing.Size(290, 41);
-            this.txtPay.TabIndex = 98;
-            this.txtPay.Text = "&Pay with Cash";
-            this.txtPay.UseVisualStyleBackColor = true;
-            this.txtPay.Click += new System.EventHandler(this.txtPay_Click);
+            this.btnPay.Font = new System.Drawing.Font("Roboto Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPay.Location = new System.Drawing.Point(16, 311);
+            this.btnPay.Name = "btnPay";
+            this.btnPay.Size = new System.Drawing.Size(290, 41);
+            this.btnPay.TabIndex = 98;
+            this.btnPay.Text = "&Pay with Cash";
+            this.btnPay.UseVisualStyleBackColor = true;
+            this.btnPay.Click += new System.EventHandler(this.txtPay_Click);
             // 
             // pictureBox1
             // 
@@ -174,7 +174,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(318, 388);
-            this.Controls.Add(this.txtPay);
+            this.Controls.Add(this.btnPay);
             this.Controls.Add(this.txtChange);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtAmountTender);
@@ -205,7 +205,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtChange;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button txtPay;
+        private System.Windows.Forms.Button btnPay;
         private System.Windows.Forms.PictureBox pictureBox1;
         public System.Windows.Forms.Label lblAmount;
     }

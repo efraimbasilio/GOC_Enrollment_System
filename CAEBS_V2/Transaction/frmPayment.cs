@@ -182,6 +182,18 @@ namespace CAEBS_V2
 
         private void btnCompute_Click(object sender, EventArgs e)
         {
+            //if (Convert.ToInt32(txtDP.Text) > 1000)
+            //{
+            //    string message = "Minimum Downpayment is 1000.00 ";
+            //    string title = "Enrollment System";
+
+            //    MessageBoxButtons buttons = MessageBoxButtons.OK;
+            //    DialogResult result = MessageBox.Show(message, title, buttons, MessageBoxIcon.Warning);
+
+            //    txtDP.Focus();
+            //    txtDP.SelectAll();
+
+            //}
 
             if (Convert.ToInt32(txtDP.Text) < 1000)
             {

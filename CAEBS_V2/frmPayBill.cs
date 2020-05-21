@@ -22,25 +22,25 @@ namespace CAEBS_V2
 
         private void txtAmountTender_Leave(object sender, EventArgs e)
         {
-            a = Convert.ToDouble(txtAmountTender.Text);
-            txtAmountTender.Text = a.ToString("n");
+            //a = Convert.ToDouble(txtAmountTender.Text);
+            //txtAmountTender.Text = a.ToString("n");
 
-            if (Convert.ToDouble(txtAmountTender.Text) < Convert.ToDouble(lblAmount.Text))
-            {
-                string message = "Please pay the exact amount.";
-                string title = "Enrollment System";
+            //if (Convert.ToDouble(txtAmountTender.Text) < Convert.ToDouble(lblAmount.Text))
+            //{
+            //    string message = "Please pay the exact amount.";
+            //    string title = "Enrollment System";
 
-                MessageBoxButtons buttons = MessageBoxButtons.OK;
-                DialogResult result = MessageBox.Show(message, title, buttons, MessageBoxIcon.Warning);
-                txtAmountTender.Focus();
-                return;
+            //    MessageBoxButtons buttons = MessageBoxButtons.OK;
+            //    DialogResult result = MessageBox.Show(message, title, buttons, MessageBoxIcon.Warning);
+            //    txtAmountTender.Focus();
+            //    return;
                
-            }
-            else
-            {
-                b =   Convert.ToDouble(txtAmountTender.Text) - Convert.ToDouble(lblAmount.Text);
-                txtChange.Text = b.ToString("n");
-            }            
+            //}
+            //else
+            //{
+            //    b =   Convert.ToDouble(txtAmountTender.Text) - Convert.ToDouble(lblAmount.Text);
+            //    txtChange.Text = b.ToString("n");
+            //}            
         }
 
         private void txtAmountTender_TextChanged(object sender, EventArgs e)
@@ -50,11 +50,17 @@ namespace CAEBS_V2
 
         private void txtPay_Click(object sender, EventArgs e)
         {
-
+            MessageBox.Show("Thank you");
         }
 
         private void txtAmountTender_KeyDown(object sender, KeyEventArgs e)
         {
+            if (txtAmountTender.Text.Equals(""))
+            {
+                txtAmountTender.Text = "0.00";
+                txtChange.Text = "0.00";
+            }
+
             if (e.KeyCode == Keys.Enter)
             {
                 a = Convert.ToDouble(txtAmountTender.Text);
@@ -68,6 +74,7 @@ namespace CAEBS_V2
                     MessageBoxButtons buttons = MessageBoxButtons.OK;
                     DialogResult result = MessageBox.Show(message, title, buttons, MessageBoxIcon.Warning);
                     txtAmountTender.Focus();
+                    txtChange.Text = "0.00";
                     return;
 
                 }
@@ -75,6 +82,7 @@ namespace CAEBS_V2
                 {
                     b = Convert.ToDouble(txtAmountTender.Text) - Convert.ToDouble(lblAmount.Text);
                     txtChange.Text = b.ToString("n");
+                    btnPay.Focus();
                 }
             }
            
