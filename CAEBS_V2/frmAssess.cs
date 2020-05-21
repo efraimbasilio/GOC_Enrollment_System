@@ -359,7 +359,7 @@ namespace CAEBS_V2
 
         private void txtDP_MouseLeave(object sender, EventArgs e)
         {
-            PassToCompute();
+            
         }
 
         private void dgvUniform_CellEndEdit(object sender, DataGridViewCellEventArgs e)
@@ -390,6 +390,11 @@ namespace CAEBS_V2
             UnifOrders();
             total_all = 0;
             btnCompute.PerformClick();
+            PassToCompute();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
             PassToCompute();
         }
 
@@ -452,7 +457,8 @@ namespace CAEBS_V2
         public void PassToCompute()
         {
             if (cmbMOP.Text.Equals("Partial Payment"))
-            {              
+            {                                            
+               
                 txtDP.Enabled = true;
                 TotalFee = TotalMiscFee + TotalOtherFee + TotalTuition;
                 dgvAssessment.Rows.Clear();
@@ -462,32 +468,53 @@ namespace CAEBS_V2
                 dgvAssessment.Rows.Add("          Downpayment", Convert.ToDouble(txtDP.Text));
 
                 TutionPAY = TotalFee - (Convert.ToDouble(VoucherAmount) + Convert.ToDouble(txtDP.Text));
-                dgvAssessment.Rows.Add("Balance", TutionPAY);
-                dgvAssessment.Rows.Add("Per Month", TutionPAY / 10);
+                if (TutionPAY < 0)
+                {                   
+                    string message = "Please choose Fullpayment in the Mode of Payment dropdown";
+                    string title = "Enrollment System";
 
-                dgvAssessment.Rows.Add("", "");
-                dgvAssessment.Rows.Add("OTHER FEES", "");
-                dgvAssessment.Rows.Add("Uniform Fee", total_all);
-                dgvAssessment.Rows.Add("Book Fee", TotalBooks);
-                dgvAssessment.Rows.Add("Total Fee", total_all + TotalBooks);
-                dgvAssessment.Rows.Add("", "");
-                dgvAssessment.Rows.Add("", "");
-                dgvAssessment.Rows[0].DefaultCellStyle.BackColor = Color.Navy;
-                dgvAssessment.Rows[0].DefaultCellStyle.ForeColor = Color.White;
+                    MessageBoxButtons buttons = MessageBoxButtons.OK;
+                    DialogResult result = MessageBox.Show(message, title, buttons, MessageBoxIcon.Warning);
+                    txtDP.Focus();
 
-                dgvAssessment.Rows[7].DefaultCellStyle.BackColor = Color.Navy;
-                dgvAssessment.Rows[7].DefaultCellStyle.ForeColor = Color.White;
+                    dgvAssessment.Rows.Clear();
+                }
 
-                dgvAssessment.DefaultCellStyle.SelectionBackColor = Color.Navy;
-                util.DisableSort_DataGrid(dgvAssessment);
-                util.DisableSort_DataGrid(dgvBooks);
-                util.DisableSort_DataGrid(dgvUniform);
+                else
+                {
+                   
 
-                totSum = (total_all + TotalBooks + Convert.ToDouble(txtDP.Text));
-                lblTotalPayment.Text = totSum.ToString("n");
-                dgvAssessment.Rows.Add("Total Fees", totSum);
-                dgvAssessment.Rows[12].DefaultCellStyle.BackColor = Color.Navy;
-                dgvAssessment.Rows[12].DefaultCellStyle.ForeColor = Color.White;
+                    dgvAssessment.Rows.Add("Balance", TutionPAY);
+                    dgvAssessment.Rows.Add("Per Month", TutionPAY / 10);
+
+                    dgvAssessment.Rows.Add("", "");
+                    dgvAssessment.Rows.Add("OTHER FEES", "");
+                    dgvAssessment.Rows.Add("Uniform Fee", total_all);
+                    dgvAssessment.Rows.Add("Book Fee", TotalBooks);
+                    dgvAssessment.Rows.Add("Total Fee", total_all + TotalBooks);
+                    dgvAssessment.Rows.Add("", "");
+                    dgvAssessment.Rows.Add("", "");
+                    dgvAssessment.Rows[0].DefaultCellStyle.BackColor = Color.Navy;
+                    dgvAssessment.Rows[0].DefaultCellStyle.ForeColor = Color.White;
+
+                    dgvAssessment.Rows[3].DefaultCellStyle.BackColor = Color.Navy;
+                    dgvAssessment.Rows[3].DefaultCellStyle.ForeColor = Color.White;
+
+                    dgvAssessment.Rows[7].DefaultCellStyle.BackColor = Color.Navy;
+                    dgvAssessment.Rows[7].DefaultCellStyle.ForeColor = Color.White;
+
+                    dgvAssessment.DefaultCellStyle.SelectionBackColor = Color.Navy;
+                    util.DisableSort_DataGrid(dgvAssessment);
+                    util.DisableSort_DataGrid(dgvBooks);
+                    util.DisableSort_DataGrid(dgvUniform);
+
+                    totSum = (total_all + TotalBooks + Convert.ToDouble(txtDP.Text));
+                    lblTotalPayment.Text = totSum.ToString("n");
+                    dgvAssessment.Rows.Add("Total Fees", totSum);
+                    dgvAssessment.Rows[12].DefaultCellStyle.BackColor = Color.Navy;
+                    dgvAssessment.Rows[12].DefaultCellStyle.ForeColor = Color.White;
+
+                }
 
             }
             else if (cmbMOP.Text.Equals("Fullpayment"))
