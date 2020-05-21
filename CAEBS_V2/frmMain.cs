@@ -37,16 +37,16 @@ namespace CAEBS_V2
         private void btnBilling_Click(object sender, EventArgs e)
         {
             #region To Billing Form
-                pnlAllContainer.Controls.Clear();
-                pnlAllContainer.Visible = true;
+                //pnlAllContainer.Controls.Clear();
+                //pnlAllContainer.Visible = true;
 
-                //load the form
-                frmBilling billing = new frmBilling();
-                billing.TopLevel = false;
-                billing.AutoScroll = true;
+                ////load the form
+                //frmBilling billing = new frmBilling();
+                //billing.TopLevel = false;
+                //billing.AutoScroll = true;
 
-                pnlAllContainer.Controls.Add(billing);
-                billing.Show();
+                //pnlAllContainer.Controls.Add(billing);
+                //billing.Show();
             #endregion
         }
 

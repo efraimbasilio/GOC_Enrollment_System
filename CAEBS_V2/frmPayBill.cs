@@ -15,11 +15,50 @@ namespace CAEBS_V2
         private double a;
         private double b;
 
+        Register r = new Register();
+        List<Register> ListRegister = new List<Register>();
+        ZCtr ctr = new ZCtr();
+        List<ZCtr> ctrs = new List<ZCtr>();
+        Util_RequiredFields util = new Util_RequiredFields();
+        frmDashboard dash_info = new frmDashboard();
+        public int i = 0, x = 0;
+        public string reg_no;
+
         public frmPayBill()
         {
             InitializeComponent();
         }
 
+        public void Generate_StudNo()
+        {
+            if (r.save_halt == false)
+            {
+                ctrs.Clear();
+                ctrs = ctr.Load();
+                foreach (var item in ctrs)
+                {
+                    i = Convert.ToInt32(item.Ctr_goc_no) + 1;
+                    x = item.Id;
+                }
+                ctr.Id = x;
+                ctr.Ctr_goc_no = i.ToString();
+                ctr.Update_CTR_GOC_NO();
+
+                string str = DateTime.Today.ToString("yyyy");
+                string a = str.Substring(2);
+                string output = a +"-"+ (i).ToString("0000");
+                //txtRegNo.Text = output;
+
+                r.Reg_no = reg_no;
+                r.Stud_no = output;
+                r.Update_For_StudentNo();
+            }
+            else
+            {
+                return;
+            }
+
+        }
         private void txtAmountTender_Leave(object sender, EventArgs e)
         {
             //a = Convert.ToDouble(txtAmountTender.Text);
@@ -50,7 +89,7 @@ namespace CAEBS_V2
 
         private void txtPay_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Thank you");
+           Generate_StudNo();
         }
 
         private void txtAmountTender_KeyDown(object sender, KeyEventArgs e)

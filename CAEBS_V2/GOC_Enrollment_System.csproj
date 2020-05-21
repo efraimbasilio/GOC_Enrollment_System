@@ -75,6 +75,12 @@
     <Compile Include="Book.cs" />
     <Compile Include="Connection\Config.cs" />
     <Compile Include="CrystalReport_Connection.cs" />
+    <Compile Include="frmChoosePayment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmChoosePayment.Designer.cs">
+      <DependentUpon>frmChoosePayment.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmOldStudent.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -238,12 +244,6 @@
     <Compile Include="Transaction\frmStudentList.Designer.cs">
       <DependentUpon>frmStudentList.cs</DependentUpon>
     </Compile>
-    <Compile Include="Transaction\frmBilling.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Transaction\frmBilling.Designer.cs">
-      <DependentUpon>frmBilling.cs</DependentUpon>
-    </Compile>
     <Compile Include="Maintenance\frmMaintenance.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -293,6 +293,9 @@
     <Compile Include="ZCtr.cs" />
     <EmbeddedResource Include="frmAssess.resx">
       <DependentUpon>frmAssess.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmChoosePayment.resx">
+      <DependentUpon>frmChoosePayment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmDashboard.resx">
       <DependentUpon>frmDashboard.cs</DependentUpon>
@@ -358,9 +361,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Transaction\frmStudentList.resx">
       <DependentUpon>frmStudentList.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Transaction\frmBilling.resx">
-      <DependentUpon>frmBilling.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Maintenance\frmMaintenance.resx">
       <DependentUpon>frmMaintenance.cs</DependentUpon>

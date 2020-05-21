@@ -489,11 +489,11 @@ namespace CAEBS_V2
                     con.Open();
 
                     string sql = "UPDATE student_profile SET stud_no = @stud_no" +
-                                   " WHERE lrn=@lrn;";
+                                   " WHERE reg_no=@reg_no;";
 
                     MySqlCommand cmd = new MySqlCommand(sql, con);
 
-                    cmd.Parameters.AddWithValue("lrn", lrn);
+                    cmd.Parameters.AddWithValue("reg_no", reg_no);
                     cmd.Parameters.AddWithValue("stud_no", stud_no);
                    
                     cmd.ExecuteNonQuery();

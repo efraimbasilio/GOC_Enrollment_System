@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace CAEBS_V2
 {
-    public partial class frmBilling : Form
+    public partial class frmChoosePayment : Form
     {
-        public frmBilling()
+        public frmChoosePayment()
         {
             InitializeComponent();
         }

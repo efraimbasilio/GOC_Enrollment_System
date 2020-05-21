@@ -227,7 +227,9 @@ namespace CAEBS_V2
             frmPayBill frm = new frmPayBill();
             frm.lblAmount.Text = lblTotalAmount.Text;
             frm.lblAmount.Focus();
-            
+            frm.reg_no = lblRegNo.Text;
+
+
             frm.ShowDialog();
         }
 
