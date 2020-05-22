@@ -75,6 +75,12 @@
     <Compile Include="Book.cs" />
     <Compile Include="Connection\Config.cs" />
     <Compile Include="CrystalReport_Connection.cs" />
+    <Compile Include="frmBook.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBook.Designer.cs">
+      <DependentUpon>frmBook.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmChoosePayment.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -295,6 +301,9 @@
     <Compile Include="ZCtr.cs" />
     <EmbeddedResource Include="frmAssess.resx">
       <DependentUpon>frmAssess.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBook.resx">
+      <DependentUpon>frmBook.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmChoosePayment.resx">
       <DependentUpon>frmChoosePayment.cs</DependentUpon>

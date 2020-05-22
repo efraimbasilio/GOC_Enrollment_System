@@ -126,5 +126,16 @@ namespace CAEBS_V2
             mainwin.pnlAllContainer.Controls.Add(frm);
             frm.Show();
         }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            frmBook frm = new frmBook();
+            frmMain mainwin = (frmMain)Application.OpenForms["frmMain"];
+            mainwin.pnlAllContainer.Controls.Clear();
+            frm.TopLevel = false;
+            frm.AutoScroll = true;
+            mainwin.pnlAllContainer.Controls.Add(frm);
+            frm.Show();
+        }
     }
 }

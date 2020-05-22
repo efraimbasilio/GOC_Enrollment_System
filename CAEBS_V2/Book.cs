@@ -117,5 +117,102 @@ namespace CAEBS_V2
             }
             return books;
         }
+
+        public void Save()
+        {
+            try
+            {
+                //prepare connection string 
+                using (MySqlConnection con = new MySqlConnection(CAEBS_V2.Config.GetConnectionString()))
+                {
+
+                    //try to open connection
+                    con.Open();
+
+                    //string sql = "INSERT INTO room(room_name,location,capacity,room_ceiling)) " +
+                    //               " VALUES (@room_name,@location,@capacity,@room_ceiling);";
+                    string sql = "INSERT INTO book_item (book_id, title ,grade_level,price,strand) " +
+                                   " VALUES (@book_id,@title,@grade_level,@price,@strand);";
+
+                    MySqlCommand cmd = new MySqlCommand(sql, con);             
+                    cmd.Parameters.AddWithValue("book_id", book_id);
+                    cmd.Parameters.AddWithValue("title", title);
+                    cmd.Parameters.AddWithValue("grade_level", grade_level);
+                    cmd.Parameters.AddWithValue("price", price);
+                    cmd.Parameters.AddWithValue("strand", strand);
+                    cmd.ExecuteNonQuery();
+
+                    MessageBox.Show("Record Saved!", "Enrollment System", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("ERROR : " + ex.ToString(), "Enrollment System", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+        }
+
+        public void Update()
+        {
+            try
+            {
+                //prepare connection string 
+                using (MySqlConnection con = new MySqlConnection(CAEBS_V2.Config.GetConnectionString()))
+                {
+
+                    //try to open connection
+                    con.Open();
+
+                    string sql = "UPDATE book_item SET book_id=@book_id, title=@title ,grade_level=@grade_level ,price=@price ,strand=@strand " +
+                                    " WHERE id=@id;";
+
+                    MySqlCommand cmd = new MySqlCommand(sql, con);
+                    cmd.Parameters.AddWithValue("id", id);
+                    cmd.Parameters.AddWithValue("book_id", book_id);
+                    cmd.Parameters.AddWithValue("title", title);
+                    cmd.Parameters.AddWithValue("grade_level", grade_level);
+                    cmd.Parameters.AddWithValue("price", price);
+                    cmd.Parameters.AddWithValue("strand", strand);
+
+
+                    cmd.ExecuteNonQuery();
+
+                    MessageBox.Show("Recorde Updated!", "Enrollment System", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("ERROR : " + ex.ToString(), "Enrollment System", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+        }
+
+        public void Delete()
+        {
+            try
+            {
+                //prepare connection string 
+                using (MySqlConnection con = new MySqlConnection(CAEBS_V2.Config.GetConnectionString()))
+                {
+
+                    //try to open connection
+                    con.Open();
+
+                    string sql = "DELETE  FROM book_item WHERE id=@id;";
+
+                    MySqlCommand cmd = new MySqlCommand(sql, con);
+                    cmd.Parameters.AddWithValue("id", id);
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Record deleted!", "Enrollment System", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("ERROR : " + ex.ToString(), "Enrollment System", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+        }
+
     }
 }
+

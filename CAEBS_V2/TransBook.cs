@@ -69,7 +69,7 @@ namespace CAEBS_V2
 
                     cmd.Parameters.AddWithValue("reg_no", reg_no);
                     cmd.Parameters.AddWithValue("or_no", or_no);
-                    cmd.Parameters.AddWithValue("amount_given", book_id);
+                    cmd.Parameters.AddWithValue("book_id", book_id);
                     cmd.Parameters.AddWithValue("order_status", order_status);
                     
 

@@ -291,20 +291,21 @@ namespace CAEBS_V2
         private void txtToBilling_Click(object sender, EventArgs e)
         {
             #region ORDER BOOK 
-            //if (chkOrderBook.v)
-            //{
-
-            //}          
-            for (int i = 0; i < dgvBooks.Rows.Count; i++)
+            if (chkOrderBook.Checked == true)
             {
-                TransBook book = new TransBook();
-                book.Reg_no = lblRegNo.Text;
-                book.Or_no = "#";              
-                book.Book_id = dgvBooks.Rows[i].Cells[0].Value.ToString();
-                book.Order_status = "Order";
+                for (int i = 0; i < dgvBooks.Rows.Count; i++)
+                {
+                    TransBook book = new TransBook();
+                    book.Reg_no = lblRegNo.Text;
+                    book.Or_no = "#";
+                    MessageBox.Show(dgvBooks.Rows[i].Cells[0].Value.ToString());
+                    book.Book_id = dgvBooks.Rows[i].Cells[0].Value.ToString();
+                    book.Order_status = "Order";
 
-                book.Save();
+                    book.Save();
+                }
             }
+           
 
 
             #endregion
