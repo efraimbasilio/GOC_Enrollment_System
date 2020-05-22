@@ -47,7 +47,10 @@ namespace CAEBS_V2
         List<Book> books = new List<Book>();
 
         TransBookUnif transBUnif = new TransBookUnif();
-        List<TransBookUnif> transBUnifs = new List<TransBookUnif>();    
+        List<TransBookUnif> transBUnifs = new List<TransBookUnif>();
+
+        TransBook transBook = new TransBook();
+        List<TransBook> transBooks = new List<TransBook>();
 
         private double TotalMiscFee;
         private double TotalOtherFee;
@@ -219,7 +222,7 @@ namespace CAEBS_V2
 
         private void txtDP_Leave(object sender, EventArgs e)
         {
-            MessageBox.Show("sa");
+            //MessageBox.Show("sa");
         }
 
         private void txtToBilling_Click(object sender, EventArgs e)
@@ -403,7 +406,8 @@ namespace CAEBS_V2
         public frmPayment()
         {
             InitializeComponent();
-            
+            string a = "ok";
+            transBook.TransBooks(dgvBookLoad,lblRegNo.Text);
 
         }
 

@@ -150,7 +150,7 @@ namespace CAEBS_V2
             {
                 if (item.Strand.Equals(Strand) && item.Grade_level.Equals(Level))
                 {                   
-                    dgvBooks.Rows.Add(item.Title, item.Price);
+                    dgvBooks.Rows.Add(item.Book_id, item.Title, item.Price);
                 }
             }
         }
@@ -268,7 +268,7 @@ namespace CAEBS_V2
                 FilterBook(Strand, GLevel);
                 for (int i = 0; i < dgvBooks.Rows.Count; i++)
                 {
-                    TotalBooks += (Convert.ToDouble(dgvBooks.Rows[i].Cells[1].Value));
+                    TotalBooks += (Convert.ToDouble(dgvBooks.Rows[i].Cells[2].Value));
                 }
 
                 lblBooks.Text = TotalBooks.ToString("n");

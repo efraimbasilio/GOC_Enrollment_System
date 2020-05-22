@@ -26,6 +26,32 @@ namespace CAEBS_V2
 
         List<TransBook> listTransBook = new List<TransBook>();
 
+        public void TransBooks(DataGridView dgv,String REG)
+        {
+            try
+            {
+                using (MySqlConnection con = new MySqlConnection(CAEBS_V2.Config.GetConnectionString()))
+                {
+
+                    con.Open();
+                    //string sql = "SELECT trans_unif_fee.id, unif_item.item_name,unif_item.price,trans_unif_fee.unif_qty,trans_unif_fee.unif_size FROM  trans_unif_fee INNER JOIN unif_item ON trans_unif_fee.unif_code = unif_item.unif_code WHERE trans_unif_fee.reg_no = " + REG + "";
+                    string sql = "SELECT trans_book_fee.id, unif_item.item_name,unif_item.price,trans_unif_fee.unif_qty,trans_unif_fee.unif_size FROM  trans_unif_fee INNER JOIN unif_item ON trans_unif_fee.unif_code = unif_item.unif_code WHERE trans_unif_fee.reg_no = " + REG + "";
+                    MySqlCommand cmd = new MySqlCommand(sql, con);
+                    MySqlDataAdapter da = new MySqlDataAdapter();
+                    da.SelectCommand = cmd;
+
+                    //initialize new datatable
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+                    dgv.DataSource = dt;
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("ERROR : " + ex.Message.ToString(), "Enrollment System", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         public void LoadDataTable(DataGridView dgv)
         {
             try
@@ -74,6 +100,7 @@ namespace CAEBS_V2
                     
 
                     cmd.ExecuteNonQuery();
+                    MessageBox.Show("Recorded!", "Enrollment System", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (MySqlException ex)
