@@ -20,6 +20,16 @@ namespace CAEBS_V2
         List<Strand> listStrand = new List<Strand>();
 
         Util_RequiredFields util = new Util_RequiredFields();
+
+
+        Register r = new Register();
+        List<Register> ListRegister = new List<Register>();
+
+        ZCtr ctr = new ZCtr();
+        List<ZCtr> ctrs = new List<ZCtr>();
+       
+        public int i = 0, x = 0;
+
         private void LoadStrand()
         {
             listStrand.Clear();
@@ -40,6 +50,26 @@ namespace CAEBS_V2
             LoadStrand();
         }
 
+        public void Generate_BookNo()
+        {           
+                ctrs.Clear();
+                ctrs = ctr.Load();
+                foreach (var item in ctrs)
+                {
+                    i = Convert.ToInt32(item.Ctr_book) + 1;
+                    x = item.Id;
+                }
+                ctr.Id = x;
+                ctr.Ctr_book = i.ToString();
+                ctr.Update_ctr_book();
+
+                //string str = DateTime.Today.ToString("yyyy");
+                //string a = str.Substring(2);
+                string output = "BK-" + (i).ToString("0000");
+                //txtRegNo.Text = output;
+                book.Book_id = output;
+                                                      
+        }
         public void AddImageDataGrid(DataGridView dgv)
         {
             DataGridViewImageColumn dimg = new DataGridViewImageColumn();
@@ -103,7 +133,7 @@ namespace CAEBS_V2
                 if (result == DialogResult.Yes)
                 {
                     book.Id = Convert.ToInt32(dgvBooks.Rows[e.RowIndex].Cells[2].Value.ToString());//for editing criteria
-                    //book.Delete();
+                    book.Delete();
 
                     book.LoadDataTable(dgvBooks);
                 }
@@ -118,7 +148,7 @@ namespace CAEBS_V2
         {
             if (btnAdd.Text == "&Update")
             {
-                util.ValidateTextBox3(txtBookId, txtBookTitle, txtPrice);// Validation before Updating
+                util.ValidateTextBox2( txtBookTitle, txtPrice);// Validation before Updating
                 util.ValidateCombobox2(cmbGLevel, cmbStrand);
                 if (util.readyToSave == 1)
                 {
@@ -142,13 +172,15 @@ namespace CAEBS_V2
             }
             else
             {
-                util.ValidateTextBox3(txtBookId, txtBookTitle, txtPrice);// Validation before Updating
+                util.ValidateTextBox2( txtBookTitle, txtPrice);// Validation before Updating
                 util.ValidateCombobox2(cmbGLevel, cmbStrand);
                 if (util.readyToSave == 1)
                 {
-                    #region UPDATE DISCOUNT
+                    #region save
+                    Generate_BookNo();
+
                     book.Id = id;
-                    book.Book_id = txtBookId.Text;
+                    //book.Book_id = txtBookId.Text;
                     book.Title = txtBookTitle.Text;
                     book.Price = txtPrice.Text;
                     book.Strand = cmbStrand.Text;

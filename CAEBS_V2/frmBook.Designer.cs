@@ -100,6 +100,7 @@
             // 
             // txtBookId
             // 
+            this.txtBookId.Enabled = false;
             this.txtBookId.Location = new System.Drawing.Point(127, 43);
             this.txtBookId.Name = "txtBookId";
             this.txtBookId.Size = new System.Drawing.Size(176, 23);
