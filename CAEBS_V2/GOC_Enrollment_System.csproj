@@ -149,6 +149,7 @@
       <DependentUpon>frmTheStudentList.cs</DependentUpon>
     </Compile>
     <Compile Include="Maintenance\Model\Maintenance\GradeLevel.cs" />
+    <Compile Include="PartialPayment.cs" />
     <Compile Include="PaymentLog.cs" />
     <Compile Include="Strand.cs" />
     <Compile Include="SubReport_RegAdminCopy.cs">
@@ -285,6 +286,7 @@
     </Compile>
     <Compile Include="Maintenance\Model\Maintenance\Tuition.cs" />
     <Compile Include="Maintenance\Model\Maintenance\Users.cs" />
+    <Compile Include="TransBook.cs" />
     <Compile Include="TransBookUnif.cs" />
     <Compile Include="TransUniform.cs" />
     <Compile Include="Uniform.cs" />

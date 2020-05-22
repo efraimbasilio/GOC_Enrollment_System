@@ -332,9 +332,9 @@ namespace CAEBS_V2
 
             else if (e.ColumnIndex == 1)
             {
-                
 
-                if (dgvList.CurrentRow.Cells[4].Value.Equals("00-0000"))
+                //MessageBox.Show(dgvList.CurrentRow.Cells[5].FormattedValue.ToString());
+                if (dgvList.CurrentRow.Cells[5].FormattedValue.Equals("00-0000"))
                 {
 
                     string message = "Do you want to proceed to Billing?";
@@ -381,6 +381,7 @@ namespace CAEBS_V2
                         frm_payment.LoadMiscFee();
 
                         frm_payment.FilterBook(frm_payment.Strand, frm_payment.GLevel);
+                        frm_payment.grpBilling.Visible = true;
 
                         #region Call Form       
                         frmMain mainwin = (frmMain)Application.OpenForms["frmMain"];
@@ -442,7 +443,7 @@ namespace CAEBS_V2
                     //frm_payment.FilterBook(frm_payment.Strand, frm_payment.GLevel);
 
                     frmChoosePayment frm = new frmChoosePayment();
-               
+                    
                     frm.ShowDialog();
                 }
                

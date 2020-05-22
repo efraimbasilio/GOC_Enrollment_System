@@ -290,49 +290,24 @@ namespace CAEBS_V2
 
         private void txtToBilling_Click(object sender, EventArgs e)
         {
-            //ValidateSizeOrder();
-
-            //if (toSave == true)
+            #region ORDER BOOK 
+            //if (chkOrderBook.v)
             //{
-            //   // util.ValidateTextBoxDP(txtDP);
 
-            //    for (int i = 0; i < dgvBooks.Rows.Count; i++)
-            //    {
-            //        //MessageBox.Show(dgvBooks.Rows[i].Cells[0].Value.ToString() + " " + dgvBooks.Rows[i].Cells[1].Value.ToString());
-            //        //transBUnif.Book_title = dgvBooks.Rows[i].Cells[0].Value.ToString();
-            //        //transBUnif.Book_order = dgvBooks.Rows[i].Cells[1].Value.ToString();
-            //    }
+            //}          
+            for (int i = 0; i < dgvBooks.Rows.Count; i++)
+            {
+                TransBook book = new TransBook();
+                book.Reg_no = lblRegNo.Text;
+                book.Or_no = "#";              
+                book.Book_id = dgvBooks.Rows[i].Cells[0].Value.ToString();
+                book.Order_status = "Order";
 
-            //    for (int i = 0; i < dgvUniform2.Rows.Count; i++)
-            //    {
-            //        MessageBox.Show(dgvUniform2.Rows[i].Cells[2].Value.ToString());
-            //        MessageBox.Show(dgvUniform2.Rows[i].Cells[3].Value.ToString());
-            //        MessageBox.Show(dgvUniform2.Rows[i].Cells[4].Value.ToString());
-            //        MessageBox.Show(dgvUniform2.Rows[i].Cells[5].Value.ToString());
+                book.Save();
+            }
 
-            //        if (Convert.ToInt32(dgvUniform2.Rows[i].Cells[4].Value) > 0)
-            //        {
-            //            transBUnif.Reg_no = lblRegNo.Text;
-            //            transBUnif.LRN = lblLRN.Text;
-            //            transBUnif.OR_no = "0000";                      
-            //            transBUnif.Unif_code = dgvUniform2.Rows[i].Cells[0].Value.ToString();
-            //            transBUnif.Unif_qty = dgvUniform2.Rows[i].Cells[3].Value.ToString();
-            //            transBUnif.Unif_size = dgvUniform2.Rows[i].Cells[4].Value.ToString();
 
-            //            transBUnif.Save();
-            //        }
-            //    }
-
-            //    register.Lrn = lblLRN.Text;
-            //    register.MOP = cmbMOP.Text;
-            //    register.UpdateMOP();
-
-            //    string message = "Record Save";
-            //    string title = "Enrollment System";
-
-            //    MessageBoxButtons buttons = MessageBoxButtons.OK;
-            //    DialogResult result = MessageBox.Show(message, title, buttons, MessageBoxIcon.Information);
-            //}                     
+            #endregion
         }
 
         private void dgvUniform_CellClick(object sender, DataGridViewCellEventArgs e)
