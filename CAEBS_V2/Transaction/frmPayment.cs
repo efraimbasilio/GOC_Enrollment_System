@@ -227,6 +227,16 @@ namespace CAEBS_V2
 
         private void txtToBilling_Click(object sender, EventArgs e)
         {
+            
+        }
+
+        private void txtToBilling_Click_1(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void txtToBilling_Click_2(object sender, EventArgs e)
+        {
             frmPayBill frm = new frmPayBill();
             frm.lblAmount.Text = lblTotalAmount.Text;
             frm.lblAmount.Focus();
@@ -406,8 +416,8 @@ namespace CAEBS_V2
         public frmPayment()
         {
             InitializeComponent();
-            string a = "ok";
-            transBook.TransBooks(dgvBookLoad,lblRegNo.Text);
+            //string a = "ok";
+            //transBook.TransBooks(dgvBookLoad,lblRegNo.Text);
 
         }
 
