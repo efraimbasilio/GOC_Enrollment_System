@@ -21,6 +21,7 @@ namespace CAEBS_V2
         {
             frmPayment frm_payment = new frmPayment();
             frm_payment.grpPayment.Visible = true;
+
             #region Call Form       
             frmMain mainwin = (frmMain)Application.OpenForms["frmMain"];
             mainwin.pnlAllContainer.Controls.Clear();

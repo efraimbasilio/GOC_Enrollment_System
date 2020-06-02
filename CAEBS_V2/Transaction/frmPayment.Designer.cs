@@ -60,13 +60,16 @@
             this.lblOtherFee = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.grpBilling = new System.Windows.Forms.GroupBox();
-            this.dgvBookLoad = new System.Windows.Forms.DataGridView();
+            this.lblTotalAmount = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.grpPayment = new System.Windows.Forms.GroupBox();
             this.dgvMBreakDown = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label3 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
+            this.txtToBilling = new System.Windows.Forms.Button();
+            this.dgvBookLoad = new System.Windows.Forms.DataGridView();
             this.btnEditDP = new System.Windows.Forms.Button();
             this.txtDP = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
@@ -92,15 +95,15 @@
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button2 = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
-            this.lblTotalAmount = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.txtToBilling = new System.Windows.Forms.Button();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.btnPayment = new System.Windows.Forms.Button();
             this.pnlTitle.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.grpBilling.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvBookLoad)).BeginInit();
             this.grpPayment.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMBreakDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBookLoad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBillAssess)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUnif)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTuition)).BeginInit();
@@ -451,7 +454,6 @@
             // 
             this.grpBilling.Controls.Add(this.lblTotalAmount);
             this.grpBilling.Controls.Add(this.label12);
-            this.grpBilling.Controls.Add(this.grpPayment);
             this.grpBilling.Controls.Add(this.txtToBilling);
             this.grpBilling.Controls.Add(this.dgvBookLoad);
             this.grpBilling.Controls.Add(this.btnEditDP);
@@ -477,31 +479,39 @@
             this.grpBilling.Text = "Billing Information";
             this.grpBilling.Visible = false;
             // 
-            // dgvBookLoad
+            // lblTotalAmount
             // 
-            this.dgvBookLoad.AllowUserToAddRows = false;
-            this.dgvBookLoad.AllowUserToDeleteRows = false;
-            this.dgvBookLoad.AllowUserToResizeColumns = false;
-            this.dgvBookLoad.AllowUserToResizeRows = false;
-            this.dgvBookLoad.BackgroundColor = System.Drawing.Color.Gainsboro;
-            this.dgvBookLoad.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvBookLoad.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvBookLoad.Location = new System.Drawing.Point(319, 372);
-            this.dgvBookLoad.Name = "dgvBookLoad";
-            this.dgvBookLoad.ReadOnly = true;
-            this.dgvBookLoad.RowHeadersVisible = false;
-            this.dgvBookLoad.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvBookLoad.Size = new System.Drawing.Size(269, 140);
-            this.dgvBookLoad.TabIndex = 108;
+            this.lblTotalAmount.AutoSize = true;
+            this.lblTotalAmount.Font = new System.Drawing.Font("Roboto Condensed", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalAmount.Location = new System.Drawing.Point(464, 560);
+            this.lblTotalAmount.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblTotalAmount.Name = "lblTotalAmount";
+            this.lblTotalAmount.Size = new System.Drawing.Size(57, 32);
+            this.lblTotalAmount.TabIndex = 110;
+            this.lblTotalAmount.Text = "0.00";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Roboto Condensed", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(255, 560);
+            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(189, 32);
+            this.label12.TabIndex = 109;
+            this.label12.Text = "Total Amount Due:";
             // 
             // grpPayment
             // 
+            this.grpPayment.Controls.Add(this.label13);
+            this.grpPayment.Controls.Add(this.label22);
+            this.grpPayment.Controls.Add(this.btnPayment);
             this.grpPayment.Controls.Add(this.dgvMBreakDown);
             this.grpPayment.Controls.Add(this.label3);
             this.grpPayment.Controls.Add(this.button3);
-            this.grpPayment.Location = new System.Drawing.Point(407, 23);
+            this.grpPayment.Location = new System.Drawing.Point(516, 57);
             this.grpPayment.Name = "grpPayment";
-            this.grpPayment.Size = new System.Drawing.Size(594, 183);
+            this.grpPayment.Size = new System.Drawing.Size(594, 640);
             this.grpPayment.TabIndex = 98;
             this.grpPayment.TabStop = false;
             this.grpPayment.Text = "Payment";
@@ -518,13 +528,13 @@
             this.dataGridViewTextBoxColumn4,
             this.dataGridViewTextBoxColumn5});
             this.dgvMBreakDown.GridColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.dgvMBreakDown.Location = new System.Drawing.Point(13, 63);
+            this.dgvMBreakDown.Location = new System.Drawing.Point(9, 59);
             this.dgvMBreakDown.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.dgvMBreakDown.Name = "dgvMBreakDown";
             this.dgvMBreakDown.ReadOnly = true;
             this.dgvMBreakDown.RowHeadersVisible = false;
             this.dgvMBreakDown.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvMBreakDown.Size = new System.Drawing.Size(575, 303);
+            this.dgvMBreakDown.Size = new System.Drawing.Size(576, 435);
             this.dgvMBreakDown.TabIndex = 109;
             // 
             // dataGridViewTextBoxColumn4
@@ -572,6 +582,33 @@
             this.button3.Text = "Compute";
             this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button3.UseVisualStyleBackColor = false;
+            // 
+            // txtToBilling
+            // 
+            this.txtToBilling.Location = new System.Drawing.Point(497, 604);
+            this.txtToBilling.Name = "txtToBilling";
+            this.txtToBilling.Size = new System.Drawing.Size(91, 36);
+            this.txtToBilling.TabIndex = 111;
+            this.txtToBilling.Text = "&Next";
+            this.txtToBilling.UseVisualStyleBackColor = true;
+            this.txtToBilling.Click += new System.EventHandler(this.txtToBilling_Click_2);
+            // 
+            // dgvBookLoad
+            // 
+            this.dgvBookLoad.AllowUserToAddRows = false;
+            this.dgvBookLoad.AllowUserToDeleteRows = false;
+            this.dgvBookLoad.AllowUserToResizeColumns = false;
+            this.dgvBookLoad.AllowUserToResizeRows = false;
+            this.dgvBookLoad.BackgroundColor = System.Drawing.Color.Gainsboro;
+            this.dgvBookLoad.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvBookLoad.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvBookLoad.Location = new System.Drawing.Point(319, 372);
+            this.dgvBookLoad.Name = "dgvBookLoad";
+            this.dgvBookLoad.ReadOnly = true;
+            this.dgvBookLoad.RowHeadersVisible = false;
+            this.dgvBookLoad.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvBookLoad.Size = new System.Drawing.Size(269, 140);
+            this.dgvBookLoad.TabIndex = 108;
             // 
             // btnEditDP
             // 
@@ -882,37 +919,36 @@
             this.label9.TabIndex = 100;
             this.label9.Text = "Payment Logs:";
             // 
-            // lblTotalAmount
+            // label13
             // 
-            this.lblTotalAmount.AutoSize = true;
-            this.lblTotalAmount.Font = new System.Drawing.Font("Roboto Condensed", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalAmount.Location = new System.Drawing.Point(464, 560);
-            this.lblTotalAmount.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblTotalAmount.Name = "lblTotalAmount";
-            this.lblTotalAmount.Size = new System.Drawing.Size(57, 32);
-            this.lblTotalAmount.TabIndex = 110;
-            this.lblTotalAmount.Text = "0.00";
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Roboto Condensed", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(464, 547);
+            this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(57, 32);
+            this.label13.TabIndex = 113;
+            this.label13.Text = "0.00";
             // 
-            // label12
+            // label22
             // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Roboto Condensed", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(255, 560);
-            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(189, 32);
-            this.label12.TabIndex = 109;
-            this.label12.Text = "Total Amount Due:";
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Roboto Condensed", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.Location = new System.Drawing.Point(255, 547);
+            this.label22.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(189, 32);
+            this.label22.TabIndex = 112;
+            this.label22.Text = "Total Amount Due:";
             // 
-            // txtToBilling
+            // btnPayment
             // 
-            this.txtToBilling.Location = new System.Drawing.Point(497, 604);
-            this.txtToBilling.Name = "txtToBilling";
-            this.txtToBilling.Size = new System.Drawing.Size(91, 36);
-            this.txtToBilling.TabIndex = 111;
-            this.txtToBilling.Text = "&Next";
-            this.txtToBilling.UseVisualStyleBackColor = true;
-            this.txtToBilling.Click += new System.EventHandler(this.txtToBilling_Click_2);
+            this.btnPayment.Location = new System.Drawing.Point(497, 591);
+            this.btnPayment.Name = "btnPayment";
+            this.btnPayment.Size = new System.Drawing.Size(91, 36);
+            this.btnPayment.TabIndex = 114;
+            this.btnPayment.Text = "&Next";
+            this.btnPayment.UseVisualStyleBackColor = true;
             // 
             // frmPayment
             // 
@@ -920,6 +956,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1133, 716);
+            this.Controls.Add(this.grpPayment);
             this.Controls.Add(this.grpBilling);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label9);
@@ -940,10 +977,10 @@
             this.groupBox1.PerformLayout();
             this.grpBilling.ResumeLayout(false);
             this.grpBilling.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvBookLoad)).EndInit();
             this.grpPayment.ResumeLayout(false);
             this.grpPayment.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMBreakDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBookLoad)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBillAssess)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUnif)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTuition)).EndInit();
@@ -1020,5 +1057,8 @@
         private System.Windows.Forms.Label lblTotalAmount;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button txtToBilling;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Button btnPayment;
     }
 }
